@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Through Beautiful Contradictions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .framework {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .phase {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phase1 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .phase2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .phase3 { background: linear-gradient(135deg, #e0c3fc 0%, #9bb5ff 100%); }
+        .phase4 { background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); }
+        
+        .phase-number {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #666;
+        }
+        
+        .phase h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        .contradiction-pair {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 15px;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
+        }
+        
+        .concept {
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .concept.left { background: rgba(255,99,71,0.2); }
+        .concept.right { background: rgba(100,149,237,0.2); }
+        
+        .bridge {
+            font-size: 1.5em;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .tools {
+            background: linear-gradient(135deg, #fff5b7 0%, #ffd3a5 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .tools h4 {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .tool {
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .tool:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .interactive-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .input-area {
+            margin: 20px 0;
+        }
+        
+        .input-area textarea {
+            width: 100%;
+            height: 100px;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 16px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .reflection-output {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            min-height: 50px;
+            text-align: left;
+        }
+        
+        .medical-example {
+            background: rgba(46, 125, 50, 0.1);
+            border-left: 4px solid #2e7d32;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Learning Through Beautiful Contradictions</h1>
+            <p>Where opposing truths create deeper understanding</p>
+        </div>
+        
+        <div class="framework">
+            <div class="phase phase1">
+                <div class="phase-number">1</div>
+                <h3>Embrace the Paradox</h3>
+                <p>Start by acknowledging that contradictions exist everywhere, especially in profound human experiences. They're not problems to solve but tensions to explore.</p>
+                
+                <div class="contradiction-pair">
+                    <div class="concept left">Medical Precision</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Emotional Mystery</div>
+                </div>
+                
+                <div class="contradiction-pair">
+                    <div class="concept left">Natural Process</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Devastating Loss</div>
+                </div>
+                
+                <div class="contradiction-pair">
+                    <div class="concept left">Body's Wisdom</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Heart's Protest</div>
+                </div>
+                
+                <div class="medical-example">
+                    <strong>Medical Reality:</strong> Spontaneous pregnancy loss occurs in 10-20% of known pregnancies, most commonly due to chromosomal abnormalities. The body naturally recognizes when development cannot proceed successfully. This biological mechanism has evolved to protect maternal health and ensure viable pregnancies.
+                    
+                    <br><br><strong>Emotional Reality:</strong> Each loss represents profound grief, shattered dreams, and the death of an imagined future. The medical explanation doesn't diminish the emotional truth.
+                </div>
+            </div>
+            
+            <div class="phase phase2">
+                <div class="phase-number">2</div>
+                <h3>Hold Both Truths</h3>
+                <p>Learn to carry opposing realities simultaneously without needing to resolve the tension. This builds cognitive flexibility and emotional resilience.</p>
+                
+                <div class="tools">
+                    <h4>Contradiction-Holding Tools:</h4>
+                    <div class="tool-grid">
+                        <div class="tool" onclick="showTool('both-and')">
+                            <strong>"Both-And" Language</strong><br>
+                            Replace "but" with "and" to hold multiple truths
+                        </div>
+                        <div class="tool" onclick="showTool('paradox-journal')">
+                            <strong>Paradox Journaling</strong><br>
+                            Write from both perspectives simultaneously
+                        </div>
+                        <div class="tool" onclick="showTool('embodied-knowing')">
+                            <strong>Embodied Knowing</strong><br>
+                            Feel contradictions in your body, not just mind
+                        </div>
+                        <div class="tool" onclick="showTool('medical-metaphor')">
+                            <strong>Medical Metaphors</strong><br>
+                            Use biological processes as wisdom teachers
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="tool-explanation" style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.3); border-radius: 10px; display: none;"></div>
+            </div>
+            
+            <div class="phase phase3">
+                <div class="phase-number">3</div>
+                <h3>Find the Sacred in Science</h3>
+                <p>Discover how medical and biological truths can coexist with spiritual and emotional realities, each informing the other.</p>
+                
+                <div class="medical-example">
+                    <strong>The Contradiction of "Spontaneous":</strong><br>
+                    Medical term: Spontaneous abortion (sudden, unexpected)<br>
+                    Natural reality: Carefully orchestrated biological process<br>
+                    Emotional experience: Loss that feels anything but natural<br><br>
+                    
+                    <strong>Learning Opportunity:</strong> How can something be simultaneously:
+                    <ul style="margin-top: 10px;">
+                        <li>• Medically predictable AND emotionally shocking</li>
+                        <li>• Biologically normal AND personally devastating</li>
+                        <li>• Nature's wisdom AND heartbreaking tragedy</li>
+                        <li>• Protective mechanism AND profound loss</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="phase phase4">
+                <div class="phase-number">4</div>
+                <h3>Create from Contradiction</h3>
+                <p>Use the tension between opposites as creative fuel. The most profound art, writing, and understanding emerges from this liminal space.</p>
+                
+                <div class="interactive-section">
+                    <h4>Contradiction Workshop</h4>
+                    <p>Explore a contradiction you're currently experiencing:</p>
+                    
+                    <div class="input-area">
+                        <textarea id="contradiction-input" placeholder="Describe a contradiction you're working with (e.g., 'I know this loss was medically normal AND it feels completely wrong')"></textarea>
+                    </div>
+                    
+                    <button class="btn" onclick="generateReflection()">Explore This Contradiction</button>
+                    <button class="btn" onclick="generateMedicalFrame()">Find the Medical Wisdom</button>
+                    <button class="btn" onclick="generateCreativePrompt()">Turn Into Art</button>
+                    
+                    <div id="reflection-output" class="reflection-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTool(toolType) {
+            const explanation = document.getElementById('tool-explanation');
+            const explanations = {
+                'both-and': 'Practice saying: "This loss is both natural AND devastating. My body both knew what to do AND I feel betrayed by it. I both understand the biology AND feel completely lost." This language holds space for complexity.',
+                'paradox-journal': 'Write two columns: one from your medical/rational mind, one from your emotional/spiritual heart. Let them have a conversation on the page without trying to reconcile them.',
+                'embodied-knowing': 'Notice where you feel contradictions in your body. Does the medical knowledge live in your head while grief lives in your chest? Can you breathe space around both?',
+                'medical-metaphor': 'What if your body is both a wise guardian AND a grieving mother? What if cellular processes mirror emotional ones? What if biology and poetry speak the same language?'
+            };
+            
+            explanation.innerHTML = explanations[toolType];
+            explanation.style.display = 'block';
+        }
+        
+        function generateReflection() {
+            const input = document.getElementById('contradiction-input').value;
+            const output = document.getElementById('reflection-output');
+            
+            if (!input.trim()) {
+                output.innerHTML = 'Please enter a contradiction to explore.';
+                return;
+            }
+            
+            const reflections = [
+                `What if both sides of this contradiction are completely true? How does it feel to hold that possibility?`,
+                `If this contradiction were a teacher, what lesson might it be offering about the complexity of human experience?`,
+                `How might this tension between opposites actually create more space for healing rather than less?`,
+                `What would it look like to honor both the medical reality and the emotional truth without needing to choose sides?`,
+                `If contradictions are doorways rather than walls, what new understanding might emerge from walking through this one?`
+            ];
+            
+            const randomReflection = reflections[Math.floor(Math.random() * reflections.length)];
+            output.innerHTML = `<strong>Reflection Prompt:</strong><br>${randomReflection}<br><br><strong>Your Contradiction:</strong><br>"${input}"`;
+        }
+        
+        function generateMedicalFrame() {
+            const output = document.getElementById('reflection-output');
+            const frames = [
+                `Consider: What if "spontaneous" means "arising from the body's innate wisdom" rather than "random"? How might this reframe your experience?`,
+                `Medical insight: The body has sophisticated mechanisms for recognizing when pregnancy cannot continue safely. This protective process coexists with profound emotional loss.`,
+                `Biological truth: Early pregnancy loss often occurs because of chromosomal variations that would prevent healthy development. The body's response is both medically sound and personally heartbreaking.`,
+                `Nature's paradox: The same biological systems that create life also sometimes end it to preserve maternal health and future fertility. Wisdom and loss intertwined.`,
+                `Medical reframe: "Spontaneous abortion" in medical terms describes a natural biological process, not a failure or mistake. Language matters for understanding.`
+            ];
+            
+            const randomFrame = frames[Math.floor(Math.random() * frames.length)];
+            output.innerHTML = `<strong>Medical Wisdom Frame:</strong><br>${randomFrame}`;
+        }
+        
+        function generateCreativePrompt() {
+            const output = document.getElementById('reflection-output');
+            const prompts = [
+                `Write a dialogue between your rational mind and your grieving heart. Let them speak their truths without trying to convince each other.`,
+                `Create a metaphor: If your body were a wise elder, what story would it tell about this loss? What ancient wisdom does it carry?`,
+                `Write from the perspective of the medical process itself: How does "spontaneous loss" experience its own role as both protector and ending?`,
+                `Craft a piece that shows how medical precision and emotional chaos can dance together rather than fight each other.`,
+                `Explore the word "natural" - create art around how something can be completely natural and completely devastating simultaneously.`
+            ];
+            
+            const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
+            output.innerHTML = `<strong>Creative Prompt:</strong><br>${randomPrompt}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,1 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Paradox – Nicola Sturgeon's Miscarriage Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .story-anchor {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .central-contradiction {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .central-contradiction h2 {
+            font-size: 2.5rem;
+            color: #764ba2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .contradiction-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contradiction-side {
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contradiction-side:hover {
+            transform: translateY(-5px);
+        }
+
+        .contradiction-left {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .contradiction-right {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .contradiction-side h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .evidence-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .evidence-list li {
+            background: rgba(255, 255, 255, 0.3);
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .citation {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .context-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .context-box h3 {
+            color: #8b4513;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .phases-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .phase-card {
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+        .phase-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+        .interactive-workshop {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            color: white;
+        }
+
+        .workshop-controls {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .selected-contradiction {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            min-height: 150px;
+        }
+
+        .reflection-questions {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .question-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .question-category {
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .question-category:hover {
+            border-color: #764ba2;
+            transform: translateY(-3px);
+        }
+
+        .question-category.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #764ba2;
+        }
+
+        .random-question {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 5px solid #764ba2;
+            min-height: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contradiction-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .workshop-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>The Paradox</h1>
+            <div class="subtitle">Nicola Sturgeon's Miscarriage Story</div>
+        </header>
+
+        <section class="story-anchor">
+            <h2>The Story That Started Everything</h2>
+            <p>In January 2011, Nicola Sturgeon, then Scotland's Deputy First Minister, suffered a miscarriage at age 40. On the same day as her pregnancy loss, she attended the 40th anniversary memorial service for the Ibrox disaster, fulfilling her public duties while processing private grief. This moment, revealed publicly five years later, illuminates profound contradictions about leadership, transparency, and the intersection of personal tragedy with public service.</p>
+            <p><em>Based on reporting from The Times, TIME Magazine, and other credible sources</em></p>
+        </section>
+
+        <section class="central-contradiction">
+            <h2>The Central Contradiction</h2>
+            <div class="contradiction-grid">
+                <div class="contradiction-side contradiction-left">
+                    <h3>Public Duty Above Personal Grief</h3>
+                    <ul class="evidence-list">
+                        <li>Attended Ibrox disaster memorial service on the same day as her miscarriage
+                            <div class="citation">TIME Magazine, September 5, 2016</div>
+                        </li>
+                        <li>Maintained full public schedule without revealing personal crisis
+                            <div class="citation">The Sunday Times Magazine, September 2016</div>
+                        </li>
+                        <li>Demonstrated unwavering commitment to public responsibilities
+                            <div class="citation">Various media reports, 2016</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contradiction-side contradiction-right">
+                    <h3>Private Transparency vs Public Silence</h3>
+                    <ul class="evidence-list">
+                        <li>Kept the miscarriage completely private for five years (2011-2016)
+                            <div class="citation">TIME Magazine, September 5, 2016</div>
+                        </li>
+                        <li>Only revealed the loss when publicly questioned about childlessness
+                            <div class="citation">South China Morning Post, September 5, 2016</div>
+                        </li>
+                        <li>Later used the revelation to challenge assumptions about childless women in politics
+                            <div class="citation">Tommy's Charity, September 5, 2016</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; font-style: italic;">
+                <strong>Learning:</strong> The contradiction reveals how public figures navigate the tension between personal vulnerability and professional duty, raising questions about what transparency truly means in leadership.
+            </div>
+        </section>
+
+        <section class="context-box">
+            <h3>Cultural & Political Context</h3>
+            <p>In 2011, Sturgeon was Deputy First Minister of Scotland and a rising star in the Scottish National Party. The Ibrox disaster memorial she attended commemorated one of Scotland's worst sporting tragedies. Her decision to maintain public duties while experiencing private loss reflects broader expectations placed on women leaders, particularly regarding personal sacrifice for public service.</p>
+            <p>The later revelation in 2016 came amid media speculation about her childlessness, highlighting how female politicians face scrutiny about their personal lives in ways male counterparts rarely do.</p>
+        </section>
+
+        <section class="phases-section">
+            <h2>Four Phases of the Paradox</h2>
+            <div class="phases-grid">
+                <div class="phase-card phase-1" onclick="selectPhase(1)">
+                    <h3>Phase 1: Silent Suffering</h3>
+                    <p>Private loss while maintaining public composure - the immediate contradiction between personal grief and professional duty</p>
+                </div>
+                <div class="phase-card phase-2" onclick="selectPhase(2)">
+                    <h3>Phase 2: Extended Silence</h3>
+                    <p>Five years of complete privacy while facing public scrutiny about childlessness - protecting personal space vs. public transparency</p>
+                </div>
+                <div class="phase-card phase-3" onclick="selectPhase(3)">
+                    <h3>Phase 3: Strategic Revelation</h3>
+                    <p>Using personal loss to make a political point about women's treatment in politics - vulnerability as advocacy tool</p>
+                </div>
+                <div class="phase-card phase-4" onclick="selectPhase(4)">
+                    <h3>Phase 4: Ongoing Impact</h3>
+                    <p>Continuing to reference the experience in context of broader discussions about women's leadership and personal sacrifice</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive-workshop">
+            <h2>Interactive Contradiction Workshop</h2>
+            <p>Explore the different layers of contradiction in Sturgeon's story. Each contradiction reveals different aspects of leadership, transparency, and personal-professional boundaries.</p>
+            
+            <div class="workshop-controls">
+                <button class="btn" onclick="selectContradiction('duty')">Duty vs. Grief</button>
+                <button class="btn" onclick="selectContradiction('transparency')">Privacy vs. Transparency</button>
+                <button class="btn" onclick="selectContradiction('timing')">Strategic Timing</button>
+                <button class="btn" onclick="selectContradiction('gender')">Gender Expectations</button>
+            </div>
+
+            <div class="selected-contradiction" id="contradictionDisplay">
+                <p><em>Select a contradiction above to explore its nuances...</em></p>
+            </div>
+        </section>
+
+        <section class="reflection-questions">
+            <h2>Reflection Questions</h2>
+            <p>Choose a category to explore deeper questions about this paradox:</p>
+            
+            <div class="question-categories">
+                <div class="question-category" onclick="selectQuestionCategory('leadership')">
+                    <h3>Leadership Ethics</h3>
+                    <p>Questions about duty, sacrifice, and authentic leadership</p>
+                </div>
+                <div class="question-category" onclick="selectQuestionCategory('transparency')">
+                    <h3>Public Transparency</h3>
+                    <p>Questions about privacy rights vs. public accountability</p>
+                </div>
+                <div class="question-category" onclick="selectQuestionCategory('gender')">
+                    <h3>Gender Politics</h3>
+                    <p>Questions about how women leaders navigate public scrutiny</p>
+                </div>
+                <div class="question-category" onclick="selectQuestionCategory('personal')">
+                    <h3>Personal Impact</h3>
+                    <p>Questions about the human cost of public service</p>
+                </div>
+            </div>
+
+            <div class="random-question" id="questionDisplay">
+                <p><em>Select a category above to see reflection questions...</em></p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn" onclick="getRandomQuestion()" style="color: #764ba2; background: white; border-color: #764ba2;">Get Random Question</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Contradiction data
+        const contradictions = {
+            duty: {
+                title: "Public Duty vs. Personal Grief",
+                content: "On January 2, 2011, while experiencing a miscarriage, Sturgeon fulfilled her duty as Deputy First Minister by attending the Ibrox disaster memorial. This demonstrates the expectation that leaders compartmentalize personal suffering for public service. The contradiction lies between authentic leadership (being fully present and genuine) and professional duty (performing regardless of personal circumstances). It raises questions about whether such sacrifice should be expected or celebrated."
+            },
+            transparency: {
+                title: "Privacy Rights vs. Public Transparency", 
+                content: "Sturgeon kept her miscarriage private for five years while facing media speculation about her childlessness. This creates tension between her right to personal privacy and public expectations of transparency from leaders. When she finally revealed it in 2016, it was strategic - to challenge assumptions about childless women. This contradiction highlights how personal information can become political currency."
+            },
+            timing: {
+                title: "Strategic Timing of Personal Revelation",
+                content: "The five-year gap between the miscarriage (2011) and its public revelation (2016) suggests calculated timing. Sturgeon revealed it when facing scrutiny about not having children, using personal pain to make a broader political point about women's treatment. This contradiction shows how even the most private experiences can become tools for public advocacy, raising questions about the commodification of personal tragedy."
+            },
+            gender: {
+                title: "Gender Expectations in Leadership",
+                content: "Male politicians rarely face questions about childlessness or are expected to explain their family circumstances. Sturgeon's experience reveals how women leaders navigate different expectations - being questioned about personal choices while simultaneously expected to sacrifice personally for public service. The contradiction lies in demanding both personal transparency and professional stoicism from women leaders specifically."
+            }
+        };
+
+        // Question categories
+        const questionCategories = {
+            leadership: [
+                "Should leaders be expected to perform public duties while experiencing personal trauma?",
+                "Does authentic leadership require sharing personal struggles with the public?",
+                "How do we balance the human needs of leaders with their professional responsibilities?",
+                "What are the ethical implications of leaders hiding personal struggles that might affect their judgment?",
+                "Is there a difference between private resilience and public performance that we should recognize?"
+            ],
+            transparency: [
+                "Where should the line be drawn between a leader's right to privacy and public accountability?",
+                "Does the public have a right to know about events that might affect a leader's decision-making?",
+                "How do we distinguish between relevant transparency and invasive curiosity about leaders' personal lives?",
+                "Should personal revelations be judged differently when they serve political purposes?",
+                "What are the consequences when leaders feel they must hide personal struggles?"
+            ],
+            gender: [
+                "Why are women politicians more likely to face questions about their personal reproductive choices?",
+                "How do gender expectations affect what we consider 'strong' leadership?",
+                "Should we expect different levels of personal disclosure from male and female leaders?",
+                "How does the 'motherhood penalty' affect women in politics differently than in other careers?",
+                "What assumptions do we make about childless women in leadership positions?"
+            ],
+            personal: [
+                "What is the psychological cost of maintaining professional performance during personal crisis?",
+                "How do we reconcile admiring leaders' sacrifice while recognizing its potential harm?",
+                "Should society create space for leaders to be temporarily less available during personal crises?",
+                "What support systems should exist for leaders dealing with private trauma?",
+                "How might Sturgeon's experience affect other women considering political careers?"
+            ]
+        };
+
+        let currentQuestionCategory = null;
+
+        // Interactive functions
+        function selectContradiction(type) {
+            const display = document.getElementById('contradictionDisplay');
+            const contradiction = contradictions[type];
+            
+            display.innerHTML = `
+                <h3>${contradiction.title}</h3>
+                <p>${contradiction.content}</p>
+            `;
+            
+            display.classList.add('fade-in');
+            setTimeout(() => display.classList.remove('fade-in'), 600);
+        }
+
+        function selectPhase(phaseNumber) {
+            const phases = document.querySelectorAll('.phase-card');
+            phases.forEach(phase => phase.style.transform = 'scale(1)');
+            
+            const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+            selectedPhase.style.transform = 'scale(1.05)';
+            
+            setTimeout(() => {
+                selectedPhase.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function selectQuestionCategory(category) {
+            // Remove active class from all categories
+            document.querySelectorAll('.question-category').forEach(cat => {
+                cat.classList.remove('active');
+            });
+            
+            // Add active class to selected category
+            event.target.closest('.question-category').classList.add('active');
+            
+            currentQuestionCategory = category;
+            displayRandomQuestionFromCategory(category);
+        }
+
+        function displayRandomQuestionFromCategory(category) {
+            const questions = questionCategories[category];
+            const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+            
+            const display = document.getElementById('questionDisplay');
+            display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+            display.classList.add('fade-in');
+            setTimeout(() => display.classList.remove('fade-in'), 600);
+        }
+
+        function getRandomQuestion() {
+            const allCategories = Object.keys(questionCategories);
+            const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+            const questions = questionCategories[randomCategory];
+            const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+            
+            const display = document.getElementById('questionDisplay');
+            display.innerHTML = `
+                <p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+                <p>${randomQuestion}</p>
+            `;
+            display.classList.add('fade-in');
+            setTimeout(() => display.classList.remove('fade-in'), 600);
+        }
+
+        // Add some initial interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to phase cards
+            const phaseCards = document.querySelectorAll('.phase-card');
+            phaseCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

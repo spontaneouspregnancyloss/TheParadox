@@ -344,12 +344,10 @@
             .contradiction-visual {
                 flex-direction: column;
             }
-            
             .contradiction-pair {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
             .bridge {
                 transform: rotate(90deg);
             }
@@ -371,7 +369,7 @@
             <div class="story-source">
                 <strong>Source:</strong> <a href="https://people.com/nick-viall-shares-natalie-joy-experienced-her-third-miscarriage-this-year-11790935?utm_source=chatgpt.com" target="_blank">People.com - August 14, 2025</a>
             </div>
-
+            
             <p>Nick Viall (TV personality) and his wife Natalie Joy shared publicly on <em>The Viall Files</em> podcast that they experienced their <strong>third miscarriage in the same year</strong>. Nick described it as a "scary time" and acknowledged the emotional toll. Their story reflects resilience and public vulnerability—offering a high-profile example of a couple navigating grief, uncertainty, and the courage to try again despite repeated heartbreak.</p>
 
             <div class="key-elements">
@@ -397,13 +395,11 @@
         <div class="central-contradiction">
             <h3>The Beautiful Contradiction</h3>
             <h4>"Hope After Loss, Loss After Hope"</h4>
-            
             <div class="contradiction-visual">
                 <div class="contradiction-side">They tried again because of hope</div>
                 <div class="contradiction-bridge">⟷</div>
                 <div class="contradiction-side">And lost again, deepening grief</div>
             </div>
-            
             <p>Each miscarriage both renews and erodes the desire to keep trying. Joy and fear are not opposites here—they exist together in the same moment. This is the paradox of recurring pregnancy loss: the very hope that heals becomes the hope that hurts.</p>
         </div>
 
@@ -450,6 +446,11 @@
                     <div class="bridge">⟷</div>
                     <div class="concept right">Devastating Loss</div>
                 </div>
+                <div class="contradiction-pair">
+                    <div class="concept left">Faith in Purpose</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Questioning Why</div>
+                </div>
             </div>
 
             <div class="phase phase2">
@@ -466,6 +467,11 @@
                     <div class="concept left">Hope for the Future</div>
                     <div class="bridge">⟷</div>
                     <div class="concept right">Grief from the Past</div>
+                </div>
+                <div class="contradiction-pair">
+                    <div class="concept left">Trusting Divine Timing</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Taking Medical Action</div>
                 </div>
             </div>
 
@@ -515,12 +521,16 @@
                     <h4>Resilience & Vulnerability</h4>
                     <p>Being strong enough to share yet fragile from loss</p>
                 </div>
+                <div class="example-card" onclick="selectContradiction('faith-questioning')">
+                    <h4>Faith & Questioning Coexisting</h4>
+                    <p>Holding spiritual beliefs while asking "Why us again?"</p>
+                </div>
             </div>
-
+            
             <button class="btn" onclick="generateReflection()">Explore This Contradiction</button>
             <button class="btn" onclick="generateMedicalFrame()">Find the Medical Wisdom</button>
             <button class="btn" onclick="generateCreativePrompt()">Turn Into Art</button>
-
+            
             <div id="reflection-output" class="reflection-output"></div>
         </div>
 
@@ -551,6 +561,19 @@
             </div>
 
             <div class="question-category">
+                <h4>Spiritual/Meaning-Making Reflection</h4>
+                <div class="question" onclick="expandQuestion(this)">
+                    How might someone hold both faith and questioning simultaneously without seeing them as contradictory?
+                </div>
+                <div class="question" onclick="expandQuestion(this)">
+                    What role might meaning-making (spiritual, philosophical, or personal) play alongside medical treatment in healing from RPL?
+                </div>
+                <div class="question" onclick="expandQuestion(this)">
+                    How do different spiritual/cultural traditions approach the intersection of loss, hope, and divine will?
+                </div>
+            </div>
+
+            <div class="question-category">
                 <h4>Empathy Building</h4>
                 <div class="question" onclick="expandQuestion(this)">
                     Imagine you were their close friend—how might you support them differently after their third loss compared to their first?
@@ -573,7 +596,6 @@
 
         function generateReflection() {
             const output = document.getElementById('reflection-output');
-            
             if (!selectedContradiction) {
                 output.innerHTML = 'Please select a contradiction from Nick and Natalie\'s story above first.';
                 return;
@@ -599,6 +621,12 @@
                     'What does it mean to be strong enough to be vulnerable publicly?',
                     'How might vulnerability actually be a form of resilience rather than its opposite?',
                     'What kind of strength does it take to keep trying after three losses in one year?'
+                ],
+                'faith-questioning': [
+                    'How might spiritual beliefs and deep questioning coexist rather than cancel each other out?',
+                    'What does it mean to have faith while also asking "Why us?" - are these opposites or companions?',
+                    'How might medical action (seeking treatment) and spiritual trust (divine timing) work together rather than against each other?',
+                    'If some find meaning in suffering while others feel abandoned, how can both experiences be honored?'
                 ]
             };
 
@@ -610,13 +638,13 @@
 
         function generateMedicalFrame() {
             const output = document.getElementById('reflection-output');
-
             const frames = [
                 'Medical reality: RPL affects 1% of couples, but this statistic doesn\'t diminish the 100% reality of Nick and Natalie\'s personal experience.',
                 'Consider: How might understanding that RPL often has treatable causes provide hope while honoring the grief of past losses?',
                 'The medical evaluation after two consecutive losses isn\'t just about future pregnancies—it\'s about providing answers that can coexist with emotional healing.',
                 'Nick calling it "scary" reflects the medical reality that uncertainty often persists even with treatment, making courage necessary.',
-                'Third loss in one year: Statistically unusual but medically possible. The rarity doesn\'t make their experience less valid or more devastating.'
+                'Third loss in one year: Statistically unusual but medically possible. The rarity doesn\'t make their experience less valid or more devastating.',
+                'Medical intervention and spiritual beliefs can complement rather than conflict—treating RPL while holding space for meaning-making and faith.'
             ];
 
             const randomFrame = frames[Math.floor(Math.random() * frames.length)];
@@ -625,13 +653,14 @@
 
         function generateCreativePrompt() {
             const output = document.getElementById('reflection-output');
-
             const prompts = [
                 'Write a dialogue between Hope and Fear as they sit together in Nick and Natalie\'s story. Let them speak honestly without trying to resolve their differences.',
                 'Create a piece from the perspective of their podcast microphone - what has it witnessed about courage, vulnerability, and public grief?',
                 'Write the story of the third loss from the viewpoint of Resilience itself - how does it show up differently the third time?',
                 'Craft a poem about the phrase "scary time" - explore how fear and bravery dance together in their decision to keep trying.',
-                'Imagine writing a letter from their future selves to their present selves - what would they want to say about holding contradictions?'
+                'Imagine writing a letter from their future selves to their present selves - what would they want to say about holding contradictions?',
+                'Write a conversation between Faith and Questions - two friends who discover they\'re not enemies after all, especially during times of loss.',
+                'Create a piece exploring the moment when medical facts and spiritual beliefs meet in the waiting room - what do they say to each other?'
             ];
 
             const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
@@ -653,4 +682,3 @@
     </script>
 </body>
 </html>
-

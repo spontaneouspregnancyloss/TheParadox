@@ -1,427 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Through Beautiful Contradictions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Through Beautiful Contradictions</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
-        }
+body {
+font-family: 'Georgia', serif;
+line-height: 1.6;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+color: #333;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
 
-        .hero {
-            text-align: center;
-            margin-bottom: 60px;
-            color: white;
-            padding: 60px 20px;
-        }
+.hero {
+text-align: center;
+margin-bottom: 60px;
+color: white;
+padding: 60px 20px;
+}
 
-        .hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-weight: 300;
-        }
+.hero h1 {
+font-size: 3.5em;
+margin-bottom: 20px;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+font-weight: 300;
+}
 
-        .hero-subtitle {
-            font-size: 1.5em;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
+.hero-subtitle {
+font-size: 1.5em;
+opacity: 0.9;
+margin-bottom: 30px;
+font-style: italic;
+}
 
-        .hero-description {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.8;
-            line-height: 1.7;
-        }
+.hero-description {
+font-size: 1.2em;
+max-width: 800px;
+margin: 0 auto;
+opacity: 0.8;
+line-height: 1.7;
+}
 
-        .framework-intro {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 50px;
-            margin-bottom: 60px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-        }
+.framework-intro {
+background: rgba(255, 255, 255, 0.95);
+border-radius: 25px;
+padding: 50px;
+margin-bottom: 60px;
+box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
 
-        .framework-intro h2 {
-            color: #444;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-align: center;
-        }
+.framework-intro h2 {
+color: #444;
+font-size: 2.5em;
+margin-bottom: 30px;
+text-align: center;
+}
 
-        .what-are-contradictions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
+.what-are-contradictions {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 30px;
+margin: 40px 0;
+}
 
-        .contradiction-type {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
+.contradiction-type {
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+padding: 30px;
+border-radius: 20px;
+text-align: center;
+transition: transform 0.3s ease;
+}
 
-        .contradiction-type:hover {
-            transform: translateY(-10px);
-        }
+.contradiction-type:hover {
+transform: translateY(-10px);
+}
 
-        .contradiction-type h3 {
-            color: #8B4513;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
+.contradiction-type h3 {
+color: #8B4513;
+margin-bottom: 15px;
+font-size: 1.3em;
+}
 
-        .contradiction-type p {
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
+.contradiction-type p {
+font-size: 0.95em;
+line-height: 1.5;
+}
 
-        .example-contradiction {
-            background: rgba(255,255,255,0.3);
-            margin: 15px 0;
-            padding: 15px;
-            border-radius: 10px;
-            font-style: italic;
-            border-left: 4px solid rgba(139, 69, 19, 0.5);
-        }
+.example-contradiction {
+background: rgba(255,255,255,0.3);
+margin: 15px 0;
+padding: 15px;
+border-radius: 10px;
+font-style: italic;
+border-left: 4px solid rgba(139, 69, 19, 0.5);
+}
 
-        .stories-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 50px;
-            margin-bottom: 40px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-        }
+.stories-section {
+background: rgba(255, 255, 255, 0.95);
+border-radius: 25px;
+padding: 50px;
+margin-bottom: 40px;
+box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
 
-        .stories-section h2 {
-            color: #444;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+.stories-section h2 {
+color: #444;
+font-size: 2.5em;
+margin-bottom: 20px;
+text-align: center;
+}
 
-        .stories-intro {
-            text-align: center;
-            font-size: 1.1em;
-            margin-bottom: 50px;
-            color: #666;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.stories-intro {
+text-align: center;
+font-size: 1.1em;
+margin-bottom: 50px;
+color: #666;
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
 
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
+.stories-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 30px;
+}
 
-        .story-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: white;
-            display: block;
-            position: relative;
-        }
+.story-card {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+border-radius: 20px;
+padding: 0;
+overflow: hidden;
+transition: all 0.3s ease;
+text-decoration: none;
+color: white;
+display: block;
+position: relative;
+}
 
-        .story-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            text-decoration: none;
-            color: white;
-        }
+.story-card:hover {
+transform: translateY(-10px) scale(1.02);
+box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+text-decoration: none;
+color: white;
+}
 
-        .story-content {
-            padding: 30px;
-        }
+.story-content {
+padding: 30px;
+}
 
-        .story-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: white;
-        }
+.story-title {
+font-size: 1.4em;
+font-weight: bold;
+margin-bottom: 15px;
+color: white;
+}
 
-        .story-subtitle {
-            font-size: 1em;
-            margin-bottom: 20px;
-            opacity: 0.8;
-            font-style: italic;
-        }
+.story-subtitle {
+font-size: 1em;
+margin-bottom: 20px;
+opacity: 0.8;
+font-style: italic;
+}
 
-        .story-description {
-            font-size: 0.95em;
-            line-height: 1.5;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
+.story-description {
+font-size: 0.95em;
+line-height: 1.5;
+opacity: 0.9;
+margin-bottom: 20px;
+}
 
-        .story-contradiction {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
-            border-radius: 10px;
-            font-style: italic;
-            border-left: 4px solid rgba(255,255,255,0.5);
-        }
+.story-contradiction {
+background: rgba(255,255,255,0.2);
+padding: 15px;
+border-radius: 10px;
+font-style: italic;
+border-left: 4px solid rgba(255,255,255,0.5);
+}
 
-        .story-card.featured {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-        }
+.story-card.featured {
+grid-column: 1 / -1;
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
 
-        .coming-soon {
-            opacity: 0.7;
-            position: relative;
-        }
+.story-card.beyonce {
+background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+}
 
-        .coming-soon::after {
-            content: "Coming Soon";
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.9);
-            color: #333;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-        }
+.coming-soon {
+opacity: 0.7;
+position: relative;
+}
 
-        .footer {
-            text-align: center;
-            color: white;
-            padding: 40px 20px;
-            opacity: 0.8;
-        }
+.coming-soon::after {
+content: "Coming Soon";
+position: absolute;
+top: 20px;
+right: 20px;
+background: rgba(255,255,255,0.9);
+color: #333;
+padding: 5px 15px;
+border-radius: 20px;
+font-size: 0.8em;
+font-weight: bold;
+}
 
-        .footer a {
-            color: white;
-            text-decoration: underline;
-        }
+.footer {
+text-align: center;
+color: white;
+padding: 40px 20px;
+opacity: 0.8;
+}
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5em;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2em;
-            }
-            
-            .framework-intro, .stories-section {
-                padding: 30px 20px;
-            }
-            
-            .stories-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .story-card.featured {
-                grid-column: 1;
-            }
-        }
-    </style>
+.footer a {
+color: white;
+text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2.5em;
+}
+
+.hero-subtitle {
+font-size: 1.2em;
+}
+
+.framework-intro, .stories-section {
+padding: 30px 20px;
+}
+
+.stories-grid {
+grid-template-columns: 1fr;
+}
+
+.story-card.featured {
+grid-column: 1;
+}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <h1>Learning Through Beautiful Contradictions</h1>
-            <p class="hero-subtitle">Where opposing truths create deeper understanding</p>
-            <p class="hero-description">
-                In the landscape of human experience, contradictions aren't problems to solve—they're doorways to wisdom. 
-                Through real stories of pregnancy loss, we explore how opposing truths can coexist, 
-                teaching us that the most profound learning happens not when we choose sides, but when we hold space for complexity.
-            </p>
-        </div>
+<div class="container">
+<div class="hero">
+<h1>Learning Through Beautiful Contradictions</h1>
+<p class="hero-subtitle">Where opposing truths create deeper understanding</p>
+<p class="hero-description">
+In the landscape of human experience, contradictions aren't problems to solve—they're doorways to wisdom.
+Through real stories of pregnancy loss, we explore how opposing truths can coexist,
+teaching us that the most profound learning happens not when we choose sides, but when we hold space for complexity.
+</p>
+</div>
 
-        <div class="framework-intro">
-            <h2>What Are Beautiful Contradictions?</h2>
-            <p style="text-align: center; font-size: 1.1em; margin-bottom: 40px; color: #666;">
-                Beautiful contradictions are moments where opposing truths exist simultaneously, creating tension that leads to deeper understanding. 
-                In pregnancy loss, these contradictions are everywhere—and they're sacred teachers.
-            </p>
+<div class="framework-intro">
+<h2>What Are Beautiful Contradictions?</h2>
+<p style="text-align: center; font-size: 1.1em; margin-bottom: 40px; color: #666;">
+Beautiful contradictions are moments where opposing truths exist simultaneously, creating tension that leads to deeper understanding.
+In pregnancy loss, these contradictions are everywhere—and they're sacred teachers.
+</p>
 
-            <div class="what-are-contradictions">
-                <div class="contradiction-type">
-                    <h3>Physical & Biological</h3>
-                    <p>The body creates life while preparing to let it go. Healing and injury happening in the same moment.</p>
-                    <div class="example-contradiction">
-                        "Hormones still signal 'pregnancy' after the pregnancy has ended"
-                    </div>
-                </div>
+<div class="what-are-contradictions">
+<div class="contradiction-type">
+<h3>Physical & Biological</h3>
+<p>The body creates life while preparing to let it go. Healing and injury happening in the same moment.</p>
+<div class="example-contradiction">
+"Hormones still signal 'pregnancy' after the pregnancy has ended"
+</div>
+</div>
 
-                <div class="contradiction-type">
-                    <h3>Emotional</h3>
-                    <p>Love and grief intertwined. Hope and fear as dance partners rather than enemies.</p>
-                    <div class="example-contradiction">
-                        "Feeling overwhelming love for someone you've never met"
-                    </div>
-                </div>
+<div class="contradiction-type">
+<h3>Emotional</h3>
+<p>Love and grief intertwined. Hope and fear as dance partners rather than enemies.</p>
+<div class="example-contradiction">
+"Feeling overwhelming love for someone you've never met"
+</div>
+</div>
 
-                <div class="contradiction-type">
-                    <h3>Social & Cultural</h3>
-                    <p>Public sharing and private pain. Being part of a hidden community that's enormous yet invisible.</p>
-                    <div class="example-contradiction">
-                        "Needing to talk about it while fearing people's reactions"
-                    </div>
-                </div>
+<div class="contradiction-type">
+<h3>Social & Cultural</h3>
+<p>Public sharing and private pain. Being part of a hidden community that's enormous yet invisible.</p>
+<div class="example-contradiction">
+"Needing to talk about it while fearing people's reactions"
+</div>
+</div>
 
-                <div class="contradiction-type">
-                    <h3>Identity & Existence</h3>
-                    <p>Being a parent without a child in your arms. Changed forever yet looking the same to others.</p>
-                    <div class="example-contradiction">
-                        "A baby who never took a breath yet profoundly changes lives"
-                    </div>
-                </div>
+<div class="contradiction-type">
+<h3>Identity & Existence</h3>
+<p>Being a parent without a child in your arms. Changed forever yet looking the same to others.</p>
+<div class="example-contradiction">
+"A baby who never took a breath yet profoundly changes lives"
+</div>
+</div>
 
-                <div class="contradiction-type">
-                    <h3>Temporal</h3>
-                    <p>Time that stands still and races forward. Grief that feels endless yet arrives in waves.</p>
-                    <div class="example-contradiction">
-                        "A few weeks of pregnancy shaping a lifetime of identity"
-                    </div>
-                </div>
+<div class="contradiction-type">
+<h3>Temporal</h3>
+<p>Time that stands still and races forward. Grief that feels endless yet arrives in waves.</p>
+<div class="example-contradiction">
+"A few weeks of pregnancy shaping a lifetime of identity"
+</div>
+</div>
 
-                <div class="contradiction-type">
-                    <h3>Medical & Spiritual</h3>
-                    <p>Scientific understanding coexisting with emotional mystery. Body wisdom and heart protest in dialogue.</p>
-                    <div class="example-contradiction">
-                        "Natural process that feels completely unnatural"
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="contradiction-type">
+<h3>Medical & Spiritual</h3>
+<p>Scientific understanding coexisting with emotional mystery. Body wisdom and heart protest in dialogue.</p>
+<div class="example-contradiction">
+"Natural process that feels completely unnatural"
+</div>
+</div>
+</div>
+</div>
 
-        <div class="stories-section">
-            <h2>Real Stories, Real Contradictions</h2>
-            <p class="stories-intro">
-                Each story below explores different beautiful contradictions through real experiences shared by public figures, 
-                support organizations, and brave individuals. Click any story to explore its unique contradictions and learn from the wisdom they contain.
-            </p>
+<div class="stories-section">
+<h2>Real Stories, Real Contradictions</h2>
+<p class="stories-intro">
+Each story below explores different beautiful contradictions through real experiences shared by public figures,
+support organizations, and brave individuals. Click any story to explore its unique contradictions and learn from the wisdom they contain.
+</p>
 
-            <div class="stories-grid">
-                <a href="stories/nick-natalie.html" class="story-card featured">
-                    <div class="story-content">
-                        <div class="story-title">Hope After Three Losses</div>
-                        <div class="story-subtitle">Nick Viall & Natalie Joy</div>
-                        <div class="story-description">
-                            TV personality Nick Viall and wife Natalie Joy shared their third miscarriage in one year on The Viall Files podcast, 
-                            describing it as a "scary time" while continuing to try. Their story embodies the central contradiction of recurring pregnancy loss.
-                        </div>
-                        <div class="story-contradiction">
-                            "They tried again because of hope—and lost again, deepening grief. Joy and fear are not opposites here; they exist together in the same moment."
-                        </div>
-                    </div>
-                </a>
+<div class="stories-grid">
+<a href="stories/nick-natalie.html" class="story-card featured">
+<div class="story-content">
+<div class="story-title">Hope After Three Losses</div>
+<div class="story-subtitle">Nick Viall & Natalie Joy</div>
+<div class="story-description">
+TV personality Nick Viall and wife Natalie Joy shared their third miscarriage in one year on The Viall Files podcast,
+describing it as a "scary time" while continuing to try. Their story embodies the central contradiction of recurring pregnancy loss.
+</div>
+<div class="story-contradiction">
+"They tried again because of hope—and lost again, deepening grief. Joy and fear are not opposites here; they exist together in the same moment."
+</div>
+</div>
+</a>
 
-                <a href="stories/nicola-sturgeon.html" class="story-card Click to Read">
-                    <div class="story-content">
-                        <div class="story-title">A Leader's Hidden Grief</div>
-                        <div class="story-subtitle">Nicola Sturgeon</div>
-                        <div class="story-description">
-                            Scotland's former First Minister reveals in her memoir 'Frankly' the haunting details of her 2010 miscarriage, 
-                            including emotional guilt and the act of flushing remains—public strength hiding private devastation.
-                        </div>
-                        <div class="story-contradiction">
-                            "Leading a nation while privately grieving. Public competence masking personal vulnerability."
-                        </div>
-                    </div>
-                </a>
+<a href="stories/Beyonce_Miscarriage.html" class="story-card beyonce">
+<div class="story-content">
+<div class="story-title">Creating Life from Loss</div>
+<div class="story-subtitle">Beyoncé</div>
+<div class="story-description">
+In her 2013 HBO documentary "Life Is But a Dream," Beyoncé revealed her miscarriage before Blue Ivy, 
+describing how she channeled grief into music, writing "the saddest song I've ever written." Art born from anguish.
+</div>
+<div class="story-contradiction">
+"Deepest personal grief becoming greatest artistic gift. The loss that silenced one heartbeat gave voice to music that would touch millions of hearts."
+</div>
+</div>
+</a>
 
-                <a href="stories/rebecca-zoe.html" class="story-card click here">
-                    <div class="story-content">
-                        <div class="story-title">The Professional's Personal Pain</div>
-                        <div class="story-subtitle">Rebecca Adlington & Dr. Zoe Williams</div>
-                        <div class="story-description">
-                            Olympic swimmer Rebecca Adlington and TV doctor Zoe Williams share their losses on This Morning—
-                            professionals in the public eye revealing the hidden struggles and bodily judgment that come with pregnancy loss.
-                        </div>
-                        <div class="story-contradiction">
-                            "Medical knowledge coexisting with emotional devastation. Helping others while needing help yourself."
-                        </div>
-                    </div>
-                </a>
+<a href="stories/nicola-sturgeon.html" class="story-card">
+<div class="story-content">
+<div class="story-title">A Leader's Hidden Grief</div>
+<div class="story-subtitle">Nicola Sturgeon</div>
+<div class="story-description">
+Scotland's former First Minister reveals in her memoir 'Frankly' the haunting details of her 2010 miscarriage,
+including emotional guilt and the act of flushing remains—public strength hiding private devastation.
+</div>
+<div class="story-contradiction">
+"Leading a nation while privately grieving. Public competence masking personal vulnerability."
+</div>
+</div>
+</a>
 
-                <a href="stories/halsey.html" class="story-card click here">
-                    <div class="story-content">
-                        <div class="story-title">Performing Through Loss</div>
-                        <div class="story-subtitle">Halsey</div>
-                        <div class="story-description">
-                            The singer revealed experiencing a miscarriage mid-concert at age 20, performing through emotional and physical crisis. 
-                            Multiple losses before age 24 tied to themes of resilience, performance, and trauma.
-                        </div>
-                        <div class="story-contradiction">
-                            "Giving everything to the audience while losing everything inside. The show must go on when life stops."
-                        </div>
-                    </div>
-                </a>
+<a href="stories/rebecca-zoe.html" class="story-card">
+<div class="story-content">
+<div class="story-title">The Professional's Personal Pain</div>
+<div class="story-subtitle">Rebecca Adlington & Dr. Zoe Williams</div>
+<div class="story-description">
+Olympic swimmer Rebecca Adlington and TV doctor Zoe Williams share their losses on This Morning—
+professionals in the public eye revealing the hidden struggles and bodily judgment that come with pregnancy loss.
+</div>
+<div class="story-contradiction">
+"Medical knowledge coexisting with emotional devastation. Helping others while needing help yourself."
+</div>
+</div>
+</a>
 
-                <a href="stories/lauren.html" class="story-card click here">
-                    <div class="story-content">
-                        <div class="story-title">When Everything Goes Right, Yet Wrong</div>
-                        <div class="story-subtitle">Lauren's Story</div>
-                        <div class="story-description">
-                            "I did everything right... yet lost our first child." Lauren's story from the Miscarriage Association 
-                            captures the contradiction between following all the rules and still experiencing loss.
-                        </div>
-                        <div class="story-contradiction">
-                            "Perfect preparation meeting imperfect outcomes. Doing everything right in a world where right isn't enough."
-                        </div>
-                    </div>
-                </a>
+<a href="stories/halsey.html" class="story-card">
+<div class="story-content">
+<div class="story-title">Performing Through Loss</div>
+<div class="story-subtitle">Halsey</div>
+<div class="story-description">
+The singer revealed experiencing a miscarriage mid-concert at age 20, performing through emotional and physical crisis.
+Multiple losses before age 24 tied to themes of resilience, performance, and trauma.
+</div>
+<div class="story-contradiction">
+"Giving everything to the audience while losing everything inside. The show must go on when life stops."
+</div>
+</div>
+</a>
 
-                <a href="stories/jessica-zucker.html" class="story-card click here">
-                    <div class="story-content">
-                        <div class="story-title">The Therapist Becomes the Patient</div>
-                        <div class="story-subtitle">Jessica Zucker</div>
-                        <div class="story-description">
-                            Psychologist Jessica Zucker's essay "I Had a Miscarriage" transforms professional knowledge into lived truth, 
-                            reflecting on grief's emotional unpredictability, relief, and healing from both sides of the therapy room.
-                        </div>
-                        <div class="story-contradiction">
-                            "Knowing all about grief while being shocked by your own. Professional wisdom meeting personal devastation."
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
+<a href="stories/lauren.html" class="story-card">
+<div class="story-content">
+<div class="story-title">When Everything Goes Right, Yet Wrong</div>
+<div class="story-subtitle">Lauren's Story</div>
+<div class="story-description">
+"I did everything right… yet lost our first child." Lauren's story from the Miscarriage Association
+captures the contradiction between following all the rules and still experiencing loss.
+</div>
+<div class="story-contradiction">
+"Perfect preparation meeting imperfect outcomes. Doing everything right in a world where right isn't enough."
+</div>
+</div>
+</a>
 
-        <div class="footer">
-            <p>
-                This project explores pregnancy loss through the lens of beautiful contradictions—
-                not to solve them, but to learn from them. 
-                <br><br>
-                <a href="https://github.com/yourusername/beautiful-contradictions" target="_blank">View on GitHub</a> | 
-                <a href="mailto:your-email@example.com">Contact</a>
-            </p>
-        </div>
-    </div>
+<a href="stories/jessica-zucker.html" class="story-card">
+<div class="story-content">
+<div class="story-title">The Therapist Becomes the Patient</div>
+<div class="story-subtitle">Jessica Zucker</div>
+<div class="story-description">
+Psychologist Jessica Zucker's essay "I Had a Miscarriage" transforms professional knowledge into lived truth,
+reflecting on grief's emotional unpredictability, relief, and healing from both sides of the therapy room.
+</div>
+<div class="story-contradiction">
+"Knowing all about grief while being shocked by your own. Professional wisdom meeting personal devastation."
+</div>
+</div>
+</a>
+</div>
+</div>
+
+<div class="footer">
+<p>
+This project explores pregnancy loss through the lens of beautiful contradictions—
+not to solve them, but to learn from them.
+<br><br>
+<a href="https://github.com/yourusername/beautiful-contradictions" target="_blank">View on GitHub</a> |
+<a href="mailto:your-email@example.com">Contact</a>
+</p>
+</div>
+</div>
 </body>
 </html>

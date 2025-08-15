@@ -652,16 +652,32 @@
         }
 
         function generateCreativePrompt() {
-            const output = document.getElementById('reflection-output');
-            const prompts = [
-                'Write a dialogue between Hope and Fear as they sit together in Nick and Natalie\'s story. Let them speak honestly without trying to resolve their differences.',
-                'Create a piece from the perspective of their podcast microphone - what has it witnessed about courage, vulnerability, and public grief?',
-                'Write the story of the third loss from the viewpoint of Resilience itself - how does it show up differently the third time?',
-                'Craft a poem about the phrase "scary time" - explore how fear and bravery dance together in their decision to keep trying.',
-                'Imagine writing a letter from their future selves to their present selves - what would they want to say about holding contradictions?',
-                'Write a conversation between Faith and Questions - two friends who discover they\'re not enemies after all, especially during times of loss.',
-                'Create a piece exploring the moment when medical facts and spiritual beliefs meet in the waiting room - what do they say to each other?'
-            ];
+const output = document.getElementById('reflection-output');
+output.innerHTML = `
+<strong>Art Inspired by Your Story</strong><br><br>
+Nick and Natalie's courage in sharing their journey of recurring pregnancy loss has inspired creative expressions across multiple mediums. Art becomes a bridge between personal pain and universal healing, transforming individual grief into collective hope.<br><br>
+
+<strong>Creative Mediums Inspired by Stories Like Yours:</strong><br>
+• <strong>Literary Arts:</strong> Poetry, novels, novellas, personal essays capturing the paradoxes of hope and loss<br>
+• <strong>Visual Arts:</strong> Photography, paintings, sculptures, 3D artwork giving form to invisible emotions<br>
+• <strong>Digital Media:</strong> Graphic art, animations, interactive experiences creating spaces for healing<br>
+• <strong>Performance:</strong> Stage plays, dance, spoken word embodying the dance between hope and heartbreak<br>
+• <strong>Film & Animation:</strong> Short films, documentaries bringing these experiences into light<br>
+• <strong>Musical Arts:</strong> Songs, instrumental pieces giving voice to the unspoken<br><br>
+
+<strong>Featured Musical Tribute:</strong><br>
+Inspired by Nick and Natalie's vulnerability in sharing their story of three losses in one year, this song captures the beautiful contradiction of holding hope while living in the uncertainty of trying again after repeated heartbreak.<br><br>
+
+<strong>"Holding Hope in the Waiting"</strong> - A musical reflection on finding strength in the "scary time" and light in the darkest moments of recurring loss.<br><br>
+
+<a href="https://www.youtube.com/watch?v=atGBnmEU680" target="_blank" style="color: #667eea; text-decoration: underline; font-weight: bold;">🎵 Listen to "Holding Hope in the Waiting"</a><br><br>
+
+<em>This song represents how stories of recurring pregnancy loss can be transformed into art that heals—not just for those who experienced the loss, but for anyone who needs to know they're not alone in carrying both hope and fear simultaneously.</em><br><br>
+
+<strong>Your Story Can Inspire Art Too:</strong><br>
+Whether through written word, visual expression, musical composition, or any other creative medium, your experience of holding contradictions can become a source of healing and connection for others walking similar paths.
+`;
+}
 
             const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
             output.innerHTML = `<strong>Creative Prompt Inspired by Their Story:</strong><br>${randomPrompt}`;

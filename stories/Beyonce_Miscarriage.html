@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beyoncé's Miscarriage - Learning Through Beautiful Contradictions</title>
+<title>Beyonce's Miscarriage - Learning Through Beautiful Contradictions</title>
 <style>
 * {
 margin: 0;
@@ -24,6 +24,77 @@ max-width: 1200px;
 margin: 0 auto;
 padding: 20px;
 }
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+.nav-button.home {
+background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+color: white;
+font-weight: bold;
+}
+
+.nav-button.explore {
+background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
+color: white;
+font-weight: bold;
+}
+
+.nav-button.active {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: white;
+font-weight: bold;
+}
+
+.nav-button.beyonce { background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%); }
+.nav-button.chrissy { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); }
+.nav-button.hilarie { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
+.nav-button.kate { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
+.nav-button.halsey { background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); }
+.nav-button.jessica { background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%); }
+.nav-button.lauren { background: linear-gradient(135deg, #55a3ff 0%, #003d82 100%); }
+.nav-button.meghan { background: linear-gradient(135deg, #00b894 0%, #00cec9 100%); }
+.nav-button.nick { background: linear-gradient(135deg, #e17055 0%, #d63031 100%); }
+.nav-button.nicola { background: linear-gradient(135deg, #00b894 0%, #55a3ff 100%); }
+.nav-button.rebecca { background: linear-gradient(135deg, #fd79a8 0%, #6c5ce7 100%); }
 
 .header {
 text-align: center;
@@ -77,6 +148,31 @@ font-weight: bold;
 
 .story-source a:hover {
 text-decoration: underline;
+}
+
+.video-embed {
+background: #f0f0f0;
+padding: 20px;
+border-radius: 10px;
+margin: 20px 0;
+text-align: center;
+}
+
+.video-container {
+position: relative;
+width: 100%;
+height: 0;
+padding-bottom: 56.25%;
+margin: 15px 0;
+}
+
+.video-container iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border-radius: 10px;
 }
 
 .key-elements {
@@ -340,6 +436,46 @@ background: rgba(255,255,255,0.9);
 transform: translateX(5px);
 }
 
+.bottom-navigation {
+background: rgba(255, 255, 255, 0.95);
+border-radius: 20px;
+padding: 30px;
+margin-top: 40px;
+text-align: center;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.bottom-nav-buttons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 20px;
+}
+
+.bottom-nav-button {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+padding: 12px 25px;
+border-radius: 25px;
+text-decoration: none;
+font-weight: bold;
+transition: all 0.3s ease;
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.bottom-nav-button:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+text-decoration: none;
+color: white;
+}
+
+.bottom-nav-button.home {
+background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+}
+
 @media (max-width: 768px) {
 .contradiction-visual {
 flex-direction: column;
@@ -353,38 +489,97 @@ text-align: center;
 .bridge {
 transform: rotate(90deg);
 }
+
+.nav-buttons {
+flex-direction: row;
+justify-content: center;
+gap: 6px;
+}
+
+.nav-button {
+font-size: 0.75em;
+padding: 4px 8px;
+min-width: 60px;
+}
+
+.bottom-nav-buttons {
+flex-direction: column;
+}
+
+.bottom-nav-button {
+width: 100%;
+max-width: 300px;
+}
 }
 </style>
 </head>
+
 <body>
 <div class="container">
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce active">Beyonce</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">Explore Your Story</a>
+</div>
+</div>
+
 <div class="header">
 <h1>Learning Through Beautiful Contradictions</h1>
-<p>Beyoncé's Miscarriage Story: Where Art and Anguish Create Healing</p>
+<p>Beyonce's Miscarriage Story: Where Art and Anguish Create Healing</p>
 </div>
 
 <div class="story-anchor">
 <div class="story-header">
-<h2>Story Anchor: Beyoncé's Miscarriage Revelation</h2>
+<h2>Story Anchor: Beyonce's Miscarriage Revelation</h2>
 </div>
+
 <div class="story-source">
-<strong>Source:</strong> <a href="https://abcnews.go.com/Entertainment/beyonce-opens-miscarriage-hbo-documentary/story?id=18364766" target="_blank">HBO Documentary "Life Is But a Dream" (2013)</a>
+<strong>Source:</strong> <a href="https://www.imdb.com/title/tt2324998/" target="_blank">HBO Documentary "Life Is But a Dream" (2013)</a>
 </div>
-<p>In her 2013 HBO documentary "Life Is But a Dream," Beyoncé revealed that she suffered a miscarriage before conceiving her daughter Blue Ivy. She spoke candidly about the loss, describing how "she envisioned what her child would look like" and how she channeled her grief into music, writing what she called "the saddest song I've ever written". Her public revelation was both an intimate confession and an artistic statement—transforming private pain into shared understanding.</p>
+
+<p>In her 2013 HBO documentary "Life Is But a Dream," Beyonce revealed that she suffered a miscarriage before conceiving her daughter Blue Ivy. She spoke candidly about the loss, describing how "she envisioned what her child would look like" and how she channeled her grief into music, writing what she called "the saddest song I've ever written". Her public revelation was both an intimate confession and an artistic statement - transforming private pain into shared understanding.</p>
+
+<div class="video-embed">
+<h4>Tribute Song: "Heaven" - Beyonce</h4>
+<p>A deeply emotional country ballad that channels the raw vulnerability and spiritual resilience of a mother mourning a child lost to spontaneous pregnanc loss</p>
+<div class="video-container">
+<iframe src="https://www.youtube.com/watch?v=FZR0ZAQYmkE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="video-embed">
+<h4>Tribute Song: "Still Carried An Angel" - SPL</h4>
+<p>The song many believe was written about her miscarriage, transforming grief into healing music.</p>
+<div class="video-container">
+<iframe src="https://youtu.be/QyOok1myLjw?si=odtX5t7AaCV2hwud" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
 
 <div class="key-elements">
 <div class="element">
 <h4>Artistic Transformation</h4>
 <p>Converting deepest grief into creative expression, making art from anguish.</p>
 </div>
+
 <div class="element">
 <h4>Public Vulnerability</h4>
 <p>Choosing to share intimate loss with millions of viewers worldwide.</p>
 </div>
+
 <div class="element">
 <h4>Musical Healing</h4>
 <p>Using songwriting as therapy, turning heartbreak into harmony.</p>
 </div>
+
 <div class="element">
 <h4>Prophetic Loss</h4>
 <p>Envisioning the child who would never be, yet preparing for the one who would come.</p>
@@ -395,29 +590,35 @@ transform: rotate(90deg);
 <div class="central-contradiction">
 <h3>The Beautiful Contradiction</h3>
 <h4>"Creating Life from Loss"</h4>
+
 <div class="contradiction-visual">
 <div class="contradiction-side">Deepest personal grief</div>
 <div class="contradiction-bridge">⟷</div>
 <div class="contradiction-side">Greatest artistic gift</div>
 </div>
-<p>Beyoncé's miscarriage became both ending and beginning. The loss that silenced one heartbeat gave voice to music that would touch millions of hearts. This is the paradox of creative grief: the very experience that breaks us can become the source of our most profound healing—not just for ourselves, but for others walking similar paths.</p>
+
+<p>Beyonce's miscarriage became both ending and beginning. The loss that silenced one heartbeat gave voice to music that would touch millions of hearts. This is the paradox of creative grief: the very experience that breaks us can become the source of our most profound healing - not just for ourselves, but for others walking similar paths.</p>
 </div>
 
 <div class="scientific-context">
 <h3>Scientific Context: Miscarriage and Grief Processing</h3>
+
 <div class="miscarriage-facts">
 <div class="fact-box">
 <h4>Prevalence & Normalcy</h4>
 <p>Miscarriage occurs in <strong>10-20% of known pregnancies</strong>, most commonly in the first trimester. It's a natural biological process, yet each loss feels personally devastating.</p>
 </div>
+
 <div class="fact-box">
 <h4>Grief Expression</h4>
 <p>Creative expression through art, music, or writing has been shown to facilitate healthy grief processing and meaning-making after pregnancy loss.</p>
 </div>
+
 <div class="fact-box">
 <h4>Public Disclosure</h4>
 <p>Celebrity revelations about miscarriage help normalize conversations about pregnancy loss and reduce stigma surrounding this common experience.</p>
 </div>
+
 <div class="fact-box">
 <h4>Therapeutic Music</h4>
 <p>Music therapy is recognized as effective for processing grief, with songwriting specifically helping individuals articulate complex emotions around loss.</p>
@@ -429,17 +630,20 @@ transform: rotate(90deg);
 <div class="phase phase1">
 <div class="phase-number">1</div>
 <h3>Embrace the Paradox</h3>
-<p>Beyoncé's story shows us that contradictions exist everywhere in profound human experiences. Loss and creation, silence and song, private pain and public healing—they're not opposing forces but complementary truths.</p>
+<p>Beyonce's story shows us that contradictions exist everywhere in profound human experiences. Loss and creation, silence and song, private pain and public healing - they're not opposing forces but complementary truths.</p>
+
 <div class="contradiction-pair">
 <div class="concept left">Private Devastation</div>
 <div class="bridge">⟷</div>
 <div class="concept right">Public Revelation</div>
 </div>
+
 <div class="contradiction-pair">
 <div class="concept left">Creative Silence</div>
 <div class="bridge">⟷</div>
 <div class="concept right">Musical Expression</div>
 </div>
+
 <div class="contradiction-pair">
 <div class="concept left">Life Ending</div>
 <div class="bridge">⟷</div>
@@ -450,12 +654,14 @@ transform: rotate(90deg);
 <div class="phase phase2">
 <div class="phase-number">2</div>
 <h3>Hold Both Truths</h3>
-<p>Like Beyoncé creating her "saddest song" while simultaneously preparing for future motherhood—learn to carry opposing realities without needing to resolve the tension.</p>
+<p>Like Beyonce creating her "saddest song" while simultaneously preparing for future motherhood - learn to carry opposing realities without needing to resolve the tension.</p>
+
 <div class="contradiction-pair">
 <div class="concept left">Grieving What Was Lost</div>
 <div class="bridge">⟷</div>
 <div class="concept right">Hoping for What Could Come</div>
 </div>
+
 <div class="contradiction-pair">
 <div class="concept left">Protecting Privacy</div>
 <div class="bridge">⟷</div>
@@ -466,7 +672,8 @@ transform: rotate(90deg);
 <div class="phase phase3">
 <div class="phase-number">3</div>
 <h3>Find the Sacred in Science</h3>
-<p>Discover how medical understanding of miscarriage can coexist with the spiritual and creative transformation Beyoncé experienced.</p>
+<p>Discover how medical understanding of miscarriage can coexist with the spiritual and creative transformation Beyonce experienced.</p>
+
 <div class="fact-box">
 <h4>The Contradiction of "Common" Loss</h4>
 <p><strong>Medical perspective:</strong> Miscarriage affects 1 in 5 pregnancies and is often unexplainable but natural.<br>
@@ -478,51 +685,63 @@ transform: rotate(90deg);
 <div class="phase phase4">
 <div class="phase-number">4</div>
 <h3>Create from Contradiction</h3>
-<p>Beyoncé transformed her miscarriage into music, documentary footage, and public conversation. The tension between loss and creation became a source of healing—both personal and collective.</p>
+<p>Beyonce transformed her miscarriage into music, documentary footage, and public conversation. The tension between loss and creation became a source of healing - both personal and collective.</p>
 </div>
 </div>
 
 <div class="interactive-section">
 <h4>Contradiction Workshop</h4>
+
 <div class="story-link">
-<strong>Explore contradictions in Beyoncé's miscarriage story</strong><br>
-Original documentary: <a href="https://www.hbo.com/movies/beyonce-life-is-but-a-dream" target="_blank" style="color: white;">HBO's "Life Is But a Dream"</a>
+<strong>Explore contradictions in Beyonce's miscarriage story</strong><br>
+Original documentary: <a href="https://www.imdb.com/title/tt2324998/" target="_blank" style="color: white;">HBO's "Life Is But a Dream"</a>
 </div>
+
 <p>Choose a contradiction from her story to explore:</p>
+
 <div class="contradiction-examples">
 <div class="example-card" onclick="selectContradiction('grief-creation')">
 <h4>Grief & Creative Genesis</h4>
 <p>How profound loss became her most meaningful artistic expression</p>
 </div>
+
 <div class="example-card" onclick="selectContradiction('private-public')">
 <h4>Private Pain vs Public Platform</h4>
 <p>Sharing intimate loss while maintaining personal boundaries</p>
 </div>
+
 <div class="example-card" onclick="selectContradiction('silence-song')">
 <h4>Silenced Heartbeat vs Musical Voice</h4>
 <p>The child who couldn't speak inspiring songs that would speak to millions</p>
 </div>
+
 <div class="example-card" onclick="selectContradiction('ending-beginning')">
 <h4>Ending & New Beginnings</h4>
 <p>Loss preparing the way for Blue Ivy and continued motherhood</p>
 </div>
 </div>
+
 <button class="btn" onclick="generateReflection()">Explore This Contradiction</button>
 <button class="btn" onclick="generateMedicalFrame()">Find the Medical Wisdom</button>
 <button class="btn" onclick="generateCreativePrompt()">Turn Into Art</button>
+
 <div id="reflection-output" class="reflection-output"></div>
 </div>
 
 <div class="reflection-questions">
 <h3>Reflection Questions</h3>
+
 <div class="question-category">
 <h4>Personal Reflection</h4>
+
 <div class="question" onclick="expandQuestion(this)">
 How does creating art from pain change the nature of suffering itself?
 </div>
+
 <div class="question" onclick="expandQuestion(this)">
 What role does public sharing play in private healing processes?
 </div>
+
 <div class="question" onclick="expandQuestion(this)">
 How might envisioning a lost child both intensify grief and facilitate healing?
 </div>
@@ -530,9 +749,11 @@ How might envisioning a lost child both intensify grief and facilitate healing?
 
 <div class="question-category">
 <h4>Scientific/Creative Intersection</h4>
+
 <div class="question" onclick="expandQuestion(this)">
 How can understanding miscarriage as biologically common coexist with experiencing it as personally unique?
 </div>
+
 <div class="question" onclick="expandQuestion(this)">
 What happens when scientific fact meets artistic truth in processing loss?
 </div>
@@ -540,12 +761,24 @@ What happens when scientific fact meets artistic truth in processing loss?
 
 <div class="question-category">
 <h4>Cultural Impact</h4>
+
 <div class="question" onclick="expandQuestion(this)">
 How do celebrity revelations about miscarriage change societal conversations about pregnancy loss?
 </div>
+
 <div class="question" onclick="expandQuestion(this)">
 What responsibility comes with transforming personal pain into public art?
 </div>
+</div>
+</div>
+
+<div class="bottom-navigation">
+<h3>Continue Your Journey</h3>
+<p>Explore more stories of beautiful contradictions in pregnancy loss</p>
+<div class="bottom-nav-buttons">
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="bottom-nav-button">← Previous: Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/index.html" class="bottom-nav-button home">🏠 Back to All Stories</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="bottom-nav-button">Next: Chrissy Teigen →</a>
 </div>
 </div>
 </div>
@@ -565,13 +798,13 @@ event.target.style.background = 'rgba(255,255,255,0.3)';
 function generateReflection() {
 const output = document.getElementById('reflection-output');
 if (!selectedContradiction) {
-output.innerHTML = 'Please select a contradiction from Beyoncé\'s story above first.';
+output.innerHTML = 'Please select a contradiction from Beyonce\'s story above first.';
 return;
 }
 
 const reflections = {
 'grief-creation': [
-'How did Beyoncé\'s miscarriage become the source of her "saddest song ever written"? What transforms grief into art?',
+'How did Beyonce\'s miscarriage become the source of her "saddest song ever written"? What transforms grief into art?',
 'If pain can create beauty, what does this tell us about the nature of both suffering and creativity?',
 'How might creating art from loss change the relationship with that loss over time?'
 ],
@@ -586,7 +819,7 @@ const reflections = {
 'How might music become a way of keeping memory alive while allowing for new life?'
 ],
 'ending-beginning': [
-'How did miscarriage prepare Beyoncé for the motherhood she would later experience with Blue Ivy?',
+'How did miscarriage prepare Beyonce for the motherhood she would later experience with Blue Ivy?',
 'What does it mean for loss to create space for future possibilities?',
 'How might grief and hope not be opposites but partners in human experience?'
 ]
@@ -595,49 +828,11 @@ const reflections = {
 const contradictionReflections = reflections[selectedContradiction];
 const randomReflection = contradictionReflections[Math.floor(Math.random() * contradictionReflections.length)];
 
-output.innerHTML = `<strong>Reflection on Beyoncé's Story:</strong><br>${randomReflection}<br><br><em>Take time to sit with this question. Notice what emotions arise. Both comfort and discomfort are welcome here.</em>`;
+output.innerHTML = `<strong>Reflection on Beyonce's Story:</strong><br>${randomReflection}<br><br><em>Take time to sit with this question. Notice what emotions arise. Both comfort and discomfort are welcome here.</em>`;
 }
 
 function generateMedicalFrame() {
 const output = document.getElementById('reflection-output');
 const frames = [
 'Medical reality: 10-20% of pregnancies end in miscarriage, yet each loss feels 100% unique and personally devastating.',
-'Creative expression through music and art is scientifically proven to facilitate healthy grief processing after pregnancy loss.',
-'Public disclosure about miscarriage by influential figures reduces stigma and normalizes conversations about this common experience.',
-'The biological fact that miscarriage is often unexplainable coexists with the emotional need to create meaning from loss.',
-'Music therapy research supports what Beyoncé discovered: songwriting can help process complex emotions around pregnancy loss.'
-];
-
-const randomFrame = frames[Math.floor(Math.random() * frames.length)];
-output.innerHTML = `<strong>Medical Wisdom from Her Story:</strong><br>${randomFrame}`;
-}
-
-function generateCreativePrompt() {
-const output = document.getElementById('reflection-output');
-const prompts = [
-'Write a dialogue between Loss and Creation as they work together in Beyoncé\'s recording studio.',
-'Create a piece from the perspective of the song itself - born from grief, destined to heal others.',
-'Write about the moment silence transforms into music - what happens in that sacred space between heartbreak and art?',
-'Craft a poem about envisioning a child who will never be, and how that vision becomes a gift to children who are.',
-'Imagine the conversation between Beyoncé\'s private self and public self about sharing this intimate loss.'
-];
-
-const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
-output.innerHTML = `<strong>Creative Prompt Inspired by Her Story:</strong><br>${randomPrompt}`;
-}
-
-function expandQuestion(questionElement) {
-const isExpanded = questionElement.style.backgroundColor === 'rgba(255, 255, 255, 0.9)';
-
-// Reset all questions
-document.querySelectorAll('.question').forEach(q => {
-q.style.backgroundColor = 'rgba(255,255,255,0.7)';
-});
-
-if (!isExpanded) {
-questionElement.style.backgroundColor = 'rgba(255,255,255,0.9)';
-}
-}
-</script>
-</body>
-</html>
+'Creative expression

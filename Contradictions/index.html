@@ -1,910 +1,262 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Body's Beautiful Betrayal - Physical & Biological Contradictions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #2c1810 0%, #8b4513 50%, #d2691e 100%);
-            min-height: 100vh;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            color: white;
-        }
-
-        .header h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-        }
-
-        .header p {
-            font-size: 1.3em;
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-        .main-contradiction {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-            text-align: center;
-        }
-
-        .contradiction-showcase {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 30px 0;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .truth-side {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 20px;
-            font-size: 1.3em;
-            font-weight: bold;
-            min-width: 250px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(255,107,107,0.3);
-        }
-
-        .truth-side.truth2 {
-            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-            box-shadow: 0 10px 20px rgba(78,205,196,0.3);
-        }
-
-        .bridge {
-            font-size: 3em;
-            color: #8b4513;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .contradiction-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .contradiction-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 25px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            border: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contradiction-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(139,69,19,0.3);
-            border-color: #8b4513;
-        }
-
-        .contradiction-card.selected {
-            border-color: #d2691e;
-            background: rgba(255, 255, 255, 1);
-            transform: translateY(-5px);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .card-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #8b4513;
-        }
-
-        .card-icon {
-            font-size: 2em;
-            opacity: 0.7;
-        }
-
-        .contradiction-pair {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 10px;
-            align-items: center;
-            margin: 15px 0;
-        }
-
-        .mini-truth {
-            background: rgba(139,69,19,0.1);
-            padding: 12px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-
-        .mini-truth.left {
-            background: rgba(255,107,107,0.15);
-        }
-
-        .mini-truth.right {
-            background: rgba(78,205,196,0.15);
-        }
-
-        .mini-bridge {
-            font-size: 1.2em;
-            color: #8b4513;
-            font-weight: bold;
-        }
-
-        .exploration-panel {
-            background: linear-gradient(135deg, #8b4513 0%, #d2691e 100%);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            color: white;
-            display: none;
-        }
-
-        .exploration-panel.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .panel-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .panel-title {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .exploration-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .tab-button {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-            padding: 12px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .tab-button:hover, .tab-button.active {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .tab-content {
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 20px;
-            min-height: 200px;
-            backdrop-filter: blur(10px);
-        }
-
-        .insight-box {
-            background: rgba(255,255,255,0.15);
-            border-left: 5px solid white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        .practice-suggestion {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 15px 0;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .practice-title {
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-            color: #ffe4b5;
-        }
-
-        .close-panel {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            background: rgba(255,255,255,0.2);
-            border: none;
-            color: white;
-            font-size: 1.5em;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .close-panel:hover {
-            background: rgba(255,255,255,0.3);
-            transform: rotate(90deg);
-        }
-
-        .navigation-hint {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .contradiction-showcase {
-                flex-direction: column;
-            }
-            
-            .bridge {
-                transform: rotate(90deg);
-                font-size: 2em;
-            }
-
-            .contradiction-pair {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .mini-bridge {
-                transform: rotate(90deg);
-            }
-
-            .header h1 {
-                font-size: 2.2em;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>The Body's Beautiful Betrayal</h1>
-            <p>Exploring Physical & Biological Contradictions in Pregnancy Loss</p>
-        </div>
-
-        <div class="main-contradiction">
-            <h2 style="color: #8b4513; font-size: 2em; margin-bottom: 20px;">The Central Paradox</h2>
-            <div class="contradiction-showcase">
-                <div class="truth-side">The body nurtured life</div>
-                <div class="bridge">⟷</div>
-                <div class="truth-side truth2">The body released life</div>
-            </div>
-            <p style="font-size: 1.1em; color: #666; margin-top: 20px;">
-                Both are biological processes occurring in the same sacred space, yet they carry opposite emotional meanings. 
-                The body follows its ancient wisdom, even when our hearts are unprepared for its decisions.
-            </p>
-        </div>
-
-        <div class="contradiction-grid">
-            <div class="contradiction-card" data-contradiction="womb">
-                <div class="card-header">
-                    <div class="card-title">The Womb's Duality</div>
-                    <div class="card-icon">🏠</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Sanctuary of creation</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Site of release</div>
-                </div>
-                <p>The same organ that cradles life also holds the wisdom of letting go.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="hormones">
-                <div class="card-header">
-                    <div class="card-title">Hormonal Messages</div>
-                    <div class="card-icon">🧬</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Signals of pregnancy</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Lingers after loss</div>
-                </div>
-                <p>The same hormones that announce life continue their presence, creating emotional confusion.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="cells">
-                <div class="card-header">
-                    <div class="card-title">Cellular Memory</div>
-                    <div class="card-icon">🔬</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Fetal cells remain</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Physical presence gone</div>
-                </div>
-                <p>Microchimerism preserves a biological connection that transcends physical absence.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="ultrasound">
-                <div class="card-header">
-                    <div class="card-title">Medical Technology</div>
-                    <div class="card-icon">📺</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Shows growth and hope</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Reveals stillness</div>
-                </div>
-                <p>The same technology that creates joy can deliver heartbreak within days.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="lactation">
-                <div class="card-header">
-                    <div class="card-title">Body's Preparation</div>
-                    <div class="card-icon">🤱</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Ready to nourish</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">No baby to feed</div>
-                </div>
-                <p>The body continues its biological timeline, disconnected from emotional reality.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="heart">
-                <div class="card-header">
-                    <div class="card-title">Emotional Bond</div>
-                    <div class="card-icon">💝</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Heart feels connected</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Body feels empty</div>
-                </div>
-                <p>Love and attachment persist even when physical presence is gone.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="conception">
-                <div class="card-header">
-                    <div class="card-title">Future Fertility</div>
-                    <div class="card-icon">🌱</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Body can conceive again</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Heart still grieving</div>
-                </div>
-                <p>Biological readiness returns while emotional healing follows its own timeline.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="healing">
-                <div class="card-header">
-                    <div class="card-title">Recovery Timeline</div>
-                    <div class="card-icon">⏰</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Physical healing begins</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Emotional healing delayed</div>
-                </div>
-                <p>The body may move on while the soul cannot, creating asynchronous recovery.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="ending">
-                <div class="card-header">
-                    <div class="card-title">Presence & Absence</div>
-                    <div class="card-icon">∞</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Pregnancy is over</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Connection continues</div>
-                </div>
-                <p>Love, memory, and identity remain even when biology has concluded.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="bleeding">
-                <div class="card-header">
-                    <div class="card-title">Pain's Purpose</div>
-                    <div class="card-icon">🩸</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Feels like injury</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Part of healing</div>
-                </div>
-                <p>Pain and healing share the same pathway, evoking different emotional responses.</p>
-            </div>
-
-            <div class="contradiction-card" data-contradiction="appearance">
-                <div class="card-header">
-                    <div class="card-title">Visual Reality</div>
-                    <div class="card-icon">👁️</div>
-                </div>
-                <div class="contradiction-pair">
-                    <div class="mini-truth left">Body looks pregnant</div>
-                    <div class="mini-bridge">⟷</div>
-                    <div class="mini-truth right">Pregnancy has ended</div>
-                </div>
-                <p>Physical appearance lags behind biological reality, creating emotional dissonance.</p>
-            </div>
-        </div>
-
-        <div class="exploration-panel" id="explorationPanel">
-            <button class="close-panel" onclick="closePanel()">&times;</button>
-            <div class="panel-header">
-                <div class="panel-title" id="panelTitle">Exploring Contradiction</div>
-                <div id="panelSubtitle" style="font-size: 1.1em; opacity: 0.8;"></div>
-            </div>
-
-            <div class="exploration-tabs">
-                <button class="tab-button active" onclick="showTab('interpretation')">Understanding</button>
-                <button class="tab-button" onclick="showTab('practices')">Reflective Practices</button>
-                <button class="tab-button" onclick="showTab('expert')">Expert Insights</button>
-                <button class="tab-button" onclick="showTab('integration')">Integration</button>
-            </div>
-
-            <div class="tab-content" id="tabContent">
-                <!-- Content will be populated by JavaScript -->
-            </div>
-        </div>
-
-        <div class="navigation-hint">
-            <p><strong>Click on any contradiction above to explore it deeply.</strong></p>
-            <p>Each exploration offers understanding, practices, and expert insights to help you hold both truths with compassion.</p>
-        </div>
-    </div>
-
-    <script>
-        const contradictionData = {
-            womb: {
-                title: "The Womb's Sacred Duality",
-                subtitle: "Sanctuary ⟷ Site of Release",
+conception: {
+                title: "Fertility's Return in the Shadow of Grief",
+                subtitle: "Body Ready ⟷ Heart Still Healing",
                 interpretation: `
                     <div class="insight-box">
-                        <h3>The Paradox of Sacred Space</h3>
-                        <p>The uterus embodies the ultimate contradiction - it is simultaneously the safest place on earth for new life and the place where that same life may be released. This isn't a failure of design, but rather the profound wisdom of a space that knows both when to hold and when to let go.</p>
+                        <h3>When Biology Moves Faster Than Emotion</h3>
+                        <p>The reproductive system can restore itself remarkably quickly after pregnancy loss - often within weeks, the body signals readiness for another pregnancy. Yet emotional healing follows its own timeline, creating a profound disconnect between physical capability and psychological preparedness.</p>
                     </div>
-                    <p>In many cultures, the womb is revered as sacred space - the first home, the place of creation, the source of life itself. Yet this same sacred space must sometimes make the difficult decision to release what it has so lovingly held. This duality doesn't diminish its sacredness; it deepens it.</p>
-                    <p>The womb's ability to discern when to nurture and when to release reflects an ancient biological wisdom that operates beyond our conscious control or emotional timeline.</p>
+                    <p>This contradiction can feel overwhelming: your body announces its readiness to try again while your heart may still be processing the previous loss. The return of fertility can bring hope and terror in equal measure - hope for what could be, terror of experiencing loss again.</p>
+                    <p>There's no "right" timing where body and heart align perfectly. This asynchrony is normal and doesn't indicate you're "not ready" or "taking too long" - it simply reflects that physical and emotional healing are different processes with different timelines.</p>
                 `,
                 practices: `
                     <div class="practice-suggestion">
-                        <div class="practice-title">Sacred Space Meditation</div>
-                        <p>Place your hands on your lower abdomen. Breathe deeply and acknowledge your womb as sacred space - capable of both holding and releasing with wisdom beyond understanding.</p>
+                        <div class="practice-title">Body-Heart Check-in</div>
+                        <p>Regularly assess where your body feels (physically ready) versus where your heart feels (emotionally ready) without needing them to match or forcing alignment.</p>
                     </div>
                     <div class="practice-suggestion">
-                        <div class="practice-title">Letter to Your Womb</div>
-                        <p>Write a compassionate letter to this part of your body, thanking it for its efforts in both nurturing and protecting, even when the outcome wasn't what you hoped for.</p>
+                        <div class="practice-title">Timeline Honoring</div>
+                        <p>Create two parallel timelines - one for physical recovery milestones, one for emotional healing markers. Notice they don't need to sync to both be valid.</p>
                     </div>
                     <div class="practice-suggestion">
-                        <div class="practice-title">Duality Art Creation</div>
-                        <p>Create a visual representation showing the duality of the womb - perhaps as a sanctuary and a gentle release, honoring both aspects as sacred.</p>
+                        <div class="practice-title">Future Fears Dialogue</div>
+                        <p>Write a conversation between your hopeful self and your fearful self about trying to conceive again, letting both voices be heard without judgment.</p>
                     </div>
                 `,
                 expert: `
                     <div class="insight-box">
-                        <h3>Medical Perspective</h3>
-                        <p><strong>Dr. Sarah Chen, Reproductive Endocrinologist:</strong> "The uterus has evolved sophisticated mechanisms to assess embryo viability. What we call miscarriage is often the uterus protecting against continued pregnancy with severe genetic abnormalities."</p>
+                        <h3>Reproductive Medicine</h3>
+                        <p><strong>Dr. Sarah Mitchell, Reproductive Endocrinologist:</strong> "Ovulation typically returns within 2-6 weeks after early pregnancy loss. This rapid physical recovery often surprises women who are still emotionally processing the loss."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Fertility Psychology</h3>
+                        <p><strong>Dr. Karen Thompson, Fertility Counselor:</strong> "The decision to try again involves both medical clearance and emotional readiness. These don't always align, and that's completely normal and healthy."</p>
                     </div>
                     <div class="insight-box">
                         <h3>Trauma-Informed Care</h3>
-                        <p><strong>Dr. Maria Rodriguez, Perinatal Mental Health:</strong> "We must honor the womb as both anatomical and symbolic space. It holds not just physical life, but hopes, dreams, and identity. Healing requires acknowledging both dimensions."</p>
-                    </div>
-                    <div class="insight-box">
-                        <h3>Cultural Understanding</h3>
-                        <p><strong>Dr. Amara Okafor, Medical Anthropologist:</strong> "Across cultures, the womb is understood as a threshold space - a place between worlds. This liminal quality helps explain why loss here feels so profound."</p>
+                        <p><strong>Dr. Miguel Rodriguez, Trauma Therapy:</strong> "Subsequent pregnancy after loss carries unique anxieties. Honoring both the desire to try again and the fear of repeat loss is essential for psychological wellbeing."</p>
                     </div>
                 `,
                 integration: `
-                    <p>Integration means learning to hold reverence for your womb's dual nature without needing to choose sides. Your womb is both sanctuary and site of release - both truths are sacred.</p>
+                    <p>Integration means accepting that your body's readiness and your heart's readiness operate on different timelines, and both deserve respect in decision-making about future pregnancy.</p>
                     <div class="insight-box">
-                        <h3>Living the Integration</h3>
-                        <p>• Acknowledge your womb's protective wisdom, even when it leads to loss</p>
-                        <p>• Honor both the nurturing and releasing functions as expressions of care</p>
-                        <p>• Recognize that sanctuary and release can coexist in sacred space</p>
-                        <p>• Trust that your body's decisions come from ancient wisdom, even when your heart is unprepared</p>
+                        <h3>Honoring Both Timelines</h3>
+                        <p>• Recognize physical readiness doesn't require emotional readiness</p>
+                        <p>• Allow hope and fear to coexist about future conception</p>
+                        <p>• Make decisions based on both physical and emotional factors</p>
+                        <p>• Trust that readiness can shift and change over time</p>
                     </div>
-                    <p><em>Your womb's ability to hold both creation and release makes it not less sacred, but more profoundly sacred - a space where life's deepest mysteries unfold.</em></p>
+                    <p><em>Your body's fertility and your heart's healing don't need to move at the same pace - both have their own wisdom and timing.</em></p>
                 `
             },
-            hormones: {
-                title: "Hormonal Messages of Love and Loss",
-                subtitle: "Life Signals ⟷ Lingering Presence",
+
+            healing: {
+                title: "Recovery's Dual Timeline",
+                subtitle: "Physical Healing ⟷ Emotional Wounds",
                 interpretation: `
                     <div class="insight-box">
-                        <h3>Chemical Messengers of Complex Truth</h3>
-                        <p>Hormones like hCG, progesterone, and estrogen don't just signal pregnancy - they orchestrate the entire symphony of expectation, hope, and biological preparation. When pregnancy ends, these same hormones may linger, creating a biological echo of what was.</p>
+                        <h3>The Visible and Invisible Recovery</h3>
+                        <p>Physical healing after pregnancy loss often progresses predictably - bleeding stops, hormones normalize, medical clearance is given. But emotional healing follows no such linear path, creating a contradiction between what's "healed" medically and what still feels wounded spiritually.</p>
                     </div>
-                    <p>The contradiction is profound: the very molecules that announced joyful news continue circulating, carrying messages that no longer match reality. This isn't biological error - it's the body's gradual adjustment, processing loss at its own pace.</p>
-                    <p>Understanding that hormonal lag is normal can help explain why emotional confusion often follows physical symptoms - your chemistry is literally working through the contradiction between what was and what is.</p>
+                    <p>This creates pressure to feel "better" because the body appears recovered. Others may assume that physical healing equals complete healing, not understanding that the deepest wounds - to identity, hopes, and dreams - may just be beginning their healing journey.</p>
+                    <p>The contradiction isn't a problem to be solved but a reality to be navigated. Physical recovery enables daily functioning while emotional healing deepens understanding, meaning, and resilience. Both are necessary; neither is superior.</p>
                 `,
                 practices: `
                     <div class="practice-suggestion">
-                        <div class="practice-title">Hormone Awareness Journal</div>
-                        <p>Track your emotional shifts alongside any lingering physical symptoms. Notice how your feelings may fluctuate as hormones gradually balance.</p>
+                        <div class="practice-title">Dual Recovery Mapping</div>
+                        <p>Create two healing maps - one tracking physical recovery milestones, another mapping emotional healing moments. Notice how they diverge and converge.</p>
                     </div>
                     <div class="practice-suggestion">
-                        <div class="practice-title">Chemical Compassion Practice</div>
-                        <p>When experiencing hormonal confusion, remind yourself: "My body is processing this loss at its own wise pace. These lingering signals are evidence of love, not failure."</p>
+                        <div class="practice-title">Invisible Wound Tending</div>
+                        <p>Develop daily practices for tending emotional wounds with the same care you'd give physical ones - gentleness, patience, and appropriate support.</p>
                     </div>
                     <div class="practice-suggestion">
-                        <div class="practice-title">Molecular Meditation</div>
-                        <p>Visualize your hormones as messengers of care, slowly carrying away the biological memory of pregnancy while honoring what was held.</p>
+                        <div class="practice-title">Integration Ritual</div>
+                        <p>When receiving medical clearance, create a personal ritual acknowledging that while your body has healed, your soul continues its own important recovery work.</p>
                     </div>
                 `,
                 expert: `
                     <div class="insight-box">
-                        <h3>Endocrinological Insight</h3>
-                        <p><strong>Dr. James Liu, Reproductive Endocrinologist:</strong> "HCG can remain detectable for weeks after pregnancy loss. This hormonal persistence often prolongs emotional distress, requiring integrated medical and mental health care."</p>
+                        <h3>Medical Recovery</h3>
+                        <p><strong>Dr. Lisa Park, Obstetrics:</strong> "Physical healing after pregnancy loss is typically complete within 4-6 weeks. However, this timeline doesn't account for psychological recovery, which may take months or years."</p>
                     </div>
                     <div class="insight-box">
-                        <h3>Psychological Perspective</h3>
-                        <p><strong>Dr. Rachel Kim, Perinatal Psychologist:</strong> "The disconnect between lingering pregnancy hormones and ended pregnancy creates unique psychological distress. Normalizing this experience is crucial for healing."</p>
+                        <h3>Trauma Recovery</h3>
+                        <p><strong>Dr. James Wilson, Trauma Specialist:</strong> "The body-mind connection means that emotional healing can affect physical recovery and vice versa. Integrated care addresses both simultaneously."</p>
                     </div>
                     <div class="insight-box">
-                        <h3>Integrative Medicine</h3>
-                        <p><strong>Dr. Elena Vasquez, Holistic Women's Health:</strong> "Supporting the body through hormonal transition after loss requires attention to both physical rebalancing and emotional processing of chemical memories."</p>
+                        <h3>Holistic Health</h3>
+                        <p><strong>Dr. Maria Gonzalez, Integrative Medicine:</strong> "True healing encompasses physical, emotional, mental, and spiritual dimensions. Recovery isn't complete until all aspects are addressed and integrated."</p>
                     </div>
                 `,
                 integration: `
-                    <p>Integration means accepting that your body's chemical adjustment follows its own timeline, separate from your emotional readiness to move forward.</p>
+                    <p>Integration means honoring both visible physical recovery and invisible emotional healing as equally important aspects of your overall restoration.</p>
                     <div class="insight-box">
-                        <h3>Hormonal Harmony</h3>
-                        <p>• Trust your body's gradual process of hormonal rebalancing</p>
-                        <p>• Recognize lingering symptoms as evidence of your body's capacity for love, not confusion</p>
-                        <p>• Allow emotional fluctuations during hormonal transition without judgment</p>
-                        <p>• Support your body nutritionally and emotionally during chemical adjustment</p>
+                        <h3>Complete Healing Understanding</h3>
+                        <p>• Acknowledge physical recovery as one dimension of healing, not the complete picture</p>
+                        <p>• Give emotional healing the time and attention it needs without rushing</p>
+                        <p>• Communicate your ongoing emotional needs even after physical recovery</p>
+                        <p>• Recognize that complete healing encompasses body, mind, and spirit</p>
                     </div>
-                    <p><em>Your hormones are not betraying you - they're processing the end of pregnancy with the same care they used to nurture it.</em></p>
+                    <p><em>Your body's healing and your soul's healing are both real, both necessary, and both deserving of time, attention, and respect.</em></p>
                 `
             },
-            cells: {
-                title: "Cellular Memory: The Biology of Lasting Connection",
-                subtitle: "Fetal Cells Remain ⟷ Physical Presence Gone",
+
+            ending: {
+                title: "When Endings Become Beginnings",
+                subtitle: "Pregnancy Over ⟷ Connection Eternal",
                 interpretation: `
                     <div class="insight-box">
-                        <h3>Microchimerism: When Biology Transcends Loss</h3>
-                        <p>During pregnancy, fetal cells cross into maternal circulation and can remain in the mother's body for decades. This phenomenon, called microchimerism, means that even after pregnancy loss, a biological connection persists at the cellular level.</p>
+                        <h3>Medical Conclusion vs. Relationship Continuation</h3>
+                        <p>Medically, pregnancy has a clear endpoint - when physical signs disappear and hormone levels return to baseline, the pregnancy is officially "over." Yet the relationship formed, the love felt, and the identity changed continue indefinitely, creating a profound contradiction between biological conclusion and emotional continuation.</p>
                     </div>
-                    <p>This creates a beautiful scientific contradiction: while the pregnancy has ended and physical presence is gone, there remains a literal, measurable biological bond. You carry cellular memory - living proof that the connection was real and continues in ways invisible to the naked eye.</p>
-                    <p>These cells may even provide benefits to maternal health, suggesting that this biological contradiction serves a protective purpose, creating lasting connection from temporary presence.</p>
+                    <p>This contradiction challenges linear thinking about beginnings and endings. The pregnancy that began with conception doesn't simply end with loss - it transforms. The relationship continues in memory, in dreams, in the way you move through the world as someone who loved and lost.</p>
+                    <p>Understanding that endings can coexist with continuations helps make sense of why loss feels so complex. You're simultaneously experiencing conclusion and connection, termination and transformation, ending and eternal bond.</p>
                 `,
                 practices: `
                     <div class="practice-suggestion">
-                        <div class="practice-title">Cellular Connection Meditation</div>
-                        <p>Place your hand over your heart and visualize the fetal cells that remain, understanding them as evidence of connection that transcends physical presence.</p>
+                        <div class="practice-title">Transformation Ceremony</div>
+                        <p>Create a ritual marking the transformation from active pregnancy to continuing connection - perhaps lighting a memorial candle or writing a letter about how your love continues.</p>
                     </div>
                     <div class="practice-suggestion">
-                        <div class="practice-title">Memory Cell Poetry</div>
-                        <p>Write a poem or story imagining the journey and purpose of these cellular messengers, honoring their continued presence in your body.</p>
+                        <div class="practice-title">Relationship Continuation Practice</div>
+                        <p>Develop ways to maintain your relationship with your baby - through regular conversations, visits to meaningful places, or creative expressions of ongoing love.</p>
                     </div>
                     <div class="practice-suggestion">
-                        <div class="practice-title">Biological Bond Acknowledgment</div>
-                        <p>Create a ritual acknowledging that your baby left not just emotional imprints, but biological ones - a scientific testament to love that endures.</p>
+                        <div class="practice-title">Identity Evolution Writing</div>
+                        <p>Write about how you remain a mother/father/parent even after pregnancy loss, exploring how this identity transforms but doesn't disappear.</p>
                     </div>
                 `,
                 expert: `
                     <div class="insight-box">
-                        <h3>Immunological Research</h3>
-                        <p><strong>Dr. Diana Bianchi, Pediatric Geneticist:</strong> "Fetal cells can be found in maternal blood, bone marrow, liver, and thyroid decades after pregnancy. This suggests profound biological integration beyond what we traditionally understand."</p>
-                    </div>
-                    <div class="insight-box">
-                        <h3>Epigenetic Studies</h3>
-                        <p><strong>Dr. Michael Johnson, Epigeneticist:</strong> "These fetal cells may influence maternal health and healing, creating a biological legacy from pregnancy that serves protective functions long after loss."</p>
-                    </div>
-                    <div class="insight-box">
-                        <h3>Therapeutic Implications</h3>
-                        <p><strong>Dr. Lisa Park, Grief Counselor:</strong> "Understanding microchimerism can provide comfort - the connection wasn't just emotional or spiritual, but measurable and lasting at the cellular level."</p>
-                    </div>
-                `,
-                integration: `
-                    <p>Integration means understanding that biological connection can persist even when physical presence ends, creating a bridge between science and spirit.</p>
-                    <div class="insight-box">
-                        <h3>Cellular Wisdom</h3>
-                        <p>• Recognize that your body holds living proof of connection beyond loss</p>
-                        <p>• Trust that these cellular memories serve purposes beyond current understanding</p>
-                        <p>• Find comfort in the scientific reality of lasting biological bonds</p>
-                        <p>• Honor both the presence of cellular memory and absence of physical form</p>
-                    </div>
-                    <p><em>Your body carries evidence of love at the cellular level - a biological testament that some connections transcend physical presence.</em></p>
-                `
-            },
-            // Additional contradictions would follow the same pattern...
-        };
-
-        let currentContradiction = null;
-        let currentTab = 'interpretation';
-
-        function selectContradiction(contradictionKey) {
-            // Remove previous selection
-            document.querySelectorAll('.contradiction-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-
-            // Add selection to clicked card
-            document.querySelector(`[data-contradiction="${contradictionKey}"]`).classList.add('selected');
-
-            currentContradiction = contradictionKey;
-            const data = contradictionData[contradictionKey];
-
-            if (data) {
-                document.getElementById('panelTitle').textContent = data.title;
-                document.getElementById('panelSubtitle').textContent = data.subtitle;
-                
-                showTab(currentTab);
-                document.getElementById('explorationPanel').classList.add('active');
-                
-                // Smooth scroll to panel
-                document.getElementById('explorationPanel').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            }
-        }
-
-        function showTab(tabName) {
-            currentTab = tabName;
-            
-            // Update tab buttons
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.classList.remove('active');
-            });
-            event.target?.classList.add('active') || document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
-
-            const data = contradictionData[currentContradiction];
-            const content = document.getElementById('tabContent');
-
-            if (!data) return;
-
-            switch(tabName) {
-                case 'interpretation':
-                    content.innerHTML = `
-                        <h3 style="margin-bottom: 20px; color: #ffe4b5;">Understanding the Contradiction</h3>
-                        ${data.interpretation}
-                    `;
-                    break;
-                case 'practices':
-                    content.innerHTML = `
-                        <h3 style="margin-bottom: 20px; color: #ffe4b5;">Reflective Practices</h3>
-                        <p style="margin-bottom: 20px;">These practices help you hold both truths with compassion and find meaning in the contradiction:</p>
-                        ${data.practices}
-                    `;
-                    break;
-                case 'expert':
-                    content.innerHTML = `
-                        <h3 style="margin-bottom: 20px; color: #ffe4b5;">Expert Insights</h3>
-                        <p style="margin-bottom: 20px;">Professional perspectives on this biological and emotional contradiction:</p>
-                        ${data.expert}
-                    `;
-                    break;
-                case 'integration':
-                    content.innerHTML = `
-                        <h3 style="margin-bottom: 20px; color: #ffe4b5;">Living with Integration</h3>
-                        <p style="margin-bottom: 20px;">How to embody both truths in your daily life and healing journey:</p>
-                        ${data.integration}
-                    `;
-                    break;
-            }
-        }
-
-        function closePanel() {
-            document.getElementById('explorationPanel').classList.remove('active');
-            document.querySelectorAll('.contradiction-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-            currentContradiction = null;
-        }
-
-        // Add click handlers to contradiction cards
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.contradiction-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const contradictionKey = this.getAttribute('data-contradiction');
-                    selectContradiction(contradictionKey);
-                });
-            });
-        });
-
-        // Complete the contradiction data object with remaining entries
-        Object.assign(contradictionData, {
-            ultrasound: {
-                title: "Medical Technology's Double Edge",
-                subtitle: "Shows Growth ⟷ Reveals Stillness",
-                interpretation: `
-                    <div class="insight-box">
-                        <h3>The Same Window, Different Views</h3>
-                        <p>Ultrasound technology serves as a window into the womb, but what it reveals can shift from hope to heartbreak within days or even hours. The same device that shows a growing baby can later show the absence of a heartbeat.</p>
-                    </div>
-                    <p>This contradiction highlights the dual nature of medical monitoring - it connects us to our pregnancies in unprecedented ways, allowing us to see and hear what previous generations could only imagine. Yet this same connection makes loss more immediate and visually concrete.</p>
-                    <p>The ultrasound image becomes both treasure and trauma - evidence of what was and confirmation of what is no longer. The technology doesn't create the contradiction; it simply makes visible what has always been the uncertainty of early pregnancy.</p>
-                `,
-                practices: `
-                    <div class="practice-suggestion">
-                        <div class="practice-title">Image Integration Practice</div>
-                        <p>If you have ultrasound images, spend time with them mindfully. See them as evidence of connection and growth that was real, even if brief.</p>
-                    </div>
-                    <div class="practice-suggestion">
-                        <div class="practice-title">Technology Gratitude</div>
-                        <p>Write about both the gift and burden of medical technology - how it allowed you to connect, even as it later confirmed loss.</p>
-                    </div>
-                    <div class="practice-suggestion">
-                        <div class="practice-title">False Signals Art</div>
-                        <p>Explore the theme of "mixed messages" through collage, sound design, or visual art that reflects the duality of medical monitoring.</p>
-                    </div>
-                `,
-                expert: `
-                    <div class="insight-box">
-                        <h3>Medical Ethics Perspective</h3>
-                        <p><strong>Dr. Amanda Foster, Medical Ethics:</strong> "Healthcare providers must balance the benefits of early monitoring with the emotional risks. Compassionate communication becomes crucial when technology delivers unexpected news."</p>
-                    </div>
-                    <div class="insight-box">
-                        <h3>Perinatal Medicine</h3>
-                        <p><strong>Dr. Robert Chen, Maternal-Fetal Medicine:</strong> "Early ultrasounds can show growth one week and absence the next. This timing creates unique grief - parents have visual evidence of both life and loss."</p>
-                    </div>
-                    <div class="insight-box">
-                        <h3>Psychological Impact</h3>
-                        <p><strong>Dr. Sarah Williams, Reproductive Psychology:</strong> "Ultrasound images create powerful psychological attachment. The visual nature of the loss can intensify grief but also provide tangible evidence of the pregnancy's reality."</p>
-                    </div>
-                `,
-                integration: `
-                    <p>Integration means honoring both the connection that ultrasound technology provided and accepting its role in confirming loss, without needing to choose gratitude or resentment.</p>
-                    <div class="insight-box">
-                        <h3>Technology and Healing</h3>
-                        <p>• Acknowledge ultrasound as both gift and burden in your pregnancy journey</p>
-                        <p>• Honor the connection these images provided, regardless of outcome</p>
-                        <p>• Recognize that medical technology reflects reality, it doesn't create it</p>
-                        <p>• Allow both gratitude for the glimpse and sadness for what was lost</p>
-                    </div>
-                    <p><em>The same technology that broke your heart also gave you proof that your baby was real - both truths can coexist.</em></p>
-                `
-            },
-
-            lactation: {
-                title: "The Body's Persistent Preparation",
-                subtitle: "Ready to Nourish ⟷ No Baby to Feed",
-                interpretation: `
-                    <div class="insight-box">
-                        <h3>Biological Timeline vs. Emotional Reality</h3>
-                        <p>The body's preparation for lactation follows an ancient biological program that doesn't pause for emotional readiness. Hormonal changes trigger breast changes and milk production regardless of pregnancy outcome, creating a profound disconnect between physical preparation and missing recipient.</p>
-                    </div>
-                    <p>This contradiction can feel like biological mockery - the body continuing its nurturing preparations when there's no one to nurture. Yet it's also evidence of your body's complete commitment to the pregnancy, its full investment in the role of mother.</p>
-                    <p>The presence of milk or breast changes after loss isn't failure or confusion - it's proof that your body was completely prepared to care for your baby. This preparation was real, even if the feeding never happened.</p>
-                `,
-                practices: `
-                    <div class="practice-suggestion">
-                        <div class="practice-title">Body Appreciation Practice</div>
-                        <p>Place your hands on your chest and acknowledge your body's complete preparation to nourish. Thank it for its readiness, even though it wasn't needed.</p>
-                    </div>
-                    <div class="practice-suggestion">
-                        <div class="practice-title">Nurturing Redirection</div>
-                        <p>If experiencing physical lactation symptoms, consider how you might redirect that nurturing energy - perhaps toward self-care, creative projects, or supporting others.</p>
-                    </div>
-                    <div class="practice-suggestion">
-                        <div class="practice-title">Timeline Acknowledgment</div>
-                        <p>Write about the difference between your body's timeline and your heart's timeline, honoring both without needing them to match.</p>
-                    </div>
-                `,
-                expert: `
-                    <div class="insight-box">
-                        <h3>Lactation Medicine</h3>
-                        <p><strong>Dr. Maria Santos, Lactation Medicine:</strong> "Lactation can begin as early as 16 weeks gestation. After loss, managing physical symptoms requires both medical and emotional support."</p>
-                    </div>
-                    <div class="insight-box">
-                        <h3>Endocrine Perspective</h3>
-                        <p><strong>Dr. Jennifer Liu, Reproductive Endocrinology:</strong> "The hormonal cascade for lactation operates independently of pregnancy outcome. Physical symptoms after loss are normal biological responses, not errors."</p>
-                    </div>
-                    <div class="insight-box">
-                        <h3>Grief Support</h3>
-                        <p><strong>Dr. Patricia Moore, Perinatal Grief Specialist:</strong> "Lactation symptoms after loss can be particularly traumatic. They're physical reminders that require both practical management and emotional processing."</p>
-                    </div>
-                `,
-                integration: `
-                    <p>Integration means recognizing your body's lactation preparation as evidence of complete maternal commitment, even when that preparation wasn't ultimately needed.</p>
-                    <div class="insight-box">
-                        <h3>Honoring Preparation</h3>
-                        <p>• See lactation changes as proof of your body's full investment in pregnancy</p>
-                        <p>• Manage physical symptoms with medical support and emotional compassion</p>
-                        <p>• Redirect nurturing energy in ways that honor your maternal capacity</p>
-                        <p>• Allow grief for the feeding relationship that will never be</p>
-                    </div>
-                    <p><em>Your body was completely prepared to nourish your baby - this preparation was love made manifest, regardless of outcome.</em></p>
-                `
-            },
-
-            heart: {
-                title: "Love That Transcends Physical Presence",
-                subtitle: "Heart Connected ⟷ Body Empty",
-                interpretation: `
-                    <div class="insight-box">
-                        <h3>Emotional Truth vs. Physical Reality</h3>
-                        <p>The heart forms bonds that exist independently of physical presence. Love, attachment, and parental identity can be fully formed even when physical connection is brief. This creates the profound contradiction between feeling completely connected to someone who is no longer physically present.</p>
-                    </div>
-                    <p>This isn't confusion or denial - it's the reality that emotional bonds operate on different principles than physical ones. Your heart's connection to your baby doesn't end when physical presence ends. The love was real, the bond was real, the relationship was real.</p>
-                    <p>The emptiness in your body and the fullness in your heart can coexist. Neither negates the other. Both are true simultaneously, creating the beautiful complexity of love that transcends physical boundaries.</p>
-                `,
-                practices: `
-                    <div class="practice-suggestion">
-                        <div class="practice-title">Heart-Body Dialogue</div>
-                        <p>Practice conversations between your heart (which feels connected) and your body (which feels empty), allowing both to express their truth without judgment.</p>
-                    </div>
-                    <div class="practice-suggestion">
-                        <div class="practice-title">Love Continuation Ritual</div>
-                        <p>Create a practice that honors your ongoing love - perhaps lighting a candle, writing letters, or other rituals that acknowledge continuing connection.</p>
-                    </div>
-                    <div class="practice-suggestion">
-                        <div class="practice-title">Connection Art</div>
-                        <p>Create visual art, music, or poetry that expresses the reality of loving someone who is no longer physically present but remains emotionally close.</p>
-                    </div>
-                `,
-                expert: `
-                    <div class="insight-box">
-                        <h3>Attachment Psychology</h3>
-                        <p><strong>Dr. Anne Martinez, Attachment Specialist:</strong> "Parental bonds can form as early as conception and persist beyond physical presence. These attachments are psychologically real and deserve validation."</p>
-                    </div>
-                    <div class="insight-box">
-                        <h3>Grief and Loss</h3>
-                        <p><strong>Dr. David Kim, Grief Therapist:</strong> "Continuing bonds theory recognizes that love doesn't end with death. Maintaining connection while accepting absence is part of healthy grief processing."</p>
+                        <h3>Continuing Bonds Research</h3>
+                        <p><strong>Dr. Tony Walter, Grief Studies:</strong> "Modern grief theory recognizes that healthy mourning involves maintaining connection to the deceased, not 'letting go.' This applies powerfully to pregnancy loss."</p>
                     </div>
                     <div class="insight-box">
                         <h3>Perinatal Identity</h3>
-                        <p><strong>Dr. Lisa Chen, Maternal Identity Research:</strong> "Maternal identity can be fully formed even in early pregnancy. Loss doesn't erase this identity - it transforms it into a different kind of motherhood."</p>
+                        <p><strong>Dr. Joann Cacciatore, Traumatic Grief:</strong> "The parental identity formed during pregnancy doesn't end with loss - it evolves. Parents remain parents, even when their children are not physically present."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Meaning-Making</h3>
+                        <p><strong>Dr. Dennis Klass, Bereavement Studies:</strong> "Creating ongoing meaning from brief relationships is part of healthy adaptation. The connection transcends the physical timeframe of the pregnancy."</p>
                     </div>
                 `,
                 integration: `
-                    <p>Integration means accepting that love and absence can coexist, that your heart's connection is real even when physical presence is gone.</p>
+                    <p>Integration means embracing the paradox that pregnancy can end while relationship continues, that medical closure doesn't require emotional closure.</p>
                     <div class="insight-box">
-                        <h3>Heart-Body Harmony</h3>
-                        <p>• Honor both the fullness in your heart and emptiness in your body</p>
-                        <p>• Recognize continuing love as evidence of real relationship, not denial</p>
-                        <p>• Allow grief for physical absence while maintaining emotional connection</p>
-                        <p>• Trust that love transcends physical boundaries and time limitations</p>
+                        <h3>Eternal Connection in Finite Time</h3>
+                        <p>• Accept that pregnancy's end doesn't mean relationship's end</p>
+                        <p>• Honor both the medical conclusion and the continuing spiritual connection</p>
+                        <p>• Maintain relationship through memory, ritual, and ongoing love</p>
+                        <p>• Recognize parental identity as transformed, not terminated</p>
                     </div>
-                    <p><em>Your heart's connection to your baby is not diminished by physical absence - love is bigger than presence, deeper than time.</em></p>
+                    <p><em>Your pregnancy may be medically over, but your love, your identity as a parent, and your connection to your baby transcend physical time and space.</em></p>
+                `
+            },
+
+            bleeding: {
+                title: "Pain's Paradoxical Purpose",
+                subtitle: "Feels Like Injury ⟷ Acts Like Healing",
+                interpretation: `
+                    <div class="insight-box">
+                        <h3>The Same Sensation, Different Meanings</h3>
+                        <p>Bleeding and cramping after pregnancy loss feel identical to injury - the body seems damaged, broken, in distress. Yet these same sensations represent the body's natural healing process, returning to its pre-pregnancy state. This creates confusion between what feels harmful and what is actually restorative.</p>
+                    </div>
+                    <p>The contradiction lies in our interpretation: the same physical experience can simultaneously feel like damage and be evidence of healing. Your body isn't broken or failing - it's performing the complex work of recovery, even though this work feels traumatic.</p>
+                    <p>Understanding this paradox can transform your relationship with post-loss symptoms. The pain isn't punishment or failure - it's your body's way of caring for itself, returning to balance, preparing for whatever comes next.</p>
+                `,
+                practices: `
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Pain Reframing Practice</div>
+                        <p>When experiencing cramping or bleeding, gently remind yourself: "This is my body healing itself, not harming itself. This pain has purpose."</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Healing Dialogue</div>
+                        <p>Write a conversation with your uterus, acknowledging its hard work in both holding the pregnancy and now healing from the loss.</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Body Appreciation During Pain</div>
+                        <p>Practice sending gratitude to your body even during uncomfortable symptoms, recognizing them as evidence of your body's wisdom and healing capacity.</p>
+                    </div>
+                `,
+                expert: `
+                    <div class="insight-box">
+                        <h3>Gynecological Medicine</h3>
+                        <p><strong>Dr. Rachel Kim, Gynecology:</strong> "Post-miscarriage bleeding and cramping, while distressing, are normal healing processes. The uterus is contracting to return to its non-pregnant size and expelling remaining tissue."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Pain Psychology</h3>
+                        <p><strong>Dr. Michael Brown, Pain Specialist:</strong> "The meaning we assign to pain affects our experience of it. Understanding post-loss pain as healing rather than injury can reduce anxiety and improve coping."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Mind-Body Medicine</h3>
+                        <p><strong>Dr. Susan Lee, Integrative Health:</strong> "Supporting the body during post-loss healing with both medical care and emotional understanding optimizes both physical recovery and psychological adjustment."</p>
+                    </div>
+                `,
+                integration: `
+                    <p>Integration means learning to hold space for pain that feels like injury while understanding it as healing, allowing both experiences to coexist.</p>
+                    <div class="insight-box">
+                        <h3>Pain as Healing Wisdom</h3>
+                        <p>• Recognize physical symptoms as evidence of your body's healing wisdom</p>
+                        <p>• Allow pain to feel distressing while knowing it serves a purpose</p>
+                        <p>• Provide comfort and support to yourself during the healing process</p>
+                        <p>• Trust your body's ability to restore itself, even when the process is uncomfortable</p>
+                    </div>
+                    <p><em>Your body's healing process may feel like injury, but it's actually evidence of profound wisdom - your body knows how to care for itself, even through pain.</em></p>
+                `
+            },
+
+            appearance: {
+                title: "The Body's Delayed Truth",
+                subtitle: "Looking Pregnant ⟷ No Longer Pregnant",
+                interpretation: `
+                    <div class="insight-box">
+                        <h3>When Physical Reality Lags Behind Medical Reality</h3>
+                        <p>The body's appearance can remain pregnancy-like for weeks or months after loss - the belly may stay rounded, breasts remain enlarged, the glow of pregnancy may linger. This creates a painful contradiction between looking pregnant to the world while knowing internally that the pregnancy has ended.</p>
+                    </div>
+                    <p>This visual lag creates complex social interactions. Others may congratulate you or ask about your pregnancy, not knowing about the loss. Your mirror reflects a pregnant-looking person while your heart knows the truth. The body's slow return to its pre-pregnancy state becomes a daily reminder of what was and is no longer.</p>
+                    <p>Understanding this as a normal part of physical recovery can help reduce self-criticism. Your body isn't being stubborn or slow - it's following its own timeline for returning to its pre-pregnancy state, independent of your emotional timeline.</p>
+                `,
+                practices: `
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Mirror Compassion Practice</div>
+                        <p>When seeing your reflection, practice speaking kindly: "My body is transitioning at its own pace. This appearance is temporary and normal."</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Protective Response Planning</div>
+                        <p>Prepare gentle responses for when others comment on your pregnancy-like appearance, protecting your emotional wellbeing while educating when appropriate.</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Body Transition Ritual</div>
+                        <p>Create rituals to honor your body's gradual transition - perhaps blessing your changing reflection or wearing clothes that feel supportive during this phase.</p>
+                    </div>
+                `,
+                expert: `
+                    <div class="insight-box">
+                        <h3>Postpartum Recovery</h3>
+                        <p><strong>Dr. Jennifer Walsh, Obstetrics:</strong> "The uterus takes 6-8 weeks to return to pre-pregnancy size, and other physical changes can persist longer. This is true regardless of how the pregnancy ended."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Social Psychology</h3>
+                        <p><strong>Dr. Amy Foster, Social Psychology:</strong> "The disconnect between appearance and reality after pregnancy loss creates unique social challenges. Preparing responses and seeking support can help navigate these interactions."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Body Image Therapy</h3>
+                        <p><strong>Dr. Carlos Martinez, Body Image Specialist:</strong> "Post-loss body image adjustment involves accepting temporary physical changes while grieving the pregnancy. Self-compassion is crucial during this transition."</p>
+                    </div>
+                `,
+                integration: `
+                    <p>Integration means accepting that your body's appearance and internal reality may not match for a period, and both experiences are valid and temporary.</p>
+                    <div class="insight-box">
+                        <h3>Navigating Visual Contradiction</h3>
+                        <p>• Accept that physical appearance transitions on its own timeline</p>
+                        <p>• Prepare for and protect yourself during difficult social interactions</p>
+                        <p>• Practice self-compassion when your reflection doesn't match your internal state</p>
+                        <p>• Trust that this visual lag is temporary and normal</p>
+                    </div>
+                    <p><em>Your body's appearance is telling the story of where you've been, not where you are now - both stories are part of your journey.</em></p>
                 `
             }
-        });
-    </script>
-</body>
-</html>
+        };
+
+        let currentContradiction = null;

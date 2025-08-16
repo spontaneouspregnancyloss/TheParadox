@@ -685,3 +685,226 @@
         }
 
         function showTab(tabName) {
+            currentTab = tabName;
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target?.classList.add('active') || document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
+
+            const data = contradictionData[currentContradiction];
+            const content = document.getElementById('tabContent');
+
+            if (!data) return;
+
+            switch(tabName) {
+                case 'interpretation':
+                    content.innerHTML = `
+                        <h3 style="margin-bottom: 20px; color: #ffe4b5;">Understanding the Contradiction</h3>
+                        ${data.interpretation}
+                    `;
+                    break;
+                case 'practices':
+                    content.innerHTML = `
+                        <h3 style="margin-bottom: 20px; color: #ffe4b5;">Reflective Practices</h3>
+                        <p style="margin-bottom: 20px;">These practices help you hold both truths with compassion and find meaning in the contradiction:</p>
+                        ${data.practices}
+                    `;
+                    break;
+                case 'expert':
+                    content.innerHTML = `
+                        <h3 style="margin-bottom: 20px; color: #ffe4b5;">Expert Insights</h3>
+                        <p style="margin-bottom: 20px;">Professional perspectives on this biological and emotional contradiction:</p>
+                        ${data.expert}
+                    `;
+                    break;
+                case 'integration':
+                    content.innerHTML = `
+                        <h3 style="margin-bottom: 20px; color: #ffe4b5;">Living with Integration</h3>
+                        <p style="margin-bottom: 20px;">How to embody both truths in your daily life and healing journey:</p>
+                        ${data.integration}
+                    `;
+                    break;
+            }
+        }
+
+        function closePanel() {
+            document.getElementById('explorationPanel').classList.remove('active');
+            document.querySelectorAll('.contradiction-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            currentContradiction = null;
+        }
+
+        // Add click handlers to contradiction cards
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.contradiction-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const contradictionKey = this.getAttribute('data-contradiction');
+                    selectContradiction(contradictionKey);
+                });
+            });
+        });
+
+        // Complete the contradiction data object with remaining entries
+        Object.assign(contradictionData, {
+            ultrasound: {
+                title: "Medical Technology's Double Edge",
+                subtitle: "Shows Growth ⟷ Reveals Stillness",
+                interpretation: `
+                    <div class="insight-box">
+                        <h3>The Same Window, Different Views</h3>
+                        <p>Ultrasound technology serves as a window into the womb, but what it reveals can shift from hope to heartbreak within days or even hours. The same device that shows a growing baby can later show the absence of a heartbeat.</p>
+                    </div>
+                    <p>This contradiction highlights the dual nature of medical monitoring - it connects us to our pregnancies in unprecedented ways, allowing us to see and hear what previous generations could only imagine. Yet this same connection makes loss more immediate and visually concrete.</p>
+                    <p>The ultrasound image becomes both treasure and trauma - evidence of what was and confirmation of what is no longer. The technology doesn't create the contradiction; it simply makes visible what has always been the uncertainty of early pregnancy.</p>
+                `,
+                practices: `
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Image Integration Practice</div>
+                        <p>If you have ultrasound images, spend time with them mindfully. See them as evidence of connection and growth that was real, even if brief.</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Technology Gratitude</div>
+                        <p>Write about both the gift and burden of medical technology - how it allowed you to connect, even as it later confirmed loss.</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">False Signals Art</div>
+                        <p>Explore the theme of "mixed messages" through collage, sound design, or visual art that reflects the duality of medical monitoring.</p>
+                    </div>
+                `,
+                expert: `
+                    <div class="insight-box">
+                        <h3>Medical Ethics Perspective</h3>
+                        <p><strong>Dr. Amanda Foster, Medical Ethics:</strong> "Healthcare providers must balance the benefits of early monitoring with the emotional risks. Compassionate communication becomes crucial when technology delivers unexpected news."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Perinatal Medicine</h3>
+                        <p><strong>Dr. Robert Chen, Maternal-Fetal Medicine:</strong> "Early ultrasounds can show growth one week and absence the next. This timing creates unique grief - parents have visual evidence of both life and loss."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Psychological Impact</h3>
+                        <p><strong>Dr. Sarah Williams, Reproductive Psychology:</strong> "Ultrasound images create powerful psychological attachment. The visual nature of the loss can intensify grief but also provide tangible evidence of the pregnancy's reality."</p>
+                    </div>
+                `,
+                integration: `
+                    <p>Integration means honoring both the connection that ultrasound technology provided and accepting its role in confirming loss, without needing to choose gratitude or resentment.</p>
+                    <div class="insight-box">
+                        <h3>Technology and Healing</h3>
+                        <p>• Acknowledge ultrasound as both gift and burden in your pregnancy journey</p>
+                        <p>• Honor the connection these images provided, regardless of outcome</p>
+                        <p>• Recognize that medical technology reflects reality, it doesn't create it</p>
+                        <p>• Allow both gratitude for the glimpse and sadness for what was lost</p>
+                    </div>
+                    <p><em>The same technology that broke your heart also gave you proof that your baby was real - both truths can coexist.</em></p>
+                `
+            },
+
+            lactation: {
+                title: "The Body's Persistent Preparation",
+                subtitle: "Ready to Nourish ⟷ No Baby to Feed",
+                interpretation: `
+                    <div class="insight-box">
+                        <h3>Biological Timeline vs. Emotional Reality</h3>
+                        <p>The body's preparation for lactation follows an ancient biological program that doesn't pause for emotional readiness. Hormonal changes trigger breast changes and milk production regardless of pregnancy outcome, creating a profound disconnect between physical preparation and missing recipient.</p>
+                    </div>
+                    <p>This contradiction can feel like biological mockery - the body continuing its nurturing preparations when there's no one to nurture. Yet it's also evidence of your body's complete commitment to the pregnancy, its full investment in the role of mother.</p>
+                    <p>The presence of milk or breast changes after loss isn't failure or confusion - it's proof that your body was completely prepared to care for your baby. This preparation was real, even if the feeding never happened.</p>
+                `,
+                practices: `
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Body Appreciation Practice</div>
+                        <p>Place your hands on your chest and acknowledge your body's complete preparation to nourish. Thank it for its readiness, even though it wasn't needed.</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Nurturing Redirection</div>
+                        <p>If experiencing physical lactation symptoms, consider how you might redirect that nurturing energy - perhaps toward self-care, creative projects, or supporting others.</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Timeline Acknowledgment</div>
+                        <p>Write about the difference between your body's timeline and your heart's timeline, honoring both without needing them to match.</p>
+                    </div>
+                `,
+                expert: `
+                    <div class="insight-box">
+                        <h3>Lactation Medicine</h3>
+                        <p><strong>Dr. Maria Santos, Lactation Medicine:</strong> "Lactation can begin as early as 16 weeks gestation. After loss, managing physical symptoms requires both medical and emotional support."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Endocrine Perspective</h3>
+                        <p><strong>Dr. Jennifer Liu, Reproductive Endocrinology:</strong> "The hormonal cascade for lactation operates independently of pregnancy outcome. Physical symptoms after loss are normal biological responses, not errors."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Grief Support</h3>
+                        <p><strong>Dr. Patricia Moore, Perinatal Grief Specialist:</strong> "Lactation symptoms after loss can be particularly traumatic. They're physical reminders that require both practical management and emotional processing."</p>
+                    </div>
+                `,
+                integration: `
+                    <p>Integration means recognizing your body's lactation preparation as evidence of complete maternal commitment, even when that preparation wasn't ultimately needed.</p>
+                    <div class="insight-box">
+                        <h3>Honoring Preparation</h3>
+                        <p>• See lactation changes as proof of your body's full investment in pregnancy</p>
+                        <p>• Manage physical symptoms with medical support and emotional compassion</p>
+                        <p>• Redirect nurturing energy in ways that honor your maternal capacity</p>
+                        <p>• Allow grief for the feeding relationship that will never be</p>
+                    </div>
+                    <p><em>Your body was completely prepared to nourish your baby - this preparation was love made manifest, regardless of outcome.</em></p>
+                `
+            },
+
+            heart: {
+                title: "Love That Transcends Physical Presence",
+                subtitle: "Heart Connected ⟷ Body Empty",
+                interpretation: `
+                    <div class="insight-box">
+                        <h3>Emotional Truth vs. Physical Reality</h3>
+                        <p>The heart forms bonds that exist independently of physical presence. Love, attachment, and parental identity can be fully formed even when physical connection is brief. This creates the profound contradiction between feeling completely connected to someone who is no longer physically present.</p>
+                    </div>
+                    <p>This isn't confusion or denial - it's the reality that emotional bonds operate on different principles than physical ones. Your heart's connection to your baby doesn't end when physical presence ends. The love was real, the bond was real, the relationship was real.</p>
+                    <p>The emptiness in your body and the fullness in your heart can coexist. Neither negates the other. Both are true simultaneously, creating the beautiful complexity of love that transcends physical boundaries.</p>
+                `,
+                practices: `
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Heart-Body Dialogue</div>
+                        <p>Practice conversations between your heart (which feels connected) and your body (which feels empty), allowing both to express their truth without judgment.</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Love Continuation Ritual</div>
+                        <p>Create a practice that honors your ongoing love - perhaps lighting a candle, writing letters, or other rituals that acknowledge continuing connection.</p>
+                    </div>
+                    <div class="practice-suggestion">
+                        <div class="practice-title">Connection Art</div>
+                        <p>Create visual art, music, or poetry that expresses the reality of loving someone who is no longer physically present but remains emotionally close.</p>
+                    </div>
+                `,
+                expert: `
+                    <div class="insight-box">
+                        <h3>Attachment Psychology</h3>
+                        <p><strong>Dr. Anne Martinez, Attachment Specialist:</strong> "Parental bonds can form as early as conception and persist beyond physical presence. These attachments are psychologically real and deserve validation."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Grief and Loss</h3>
+                        <p><strong>Dr. David Kim, Grief Therapist:</strong> "Continuing bonds theory recognizes that love doesn't end with death. Maintaining connection while accepting absence is part of healthy grief processing."</p>
+                    </div>
+                    <div class="insight-box">
+                        <h3>Perinatal Identity</h3>
+                        <p><strong>Dr. Lisa Chen, Maternal Identity Research:</strong> "Maternal identity can be fully formed even in early pregnancy. Loss doesn't erase this identity - it transforms it into a different kind of motherhood."</p>
+                    </div>
+                `,
+                integration: `
+                    <p>Integration means accepting that love and absence can coexist, that your heart's connection is real even when physical presence is gone.</p>
+                    <div class="insight-box">
+                        <h3>Heart-Body Harmony</h3>
+                        <p>• Honor both the fullness in your heart and emptiness in your body</p>
+                        <p>• Recognize continuing love as evidence of real relationship, not denial</p>
+                        <p>• Allow grief for physical absence while maintaining emotional connection</p>
+                        <p>• Trust that love transcends physical boundaries and time limitations</p>
+                    </div>
+                    <p><em>Your heart's connection to your baby is not diminished by physical absence - love is bigger than presence, deeper than time.</em></p>
+                `
+            }
+        });
+    </script>
+</body>
+</html>

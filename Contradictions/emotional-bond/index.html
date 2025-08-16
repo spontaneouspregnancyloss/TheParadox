@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Heart's Eternal Bond - Deep Dive Exploration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #1a0f0a 0%, #4a2c2a 30%, #8b4513 60%, #cd853f 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #cd853f, transparent);
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.6em;
+            opacity: 0.9;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
+        }
+
+        .breadcrumb a {
+            color: #cd853f;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(205,133,63,0.5);
+        }
+
+        .central-paradox {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .central-paradox::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+        }
+
+        .paradox-showcase {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .truth-panel {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            font-size: 1.4em;
+            font-weight: 600;
+            min-width: 280px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(255,107,107,0.4);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .truth-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255,107,107,0.5);
+        }
+
+        .truth-panel.truth2 {
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            box-shadow: 0 15px 30px rgba(78,205,196,0.4);
+        }
+
+        .truth-panel.truth2:hover {
+            box-shadow: 0 20px 40px rgba(78,205,196,0.5);
+        }
+
+        .bridge-symbol {
+            font-size: 4em;
+            color: #8b4513;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.7; }
+            to { transform: scale(1.1); opacity: 1; }
+        }
+
+        .exploration-journey {
+            display: grid;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .journey-section {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .journey-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f0f0f0;
+        }
+
+        .section-icon {
+            font-size: 3em;
+            margin-right: 20px;
+            opacity: 0.8;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #8b4513;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        .biological-wisdom {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left: 6px solid #28a745;
+        }
+
+        .emotional-truth {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 6px solid #ffc107;
+        }
+
+        .integration-space {
+            background: linear-gradient(135deg, #e7e3ff 0%, #d1c4e9 100%);
+            border-left: 6px solid #6f42c1;
+        }
+
+        .scientific-deep-dive {
+            background: linear-gradient(135deg, #cce5ff 0%, #b3d9ff 100%);
+            border-left: 6px solid #007bff;
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .insight-card {
+            background: rgba(255,255,255,0.7);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .insight-card:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateY(-2px);
+        }
+
+        .insight-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 15px;
+        }
+
+        .quote-box {
+            background: rgba(139,69,19,0.08);
+            border-left: 4px solid #8b4513;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 15px 15px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-size: 4em;
+            color: rgba(139,69,19,0.2);
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-family: serif;
+        }
+
+        .interactive-practices {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 50px 0;
+            color: #8B1538;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .practice-card {
+            background: rgba(255,255,255,0.2);
+            padding: 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .practice-card:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .practice-card.active {
+            background: rgba(255,255,255,0.4);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        .practice-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .practice-details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .practice-details.active {
+            display: block;
+        }
+
+        .art-creation {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 50px 0;
+            color: white;
+        }
+
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .art-option {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .art-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff3cd;
+        }
+
+        .journey-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px 0;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #8b4513 0%, #cd853f 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139,69,19,0.3);
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #cd853f, transparent);
+            margin: 60px 0;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .paradox-showcase {
+                flex-direction: column;
+            }
+
+            .bridge-symbol {
+                transform: rotate(90deg);
+                font-size: 3em;
+            }
+
+            .header h1 {
+                font-size: 2.4em;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .journey-navigation {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        .fadeIn {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">← Back to Body's Beautiful Betrayal</a> / Emotional Bond Deep Dive
+        </div>
+
+        <div class="header">
+            <h1>The Heart's Eternal Bond</h1>
+            <div class="subtitle">The Heart Feels Connected ⟷ The Body Feels Empty</div>
+            <p style="opacity: 0.8; margin-top: 20px;">Exploring how love transcends physical presence</p>
+        </div>
+
+        <div class="central-paradox">
+            <h2 style="text-align: center; color: #8b4513; font-size: 2.4em; margin-bottom: 30px;">The Love That Remains</h2>
+
+            <div class="paradox-showcase">
+                <div class="truth-panel">
+                    <div style="font-size: 0.8em; opacity: 0.9; margin-bottom: 10px;">TRUTH ONE</div>
+                    The heart feels bonded
+                    <div style="font-size: 0.7em; opacity: 0.8; margin-top: 10px;">Love, attachment, identity - all immediately and completely present</div>
+                </div>
+
+                <div class="bridge-symbol">⟷</div>
+
+                <div class="truth-panel truth2">
+                    <div style="font-size: 0.8em; opacity: 0.9; margin-bottom: 10px;">TRUTH TWO</div>
+                    The body feels empty
+                    <div style="font-size: 0.7em; opacity: 0.8; margin-top: 10px;">Physical absence where emotional presence remains</div>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                Love doesn't require physical presence to be real. The heart bonds instantly and completely, creating connections that transcend the body's timeline.
+            </div>
+        </div>
+
+        <div class="exploration-journey">
+            <div class="journey-section biological-wisdom">
+                <div class="section-header">
+                    <div class="section-icon">💕</div>
+                    <div class="section-title">Understanding the Heart's Wisdom</div>
+                </div>
+
+                <p style="font-size: 1.1em; margin-bottom: 25px;">
+                    The heart doesn't wait for medical confirmation or physical development to form bonds. It responds instantly to possibility, creating real attachment from the moment of knowing.
+                </p>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">Instant Connection Chemistry</div>
+                        <p>The moment you learn of pregnancy, your brain releases bonding chemicals like oxytocin and dopamine. It's like flipping a switch - you don't gradually become attached, you just ARE attached. This chemical rush creates real, measurable bonds regardless of how long the pregnancy continues.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">The Parent Identity Awakening</div>
+                        <p>Becoming a parent begins in your mind and heart, not at birth. Like a butterfly emerging from a cocoon, your identity transforms the instant you know. You don't slowly become someone's mother or father - you wake up one day and you already are, even if only you know it.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Future-Building Brain Patterns</div>
+                        <p>Your mind immediately starts creating futures - imagining first steps, choosing names, planning nurseries. Think of it like an architect who starts drawing blueprints the moment they see an empty lot. These mental blueprints become real investments, even if the building is never constructed.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">The Heart's Different Timeline</div>
+                        <p>While your body operates on biological time (checking chromosomes, monitoring development), your heart operates on emotional time (loving immediately, completely, unconditionally). It's like two different clocks running in the same house - they don't have to match to both be accurate.</p>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    "The heart forms attachments like lightning strikes - instant, complete, and permanently etched. It doesn't need permission from biology to love fully." - Dr. Sarah Martinez, Attachment Psychology
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="journey-section emotional-truth">
+                <div class="section-header">
+                    <div class="section-icon">💔</div>
+                    <div class="section-title">The Emotional Reality</div>
+                </div>
+
+                <p style="font-size: 1.1em; margin-bottom: 25px;">
+                    When love exists but physical presence doesn't, it creates a unique form of grief - mourning someone you never held but completely loved.
+                </p>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">Love Without Logic</div>
+                        <p>Your love for your baby doesn't depend on viability, perfection, or duration. It's like falling in love with a sunset - you don't need it to last forever for the beauty to be real and meaningful. The brevity doesn't diminish the authenticity of the connection.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">The Empty Arms Paradox</div>
+                        <p>Your arms may be empty, but your heart is full of love with nowhere to go. It's like having a beautiful song with no one to sing it to, or a warm hug with no one to receive it. The love is real and present, but has lost its intended recipient.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Invisible Motherhood/Fatherhood</div>
+                        <p>You became a parent the moment you learned of pregnancy, but the world may not recognize this identity after loss. It's like being fluent in a language that no one around you speaks - your parenthood is real and valid, even if others can't see or understand it.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Continuing Bond Confusion</div>
+                        <p>Society often expects grief to end when physical presence ends, but your heart knows better. Your bond continues like a river that goes underground - just because you can't see it doesn't mean it stopped flowing. The love persists even when the relationship changes form.</p>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    "Grief is love with nowhere to go. After pregnancy loss, the love remains full and strong, but the beloved is no longer physically present to receive it." - Dr. Lisa Park, Grief Counseling
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="journey-section scientific-deep-dive">
+                <div class="section-header">
+                    <div class="section-icon">🧠</div>
+                    <div class="section-title">Scientific Deep Dive</div>
+                </div>
+
+                <p style="font-size: 1.1em; margin-bottom: 25px;">
+                    Modern neuroscience reveals how the brain creates and maintains bonds, showing us why emotional connections can persist beyond physical presence.
+                </p>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">Neurochemical Bonding</div>
+                        <p><strong>Research finding:</strong> Oxytocin (the "bonding hormone") releases immediately upon learning of pregnancy, creating measurable brain changes. PET scans show that expecting parents' brains literally rewire within days, forming new neural pathways dedicated to parental attachment and protection behaviors.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Memory Consolidation Patterns</div>
+                        <p><strong>Cognitive neuroscience:</strong> The hippocampus (memory center) prioritizes pregnancy-related memories, giving them enhanced emotional significance and persistence. These memories become "flashbulb memories" - vivid, detailed, and resistant to fading, explaining why pregnancy loss memories remain so clear and emotionally charged.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Attachment System Activation</div>
+                        <p><strong>Evolutionary psychology:</strong> The human attachment system activates based on intention and emotional investment, not physical presence. Brain imaging shows that thinking about your lost pregnancy activates the same neural networks as thinking about living children - the attachment system doesn't distinguish between potential and actual offspring.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Continuing Bonds Neurobiology</div>
+                        <p><strong>Neurological studies:</strong> The brain maintains neural pathways for important relationships even after death or loss. fMRI studies show that grieving parents thinking about their lost babies show continued activation in bonding and caregiving brain regions, suggesting the relationship continues neurologically.</p>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    "The brain doesn't differentiate between loving someone you've held for years and someone you've carried for weeks. The neural pathways of attachment activate immediately and remain active even after loss." - Dr. Rachel Kim, Neuroscience of Attachment
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="journey-section integration-space">
+                <div class="section-header">
+                    <div class="section-icon">∞</div>
+                    <div class="section-title">Integration: Holding Both Truths</div>
+                </div>
+
+                <p style="font-size: 1.1em; margin-bottom: 25px;">
+                    Integration means accepting that love can be complete even when presence is absent, and that both realities - the bonded heart and the empty body - are equally valid and true.
+                </p>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">Love Without Conditions</div>
+                        <p>Your love for your baby was complete and real, regardless of duration or outcome. Love doesn't require reciprocity, physical presence, or permanence to be authentic. You can honor both the reality of your deep bond AND the reality of physical absence.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Different Types of Presence</div>
+                        <p>Your baby is absent physically but present emotionally, spiritually, and in memory. These different types of presence can coexist - you can feel utterly empty in your arms while feeling completely full in your heart.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Invisible Parenthood</div>
+                        <p>You became a parent through love and intention, not just through birth. This identity remains valid even after loss. You can claim your parenthood while acknowledging the unique form it takes after pregnancy loss.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Continuing Relationship</div>
+                        <p>Your relationship with your baby didn't end - it transformed. You can maintain connection through memory, ritual, and ongoing love while accepting that the form of relationship has changed from interactive to commemorative.</p>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    "Integration means learning to carry love for someone who is no longer physically present. It's not about letting go - it's about learning new ways to hold on." - Dr. Anne Martinez, Integrative Grief Therapy
+                </div>
+            </div>
+        </div>
+
+        <div class="interactive-practices">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2em;">Embodied Practice Explorations</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em;">
+                Choose a practice to honor both your continuing love and your physical loss
+            </p>
+
+            <div class="practice-grid">
+                <div class="practice-card" onclick="togglePractice(this, 'love-letter')">
+                    <div class="practice-title">💌 Love Letter to Your Baby</div>
+                    <p>Write a letter expressing all the love you feel but can't physically give.</p>
+                    <div class="practice-details" id="love-letter">
+                        <strong>Duration:</strong> 20-30 minutes<br><br>
+                        <strong>Process:</strong><br>
+                        1. Find a quiet, comfortable space<br>
+                        2. Begin: "My dearest baby, I need you to know..."<br>
+                        3. Share your love, your hopes, your dreams<br>
+                        4. Tell them what you would have taught them<br>
+                        5. Express how they changed you<br>
+                        6. End with: "My love for you continues..."<br><br>
+                        <strong>Integration:</strong> Keep this letter as proof of your continuing bond.
+                    </div>
+                </div>
+
+                <div class="practice-card" onclick="togglePractice(this, 'empty-full')">
+                    <div class="practice-title">🤗 Empty Arms, Full Heart Meditation</div>
+                    <p>A guided meditation honoring both the emptiness you feel and the love you carry.</p>
+                    <div class="practice-details" id="empty-full">
+                        <strong>Duration:</strong> 15-20 minutes<br><br>
+                        <strong>Meditation:</strong><br>
+                        1. Hold your arms as if cradling your baby<br>
+                        2. Feel the emptiness in your arms<br>
+                        3. Now place one hand on your heart<br>
+                        4. Feel the fullness of love there<br>
+                        5. Rock gently, holding both realities<br>
+                        6. Whisper: "Empty arms, full heart - both are true"<br><br>
+                        <strong>Affirmation:</strong> "I can be empty and full simultaneously."
+                    </div>
+                </div>
+
+                <div class="practice-card" onclick="togglePractice(this, 'continuing-bond')">
+                    <div class="practice-title">🌟 Continuing Bond Ritual</div>
+                    <p>Create a meaningful ritual that honors your ongoing relationship with your baby.</p>
+                    <div class="practice-details" id="continuing-bond">
+                        <strong>Materials:</strong> Candle, special object, photo or ultrasound<br><br>
+                        <strong>Ritual:</strong><br>
+                        1. Create a small sacred space<br>
+                        2. Light a candle for your baby's spirit<br>
+                        3. Hold their photo or ultrasound<br>
+                        4. Speak to them as if they can hear you<br>
+                        5. Share something from your day<br>
+                        6. Ask for a sign of their continued presence<br><br>
+                        <strong>Frequency:</strong> Repeat whenever you need to feel connected.
+                    </div>
+                </div>
+
+                <div class="practice-card" onclick="togglePractice(this, 'invisible-parent')">
+                    <div class="practice-title">👑 Invisible Parent Affirmation</div>
+                    <p>Claim your identity as a parent, even when the world can't see it.</p>
+                    <div class="practice-details" id="invisible-parent">
+                        <strong>Duration:</strong> 5-10 minutes daily<br><br>
+                        <strong>Affirmations:</strong><br>
+                        • "I am a mother/father to a baby I carried in love"<br>
+                        • "My parenthood is real, regardless of duration"<br>
+                        • "I loved completely and became a parent completely"<br>
+                        • "My baby made me a parent the moment I knew they existed"<br>
+                        • "My parental love continues beyond physical presence"<br><br>
+                        <strong>Practice:</strong> Say these while looking in a mirror, claiming your identity.
+                    </div>
+                </div>
+
+                <div class="practice-card" onclick="togglePractice(this, 'love-vessel')">
+                    <div class="practice-title">🏺 Love Vessel Creation</div>
+                    <p>Create a physical container for all the love you have with nowhere to give.</p>
+                    <div class="practice-details" id="love-vessel">
+                        <strong>Materials:</strong> Small box, jar, or container; paper; decorative items<br><br>
+                        <strong>Creation:</strong><br>
+                        1. Choose or decorate a special container<br>
+                        2. Write love notes to your baby on small papers<br>
+                        3. Add meaningful objects (ultrasound photos, tiny clothes)<br>
+                        4. Include hopes and dreams you held<br>
+                        5. Seal with intention: "This holds my continuing love"<br><br>
+                        <strong>Use:</strong> Visit your love vessel when you need to give your love somewhere to go.
+                    </div>
+                </div>
+
+                <div class="practice-card" onclick="togglePractice(this, 'heart-body-dialogue')">
+                    <div class="practice-title">💬 Heart-Body Dialogue</div>
+                    <p>Facilitate a conversation between your loving heart and your empty body.</p>
+                    <div class="practice-details" id="heart-body-dialogue">
+                        <strong>Duration:</strong> 15-20 minutes<br><br>
+                        <strong>Dialogue:</strong><br>
+                        1. Place one hand on heart, one on belly<br>
+                        2. Heart speaks: "I feel so connected to our baby..."<br>
+                        3. Body responds: "But I feel so empty and aching..."<br>
+                        4. Continue the conversation between both<br>
+                        5. Let each voice be fully heard<br>
+                        6. End with acknowledgment: "We both loved our baby"<br><br>
+                        <strong>Integration:</strong> Notice how both experiences can be true simultaneously.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="journey-section integration-space">
+            <div class="section-header">
+                <div class="section-icon">🌟</div>
+                <div class="section-title">Living the Integration</div>
+            </div>
+
+            <p style="font-size: 1.2em; margin-bottom: 30px; text-align: center; font-style: italic;">
+                "The goal isn't to fill the emptiness, but to honor both the love that remains and the presence that is missing."
+            </p>
+
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <div class="insight-title">Daily Love Expression</div>
+                    <p>Find small ways to express your continuing love - light a candle, speak their name, carry a memento. Your love needs expression even when your baby can't receive it physically.</p>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-title">Claiming Your Parenthood</div>
+                    <p>When asked about children, you can choose how to answer authentically. "I have a baby in heaven" or "I'm a mother to an angel" - claim your identity in ways that feel true to you.</p>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-title">Empty and Full Acceptance</div>
+                    <p>Notice when you feel the emptiness and when you feel the fullness of love. Both are valid experiences that can exist simultaneously without contradicting each other.</p>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-title">Continuing Conversation</div>
+                    <p>Talk to your baby as you would any beloved family member. Share your day, ask for guidance, include them in family discussions. Continuing bonds don't require physical presence.</p>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                "Your love doesn't need permission to continue. Your baby doesn't need to be physically present for your relationship to remain real, meaningful, and transformative." - Dr. Maria Rodriguez, Continuing Bonds Therapy
+            </div>
+        </div>
+
+        <div class="journey-section" style="background: linear-gradient(135deg, #f8f9ff 0%, #e8f5ff 100%); border-left: 6px solid #4a90e2;">
+            <div class="section-header">
+                <div class="section-icon">📚</div>
+                <div class="section-title">Further Exploration</div>
+            </div>
+
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <div class="insight-title">Books on Continuing Bonds</div>
+                    <p><strong>Recommended:</strong> "Continuing Bonds: New Understandings of Grief" by Dennis Klass - explores how relationships continue after death</p>
+                    <p><em>Focus:</em> Understanding that healthy grief includes ongoing connection</p>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-title">Support Communities</div>
+                    <p><strong>Seek:</strong> Pregnancy loss support groups that honor continuing bonds and validate ongoing parental identity</p>
+                    <p><em>Benefits:</em> Connection with others who understand invisible parenthood</p>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-title">Therapeutic Approaches</div>
+                    <p><strong>Modalities:</strong> Narrative therapy, continuing bonds therapy, expressive arts therapy for processing love and loss</p>
+                    <p><em>Goal:</em> Integration of love and loss without requiring resolution</p>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-title">Memorial Practices</div>
+                    <p><strong>Explore:</strong> Various cultural and personal ways to honor continuing relationships through ritual, art, and ceremony</p>
+                    <p><em>Purpose:</em> Giving ongoing love tangible expression</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="art-creation">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2em;">Turn Your Truth Into Art</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em;">
+                Transform your experience of loving without holding into creative expression
+            </p>
+
+            <div class="insight-card" style="background: rgba(255,255,255,0.1); margin-bottom: 30px;">
+                <div class="insight-title" style="color: #fff3cd;">📹 Video Submission Guidelines</div>
+                <p>We only accept natural, unaltered video submissions where you are verified as human. Share your truth authentically in your own voice, speaking directly about your experience of emotional bond and physical absence.</p>
+            </div>
+
+            <div class="art-grid">
+                <div class="art-option">
+                    <div class="art-title">Text to Poetry</div>
+                    <p><strong>Free Verse:</strong> Let your truth flow without structure<br>
+                    <strong>Haiku:</strong> Capture the essence in three lines<br>
+                    <strong>Song Lyrics:</strong> Set your story to rhythm<br>
+                    <strong>Spoken Word:</strong> Performance poetry for sharing</p>
+                </div>
+
+                <div class="art-option">
+                    <div class="art-title">Text to Performance</div>
+                    <p><strong>Monologue:</strong> One-person dramatic piece<br>
+                    <strong>Short Play:</strong> Dialogue between heart and body<br>
+                    <strong>Dance Interpretation:</strong> Movement expressing love and loss<br>
+                    <strong>Film Script:</strong> Visual storytelling of your experience</p>
+                </div>
+
+                <div class="art-option">
+                    <div class="art-title">Text to Audio</div>
+                    <p><strong>Podcast Episode:</strong> Share your story conversationally<br>
+                    <strong>Audio Letter:</strong> Record your love letter to baby<br>
+                    <strong>Meditation Guide:</strong> Lead others through your practice<br>
+                    <strong>Audiobook Chapter:</strong> Professional narration of your truth</p>
+                </div>
+
+                <div class="art-option">
+                    <div class="art-title">Text to Music</div>
+                    <p><strong>Lullaby:</strong> Gentle song for your baby<br>
+                    <strong>Blues/Folk:</strong> Traditional grief song structure<br>
+                    <strong>Instrumental:</strong> Music that captures your emotions<br>
+                    <strong>Choral Piece:</strong> Community singing of your truth</p>
+                </div>
+
+                <div class="art-option">
+                    <div class="art-title">Text to Visual</div>
+                    <p><strong>Illustration:</strong> Art that depicts your experience<br>
+                    <strong>Photography Series:</strong> Visual metaphors for love/loss<br>
+                    <strong>Mixed Media:</strong> Combining text, image, and texture<br>
+                    <strong>Digital Art:</strong> Modern expression of ancient truths</p>
+                </div>
+
+                <div class="art-option">
+                    <div class="art-title">Text to Interactive</div>
+                    <p><strong>Workshop Curriculum:</strong> Teach others your insights<br>
+                    <strong>Guided Experience:</strong> Lead others through practices<br>
+                    <strong>Therapeutic Tool:</strong> Healing resource for others<br>
+                    <strong>Community Ritual:</strong> Shared ceremonial expression</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="journey-navigation">
+            <a href="../body-preparation/index.html" class="nav-button">
+                ← Previous: Body Preparation
+            </a>
+
+            <div style="text-align: center; color: white;">
+                <strong>Continue Your Journey</strong><br>
+                <span style="opacity: 0.8;">Each contradiction offers new pathways to integration</span>
+            </div>
+
+            <a href="../future-fertility/index.html" class="nav-button">
+                Next: Future Fertility →
+            </a>
+        </div>
+
+        <div class="central-paradox" style="margin-top: 50px; text-align: center;">
+            <h3 style="color: #8b4513; margin-bottom: 20px;">Integration Affirmation</h3>
+            <p style="font-size: 1.3em; font-style: italic; line-height: 1.8; color: #666;">
+                "My heart bonded instantly and completely.<br>
+                My body feels the absence deeply.<br>
+                Both truths honor my baby.<br>
+                Both truths honor my love.<br>
+                I can feel empty and full simultaneously."
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function togglePractice(card, practiceId) {
+            // First, close all other practice details
+            document.querySelectorAll('.practice-details').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            document.querySelectorAll('.practice-card').forEach(practiceCard => {
+                practiceCard.classList.remove('active');
+            });
+
+            // Then open the selected one
+            const details = document.getElementById(practiceId);
+            card.classList.add('active');
+            details.classList.add('active');
+
+            // Smooth scroll to make sure the opened content is visible
+            setTimeout(() => {
+                details.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+            }, 100);
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle animations on scroll
+        function addScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fadeIn');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.journey-section, .insight-card').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', addScrollAnimations);
+    </script>
+</body>
+</html>

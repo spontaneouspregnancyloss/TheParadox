@@ -1,1 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hormonal Messages: Life Signals ⟷ Lingering Presence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #0f0a1a 0%, #2c1a4a 30%, #4a1373 60%, #7b68ee 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #9370db, transparent);
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.6em;
+            opacity: 0.9;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #dda0dd;
+        }
+
+        .breadcrumb {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .breadcrumb a {
+            color: #dda0dd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(221,160,221,0.5);
+        }
+
+        .central-paradox {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .central-paradox::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #9370db, #4ecdc4);
+        }
+
+        .paradox-showcase {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .truth-panel {
+            background: linear-gradient(135deg, #9370db 0%, #8a2be2 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            font-size: 1.4em;
+            font-weight: 600;
+            min-width: 280px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(147,112,219,0.4);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .truth-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(147,112,219,0.5);
+        }
+
+        .truth-panel.truth2 {
+            background: linear-gradient(135deg, #dda0dd 0%, #ba55d3 100%);
+            box-shadow: 0 15px 30px rgba(221,160,221,0.4);
+        }
+
+        .truth-panel.truth2:hover {
+            box-shadow: 0 20px 40px rgba(221,160,221,0.5);
+        }
+
+        .bridge-symbol {
+            font-size: 4em;
+            color: #4a1373;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.7; }
+            to { transform: scale(1.1); opacity: 1; }
+        }
+
+        .hormone-visualization {
+            background: linear-gradient(135deg, #e6e6fa 0%, #f0e6ff 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #9370db;
+        }
+
+        .hormone-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .hormone-stage {
+            background: rgba(255,255,255,0.8);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 200px;
+            border: 2px solid rgba(147,112,219,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .hormone-stage:hover {
+            border-color: #9370db;
+            transform: translateY(-3px);
+        }
+
+        .hormone-name {
+            font-weight: bold;
+            color: #4a1373;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .hormone-function {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .exploration-journey {
+            display: grid;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .journey-section {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .journey-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f0f0f0;
+        }
+
+        .section-icon {
+            font-size: 3em;
+            margin-right: 20px;
+            opacity: 0.8;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #4a1373;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        .chemical-messengers {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            border-left: 6px solid #28a745;
+        }
+
+        .emotional-confusion {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 6px solid #ffc107;
+        }
+
+        .timing-mismatch {
+            background: linear-gradient(135deg, #ffe4e1 0%, #ffd1dc 100%);
+            border-left: 6px solid #dc3545;
+        }
+
+        .healing-timeline {
+            background: linear-gradient(135deg, #e7e3ff 0%, #d1c4e9 100%);
+            border-left: 6px solid #6f42c1;
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .insight-card {
+            background: rgba(255,255,255,0.7);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .insight-card:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateY(-2px);
+        }
+
+        .insight-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #4a1373;
+            margin-bottom: 15px;
+        }
+
+        .hormone-timeline {
+            background: rgba(147,112,219,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+
+        .timeline-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .timeline-stage {
+            background: rgba(255,255,255,0.8);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #9370db;
+        }
+
+        .stage-title {
+            font-weight: bold;
+            color: #4a1373;
+            margin-bottom: 10px;
+        }
+
+        .stage-description {
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .quote-box {
+            background: rgba(74,19,115,0.08);
+            border-left: 4px solid #4a1373;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 15px 15px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-size: 4em;
+            color: rgba(74,19,115,0.2);
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-family: serif;
+        }
+
+        .interactive-practices {
+            background: linear-gradient(135deg, #9370db 0%, #dda0dd 100%);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 50px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-practices::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+            border-radius: 50%;
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .practice-card {
+            background: rgba(255,255,255,0.2);
+            padding: 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .practice-card:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .practice-card.active {
+            background: rgba(255,255,255,0.4);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        .practice-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .practice-details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .practice-details.active {
+            display: block;
+        }
+
+        .reflection-space {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .reflection-prompt {
+            background: linear-gradient(135deg, #f0e6ff 0%, #e6e6fa 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border: 1px solid rgba(147,112,219,0.3);
+        }
+
+        .reflection-question {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #4a1373;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .reflection-space textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-family: Georgia, serif;
+            font-size: 16px;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .reflection-space textarea:focus {
+            outline: none;
+            border-color: #9370db;
+            box-shadow: 0 0 0 3px rgba(147,112,219,0.1);
+        }
+
+        .journey-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px 0;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #4a1373 0%, #9370db 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(74,19,115,0.3);
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #9370db, transparent);
+            margin: 60px 0;
+            border-radius: 2px;
+        }
+
+        .hormone-tracker {
+            background: rgba(147,112,219,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .tracker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tracker-item {
+            background: rgba(255,255,255,0.8);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .hormone-level {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4a1373;
+            margin-bottom: 10px;
+        }
+
+        .level-meaning {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .paradox-showcase {
+                flex-direction: column;
+            }
+            
+            .bridge-symbol {
+                transform: rotate(90deg);
+                font-size: 3em;
+            }
+
+            .header h1 {
+                font-size: 2.4em;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .journey-navigation {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hormone-flow {
+                flex-direction: column;
+            }
+        }
+
+        .fadeIn {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">← Back to Body's Beautiful Betrayal</a> / Hormonal Messages Deep Dive
+        </div>
+
+        <div class="header">
+            <h1>Hormonal Messages</h1>
+            <div class="subtitle">Life Signals ⟷ Lingering Presence</div>
+            <p style="opacity: 0.8; margin-top: 20px;">When chemical messengers carry both joy and confusion</p>
+        </div>
+
+        <div class="central-paradox">
+            <h2 style="text-align: center; color: #4a1373; font-size: 2.4em; margin-bottom: 30px;">The Chemical Contradiction</h2>
+            <div class="paradox-showcase">
+                <div class="truth-panel">
+                    <div style="font-size: 0.8em; opacity: 0.9; margin-bottom: 10px;">TRUTH ONE</div>
+                    Hormones signaled pregnancy
+                    <div style="font-size: 0.7em; opacity: 0.8; margin-top: 10px;">hCG, progesterone, estrogen - announcing new life with joy</div>
+                </div>
+                <div class="bridge-symbol">⟷</div>
+                <div class="truth-panel truth2">
+                    <div style="font-size: 0.8em; opacity: 0.9; margin-bottom: 10px;">TRUTH TWO</div>
+                    Hormones linger after loss
+                    <div style="font-size: 0.7em; opacity: 0.8; margin-top: 10px;">Same molecules, different meaning - echoes of what was</div>
+                </div>
+            </div>
+            <div class="quote-box">
+                The same chemical messengers that announced your greatest hope continue circulating, carrying memories your body isn't ready to release.
+            </div>
+        </div>
+
+        <div class="hormone-visualization">
+            <h3 style="color: #4a1373; text-align: center; margin-bottom: 25px; font-size: 1.8em;">The Hormonal Journey</h3>
+            <div class="hormone-flow">
+                <div class="hormone-stage">
+                    <div class="hormone-name">hCG (Human Chorionic Gonadotropin)</div>
+                    <div class="hormone-function">The "pregnancy hormone" - doubles every 48-72 hours in early pregnancy</div>
+                </div>
+                <div class="hormone-stage">
+                    <div class="hormone-name">Progesterone</div>
+                    <div class="hormone-function">Maintains uterine lining, prevents menstruation, supports pregnancy</div>
+                </div>
+                <div class="hormone-stage">
+                    <div class="hormone-name">Estrogen</div>
+                    <div class="hormone-function">Increases blood flow, stimulates growth, enhances pregnancy symptoms</div>
+                </div>
+            </div>
+            <p style="text-align: center; font-style: italic; margin-top: 20px; color: #666;">
+                After pregnancy loss, these hormones don't disappear immediately - they gradually decline, creating a biological transition period that can last days to weeks.
+            </p>
+        </div>
+
+        <div class="exploration-journey">
+            <div class="journey-section chemical-messengers">
+                <div class="section-header">
+                    <div class="section-icon">🧬</div>
+                    <div class="section-title">Understanding Chemical Messengers</div>
+                </div>
+                
+                <p style="font-size: 1.1em; margin-bottom: 25px;">
+                    Hormones are molecular messengers carrying information throughout your body. They don't just signal pregnancy - they orchestrate the entire physiological transformation of becoming a mother.
+                </p>
+
+                <div class="hormone-timeline">
+                    <h4 style="color: #4a1373; margin-bottom: 20px; font-size: 1.4em;">The Hormonal Cascade</h4>
+                    <div class="timeline-stages">
+                        <div class="timeline-stage">
+                            <div class="stage-title">Days 1-14: Rising Signals</div>
+                            <div class="stage-description">hCG begins production immediately after implantation, doubling rapidly. This triggers nausea, breast tenderness, emotional sensitivity.</div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-title">Weeks 2-8: Peak Symphony</div>
+                            <div class="stage-description">All pregnancy hormones reach intense levels. Your body is completely committed to the biological transformation.</div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-title">After Loss: Gradual Decline</div>
+                            <div class="stage-description">Hormones don't stop immediately - they slowly decrease over days to weeks, creating a transition period of mixed signals.</div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-title">Return to Baseline</div>
+                            <div class="stage-description">Eventually hormones return to pre-pregnancy levels, but the memory of their message remains in your cells and consciousness.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">Molecular Memory</div>
+                        <p>Every hormone that circulated during pregnancy carried specific information to specific organs. Your breasts, uterus, brain, and immune system all received and responded to these messages, creating cellular memory.</p>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <div class="insight-title">Chemical Attachment</div>
+                        <p>Oxytocin and dopamine - the bonding and pleasure hormones - begin circulating in early pregnancy, creating genuine biochemical attachment before physical connection is established.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Gradual Goodbye</div>
+                        <p>Unlike emotional attachment which can persist indefinitely, hormonal attachment has a biological timeline. The slow decline creates a natural grieving process at the cellular level.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Protective Lag</div>
+                        <p>The hormonal lag after loss may serve protective purposes - preventing abrupt physiological shock and allowing gradual adjustment to the pregnancy's end.</p>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    "Hormones don't lie or get confused. When they linger after pregnancy loss, they're simply following their biological programming - slowly, carefully transitioning your body back to its pre-pregnancy state." - Dr. James Liu, Reproductive Endocrinology
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="journey-section emotional-confusion">
+                <div class="section-header">
+                    <div class="section-icon">💭</div>
+                    <div class="section-title">When Chemistry Meets Emotion</div>
+                </div>
+
+                <p style="font-size: 1.1em; margin-bottom: 25px;">
+                    The lingering presence of pregnancy hormones creates a unique psychological state - your chemistry says one thing while your reality says another, creating profound emotional dissonance.
+                </p>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">Phantom Pregnancy Symptoms</div>
+                        <p>Nausea, breast tenderness, food aversions - these symptoms can persist for days or weeks after loss because the hormones causing them are still circulating. This isn't imagination; it's biochemical reality.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Emotional Amplification</div>
+                        <p>Pregnancy hormones heighten emotional sensitivity. When these persist after loss, grief can feel amplified, raw, overwhelming - because it literally is hormonally intensified.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Cognitive Dissonance</div>
+                        <p>Your mind knows the pregnancy has ended, but your body's chemistry is still broadcasting "pregnant." This creates internal conflict that can feel like you're going crazy - but it's completely normal.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Hope and Despair Cycling</div>
+                        <p>Lingering hormones can create moments of hope or pregnancy-like feelings, followed by crashes when reality reasserts itself. These cycles are hormonally driven, not emotional weakness.</p>
+                    </div>
+                </div>
+
+                <div class="hormone-tracker">
+                    <h4 style="color: #4a1373; text-align: center; margin-bottom: 20px;">Understanding Your Hormonal Experience</h4>
+                    <div class="tracker-grid">
+                        <div class="tracker-item">
+                            <div class="hormone-level">High hCG</div>
+                            <div class="level-meaning">Strong nausea, positive pregnancy tests, emotional intensity</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="hormone-level">Declining hCG</div>
+                            <div class="level-meaning">Lessening symptoms, tests becoming negative, emotional confusion</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="hormone-level">Low Progesterone</div>
+                            <div class="level-meaning">Cramping, bleeding, mood drops, sleep changes</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="hormone-level">Hormone Zero</div>
+                            <div class="level-meaning">Physical symptoms end, emotional processing continues</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    "The disconnect between lingering pregnancy hormones and ended pregnancy creates a unique form of grief - you're mourning while your chemistry is still celebrating. Understanding this contradiction is crucial for healing." - Dr. Rachel Kim, Perinatal Psychology
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="journey-section timing-mismatch">
+                <div class="section-header">
+                    <div class="section-icon">⏰</div>
+                    <div class="section-title">The Timing Mismatch</div>
+                </div>
+
+                <p style="font-size: 1.1em; margin-bottom: 25px;">
+                    One of the most challenging aspects of hormonal contradiction is timing - your body operates on biological time while your heart operates on emotional time, and these rarely synchronize.
+                </p>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">Biological Timeline</div>
+                        <p>Hormones follow predictable patterns: hCG has a half-life of 24-36 hours, progesterone drops within days. Your body has a scientific schedule for returning to baseline.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Emotional Timeline</div>
+                        <p>Grief, love, hope, fear - these emotions operate on human time, not molecular time. You may feel bonded forever while your hormones are already preparing to say goodbye.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Social Timeline</div>
+                        <p>Others expect you to "feel better" once physical symptoms subside, not understanding that hormonal transition is only one layer of a complex healing process.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Integration Timeline</div>
+                        <p>Learning to honor both the biological reality of hormonal decline AND the emotional reality of persistent love requires time that belongs to neither chemistry nor feelings alone.</p>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    "Your hormones will return to baseline weeks before your heart does. This isn't a race - it's two different kinds of healing happening on two different clocks. Both are necessary, and neither should be rushed." - Dr. Elena Vasquez, Integrative Women's Health
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="journey-section healing-timeline">
+                <div class="section-header">
+                    <div class="section-icon">🌱</div>
+                    <div class="section-title">Integration & Healing</div>
+                </div>
+
+                <p style="font-size: 1.1em; margin-bottom: 25px;">
+                    Healing from hormonal contradiction means learning to hold compassion for both your body's chemical process and your heart's emotional process, understanding they're both valid forms of love.
+                </p>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">Honoring Chemical Love</div>
+                        <p>Every hormone that circulated was an expression of your body's love and commitment to your baby. The lingering presence isn't confusion - it's your body reluctantly saying goodbye.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Supporting Transition</div>

@@ -1,1229 +1,747 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Chrissy Teigen & John Legend - Learning Through Beautiful Contradictions</title>
-
-<style>
-
-* {
-
-margin: 0;
-
-padding: 0;
-
-box-sizing: border-box;
-
-}
-
-body {
-
-font-family: 'Georgia', serif;
-
-line-height: 1.6;
-
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-
-min-height: 100vh;
-
-color: #333;
-
-}
-
-.container {
-
-max-width: 1200px;
-
-margin: 0 auto;
-
-padding: 20px;
-
-}
-
-.navigation {
-text-align: center;
-margin-bottom: 30px;
-}
-
-.nav-buttons {
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-gap: 8px;
-margin-bottom: 20px;
-max-width: 1000px;
-margin-left: auto;
-margin-right: auto;
-}
-
-.nav-button {
-background: rgba(255, 255, 255, 0.9);
-color: #444;
-padding: 6px 12px;
-border-radius: 15px;
-text-decoration: none;
-font-weight: 500;
-font-size: 0.85em;
-transition: all 0.3s ease;
-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-display: flex;
-align-items: center;
-gap: 4px;
-min-width: 80px;
-justify-content: center;
-}
-
-.nav-button:hover {
-background: white;
-transform: translateY(-2px);
-box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-text-decoration: none;
-color: #444;
-}
-
-.nav-button.home {
-background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-color: white;
-font-weight: bold;
-}
-
-.nav-button.explore {
-background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
-color: white;
-font-weight: bold;
-}
-
-.nav-button.active {
-background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
-color: white;
-font-weight: bold;
-}
-
-.nav-button.beyonce { background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%); }
-.nav-button.chrissy { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); }
-.nav-button.hilarie { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
-.nav-button.kate { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
-.nav-button.halsey { background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); }
-.nav-button.jessica { background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%); }
-.nav-button.lauren { background: linear-gradient(135deg, #55a3ff 0%, #003d82 100%); }
-.nav-button.meghan { background: linear-gradient(135deg, #00b894 0%, #00cec9 100%); }
-.nav-button.nick { background: linear-gradient(135deg, #e17055 0%, #d63031 100%); }
-.nav-button.nicola { background: linear-gradient(135deg, #00b894 0%, #55a3ff 100%); }
-.nav-button.rebecca { background: linear-gradient(135deg, #fd79a8 0%, #6c5ce7 100%); }
-
-.header {
-
-text-align: center;
-
-margin-bottom: 40px;
-
-color: white;
-
-}
-
-.header h1 {
-
-font-size: 2.5em;
-
-margin-bottom: 10px;
-
-text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-
-}
-
-.header p {
-
-font-size: 1.2em;
-
-opacity: 0.9;
-
-}
-
-.story-anchor {
-
-background: rgba(255, 255, 255, 0.95);
-
-border-radius: 20px;
-
-padding: 30px;
-
-margin-bottom: 30px;
-
-box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-
-}
-
-.story-header {
-
-text-align: center;
-
-margin-bottom: 25px;
-
-}
-
-.story-header h2 {
-
-color: #444;
-
-font-size: 2em;
-
-margin-bottom: 10px;
-
-}
-
-.story-source {
-
-background: #e8f5e8;
-
-padding: 15px;
-
-border-radius: 10px;
-
-margin-bottom: 20px;
-
-border-left: 4px solid #2e7d32;
-
-}
-
-.story-source a {
-
-color: #2e7d32;
-
-text-decoration: none;
-
-font-weight: bold;
-
-}
-
-.story-source a:hover {
-
-text-decoration: underline;
-
-}
-
-.key-elements {
-
-display: grid;
-
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-gap: 15px;
-
-margin: 20px 0;
-
-}
-
-.element {
-
-background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-
-padding: 20px;
-
-border-radius: 15px;
-
-text-align: center;
-
-}
-
-.element h4 {
-
-color: #8B4513;
-
-margin-bottom: 10px;
-
-font-size: 1.1em;
-
-}
-
-.central-contradiction {
-
-background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-
-border-radius: 20px;
-
-padding: 40px;
-
-margin: 30px 0;
-
-text-align: center;
-
-}
-
-.central-contradiction h3 {
-
-font-size: 2em;
-
-color: #8B1538;
-
-margin-bottom: 20px;
-
-}
-
-.contradiction-visual {
-
-display: flex;
-
-align-items: center;
-
-justify-content: center;
-
-margin: 25px 0;
-
-flex-wrap: wrap;
-
-gap: 15px;
-
-}
-
-.contradiction-side {
-
-background: rgba(255,255,255,0.8);
-
-padding: 20px;
-
-border-radius: 15px;
-
-font-size: 1.2em;
-
-font-weight: bold;
-
-color: #8B1538;
-
-min-width: 200px;
-
-text-align: center;
-
-}
-
-.contradiction-bridge {
-
-font-size: 2em;
-
-color: #8B1538;
-
-font-weight: bold;
-
-}
-
-.framework {
-
-background: rgba(255, 255, 255, 0.95);
-
-border-radius: 20px;
-
-padding: 40px;
-
-box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-
-margin: 30px 0;
-
-}
-
-.phase {
-
-margin-bottom: 40px;
-
-padding: 25px;
-
-border-radius: 15px;
-
-position: relative;
-
-overflow: hidden;
-
-}
-
-.phase1 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
-
-.phase2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
-
-.phase3 { background: linear-gradient(135deg, #e0c3fc 0%, #9bb5ff 100%); }
-
-.phase4 { background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); }
-
-.phase-number {
-
-position: absolute;
-
-top: -10px;
-
-right: 20px;
-
-width: 50px;
-
-height: 50px;
-
-border-radius: 50%;
-
-background: rgba(255,255,255,0.8);
-
-display: flex;
-
-align-items: center;
-
-justify-content: center;
-
-font-weight: bold;
-
-font-size: 1.5em;
-
-color: #666;
-
-}
-
-.phase h3 {
-
-font-size: 1.5em;
-
-margin-bottom: 15px;
-
-color: #444;
-
-}
-
-.contradiction-pair {
-
-display: grid;
-
-grid-template-columns: 1fr auto 1fr;
-
-gap: 15px;
-
-align-items: center;
-
-margin: 15px 0;
-
-padding: 15px;
-
-background: rgba(255,255,255,0.5);
-
-border-radius: 10px;
-
-}
-
-.concept {
-
-padding: 10px 15px;
-
-border-radius: 8px;
-
-text-align: center;
-
-font-weight: 500;
-
-}
-
-.concept.left { background: rgba(255,99,71,0.2); }
-
-.concept.right { background: rgba(100,149,237,0.2); }
-
-.bridge {
-
-font-size: 1.5em;
-
-color: #666;
-
-font-weight: bold;
-
-}
-
-.scientific-context {
-
-background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-
-border-radius: 15px;
-
-padding: 30px;
-
-margin: 30px 0;
-
-}
-
-.scientific-context h3 {
-
-color: #155724;
-
-margin-bottom: 20px;
-
-font-size: 1.5em;
-
-}
-
-.medical-facts {
-
-display: grid;
-
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-gap: 20px;
-
-margin: 20px 0;
-
-}
-
-.fact-box {
-
-background: rgba(255,255,255,0.8);
-
-padding: 20px;
-
-border-radius: 10px;
-
-border-left: 4px solid #28a745;
-
-}
-
-.fact-box h4 {
-
-color: #155724;
-
-margin-bottom: 10px;
-
-}
-
-.interactive-section {
-
-background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-
-color: white;
-
-border-radius: 15px;
-
-padding: 30px;
-
-margin: 30px 0;
-
-text-align: center;
-
-}
-
-.story-link {
-
-background: rgba(255,255,255,0.2);
-
-padding: 15px;
-
-border-radius: 10px;
-
-margin-bottom: 20px;
-
-}
-
-.contradiction-examples {
-
-display: grid;
-
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-gap: 15px;
-
-margin: 20px 0;
-
-}
-
-.example-card {
-
-background: rgba(255,255,255,0.1);
-
-padding: 20px;
-
-border-radius: 10px;
-
-cursor: pointer;
-
-transition: all 0.3s ease;
-
-text-align: left;
-
-}
-
-.example-card:hover {
-
-background: rgba(255,255,255,0.2);
-
-transform: translateY(-5px);
-
-}
-
-.example-card h4 {
-
-margin-bottom: 10px;
-
-font-size: 1.1em;
-
-}
-
-.btn {
-
-background: rgba(255,255,255,0.2);
-
-color: white;
-
-border: 2px solid rgba(255,255,255,0.3);
-
-padding: 12px 25px;
-
-border-radius: 25px;
-
-cursor: pointer;
-
-font-size: 16px;
-
-transition: all 0.3s ease;
-
-margin: 10px;
-
-}
-
-.btn:hover {
-
-background: rgba(255,255,255,0.3);
-
-transform: translateY(-2px);
-
-}
-
-.reflection-output {
-
-background: rgba(255,255,255,0.1);
-
-border-radius: 10px;
-
-padding: 20px;
-
-margin-top: 20px;
-
-min-height: 50px;
-
-text-align: left;
-
-}
-
-.reflection-questions {
-
-background: linear-gradient(135deg, #fff5b7 0%, #ffd3a5 100%);
-
-border-radius: 15px;
-
-padding: 25px;
-
-margin: 30px 0;
-
-}
-
-.question-category {
-
-margin-bottom: 25px;
-
-}
-
-.question-category h4 {
-
-color: #8B6914;
-
-margin-bottom: 15px;
-
-font-size: 1.2em;
-
-}
-
-.question {
-
-background: rgba(255,255,255,0.7);
-
-padding: 15px;
-
-border-radius: 10px;
-
-margin-bottom: 10px;
-
-cursor: pointer;
-
-transition: all 0.3s ease;
-
-}
-
-.question:hover {
-
-background: rgba(255,255,255,0.9);
-
-transform: translateX(5px);
-
-}
-
-@media (max-width: 768px) {
-
-.contradiction-visual {
-
-flex-direction: column;
-
-}
-
-.contradiction-pair {
-
-grid-template-columns: 1fr;
-
-text-align: center;
-
-}
-
-.bridge {
-
-transform: rotate(90deg);
-
-}
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrissy Teigen & John Legend - Learning Through Beautiful Contradictions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #444;
+            padding: 6px 12px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            min-width: 80px;
+            justify-content: center;
+        }
+
+        .nav-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            text-decoration: none;
+            color: #444;
+        }
+
+        .nav-button.home,
+        .nav-button.explore {
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            color: black;
+            font-weight: bold;
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Individual story button colors - Chrissy is active (gold), others are pink */
+        .nav-button.chrissy { 
+            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+            color: black;
+            font-weight: bold;
+        }
+        .nav-button.beyonce,
+        .nav-button.hilarie,
+        .nav-button.kate,
+        .nav-button.halsey,
+        .nav-button.jessica,
+        .nav-button.lauren,
+        .nav-button.meghan,
+        .nav-button.nick,
+        .nav-button.nicola,
+        .nav-button.rebecca {
+            background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .story-anchor {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .story-header h2 {
+            color: #444;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .story-source {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .story-source a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .story-source a:hover {
+            text-decoration: underline;
+        }
+
+        .key-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .element {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .element h4 {
+            color: #8B4513;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .central-contradiction {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .central-contradiction h3 {
+            font-size: 2em;
+            color: #8B1538;
+            margin-bottom: 20px;
+        }
+
+        .contradiction-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 25px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contradiction-side {
+            background: rgba(255,255,255,0.8);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #8B1538;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .contradiction-bridge {
+            font-size: 2em;
+            color: #8B1538;
+            font-weight: bold;
+        }
+
+        .framework {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+
+        .phase {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase1 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .phase2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .phase3 { background: linear-gradient(135deg, #e0c3fc 0%, #9bb5ff 100%); }
+        .phase4 { background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); }
+
+        .phase-number {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #666;
+        }
+
+        .phase h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .contradiction-pair {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 15px;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
+        }
+
+        .concept {
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .concept.left { background: rgba(255,99,71,0.2); }
+        .concept.right { background: rgba(100,149,237,0.2); }
+
+        .bridge {
+            font-size: 1.5em;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .scientific-context {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .scientific-context h3 {
+            color: #155724;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .medical-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .fact-box {
+            background: rgba(255,255,255,0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+        }
+
+        .fact-box h4 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        .interactive-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .story-link {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contradiction-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .example-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .example-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .example-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .reflection-output {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            min-height: 50px;
+            text-align: left;
+        }
+
+        .reflection-questions {
+            background: linear-gradient(135deg, #fff5b7 0%, #ffd3a5 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .question-category {
+            margin-bottom: 25px;
+        }
+
+        .question-category h4 {
+            color: #8B6914;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .question {
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateX(5px);
+        }
+
+        .bottom-navigation {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .bottom-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .bottom-nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .bottom-nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-decoration: none;
+            color: white;
+        }
+
+        .bottom-nav-button.home {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+        }
+
+        @media (max-width: 768px) {
+            .contradiction-visual {
+                flex-direction: column;
+            }
+
+            .contradiction-pair {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .bridge {
+                transform: rotate(90deg);
+            }
+
+            .nav-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 6px;
+            }
+
+            .nav-button {
+                font-size: 0.75em;
+                padding: 4px 8px;
+                min-width: 60px;
+            }
+
+            .bottom-nav-buttons {
+                flex-direction: column;
+            }
+
+            .bottom-nav-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="container">
-
-<div class="header">
-
-<h1>Learning Through Beautiful Contradictions</h1>
-
-<p>Chrissy Teigen & John Legend's Story: When Raw Truth Becomes Healing Light</p>
-
-</div>
-
-<div class="story-anchor">
-
-<div class="story-header">
-
-<h2>Story Anchor: Chrissy Teigen & John Legend</h2>
-
-</div>
-
-<div class="story-source">
-
-<strong>Sources:</strong> <a href="https://chrissyteigen.medium.com/hi-2e45e6faf764" target="_blank">Chrissy's Medium Essay</a> | <a href="https://www.instagram.com/chrissyteigen/p/CFyWQLWpJ3u/?hl=en" target="_blank">Instagram Post</a>
-
-</div>
-
-<p>In September 2020, Chrissy Teigen and John Legend lost their son Jack at 20 weeks gestation due to pregnancy complications. What made their story unprecedented was Chrissy's decision to share raw, intimate photos from the hospital and later write a deeply personal Medium essay. Two years later, she revealed that what she had called a "miscarriage" was actually a life-saving abortion - adding another layer of complexity to their public journey through grief, healing, and eventual new life.</p>
-
-<div class="key-elements">
-
-<div class="element">
-
-<h4>Radical Transparency</h4>
-
-<p>Sharing the most intimate moments of loss with millions of followers, breaking taboos around pregnancy loss imagery.</p>
-
-</div>
-
-<div class="element">
-
-<h4>Evolving Understanding</h4>
-
-<p>Moving from "miscarriage" to "abortion" language, showing how grief narratives can change over time.</p>
-
-</div>
-
-<div class="element">
-
-<h4>Public Processing</h4>
-
-<p>Using celebrity platform to normalize grief while navigating intense public scrutiny.</p>
-
-</div>
-
-<div class="element">
-
-<h4>Medical Reality</h4>
-
-<p>The intersection of medical necessity, personal choice, and societal judgment in pregnancy loss.</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="central-contradiction">
-
-<h3>The Beautiful Contradiction</h3>
-
-<h4>"Private Pain, Public Healing"</h4>
-
-<div class="contradiction-visual">
-
-<div class="contradiction-side">The most intimate grief shared with millions</div>
-
-<div class="contradiction-bridge">⟷</div>
-
-<div class="contradiction-side">Raw vulnerability becoming universal healing</div>
-
-</div>
-
-<p>Chrissy wrote that she "needed to say something before I could move on from this and return back to life." Her contradiction lies in finding healing through exposure, turning the most private moments into public medicine. The photos that shocked some became lifelines for others walking similar paths.</p>
-
-</div>
-
-<div class="scientific-context">
-
-<h3>Medical Context: Second Trimester Loss & Terminology</h3>
-
-<div class="medical-facts">
-
-<div class="fact-box">
-
-<h4>Second Trimester Loss</h4>
-
-<p><strong>Timing:</strong> Loss between 13-27 weeks affects 1-5% of pregnancies. Often due to serious medical complications requiring immediate intervention.</p>
-
-</div>
-
-<div class="fact-box">
-
-<h4>Medical vs. Public Language</h4>
-
-<p><strong>Terminology:</strong> Medical procedures to end pregnancies due to fetal abnormalities or maternal health risks are technically abortions, regardless of wanted vs. unwanted pregnancy status.</p>
-
-</div>
-
-<div class="fact-box">
-
-<h4>Grief & Processing</h4>
-
-<p><strong>Impact:</strong> Second trimester losses often involve named babies, nurseries prepared, and complex grief that differs from early pregnancy loss.</p>
-
-</div>
-
-<div class="fact-box">
-
-<h4>Photography & Healing</h4>
-
-<p><strong>Bereavement Photography:</strong> Hospital photos of pregnancy loss are increasingly recognized as important grief processing tools, though rarely shared publicly.</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="framework">
-
-<div class="phase phase1">
-
-<div class="phase-number">1</div>
-
-<h3>Embrace the Paradox</h3>
-
-<p>Chrissy's story reveals multiple contradictions that coexist rather than compete. They don't need resolution - they need recognition.</p>
-
-<div class="contradiction-pair">
-
-<div class="concept left">Most Private Moment</div>
-
-<div class="bridge">⟷</div>
-
-<div class="concept right">Most Public Sharing</div>
-
-</div>
-
-<div class="contradiction-pair">
-
-<div class="concept left">Wanted Pregnancy</div>
-
-<div class="bridge">⟷</div>
-
-<div class="concept right">Medical Abortion</div>
-
-</div>
-
-<div class="contradiction-pair">
-
-<div class="concept left">Celebrity Protection</div>
-
-<div class="bridge">⟷</div>
-
-<div class="concept right">Raw Vulnerability</div>
-
-</div>
-
-</div>
-
-<div class="phase phase2">
-
-<div class="phase-number">2</div>
-
-<h3>Hold Both Truths</h3>
-
-<p>Chrissy's realization that her miscarriage was "actually an abortion" shows how language evolves with understanding. Both descriptions can be true simultaneously.</p>
-
-<div class="contradiction-pair">
-
-<div class="concept left">Grief for Lost Baby</div>
-
-<div class="bridge">⟷</div>
-
-<div class="concept right">Gratitude for Life Saved</div>
-
-</div>
-
-<div class="contradiction-pair">
-
-<div class="concept left">Medical Necessity</div>
-
-<div class="bridge">⟷</div>
-
-<div class="concept right">Heart-Wrenching Choice</div>
-
-</div>
-
-</div>
-
-<div class="phase phase3">
-
-<div class="phase-number">3</div>
-
-<h3>Find the Sacred in Science</h3>
-
-<p>Medical terminology and emotional truth can coexist. "He just wouldn't survive this, and if it went on any longer, I might not either" captures both clinical reality and human devastation.</p>
-
-<div class="fact-box">
-
-<h4>The Contradiction of "Life-Saving Abortion"</h4>
-
-<p><strong>Medical perspective:</strong> Termination of pregnancy to prevent maternal death or severe morbidity.<br>
-
-<strong>Emotional reality:</strong> Losing a wanted, named, loved baby through necessary medical intervention.<br>
-
-<strong>Both truths:</strong> Medical accuracy doesn't diminish grief; emotional devastation doesn't change medical reality.</p>
-
-</div>
-
-</div>
-
-<div class="phase phase4">
-
-<div class="phase-number">4</div>
-
-<h3>Create from Contradiction</h3>
-
-<p>Chrissy's choice to share hospital photos and write her Medium essay transformed private pain into public healing, showing how contradictions can become creative forces for good.</p>
-
-</div>
-
-</div>
-
-<div class="interactive-section">
-
-<h4>Contradiction Workshop</h4>
-
-<div class="story-link">
-
-<strong>Explore a contradiction seen in Chrissy Teigen & John Legend's story</strong><br>
-
-Original essay: <a href="https://chrissyteigen.medium.com/hi-2e45e6faf764" target="_blank" style="color: white;">Chrissy's Medium Essay</a>
-
-</div>
-
-<p>Choose a contradiction from their story to explore:</p>
-
-<div class="contradiction-examples">
-
-<div class="example-card" onclick="selectContradiction('private-public')">
-
-<h4>Private Pain & Public Sharing</h4>
-
-<p>Sharing the most intimate loss with millions of strangers</p>
-
-</div>
-
-<div class="example-card" onclick="selectContradiction('miscarriage-abortion')">
-
-<h4>Miscarriage & Abortion Language</h4>
-
-<p>Same event, different terms - both medically accurate and emotionally true</p>
-
-</div>
-
-<div class="example-card" onclick="selectContradiction('celebrity-human')">
-
-<h4>Celebrity Platform & Human Vulnerability</h4>
-
-<p>Using fame to normalize grief while experiencing raw human pain</p>
-
-</div>
-
-<div class="example-card" onclick="selectContradiction('healing-exposure')">
-
-<h4>Healing Through Exposure</h4>
-
-<p>Finding peace by sharing what society says should be private</p>
-
-</div>
-
-</div>
-
-<button class="btn" onclick="generateReflection()">Explore This Contradiction</button>
-
-<button class="btn" onclick="generateMedicalFrame()">Find the Medical Wisdom</button>
-
-<button class="btn" onclick="generateCreativePrompt()">Turn Into Art</button>
-
-<div id="reflection-output" class="reflection-output"></div>
-
-</div>
-
-<div class="reflection-questions">
-
-<h3>Reflection Questions</h3>
-
-<div class="question-category">
-
-<h4>Personal Reflection</h4>
-
-<div class="question" onclick="expandQuestion(this)">
-
-How do you think sharing intimate grief photos helps or hinders the healing process?
-
-</div>
-
-<div class="question" onclick="expandQuestion(this)">
-
-What does Chrissy's evolution from "miscarriage" to "abortion" language teach us about how we understand our own experiences over time?
-
-</div>
-
-<div class="question" onclick="expandQuestion(this)">
-
-How might celebrity status both help and complicate processing pregnancy loss publicly?
-
-</div>
-
-</div>
-
-<div class="question-category">
-
-<h4>Scientific/Educational Reflection</h4>
-
-<div class="question" onclick="expandQuestion(this)">
-
-How can medical terminology be accurate while still honoring the emotional reality of wanted pregnancy loss?
-
-</div>
-
-<div class="question" onclick="expandQuestion(this)">
-
-What role does bereavement photography play in second trimester loss processing?
-
-</div>
-
-</div>
-
-<div class="question-category">
-
-<h4>Empathy Building</h4>
-
-<div class="question" onclick="expandQuestion(this)">
-
-How might Chrissy's raw sharing have impacted other parents experiencing similar losses?
-
-</div>
-
-<div class="question" onclick="expandQuestion(this)">
-
-What does it mean to hold space for both "life-saving medical procedure" and "devastating loss" simultaneously?
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<script>
-
-let selectedContradiction = '';
-
-function selectContradiction(type) {
-
-selectedContradiction = type;
-
-// Visual feedback for selection
-
-document.querySelectorAll('.example-card').forEach(card => {
-
-card.style.background = 'rgba(255,255,255,0.1)';
-
-});
-
-event.target.style.background = 'rgba(255,255,255,0.3)';
-
-}
-
-function generateReflection() {
-
-const output = document.getElementById('reflection-output');
-
-if (!selectedContradiction) {
-
-output.innerHTML = 'Please select a contradiction from Chrissy and John\'s story above first.';
-
-return;
-
-}
-
-const reflections = {
-
-'private-public': [
-
-'What courage does it take to share hospital photos of your deepest loss? How might this vulnerability serve both personal healing and collective understanding?',
-
-'How can the most private moments of grief become medicine for strangers? What transforms personal pain into universal healing?',
-
-'What boundaries might exist between sharing grief and protecting sacred space? How do we honor both the need to connect and the need to shelter?'
-
-],
-
-'miscarriage-abortion': [
-
-'How can the same event be both a "miscarriage" and an "abortion" simultaneously? What does this teach us about the complexity of medical language?',
-
-'What happens when our understanding of our own experience evolves over time? How do we hold space for both past and present perspectives?',
-
-'How might changing language around the same event reflect growth in understanding rather than contradiction?'
-
-],
-
-'celebrity-human': [
-
-'How does celebrity status complicate the universal human experience of grief? What unique pressures and opportunities exist?',
-
-'What responsibility, if any, do public figures have to share personal trauma for the greater good?',
-
-'How might Chrissy\'s platform both amplify her pain and multiply her healing impact?'
-
-],
-
-'healing-exposure': [
-
-'When does public vulnerability become a path to healing rather than additional trauma? What makes the difference?',
-
-'How might sharing what society deems "too private" actually serve a sacred purpose?',
-
-'What does it mean to find peace through radical transparency about our most difficult experiences?'
-
-]
-
-};
-
-const contradictionReflections = reflections[selectedContradiction];
-
-const randomReflection = contradictionReflections[Math.floor(Math.random() * contradictionReflections.length)];
-
-output.innerHTML = `<strong>Reflection on Chrissy & John's Story:</strong><br>${randomReflection}<br><br><em>Take time to sit with this question. Notice what emotions arise. Both comfort and discomfort are welcome here.</em>`;
-
-}
-
-function generateMedicalFrame() {
-
-const output = document.getElementById('reflection-output');
-
-const frames = [
-
-'Medical reality: Second trimester losses requiring intervention are medically classified as abortions, regardless of whether the pregnancy was wanted. This terminology doesn\'t diminish the grief of losing a desired baby.',
-
-'Consider: How might understanding the medical necessity behind Chrissy\'s procedure coexist with honoring their grief for baby Jack?',
-
-'The evolution from "miscarriage" to "abortion" language shows how medical accuracy and emotional truth can both be valid ways of understanding the same experience.',
-
-'Hospital photography in pregnancy loss is increasingly recognized as an important bereavement tool, though rarely shared publicly as Chrissy courageously did.',
-
-'At 20 weeks, with complications threatening maternal life, the medical intervention was both clinically necessary and emotionally devastating - both truths coexist.'
-
-];
-
-const randomFrame = frames[Math.floor(Math.random() * frames.length)];
-
-output.innerHTML = `<strong>Medical Wisdom from Their Story:</strong><br>${randomFrame}`;
-
-}
-
-function generateCreativePrompt() {
-
-const output = document.getElementById('reflection-output');
-
-output.innerHTML = `
-
-<strong>Art Inspired by Their Story</strong><br><br>
-
-Chrissy Teigen and John Legend's raw courage in sharing their loss of baby Jack has inspired creative expressions across multiple mediums. Their willingness to transform private grief into public healing demonstrates how art becomes a bridge between personal pain and universal connection.<br><br>
-
-<strong>Creative Mediums Inspired by Stories Like Theirs:</strong><br>
-
-• <strong>Photography:</strong> Bereavement photography, artistic representations of loss, visual storytelling of grief journeys<br>
-
-• <strong>Written Expression:</strong> Personal essays, poetry, memoirs exploring the complexity of pregnancy loss<br>
-
-• <strong>Digital Art:</strong> Social media art, graphic design, online galleries creating spaces for shared grief<br>
-
-• <strong>Performance:</strong> Spoken word, theater, dance embodying the contradictions of loss and healing<br>
-
-• <strong>Film:</strong> Documentaries, short films, video essays breaking silence around pregnancy loss<br>
-
-• <strong>Musical Expression:</strong> Songs capturing the complexity of wanted pregnancy loss<br><br>
-
-<strong>Featured Musical Tribute:</strong><br>
-
-Inspired by Chrissy's raw vulnerability in sharing baby Jack's story and her journey from private grief to public healing, this song captures the beautiful contradiction of finding light in darkness and connection through the most isolating experience.<br><br>
-
-<strong>"Raw Truth, Healing Light"</strong> - A musical reflection on the courage to share our deepest pain and the unexpected healing that can come from radical transparency.<br><br>
-
-<!-- PLACEHOLDER FOR YOUTUBE VIDEO -->
-<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; border: 2px dashed rgba(255,255,255,0.3);">
-<p><strong>YouTube Video Placeholder</strong></p>
-<p>Song inspired by Chrissy Teigen & John Legend's story will be embedded here</p>
-</div>
-<br><br>
-
-<em>This song represents how stories of pregnancy loss - even when shared in their rawest form - can become sources of healing, connection, and hope for others walking similar paths. Chrissy's courage to share her hospital photos and John's support in their public grieving process shows how vulnerability can become a gift to the world.</em><br><br>
-
-<strong>Your Story Can Inspire Art Too:</strong><br>
-
-Whether through photography, written word, visual art, music, or any other creative medium, your experience of holding life's contradictions can become a source of healing and connection for others seeking to understand their own complex grief journeys.
-
-`;
-
-}
-
-function expandQuestion(questionElement) {
-
-const isExpanded = questionElement.style.backgroundColor === 'rgba(255, 255, 255, 0.9)';
-
-// Reset all questions
-
-document.querySelectorAll('.question').forEach(q => {
-
-q.style.backgroundColor = 'rgba(255,255,255,0.7)';
-
-});
-
-if (!isExpanded) {
-
-questionElement.style.backgroundColor = 'rgba(255,255,255,0.9)';
-
-}
-
-}
-
-</script>
-
-</body>
-
-</html>
+    <div class="container">
+        <div class="navigation">
+            <div class="nav-buttons">
+                <a href="https://www.splproject.org" class="nav-button home">Home</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy active">Chrissy</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+            </div>
+        </div>
+
+        <div class="header">
+            <h1>Learning Through Beautiful Contradictions</h1>
+            <p>Chrissy Teigen & John Legend's Story: When Raw Truth Becomes Healing Light</p>
+        </div>
+
+        <div class="story-anchor">
+            <div class="story-header">
+                <h2>Story Anchor: Chrissy Teigen & John Legend</h2>
+            </div>
+
+            <div class="story-source">
+                <strong>Sources:</strong> <a href="https://chrissyteigen.medium.com/hi-2e45e6faf764" target="_blank">Chrissy's Medium Essay</a> | <a href="https://www.instagram.com/chrissyteigen/p/CFyWQLWpJ3u/?hl=en" target="_blank">Instagram Post</a>
+            </div>
+
+            <p>In September 2020, Chrissy Teigen and John Legend lost their son Jack at 20 weeks gestation due to pregnancy complications. What made their story unprecedented was Chrissy's decision to share raw, intimate photos from the hospital and later write a deeply personal Medium essay. Two years later, she revealed that what she had called a "miscarriage" was actually a life-saving abortion - adding another layer of complexity to their public journey through grief, healing, and eventual new life.</p>
+
+            <div class="key-elements">
+                <div class="element">
+                    <h4>Radical Transparency</h4>
+                    <p>Sharing the most intimate moments of loss with millions of followers, breaking taboos around pregnancy loss imagery.</p>
+                </div>
+                <div class="element">
+                    <h4>Evolving Understanding</h4>
+                    <p>Moving from "miscarriage" to "abortion" language, showing how grief narratives can change over time.</p>
+                </div>
+                <div class="element">
+                    <h4>Public Processing</h4>
+                    <p>Using celebrity platform to normalize grief while navigating intense public scrutiny.</p>
+                </div>
+                <div class="element">
+                    <h4>Medical Reality</h4>
+                    <p>The intersection of medical necessity, personal choice, and societal judgment in pregnancy loss.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="central-contradiction">
+            <h3>The Beautiful Contradiction</h3>
+            <h4>"Private Pain, Public Healing"</h4>
+            <div class="contradiction-visual">
+                <div class="contradiction-side">The most intimate grief shared with millions</div>
+                <div class="contradiction-bridge">⟷</div>
+                <div class="contradiction-side">Raw vulnerability becoming universal healing</div>
+            </div>
+            <p>Chrissy wrote that she "needed to say something before I could move on from this and return back to life." Her contradiction lies in finding healing through exposure, turning the most private moments into public medicine. The photos that shocked some became lifelines for others walking similar paths.</p>
+        </div>
+
+        <div class="scientific-context">
+            <h3>Medical Context: Second Trimester Loss & Terminology</h3>
+            <div class="medical-facts">
+                <div class="fact-box">
+                    <h4>Second Trimester Loss</h4>
+                    <p><strong>Timing:</strong> Loss between 13-27 weeks affects 1-5% of pregnancies. Often due to serious medical complications requiring immediate intervention.</p>
+                </div>
+                <div class="fact-box">
+                    <h4>Medical vs. Public Language</h4>
+                    <p><strong>Terminology:</strong> Medical procedures to end pregnancies due to fetal abnormalities or maternal health risks are technically abortions, regardless of wanted vs. unwanted pregnancy status.</p>
+                </div>
+                <div class="fact-box">
+                    <h4>Grief & Processing</h4>
+                    <p><strong>Impact:</strong> Second trimester losses often involve named babies, nurseries prepared, and complex grief that differs from early pregnancy loss.</p>
+                </div>
+                <div class="fact-box">
+                    <h4>Photography & Healing</h4>
+                    <p><strong>Bereavement Photography:</strong> Hospital photos of pregnancy loss are increasingly recognized as important grief processing tools, though rarely shared publicly.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="framework">
+            <div class="phase phase1">
+                <div class="phase-number">1</div>
+                <h3>Embrace the Paradox</h3>
+                <p>Chrissy's story reveals multiple contradictions that coexist rather than compete. They don't need resolution - they need recognition.</p>
+                <div class="contradiction-pair">
+                    <div class="concept left">Most Private Moment</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Most Public Sharing</div>
+                </div>
+                <div class="contradiction-pair">
+                    <div class="concept left">Wanted Pregnancy</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Medical Abortion</div>
+                </div>
+                <div class="contradiction-pair">
+                    <div class="concept left">Celebrity Protection</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Raw Vulnerability</div>
+                </div>
+            </div>
+
+            <div class="phase phase2">
+                <div class="phase-number">2</div>
+                <h3>Hold Both Truths</h3>
+                <p>Chrissy's realization that her miscarriage was "actually an abortion" shows how language evolves with understanding. Both descriptions can be true simultaneously.</p>
+                <div class="contradiction-pair">
+                    <div class="concept left">Grief for Lost Baby</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Gratitude for Life Saved</div>
+                </div>
+                <div class="contradiction-pair">
+                    <div class="concept left">Medical Necessity</div>
+                    <div class="bridge">⟷</div>
+                    <div class="concept right">Heart-Wrenching Choice</div>
+                </div>
+            </div>
+
+            <div class="phase phase3">
+                <div class="phase-number">3</div>
+                <h3>Find the Sacred in Science</h3>
+                <p>Medical terminology and emotional truth can coexist. "He just wouldn't survive this, and if it went on any longer, I might not either" captures both clinical reality and human devastation.</p>
+                <div class="fact-box">
+                    <h4>The Contradiction of "Life-Saving Abortion"</h4>
+                    <p><strong>Medical perspective:</strong> Termination of pregnancy to prevent maternal death or severe morbidity.<br>
+                    <strong>Emotional reality:</strong> Losing a wanted, named, loved baby through necessary medical intervention.<br>
+                    <strong>Both truths:</strong> Medical accuracy doesn't diminish grief; emotional devastation doesn't change medical reality.</p>
+                </div>
+            </div>
+
+            <div class="phase phase4">
+                <div class="phase-number">4</div>
+                <h3>Create from Contradiction</h3>
+                <p>Chrissy's choice to share hospital photos and write her Medium essay transformed private pain into public healing, showing how contradictions can become creative forces for good.</p>
+            </div>
+        </div>
+
+        <div class="interactive-section">
+            <h4>Contradiction Workshop</h4>
+            <div class="story-link">
+                <strong>Explore a contradiction seen in Chrissy Teigen & John Legend's story</strong><br>
+                Original essay: <a href="https://chrissyteigen.medium.com/hi-2e45e6faf764" target="_blank" style="color: white;">Chrissy's Medium Essay</a>
+            </div>
+
+            <p>Choose a contradiction from their story to explore:</p>
+
+            <div class="contradiction-examples">
+                <div class="example-card" onclick="selectContradiction('private-public')">
+                    <h4>Private Pain & Public Sharing</h4>
+                    <p>Sharing the most intimate loss with millions of strangers</p>
+                </div>
+                <div class="example-card" onclick="selectContradiction('miscarriage-abortion')">
+                    <h4>Miscarriage & Abortion Language</h4>
+                    <p>Same event, different terms - both medically accurate and emotionally true</p>
+                </div>
+                <div class="example-card" onclick="selectContradiction('celebrity-human')">
+                    <h4>Celebrity Platform & Human Vulnerability</h4>
+                    <p>Using fame to normalize grief while experiencing raw human pain</p>
+                </div>
+                <div class="example-card" onclick="selectContradiction('healing-exposure')">
+                    <h4>Healing Through Exposure</h4>
+                    <p>Finding peace by sharing what society says should be private</p>
+                </div>
+            </div>
+
+            <button class="btn" onclick="generateReflection()">Explore This Contradiction</button>
+            <button class="btn" onclick="generateMedicalFrame()">Find the Medical Wisdom</button>
+            <button class="btn" onclick="generateCreativePrompt()">Turn Into Art</button>
+
+            <div id="reflection-output" class="reflection-output"></div>
+        </div>
+
+        <div class="reflection-questions">
+            <h3>Reflection Questions</h3>
+            <div class="question-category">
+                <h4>Personal Reflection</h4>
+                <div class="question" onclick="expandQuestion(this)">
+                    How do you think sharing intimate grief photos helps or hinders the healing process?
+                </div>
+                <div class="question" onclick="expandQuestion(this)">
+                    What does Chrissy's evolution from "miscarriage" to "abortion" language teach us about how we understand our own experiences over time?
+                </div>
+                <div class="question" onclick="expandQuestion(this)">
+                    How might celebrity status both help and complicate processing pregnancy loss publicly?
+                </div>
+            </div>
+
+            <div class="question-category">
+                <h4>Scientific/Educational Reflection</h4>
+                <div class="question" onclick="expandQuestion(this)">
+                    How can medical terminology be accurate while still honoring the emotional reality of wanted pregnancy loss?
+                </div>
+                <div class="question" onclick="expandQuestion(this)">
+                    What role does bereavement photography play in second trimester loss processing?
+                </div>
+            </div>
+
+            <div class="question-category">
+                <h4>Empathy Building</h4>
+                <div class="question" onclick="expandQuestion(this)">
+                    How might Chrissy's raw sharing have impacted other parents experiencing similar losses?
+                </div>
+                <div class="question" onclick="expandQuestion(this)">
+                    What does it mean to hold space for both "life-saving medical procedure" and "devastating loss" simultaneously?
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-navigation">
+            <h3>Continue Your Journey</h3>
+            <p>Explore more stories of beautiful contradictions in pregnancy loss</p>
+            <div class="bottom-nav-buttons">
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="bottom-nav-button">← Previous: Beyoncé</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/index.html" class="bottom-nav-button home">🏠 Back to All Stories</a>
+                <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="bottom-nav-button">Next: Hilarie Burton →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedContradiction = '';
+
+        function selectContradiction(type) {
+            selectedContradiction = type;
+            // Visual feedback for selection
+            document.querySelectorAll('.example-card').forEach(card => {
+                card.style.background = 'rgba(255,255,255,0.1)';
+            });
+            event.target.closest('.example-card').style.background = 'rgba(255,255,255,0.3)';
+        }
+
+        function generateReflection() {
+            const output = document.getElementById('reflection-output');
+            if (!selectedContradiction) {
+                output.innerHTML = 'Please select a contradiction from Chrissy and John\'s story above first.';
+                return;
+            }
+
+            const reflections = {
+                'private-public': [
+                    'What courage does it take to share hospital photos of your deepest loss? How might this vulnerability serve both personal healing and collective understanding?',
+                    'How can the most private moments of grief become medicine for strangers? What transforms personal pain into universal healing?',
+                    'What boundaries might exist between sharing grief and protecting sacred space? How do we honor both the need to connect and the need to shelter?'
+                ],
+                'miscarriage-abortion': [
+                    'How can the same event be both a "miscarriage"

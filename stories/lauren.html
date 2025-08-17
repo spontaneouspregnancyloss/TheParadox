@@ -1,341 +1,687 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lauren's Story - The Paradox</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.7;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-        }
+<title>Lauren's Story - The Paradox</title>
 
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: #e74c3c;
-            border-radius: 2px;
-        }
+<style>
 
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
+* {
 
-        .header .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-            font-style: italic;
-        }
+margin: 0;
 
-        .content {
-            padding: 50px 40px;
-        }
+padding: 0;
 
-        .paradox-section {
-            margin-bottom: 50px;
-            padding: 30px;
-            border-left: 4px solid #e74c3c;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            border-radius: 0 15px 15px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+box-sizing: border-box;
 
-        .paradox-title {
-            font-size: 1.5em;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
+}
 
-        .paradox-content {
-            color: #34495e;
-            font-size: 1.1em;
-        }
+body {
 
-        .quote-section {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 30px;
-            margin: 40px 0;
-            border-radius: 15px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+font-family: 'Georgia', serif;
 
-        .quote-section::before {
-            content: '"';
-            font-size: 4em;
-            color: rgba(255, 255, 255, 0.3);
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-family: serif;
-        }
+line-height: 1.7;
 
-        .quote-text {
-            font-size: 1.3em;
-            font-style: italic;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
-        .quote-attribution {
-            color: #7f8c8d;
-            font-size: 1em;
-        }
+min-height: 100vh;
 
-        .reflection-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            margin: 40px 0;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
+padding: 20px;
 
-        .reflection-title {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+}
 
-        .learning-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
 
-        .learning-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
 
-        .learning-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
 
-        .learning-card h3 {
-            color: #e74c3c;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
 
-        .learning-card p {
-            color: #34495e;
-            line-height: 1.6;
-        }
+.nav-button.home,
+.nav-button.explore {
+background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+color: black;
+font-weight: bold;
+}
 
-        .navigation {
-            background: #2c3e50;
-            padding: 20px;
-            text-align: center;
-        }
+.nav-button.active {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
 
-        .navigation a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 10px 20px;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
+/* Individual story button colors - Lauren is active (gold), others are pink */
+.nav-button.lauren {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
 
-        .navigation a:hover {
-            background: #e74c3c;
-            transform: translateY(-2px);
-        }
+.nav-button.beyonce,
+.nav-button.chrissy,
+.nav-button.hilarie,
+.nav-button.kate,
+.nav-button.halsey,
+.nav-button.jessica,
+.nav-button.meghan,
+.nav-button.nick,
+.nav-button.nicola,
+.nav-button.rebecca {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+}
 
-        .memorial-section {
-            text-align: center;
-            padding: 40px;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            margin: 40px 0;
-            border-radius: 15px;
-        }
+.container {
 
-        .memorial-text {
-            font-size: 1.2em;
-            color: #2c3e50;
-            font-style: italic;
-        }
+max-width: 800px;
 
-        @media (max-width: 768px) {
-            .container {
-                margin: 0 10px;
-            }
-            
-            .content {
-                padding: 30px 20px;
-            }
-            
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .learning-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-    </style>
+margin: 0 auto;
+
+background: rgba(255, 255, 255, 0.95);
+
+border-radius: 20px;
+
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+overflow: hidden;
+
+backdrop-filter: blur(10px);
+
+}
+
+.header {
+
+background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+
+color: white;
+
+padding: 40px 30px;
+
+text-align: center;
+
+position: relative;
+
+}
+
+.header::after {
+
+content: '';
+
+position: absolute;
+
+bottom: 0;
+
+left: 50%;
+
+transform: translateX(-50%);
+
+width: 50px;
+
+height: 3px;
+
+background: #e74c3c;
+
+border-radius: 2px;
+
+}
+
+.header h1 {
+
+font-size: 2.5em;
+
+margin-bottom: 10px;
+
+font-weight: 300;
+
+}
+
+.header .subtitle {
+
+font-size: 1.2em;
+
+opacity: 0.9;
+
+font-style: italic;
+
+}
+
+.content {
+
+padding: 50px 40px;
+
+}
+
+.paradox-section {
+
+margin-bottom: 50px;
+
+padding: 30px;
+
+border-left: 4px solid #e74c3c;
+
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+
+border-radius: 0 15px 15px 0;
+
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+.paradox-title {
+
+font-size: 1.5em;
+
+color: #2c3e50;
+
+margin-bottom: 15px;
+
+font-weight: bold;
+
+}
+
+.paradox-content {
+
+color: #34495e;
+
+font-size: 1.1em;
+
+}
+
+.quote-section {
+
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+
+padding: 30px;
+
+margin: 40px 0;
+
+border-radius: 15px;
+
+text-align: center;
+
+position: relative;
+
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+.quote-section::before {
+
+content: '"';
+
+font-size: 4em;
+
+color: rgba(255, 255, 255, 0.3);
+
+position: absolute;
+
+top: -10px;
+
+left: 20px;
+
+font-family: serif;
+
+}
+
+.quote-text {
+
+font-size: 1.3em;
+
+font-style: italic;
+
+color: #2c3e50;
+
+margin-bottom: 15px;
+
+}
+
+.quote-attribution {
+
+color: #7f8c8d;
+
+font-size: 1em;
+
+}
+
+.reflection-section {
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+color: white;
+
+padding: 40px;
+
+margin: 40px 0;
+
+border-radius: 15px;
+
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+.reflection-title {
+
+font-size: 1.8em;
+
+margin-bottom: 20px;
+
+text-align: center;
+
+}
+
+.learning-grid {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+gap: 30px;
+
+margin: 40px 0;
+
+}
+
+.learning-card {
+
+background: white;
+
+padding: 30px;
+
+border-radius: 15px;
+
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.learning-card:hover {
+
+transform: translateY(-5px);
+
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+
+}
+
+.learning-card h3 {
+
+color: #e74c3c;
+
+margin-bottom: 15px;
+
+font-size: 1.3em;
+
+}
+
+.learning-card p {
+
+color: #34495e;
+
+line-height: 1.6;
+
+}
+
+.navigation-bottom {
+
+background: #2c3e50;
+
+padding: 20px;
+
+text-align: center;
+
+}
+
+.navigation-bottom a {
+
+color: white;
+
+text-decoration: none;
+
+margin: 0 15px;
+
+padding: 10px 20px;
+
+border-radius: 25px;
+
+background: rgba(255, 255, 255, 0.1);
+
+transition: all 0.3s ease;
+
+}
+
+.navigation-bottom a:hover {
+
+background: #e74c3c;
+
+transform: translateY(-2px);
+
+}
+
+.memorial-section {
+
+text-align: center;
+
+padding: 40px;
+
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+
+margin: 40px 0;
+
+border-radius: 15px;
+
+}
+
+.memorial-text {
+
+font-size: 1.2em;
+
+color: #2c3e50;
+
+font-style: italic;
+
+}
+
+@media (max-width: 768px) {
+
+.container {
+
+margin: 0 10px;
+
+}
+
+.content {
+
+padding: 30px 20px;
+
+}
+
+.header {
+
+padding: 30px 20px;
+
+}
+
+.header h1 {
+
+font-size: 2em;
+
+}
+
+.learning-grid {
+
+grid-template-columns: 1fr;
+
+gap: 20px;
+
+}
+
+.nav-buttons {
+gap: 6px;
+}
+
+.nav-button {
+padding: 4px 8px;
+font-size: 0.8em;
+min-width: 60px;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Lauren's Story</h1>
-            <div class="subtitle">Learning through Beautiful Contradictions</div>
-        </div>
 
-        <div class="content">
-            <div class="paradox-section">
-                <div class="paradox-title">The Paradox of Preparation</div>
-                <div class="paradox-content">
-                    "I did everything right. I was young. I exercised. I ate well. I had prior health checks and received a perfect score... Yet my husband and I lost our first child." Lauren's story reveals the beautiful contradiction that sometimes our greatest preparations cannot shield us from life's most profound losses, yet in that vulnerability, we discover strength we never knew we possessed.
-                </div>
-            </div>
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren active">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
 
-            <div class="quote-section">
-                <div class="quote-text">That boy lived a perfect life. We're the only ones who know it was brief. All he knew was you, and that you loved him.</div>
-                <div class="quote-attribution">— A moment of clarity that changed everything</div>
-            </div>
+<div class="container">
 
-            <div class="paradox-section">
-                <div class="paradox-title">The Paradox of Silence and Voice</div>
-                <div class="paradox-content">
-                    Lauren experienced the contradiction between needing silence to process grief while simultaneously needing her voice to heal others. "To talk about it is painful, and yet it is so important that we do talk about it more." In sharing her story, she transforms personal anguish into collective healing.
-                </div>
-            </div>
+<div class="header">
 
-            <div class="learning-grid">
-                <div class="learning-card">
-                    <h3>The Contradiction of Comfort</h3>
-                    <p>Well-meaning words can wound, while simple acknowledgment can heal. Lauren learned that "I'm sorry" carries more power than explanations, and presence matters more than perfect words.</p>
-                </div>
+<h1>Lauren's Story</h1>
 
-                <div class="learning-card">
-                    <h3>The Paradox of Loss and Gain</h3>
-                    <p>"Every child a woman carries changes her DNA forever." In losing her baby, Lauren discovered she gained something irreplaceable—a guardian angel that would forever be part of her essence.</p>
-                </div>
+<div class="subtitle">Learning through Beautiful Contradictions</div>
 
-                <div class="learning-card">
-                    <h3>The Beautiful Contradiction of Grief</h3>
-                    <p>Grief stops your world while the universe continues. Yet in that stillness, Lauren found that transformation happens—becoming someone different, someone deeper, someone who carries love in new ways.</p>
-                </div>
+</div>
 
-                <div class="learning-card">
-                    <h3>The Paradox of Strength in Vulnerability</h3>
-                    <p>In her moment of deepest pain, Lauren's first words were "I'm sorry"—apologizing for something beyond her control. This contradiction revealed how love makes us vulnerable, yet that same vulnerability becomes our greatest strength.</p>
-                </div>
-            </div>
+<div class="content">
 
-            <div class="reflection-section">
-                <div class="reflection-title">The Learning in the Loss</div>
-                <p>Lauren's journey illuminates the beautiful contradictions inherent in loss—how our bodies save us even as they seem to fail us, how isolation can lead to connection, how brief lives can have eternal impact. Her story teaches us that healing isn't linear, that there's no textbook for grief, and that sometimes the most profound learning comes through experiencing life's most painful paradoxes.</p>
-            </div>
+<div class="paradox-section">
 
-            <div class="memorial-section">
-                <div class="memorial-text">
-                    "We didn't get to carry our baby in our arms.<br>
-                    But we will carry them forever in our hearts."
-                </div>
-            </div>
+<div class="paradox-title">The Paradox of Preparation</div>
 
-            <div class="paradox-section">
-                <div class="paradox-title">The Paradox of Moving Forward</div>
-                <div class="paradox-content">
-                    Lauren discovered that moving forward doesn't mean moving on. Life continues and the world keeps turning, but we are forever changed. In this contradiction lies the beauty of human resilience—we can hold both grief and hope, both loss and love, both endings and new beginnings.
-                </div>
-            </div>
-        </div>
+<div class="paradox-content">
 
-        <div class="navigation">
-            <a href="../index.html">← Home</a>
-            <a href="nick-natalie.html">Nick & Natalie's Story</a>
-            <a href="#share">Share Lauren's Story</a>
-        </div>
-    </div>
+"I did everything right. I was young. I exercised. I ate well. I had prior health checks and received a perfect score... Yet my husband and I lost our first child." Lauren's story reveals the beautiful contradiction that sometimes our greatest preparations cannot shield us from life's most profound losses, yet in that vulnerability, we discover strength we never knew we possessed.
 
-    <script>
-        // Gentle fade-in animation for elements
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+</div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '0';
-                    entry.target.style.transform = 'translateY(20px)';
-                    entry.target.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                    
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, 100);
-                }
-            });
-        }, observerOptions);
+</div>
 
-        // Observe all content sections
-        document.querySelectorAll('.paradox-section, .learning-card, .quote-section, .reflection-section').forEach(el => {
-            observer.observe(el);
-        });
+<div class="quote-section">
 
-        // Add gentle hover effects to learning cards
-        document.querySelectorAll('.learning-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.background = 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.background = 'white';
-            });
-        });
-    </script>
+<div class="quote-text">That boy lived a perfect life. We're the only ones who know it was brief. All he knew was you, and that you loved him.</div>
+
+<div class="quote-attribution">--- A moment of clarity that changed everything</div>
+
+</div>
+
+<div class="paradox-section">
+
+<div class="paradox-title">The Paradox of Silence and Voice</div>
+
+<div class="paradox-content">
+
+Lauren experienced the contradiction between needing silence to process grief while simultaneously needing her voice to heal others. "To talk about it is painful, and yet it is so important that we do talk about it more." In sharing her story, she transforms personal anguish into collective healing.
+
+</div>
+
+</div>
+
+<div class="learning-grid">
+
+<div class="learning-card">
+
+<h3>The Contradiction of Comfort</h3>
+
+<p>Well-meaning words can wound, while simple acknowledgment can heal. Lauren learned that "I'm sorry" carries more power than explanations, and presence matters more than perfect words.</p>
+
+</div>
+
+<div class="learning-card">
+
+<h3>The Paradox of Loss and Gain</h3>
+
+<p>"Every child a woman carries changes her DNA forever." In losing her baby, Lauren discovered she gained something irreplaceable---a guardian angel that would forever be part of her essence.</p>
+
+</div>
+
+<div class="learning-card">
+
+<h3>The Beautiful Contradiction of Grief</h3>
+
+<p>Grief stops your world while the universe continues. Yet in that stillness, Lauren found that transformation happens---becoming someone different, someone deeper, someone who carries love in new ways.</p>
+
+</div>
+
+<div class="learning-card">
+
+<h3>The Paradox of Strength in Vulnerability</h3>
+
+<p>In her moment of deepest pain, Lauren's first words were "I'm sorry"---apologizing for something beyond her control. This contradiction revealed how love makes us vulnerable, yet that same vulnerability becomes our greatest strength.</p>
+
+</div>
+
+</div>
+
+<div class="reflection-section">
+
+<div class="reflection-title">The Learning in the Loss</div>
+
+<p>Lauren's journey illuminates the beautiful contradictions inherent in loss---how our bodies save us even as they seem to fail us, how isolation can lead to connection, how brief lives can have eternal impact. Her story teaches us that healing isn't linear, that there's no textbook for grief, and that sometimes the most profound learning comes through experiencing life's most painful paradoxes.</p>
+
+</div>
+
+<div class="memorial-section">
+
+<div class="memorial-text">
+
+"We didn't get to carry our baby in our arms.<br>
+
+But we will carry them forever in our hearts."
+
+</div>
+
+</div>
+
+<div class="paradox-section">
+
+<div class="paradox-title">The Paradox of Moving Forward</div>
+
+<div class="paradox-content">
+
+Lauren discovered that moving forward doesn't mean moving on. Life continues and the world keeps turning, but we are forever changed. In this contradiction lies the beauty of human resilience---we can hold both grief and hope, both loss and love, both endings and new beginnings.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="navigation-bottom">
+
+<a href="../index.html">← Home</a>
+
+<a href="nick-natalie.html">Nick & Natalie's Story</a>
+
+<a href="#share">Share Lauren's Story</a>
+
+</div>
+
+</div>
+
+<script>
+
+// Gentle fade-in animation for elements
+
+const observerOptions = {
+
+threshold: 0.1,
+
+rootMargin: '0px 0px -50px 0px'
+
+};
+
+const observer = new IntersectionObserver((entries) => {
+
+entries.forEach(entry => {
+
+if (entry.isIntersecting) {
+
+entry.target.style.opacity = '0';
+
+entry.target.style.transform = 'translateY(20px)';
+
+entry.target.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+setTimeout(() => {
+
+entry.target.style.opacity = '1';
+
+entry.target.style.transform = 'translateY(0)';
+
+}, 100);
+
+}
+
+});
+
+}, observerOptions);
+
+// Observe all content sections
+
+document.querySelectorAll('.paradox-section, .learning-card, .quote-section, .reflection-section').forEach(el => {
+
+observer.observe(el);
+
+});
+
+// Add gentle hover effects to learning cards
+
+document.querySelectorAll('.learning-card').forEach(card => {
+
+card.addEventListener('mouseenter', function() {
+
+this.style.background = 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)';
+
+});
+
+card.addEventListener('mouseleave', function() {
+
+this.style.background = 'white';
+
+});
+
+});
+
+</script>
+
 </body>
+
 </html>

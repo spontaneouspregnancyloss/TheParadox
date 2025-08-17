@@ -46,6 +46,138 @@ padding: 20px;
 
 }
 
+.navigation {
+
+text-align: center;
+
+margin-bottom: 30px;
+
+}
+
+.nav-buttons {
+
+display: flex;
+
+justify-content: center;
+
+flex-wrap: wrap;
+
+gap: 8px;
+
+margin-bottom: 20px;
+
+max-width: 1000px;
+
+margin-left: auto;
+
+margin-right: auto;
+
+}
+
+.nav-button {
+
+background: rgba(255, 255, 255, 0.9);
+
+color: #444;
+
+padding: 6px 12px;
+
+border-radius: 15px;
+
+text-decoration: none;
+
+font-weight: 500;
+
+font-size: 0.85em;
+
+transition: all 0.3s ease;
+
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+display: flex;
+
+align-items: center;
+
+gap: 4px;
+
+min-width: 80px;
+
+justify-content: center;
+
+}
+
+.nav-button:hover {
+
+background: white;
+
+transform: translateY(-2px);
+
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+
+text-decoration: none;
+
+color: #444;
+
+}
+
+.nav-button.home,
+
+.nav-button.explore {
+
+background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+
+color: black;
+
+font-weight: bold;
+
+}
+
+.nav-button.active {
+
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+
+color: black;
+
+font-weight: bold;
+
+}
+
+/* Individual story button colors - Hilarie is active (gold), others are pink */
+
+.nav-button.hilarie {
+
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+
+color: black;
+
+font-weight: bold;
+
+}
+
+.nav-button.beyonce,
+
+.nav-button.chrissy,
+
+.nav-button.kate,
+
+.nav-button.halsey,
+
+.nav-button.jessica,
+
+.nav-button.lauren,
+
+.nav-button.meghan,
+
+.nav-button.nick,
+
+.nav-button.nicola,
+
+.nav-button.rebecca {
+
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+
+}
+
 .header {
 
 text-align: center;
@@ -586,6 +718,76 @@ transform: translateX(5px);
 
 }
 
+.bottom-navigation {
+
+background: rgba(255, 255, 255, 0.95);
+
+border-radius: 20px;
+
+padding: 30px;
+
+margin-top: 40px;
+
+text-align: center;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.bottom-nav-buttons {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+flex-wrap: wrap;
+
+gap: 20px;
+
+margin-top: 20px;
+
+}
+
+.bottom-nav-button {
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+color: white;
+
+padding: 12px 25px;
+
+border-radius: 25px;
+
+text-decoration: none;
+
+font-weight: bold;
+
+transition: all 0.3s ease;
+
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+.bottom-nav-button:hover {
+
+transform: translateY(-2px);
+
+box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+text-decoration: none;
+
+color: white;
+
+}
+
+.bottom-nav-button.home {
+
+background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+
+}
+
 @media (max-width: 768px) {
 
 .contradiction-visual {
@@ -608,6 +810,40 @@ transform: rotate(90deg);
 
 }
 
+.nav-buttons {
+
+flex-direction: row;
+
+justify-content: center;
+
+gap: 6px;
+
+}
+
+.nav-button {
+
+font-size: 0.75em;
+
+padding: 4px 8px;
+
+min-width: 60px;
+
+}
+
+.bottom-nav-buttons {
+
+flex-direction: column;
+
+}
+
+.bottom-nav-button {
+
+width: 100%;
+
+max-width: 300px;
+
+}
+
 }
 
 </style>
@@ -617,6 +853,40 @@ transform: rotate(90deg);
 <body>
 
 <div class="container">
+
+<div class="navigation">
+
+<div class="nav-buttons">
+
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie active">Hilarie</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+
+</div>
+
+</div>
 
 <div class="header">
 
@@ -974,9 +1244,121 @@ What courage does it take to write honestly about being overwhelmed by "dead-bab
 
 </div>
 
+<div class="bottom-navigation">
+
+<h3>Continue Your Journey</h3>
+
+<p>Explore more stories of beautiful contradictions in pregnancy loss</p>
+
+<div class="bottom-nav-buttons">
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="bottom-nav-button">← Previous: Chrissy</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/index.html" class="bottom-nav-button home">🏠 Back to All Stories</a>
+
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="bottom-nav-button">Next: Kate →</a>
+
+</div>
+
+</div>
+
 </div>
 
 <script>
+
+// Define story order for automatic navigation
+
+const storyOrder = [
+
+'Beyonce_Miscarriage.html',
+
+'Chrissy_Teigen.html',
+
+'Hilarie_Burton.html',
+
+'Kate_Mara.html',
+
+'halsey.html',
+
+'jessica-zucker.html',
+
+'lauren.html',
+
+'meghan_markle.html',
+
+'nick-natalie.html',
+
+'nicola-sturgeon.html',
+
+'rebecca-zoe.html'
+
+];
+
+// Get current page filename
+
+const currentPage = 'Hilarie_Burton.html';
+
+const currentIndex = storyOrder.indexOf(currentPage);
+
+// Function to get navigation URLs
+
+function getNavigationUrls() {
+
+const baseUrl = 'https://spontaneouspregnancyloss.github.io/TheParadox/stories/';
+
+const homeUrl = 'https://spontaneouspregnancyloss.github.io/TheParadox/index.html';
+
+let prevUrl = homeUrl;
+
+let nextUrl = homeUrl;
+
+if (currentIndex > 0) {
+
+prevUrl = baseUrl + storyOrder[currentIndex - 1];
+
+}
+
+if (currentIndex < storyOrder.length - 1) {
+
+nextUrl = baseUrl + storyOrder[currentIndex + 1];
+
+}
+
+return { prevUrl, nextUrl };
+
+}
+
+// Update navigation buttons on page load
+
+document.addEventListener('DOMContentLoaded', function() {
+
+const { prevUrl, nextUrl } = getNavigationUrls();
+
+const prevButton = document.querySelector('.bottom-nav-buttons .bottom-nav-button:first-child');
+
+const nextButton = document.querySelector('.bottom-nav-buttons .bottom-nav-button:last-child');
+
+if (prevButton && currentIndex > 0) {
+
+prevButton.href = prevUrl;
+
+const prevName = storyOrder[currentIndex - 1].replace('.html', '').replace('_', ' ').replace('-', ' & ');
+
+prevButton.textContent = `← Previous: ${prevName.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}`;
+
+}
+
+if (nextButton && currentIndex < storyOrder.length - 1) {
+
+nextButton.href = nextUrl;
+
+const nextName = storyOrder[currentIndex + 1].replace('.html', '').replace('_', ' ').replace('-', ' & ');
+
+nextButton.textContent = `Next: ${nextName.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} →`;
+
+}
+
+});
 
 let selectedContradiction = '';
 
@@ -992,7 +1374,7 @@ card.style.background = 'rgba(255,255,255,0.1)';
 
 });
 
-event.target.style.background = 'rgba(255,255,255,0.3)';
+event.target.closest('.example-card').style.background = 'rgba(255,255,255,0.3)';
 
 }
 
@@ -1031,128 +1413,3 @@ const reflections = {
 ],
 
 'raw-healing': [
-
-'How does Burton\'s stark language like "dead-baby sea" serve both truth-telling and healing? What is lost when we soften difficult realities?',
-
-'What courage does it take to write about grief without sugar-coating? How might raw honesty serve others walking similar paths?',
-
-'How can literature become a bridge between private pain and shared understanding?'
-
-],
-
-'public-private': [
-
-'How does celebrity status complicate the deeply private experience of fertility struggles? What unique pressures and opportunities exist?',
-
-'What does it mean to use a public platform to discuss the most private losses? How might this serve both personal and collective healing?',
-
-'How might Burton\'s willingness to share difficult truths help normalize conversations about pregnancy loss?'
-
-]
-
-};
-
-const contradictionReflections = reflections[selectedContradiction];
-
-const randomReflection = contradictionReflections[Math.floor(Math.random() * contradictionReflections.length)];
-
-output.innerHTML = `<strong>Reflection on Hilarie & Jeffrey's Story:</strong><br>${randomReflection}<br><br><em>Take time to sit with this question. Notice what emotions arise. Both comfort and discomfort are welcome here.</em>`;
-
-}
-
-function generateMedicalFrame() {
-
-const output = document.getElementById('reflection-output');
-
-const frames = [
-
-'Medical reality: D&C procedures after incomplete miscarriage are medically classified as abortions but are essential healthcare to prevent infection and preserve future fertility.',
-
-'Burton\'s experience shows how reproductive healthcare can simultaneously involve loss and hope - the same procedure that ended one pregnancy enabled future ones.',
-
-'Five years of fertility struggles demonstrate how complex reproductive health can be, requiring both medical intervention and emotional resilience.',
-
-'The healing process after multiple miscarriages often requires both physical medical care and time for the uterus to recover for future pregnancies.',
-
-'Burton\'s honesty about needing abortion care to become a mother challenges simple narratives about reproductive healthcare and reveals its complexity.'
-
-];
-
-const randomFrame = frames[Math.floor(Math.random() * frames.length)];
-
-output.innerHTML = `<strong>Medical Wisdom from Their Story:</strong><br>${randomFrame}`;
-
-}
-
-function generateCreativePrompt() {
-
-const output = document.getElementById('reflection-output');
-
-output.innerHTML = `
-
-<strong>Art Inspired by Their Story</strong><br><br>
-
-Hilarie Burton's raw literary honesty in "The Rural Diaries" demonstrates how transforming fertility struggles into art can create profound healing and connection. Her willingness to use stark language like "dead-baby sea" while chronicling her journey from Hollywood to rural motherhood has inspired creative expressions across multiple mediums.<br><br>
-
-<strong>Creative Mediums Inspired by Stories Like Theirs:</strong><br>
-
-• <strong>Memoir & Literary Arts:</strong> Raw, honest writing about fertility struggles without euphemisms<br>
-
-• <strong>Rural Photography:</strong> Documenting the healing found in simple farm life during difficult journeys<br>
-
-• <strong>Textile Arts:</strong> Quilting, fiber arts representing the slow, careful process of healing<br>
-
-• <strong>Agricultural Arts:</strong> Gardens, farm installations honoring cycles of planting, loss, and renewal<br>
-
-• <strong>Performance:</strong> Theater and spoken word capturing the transition from glamour to authenticity<br>
-
-• <strong>Musical Expression:</strong> Songs exploring themes of medical necessity, healing, and hope<br><br>
-
-<strong>Featured Musical Tribute:</strong><br>
-
-Inspired by Hilarie Burton's journey from Hollywood actress to rural mother, from multiple losses to medical healing to eventual family completion, this song captures the beautiful contradiction of finding your authentic self through the most difficult circumstances.<br><br>
-
-<strong>"From Glitter to Ground"</strong> - A musical reflection on leaving glamour for truth, finding healing through loss, and discovering that medical care can be the pathway to motherhood dreams.<br><br>
-
-<!-- PLACEHOLDER FOR YOUTUBE VIDEO -->
-<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; border: 2px dashed rgba(255,255,255,0.3);">
-<p><strong>YouTube Video Placeholder</strong></p>
-<p>Song inspired by Hilarie Burton & Jeffrey Dean Morgan's story will be embedded here</p>
-</div>
-<br><br>
-
-<em>This song represents how stories of fertility struggles - told with raw honesty like Burton's - can become sources of healing for others. Her courage to write about being in a "dead-baby sea" and her understanding that abortion enabled motherhood shows how contradictions can become creative forces for good.</em><br><br>
-
-<strong>Your Story Can Inspire Art Too:</strong><br>
-
-Whether through memoir writing, rural photography, textile arts, or musical composition, your experience of holding life's contradictions can become art that heals both you and others walking similar complex paths from loss to hope.
-
-`;
-
-}
-
-function expandQuestion(questionElement) {
-
-const isExpanded = questionElement.style.backgroundColor === 'rgba(255, 255, 255, 0.9)';
-
-// Reset all questions
-
-document.querySelectorAll('.question').forEach(q => {
-
-q.style.backgroundColor = 'rgba(255,255,255,0.7)';
-
-});
-
-if (!isExpanded) {
-
-questionElement.style.backgroundColor = 'rgba(255,255,255,0.9)';
-
-}
-
-}
-
-</script>
-
-</body>
-
-</html>

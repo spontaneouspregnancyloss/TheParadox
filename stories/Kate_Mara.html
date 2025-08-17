@@ -46,6 +46,80 @@ padding: 20px;
 
 }
 
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+ 
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+ 
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+ 
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+ 
+.nav-button.home,
+.nav-button.explore {
+background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+color: black;
+font-weight: bold;
+}
+ 
+.nav-button.active {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+ 
+/* Individual story button colors - Kate is active (gold), others are pink */
+.nav-button.kate {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+ 
+.nav-button.beyonce,
+.nav-button.chrissy,
+.nav-button.hilarie,
+.nav-button.halsey,
+.nav-button.jessica,
+.nav-button.lauren,
+.nav-button.meghan,
+.nav-button.nick,
+.nav-button.nicola,
+.nav-button.rebecca {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+}
+
 .header {
 
 text-align: center;
@@ -618,6 +692,24 @@ transform: rotate(90deg);
 
 <div class="container">
 
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate active">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
 <div class="header">
 
 <h1>Learning Through Beautiful Contradictions</h1>
@@ -1115,10 +1207,15 @@ Inspired by Kate Mara's experience of discovering pregnancy through dreams on th
 <strong>"Anniversary Dreams"</strong> - A musical reflection on meaningful timing, medical reality, and finding hope in the space between expectation and outcome.<br><br>
 
 <!-- PLACEHOLDER FOR YOUTUBE VIDEO -->
+
 <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; border: 2px dashed rgba(255,255,255,0.3);">
+
 <p><strong>YouTube Video Placeholder</strong></p>
+
 <p>Song inspired by Kate Mara & Jamie Bell's story will be embedded here</p>
+
 </div>
+
 <br><br>
 
 <em>This song represents how stories of pregnancy loss - especially when they involve the contradiction of meaningful timing and medical realities - can become art that honors both spiritual significance and clinical truth. Kate's willingness to share her blighted ovum experience helps others understand that medical diagnoses don't erase the emotional reality of early pregnancy.</em><br><br>
@@ -1137,22 +1234,4 @@ const isExpanded = questionElement.style.backgroundColor === 'rgba(255, 255, 255
 
 // Reset all questions
 
-document.querySelectorAll('.question').forEach(q => {
-
-q.style.backgroundColor = 'rgba(255,255,255,0.7)';
-
-});
-
-if (!isExpanded) {
-
-questionElement.style.backgroundColor = 'rgba(255,255,255,0.9)';
-
-}
-
-}
-
-</script>
-
-</body>
-
-</html>
+document.quer

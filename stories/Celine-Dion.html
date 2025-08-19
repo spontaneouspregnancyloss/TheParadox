@@ -1,1 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celine Dion - Learning Through Beautiful Contradictions</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 
+body {
+font-family: 'Georgia', serif;
+line-height: 1.6;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+color: #333;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+.nav-button.home,
+.nav-button.explore {
+background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.active {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+/* Individual story button colors - Celine is active (gold), others are pink */
+.nav-button.celine {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.beyonce,
+.nav-button.chrissy,
+.nav-button.hilarie,
+.nav-button.kate,
+.nav-button.halsey,
+.nav-button.jessica,
+.nav-button.lauren,
+.nav-button.meghan,
+.nav-button.nicola,
+.nav-button.rebecca,
+.nav-button.nick,
+.nav-button.alanis,
+.nav-button.binky,
+.nav-button.britney,
+.nav-button.brooke,
+.nav-button.carrie {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+}
+
+.header {
+text-align: center;
+margin-bottom: 40px;
+color: white;
+}
+
+.header h1 {
+font-size: 2.5em;
+margin-bottom: 10px;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header p {
+font-size: 1.2em;
+opacity: 0.9;
+}
+
+.story-anchor {
+background: rgba(255, 255, 255, 0.95);
+border-radius: 20px;
+padding: 30px;
+margin-bottom: 30px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.story-header {
+text-align: center;
+margin-bottom: 25px;
+}
+
+.story-header h2 {
+color: #444;
+font-size: 2em;
+margin-bottom: 10px;
+}
+
+.story-source {
+background: #e8f5e8;
+padding: 15px;
+border-radius: 10px;
+margin-bottom: 20px;
+border-left: 4px solid #2e7d32;
+}
+
+.story-source a {
+color: #2e7d32;
+text-decoration: none;
+font-weight: bold;
+}
+
+.story-source a:hover {
+text-decoration: underline;
+}
+
+.key-elements {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 15px;
+margin: 20px 0;
+}
+
+.element {
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+padding: 20px;
+border-radius: 15px;
+text-align: center;
+}
+
+.element h4 {
+color: #8B4513;
+margin-bottom: 10px;
+font-size: 1.1em;
+}
+
+.central-contradiction {
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+border-radius: 20px;
+padding: 40px;
+margin: 30px 0;
+text-align: center;
+}
+
+.central-contradiction h3 {
+font-size: 2em;
+color: #8B1538;
+margin-bottom: 20px;
+}
+
+.contradiction-visual {
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 25px 0;
+flex-wrap: wrap;
+gap: 15px;
+}
+
+.contradiction-side {
+background: rgba(255,255,255,0.8);
+padding: 20px;
+border-radius: 15px;
+font-size: 1.2em;
+font-weight: bold;
+color: #8B1538;
+min-width: 200px;
+text-align: center;
+}
+
+.contradiction-bridge {
+font-size: 2em;
+color: #8B1538;
+font-weight: bold;
+}
+
+.framework {
+background: rgba(255, 255, 255, 0.95);
+border-radius: 20px;
+padding: 40px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+margin: 30px 0;
+}
+
+.phase {
+margin-bottom: 40px;
+padding: 25px;
+border-radius: 15px;
+position: relative;
+overflow: hidden;
+}
+
+.phase1 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.phase2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.phase3 { background: linear-gradient(135deg, #e0c3fc 0%, #9bb5ff 100%); }
+.phase4 { background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); }
+
+.phase-number {
+position: absolute;
+top: -10px;
+right: 20px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: rgba(255,255,255,0.8);
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+font-size: 1.5em;
+color: #666;
+}
+
+.phase h3 {
+font-size: 1.5em;
+margin-bottom: 15px;
+color: #444;
+}
+
+.contradiction-pair {
+display: grid;
+grid-template-columns: 1fr auto 1fr;
+gap: 15px;
+align-items: center;
+margin: 15px 0;
+padding: 15px;
+background: rgba(255,255,255,0.5);
+border-radius: 10px;
+}
+
+.concept {
+padding: 10px 15px;
+border-radius: 8px;
+text-align: center;
+font-weight: 500;
+}
+
+.concept.left { background: rgba(255,99,71,0.2); }
+.concept.right { background: rgba(100,149,237,0.2); }
+
+.bridge {
+font-size: 1.5em;
+color: #666;
+font-weight: bold;
+}
+
+.scientific-context {
+background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+border-radius: 15px;
+padding: 30px;
+margin: 30px 0;
+}
+
+.scientific-context h3 {
+color: #155724;
+margin-bottom: 20px;
+font-size: 1.5em;
+}
+
+.rpl-facts {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 20px;
+margin: 20px 0;
+}
+
+.fact-box {
+background: rgba(255,255,255,0.8);
+padding: 20px;
+border-radius: 10px;
+border-left: 4px solid #28a745;
+}
+
+.fact-box h4 {
+color: #155724;
+margin-bottom: 10px;
+}
+
+.interactive-section {
+background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+color: white;
+border-radius: 15px;
+padding: 30px;
+margin: 30px 0;
+text-align: center;
+}
+
+.story-link {
+background: rgba(255,255,255,0.2);
+padding: 15px;
+border-radius: 10px;
+margin-bottom: 20px;
+}
+
+.contradiction-examples {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 15px;
+margin: 20px 0;
+}
+
+.example-card {
+background: rgba(255,255,255,0.1);
+padding: 20px;
+border-radius: 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: left;
+}
+
+.example-card:hover {
+background: rgba(255,255,255,0.2);
+transform: translateY(-5px);
+}
+
+.example-card h4 {
+margin-bottom: 10px;
+font-size: 1.1em;
+}
+
+.btn {
+background: rgba(255,255,255,0.2);
+color: white;
+border: 2px solid rgba(255,255,255,0.3);
+padding: 12px 25px;
+border-radius: 25px;
+cursor: pointer;
+font-size: 16px;
+transition: all 0.3s ease;
+margin: 10px;
+}
+
+.btn:hover {
+background: rgba(255,255,255,0.3);
+transform: translateY(-2px);
+}
+
+.reflection-output {
+background: rgba(255,255,255,0.1);
+border-radius: 10px;
+padding: 20px;
+margin-top: 20px;
+min-height: 50px;
+text-align: left;
+}
+
+.reflection-questions {
+background: linear-gradient(135deg, #fff5b7 0%, #ffd3a5 100%);
+border-radius: 15px;
+padding: 25px;
+margin: 30px 0;
+}
+
+.question-category {
+margin-bottom: 25px;
+}
+
+.question-category h4 {
+color: #8B6914;
+margin-bottom: 15px;
+font-size: 1.2em;
+}
+
+.question {
+background: rgba(255,255,255,0.7);
+padding: 15px;
+border-radius: 10px;
+margin-bottom: 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.question:hover {
+background: rgba(255,255,255,0.9);
+transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+.contradiction-visual {
+flex-direction: column;
+}
+
+.contradiction-pair {
+grid-template-columns: 1fr;
+text-align: center;
+}
+
+.bridge {
+transform: rotate(90deg);
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="header">
+<h1>Learning Through Beautiful Contradictions</h1>
+<p>Celine Dion's Story: When Medical Miracles Meet Intimate Grief</p>
+</div>
+
+<div class="story-anchor">
+<div class="story-header">
+<h2>Story Anchor: Celine Dion</h2>
+</div>
+<div class="story-source">
+<strong>Source:</strong> <a href="https://www.oprah.com/own-oprahshow/celine-dion-opens-up-about-her-fertility-struggles" target="_blank">Oprah.com - Celine Dion Opens Up About Her Fertility Struggles</a>
+</div>
+<p>Celine Dion, the legendary singer, underwent <strong>six rounds of IVF</strong> and experienced a <strong>miscarriage in 2009</strong> before welcoming her twin sons Eddy and Nelson in 2010. When Oprah Winfrey asked Dion about her miscarriage in 2010, Dion said, "It's life, you know?" Her journey included the revelation that she had been carrying triplets, but the heart of the third fetus stopped beating soon after she realized that she was expecting. "He chose to let go to give space to his brothers to grow," she said at the time. This poetic interpretation of loss alongside scientific intervention creates a profound story of faith meeting medical reality.</p>
+
+<div class="key-elements">
+<div class="element">
+<h4>Medical Persistence</h4>
+<p>Six rounds of IVF showing unwavering commitment to bringing life into the world through science.</p>
+</div>
+<div class="element">
+<h4>Spiritual Interpretation</h4>
+<p>Viewing loss as a conscious choice by the unborn child, finding meaning in medical reality.</p>
+</div>
+<div class="element">
+<h4>Public Acceptance</h4>
+<p>Speaking openly about fertility struggles when few celebrities discussed IVF.</p>
+</div>
+<div class="element">
+<h4>Philosophical Peace</h4>
+<p>Accepting loss with "It's life, you know?" - finding serenity within tragedy.</p>
+</div>
+</div>
+</div>
+
+<div class="central-contradiction">
+<h3>The Beautiful Contradiction</h3>
+<h4>"Sacred Science, Clinical Spirituality"</h4>
+<div class="contradiction-visual">
+<div class="contradiction-side">High-tech medical intervention</div>
+<div class="contradiction-bridge">⟷</div>
+<div class="contradiction-side">Deeply spiritual interpretation</div>
+</div>
+<p>Celine embraced both cutting-edge fertility science and profound spiritual meaning-making. She saw medical procedures not as separate from the sacred, but as part of life's larger design. Her story shows how clinical realities can coexist with poetic understanding without diminishing either truth.</p>
+</div>
+
+<div class="scientific-context">
+<h3>Scientific Context: IVF and Vanishing Twin Syndrome</h3>
+<div class="rpl-facts">
+<div class="fact-box">
+<h4>IVF Success Rates</h4>
+<p>Multiple rounds of IVF are common. Success rates vary by age, with some couples requiring <strong>6+ cycles</strong> before achieving live birth, as Celine experienced.</p>
+</div>
+<div class="fact-box">
+<h4>Vanishing Twin Syndrome</h4>
+<p>Occurs in approximately <strong>10-40% of multiple pregnancies</strong>, where one embryo stops developing. Often happens in early pregnancy.</p>
+</div>
+<div class="fact-box">
+<h4>Frozen Sperm Use</h4>
+<p>Celine used her husband's frozen sperm after his cancer diagnosis, demonstrating how fertility preservation enables future family building.</p>
+</div>
+<div class="fact-box">
+<h4>Emotional Coping</h4>
+<p>Studies show that finding meaning and spiritual interpretation of loss can be protective factors in fertility journey resilience.</p>
+</div>
+</div>
+</div>
+
+<div class="framework">
+<div class="phase phase1">
+<div class="phase-number">1</div>
+<h3>Embrace the Paradox</h3>
+<p>Celine's story shows us that science and spirituality aren't opposites. She underwent the most advanced fertility treatments while finding deeply personal meaning in each outcome.</p>
+<div class="contradiction-pair">
+<div class="concept left">Medical Intervention</div>
+<div class="bridge">⟷</div>
+<div class="concept right">Natural Acceptance</div>
+</div>
+<div class="contradiction-pair">
+<div class="concept left">Clinical Procedures</div>
+<div class="bridge">⟷</div>
+<div class="concept right">Spiritual Meaning</div>
+</div>
+<div class="contradiction-pair">
+<div class="concept left">Technological Control</div>
+<div class="bridge">⟷</div>
+<div class="concept right">Surrendered Trust</div>
+</div>
+</div>
+
+<div class="phase phase2">
+<div class="phase-number">2</div>
+<h3>Hold Both Truths</h3>
+<p>Like Celine interpreting vanishing twin syndrome as a conscious choice while undergoing medical treatment---learn to honor both scientific reality and personal meaning simultaneously.</p>
+<div class="contradiction-pair">
+<div class="concept left">Evidence-Based Medicine</div>
+<div class="bridge">⟷</div>
+<div class="concept right">Faith-Based Interpretation</div>
+</div>
+<div class="contradiction-pair">
+<div class="concept left">Multiple Treatment Cycles</div>
+<div class="bridge">⟷</div>
+<div class="concept right">"It's life, you know?"</div>
+</div>
+</div>
+
+<div class="phase phase3">
+<div class="phase-number">3</div>
+<h3>Find the Sacred in Science</h3>
+<p>Discover how medical understanding of IVF and pregnancy loss can coexist with spiritual interpretation, as Celine demonstrated.</p>
+<div class="fact-box">
+<h4>The Contradiction of "Vanishing Twin"</h4>
+<p><strong>Medical perspective:</strong> Vanishing twin syndrome is a common biological phenomenon in multiple pregnancies.<br>
+<strong>Lived experience:</strong> "He chose to let go to give space to his brothers to grow."<br>
+<strong>Both truths:</strong> Medical explanation doesn't diminish the personal meaning found in the experience.</p>
+</div>
+</div>
+
+<div class="phase phase4">
+<div class="phase-number">4</div>
+<h3>Create from Contradiction</h3>
+<p>Celine was one of the first celebrities to speak openly about IVF, using her platform to normalize fertility struggles while maintaining her spiritual perspective. The tension between medical procedures and personal faith becomes a source of hope for others.</p>
+</div>
+</div>
+
+<div class="interactive-section">
+<h4>Contradiction Workshop</h4>
+<div class="story-link">
+<strong>Explore a contradiction seen in Celine Dion's story</strong><br>
+Original sources: <a href="https://www.oprah.com/own-oprahshow/celine-dion-opens-up-about-her-fertility-struggles" target="_blank" style="color: white;">Oprah Interview</a> | <a href="https://www.today.com/parents/celebrity/celine-dion-ivf-infertility-rcna158142" target="_blank" style="color: white;">Today.com Feature</a>
+</div>
+<p>Choose a contradiction from her story to explore:</p>
+<div class="contradiction-examples">
+<div class="example-card" onclick="selectContradiction('science-spirituality')">
+<h4>Science & Spirituality</h4>
+<p>Six rounds of IVF while interpreting loss as divine choice</p>
+</div>
+<div class="example-card" onclick="selectContradiction('control-surrender')">
+<h4>Control & Surrender</h4>
+<p>Pursuing every medical option while accepting "It's life, you know?"</p>
+</div>
+<div class="example-card" onclick="selectContradiction('loss-gratitude')">
+<h4>Loss & Gratitude</h4>
+<p>Experiencing vanishing twin while celebrating surviving twins</p>
+</div>
+<div class="example-card" onclick="selectContradiction('private-public')">
+<h4>Private Journey, Public Voice</h4>
+<p>Intimate medical procedures shared to help others</p>
+</div>
+</div>
+<button class="btn" onclick="generateReflection()">Explore This Contradiction</button>
+<button class="btn" onclick="generateMedicalFrame()">Find the Medical Wisdom</button>
+<button class="btn" onclick="generateCreativePrompt()">Turn Into Art</button>
+<div id="reflection-output" class="reflection-output"></div>
+</div>
+
+<div class="reflection-questions">
+<h3>Reflection Questions</h3>
+<div class="question-category">
+<h4>Personal Reflection</h4>
+<div class="question" onclick="expandQuestion(this)">
+How does Celine's interpretation of vanishing twin as "choosing to let go" change how you think about pregnancy loss?
+</div>
+<div class="question" onclick="expandQuestion(this)">
+What does it mean to pursue medical treatment while simultaneously accepting "It's life"?
+</div>
+<div class="question" onclick="expandQuestion(this)">
+How might someone find peace in both scientific explanation and spiritual meaning?
+</div>
+</div>
+<div class="question-category">
+<h4>Scientific/Educational Reflection</h4>
+<div class="question" onclick="expandQuestion(this)">
+How did early celebrities like Celine help normalize fertility treatments in public discourse?
+</div>
+<div class="question" onclick="expandQuestion(this)">
+What role does meaning-making play in processing medical procedures and outcomes?
+</div>
+</div>
+<div class="question-category">
+<h4>Empathy Building</h4>
+<div class="question" onclick="expandQuestion(this)">
+How might you support someone who finds spiritual meaning in medical experiences?
+</div>
+<div class="question" onclick="expandQuestion(this)">
+What wisdom can we learn from Celine's ability to hold both scientific and spiritual perspectives?
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+let selectedContradiction = '';
+
+function selectContradiction(type) {
+selectedContradiction = type;
+// Visual feedback for selection
+document.querySelectorAll('.example-card').forEach(card => {
+card.style.background = 'rgba(255,255,255,0.1)';
+});
+event.target.style.background = 'rgba(255,255,255,0.3)';
+}
+
+function generateReflection() {
+const output = document.getElementById('reflection-output');
+if (!selectedContradiction) {
+output.innerHTML = 'Please select a contradiction from Celine\'s story above first.';
+return;
+}
+
+const reflections = {
+'science-spirituality': [
+'How can someone embrace cutting-edge medical technology while maintaining deep spiritual beliefs about pregnancy and loss?',
+'What does it mean when Celine says the third baby "chose to let go"---and how does this coexist with medical understanding of vanishing twin syndrome?',
+'How might viewing medical procedures as part of a spiritual journey change the experience of fertility treatment?'
+],
+'control-surrender': [
+'What does it look like to pursue every possible treatment while simultaneously accepting outcomes with "It\'s life, you know?"',
+'How can someone exercise agency through medical choices while also practicing acceptance of results?',
+'What\'s the difference between giving up and letting go, as demonstrated in Celine\'s journey?'
+],
+'loss-gratitude': [
+'How does someone process the loss of one child while celebrating the survival of twins in the same pregnancy?',
+'What does it mean to find gratitude within loss, rather than after it?',
+'How might acknowledging the "vanishing twin" honor both loss and life simultaneously?'
+],
+'private-public': [
+'What courage does it take to share intimate medical procedures like six rounds of IVF publicly?',
+'How might Celine\'s openness about fertility struggles in 2010 have helped normalize these conversations?',
+'What responsibility do public figures have to share personal struggles, and how do they protect themselves while helping others?'
+]
+};
+
+const contradictionReflections = reflections[selectedContradiction];
+const randomReflection = contradictionReflections[Math.floor(Math.random() * contradictionReflections.length)];
+
+output.innerHTML = `<strong>Reflection on Celine's Story:</strong><br>${randomReflection}<br><br><em>Take time to sit with this question. Notice how both scientific understanding and personal meaning can coexist beautifully.</em>`;
+}
+
+function generateMedicalFrame() {
+const output = document.getElementById('reflection-output');
+const frames = [
+'Medical reality: Six IVF cycles and vanishing twin syndrome are both medically documented experiences that don\'t diminish the spiritual meaning Celine found.',
+'Consider: How might understanding the science behind vanishing twin syndrome (10-40% of multiple pregnancies) coexist with finding personal meaning in the experience?',
+'The use of frozen sperm after cancer diagnosis demonstrates how medical preservation techniques enable future family building---science serving love and hope.',
+'Celine\'s openness about IVF in 2010 helped normalize fertility treatments when few celebrities discussed them publicly, bridging medical privacy and public health education.',
+'Her phrase "It\'s life" reflects acceptance of medical realities while maintaining agency through continued treatment---wisdom that combines surrender with action.'
+];
+
+const randomFrame = frames[Math.floor(Math.random() * frames.length)];
+output.innerHTML = `<strong>Medical Wisdom from Celine's Story:</strong><br>${randomFrame}`;
+}
+
+function generateCreativePrompt() {
+const output = document.getElementById('reflection-output');
+output.innerHTML = `
+<strong>Art Inspired by Celine's Story</strong><br><br>
+Celine Dion's journey of six IVF cycles, miscarriage, and finding spiritual meaning in vanishing twin syndrome has inspired creative expressions that explore the intersection of science and soul, medical intervention and divine mystery.<br><br>
+<strong>Creative Mediums Inspired by Stories Like Celine's:</strong><br>
+• <strong>Literary Arts:</strong> Poetry exploring the sacred within clinical settings, essays on finding meaning in medical procedures<br>
+• <strong>Visual Arts:</strong> Mixed media combining medical imagery with spiritual symbols, photography of hands holding both hope and loss<br>
+• <strong>Musical Composition:</strong> Songs that bridge the language of medicine with the language of the heart<br>
+• <strong>Performance:</strong> Dance expressing the rhythm of treatment cycles, spoken word honoring both science and spirit<br>
+• <strong>Digital Media:</strong> Interactive experiences exploring the duality of control and surrender in fertility journeys<br><br>
+<strong>Featured Musical Tribute:</strong><br>
+Inspired by Celine's ability to find spiritual meaning within medical realities, this song captures the beautiful contradiction

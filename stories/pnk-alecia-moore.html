@@ -1,11 +1,857 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Paradox -- Pink's Miscarriage Story</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+line-height: 1.6;
+color: #333;
+background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+min-height: 100vh;
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+/* Pink is active (bright pink), others are gold */
+.nav-button.pink {
+background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+color: white;
+font-weight: bold;
+}
+
+.nav-button.home,
+.nav-button.alanis,
+.nav-button.alexandra,
+.nav-button.alicia,
+.nav-button.amanda,
+.nav-button.beyonce,
+.nav-button.bethenny,
+.nav-button.binky,
+.nav-button.britney,
+.nav-button.brooke,
+.nav-button.carrie,
+.nav-button.carrie-b,
+.nav-button.cass,
+.nav-button.celine,
+.nav-button.christina,
+.nav-button.chrissy,
+.nav-button.clay-jessica,
+.nav-button.courteney,
+.nav-button.laura,
+.nav-button.zoe-dr,
+.nav-button.gabrielle,
+.nav-button.gordon-tana,
+.nav-button.gwyneth,
+.nav-button.halsey,
+.nav-button.hilaria,
+.nav-button.hilarie,
+.nav-button.hugh-deborra,
+.nav-button.james-kimberly,
+.nav-button.jamie,
+.nav-button.jana,
+.nav-button.jennifer,
+.nav-button.jessica,
+.nav-button.jessie,
+.nav-button.jools,
+.nav-button.julia,
+.nav-button.kate,
+.nav-button.kirstie,
+.nav-button.kristen,
+.nav-button.lauren,
+.nav-button.lily,
+.nav-button.lindsay,
+.nav-button.lisa-f,
+.nav-button.lisa-g,
+.nav-button.lorraine,
+.nav-button.ludacris-eudoxie,
+.nav-button.mariah,
+.nav-button.megan,
+.nav-button.meghan,
+.nav-button.michelle,
+.nav-button.ms-rachel,
+.nav-button.myleene,
+.nav-button.nick-lauren,
+.nav-button.nick,
+.nav-button.nicola,
+.nav-button.nicole,
+.nav-button.olivia-alex,
+.nav-button.priscilla-mark,
+.nav-button.rebecca,
+.nav-button.sammi,
+.nav-button.sanya,
+.nav-button.savannah,
+.nav-button.sharon,
+.nav-button.shay,
+.nav-button.tiffany,
+.nav-button.trina,
+.nav-button.vanessa,
+.nav-button.whitney,
+.nav-button.zara,
+.nav-button.explore {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+}
+
+.hero {
+text-align: center;
+padding: 4rem 0;
+color: white;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero .subtitle {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+}
+
+.story-anchor {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: white;
+}
+
+.beautiful-contradiction {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.beautiful-contradiction h2 {
+font-size: 2.5rem;
+color: #c44569;
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+.contradiction-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.contradiction-side {
+padding: 2rem;
+border-radius: 10px;
+transition: transform 0.3s ease;
+}
+
+.contradiction-side:hover {
+transform: translateY(-5px);
+}
+
+.contradiction-left {
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.contradiction-right {
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.contradiction-side h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+color: #333;
+}
+
+.evidence-list {
+list-style: none;
+padding: 0;
+}
+
+.evidence-list li {
+background: rgba(255, 255, 255, 0.3);
+margin: 0.5rem 0;
+padding: 1rem;
+border-radius: 5px;
+border-left: 4px solid #c44569;
+}
+
+.citation {
+font-size: 0.8rem;
+color: #666;
+font-style: italic;
+margin-top: 0.5rem;
+}
+
+.context-box {
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+}
+
+.context-box h3 {
+color: #8b4513;
+font-size: 1.8rem;
+margin-bottom: 1rem;
+}
+
+.paradox-section {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.paradox-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.paradox-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.paradox-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.paradox-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.paradox-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.paradox-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.paradox-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+.phases-section {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.phases-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.phase-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.phase-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.phase-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+.interactive-workshop {
+background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+color: white;
+}
+
+.workshop-controls {
+display: flex;
+gap: 1rem;
+margin: 2rem 0;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.btn {
+background: rgba(255, 255, 255, 0.2);
+color: white;
+border: 2px solid rgba(255, 255, 255, 0.3);
+padding: 1rem 2rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 1rem;
+}
+
+.btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-2px);
+}
+
+.selected-contradiction {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+min-height: 150px;
+}
+
+.reflection-questions {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.question-categories {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.question-category {
+padding: 2rem;
+border-radius: 10px;
+border: 2px solid #e0e0e0;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.question-category:hover {
+border-color: #c44569;
+transform: translateY(-3px);
+}
+
+.question-category.active {
+background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+color: white;
+border-color: #c44569;
+}
+
+.random-question {
+background: #f8f9ff;
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+border-left: 5px solid #c44569;
+min-height: 100px;
+}
+
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2.5rem;
+}
+
+.contradiction-grid {
+grid-template-columns: 1fr;
+}
+
+.workshop-controls {
+flex-direction: column;
+align-items: center;
+}
+
+.nav-buttons {
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.nav-button {
+min-width: 120px;
+}
+}
+
+.fade-in {
+opacity: 0;
+animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+to { opacity: 1; }
+}
+</style>
 </head>
+
 <body>
-    
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button alexandra">Alexandra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alicia-vikander.html" class="nav-button alicia">Alicia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/amanda-holden.html" class="nav-button amanda">Amanda</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/bethenny-frankel.html" class="nav-button bethenny">Bethenny</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/carrie-bickmore.html" class="nav-button carrie-b">Carrie B</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/cass-wood.html" class="nav-button cass">Cass</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/christina-perri.html" class="nav-button christina">Christina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/clay-and-jessica-walker.html" class="nav-button clay-jessica">Clay & Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Courteney-Cox.html" class="nav-button courteney">Courteney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dame-laura-kenny.html" class="nav-button laura">Dame Laura</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dr-zoe-williams.html" class="nav-button zoe-dr">Dr. Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gabrielle-Union.html" class="nav-button gabrielle">Gabrielle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/gordon-ramsay-and-tana-ramsay.html" class="nav-button gordon-tana">Gordon & Tana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gwyneth-Paltrow.html" class="nav-button gwyneth">Gwyneth</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/hilaria-baldwin.html" class="nav-button hilaria">Hilaria</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hugh-Jackman-&-Deborra-Lee-Furness.html" class="nav-button hugh-deborra">Hugh & Deborra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/james-van-der-beek-and-kimberly.html" class="nav-button james-kimberly">James & Kimberly</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button jamie">Jamie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jana-kramer.html" class="nav-button jana">Jana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jennifer-lawrence.html" class="nav-button jennifer">Jennifer</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessie-j.html" class="nav-button jessie">Jessie J</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jools-oliver.html" class="nav-button jools">Jools</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/julia-louis-dreyfus.html" class="nav-button julia">Julia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kirstie-alley.html" class="nav-button kirstie">Kirstie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kristen-doute.html" class="nav-button kristen">Kristen</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lily-allen.html" class="nav-button lily">Lily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lindsay-lohan.html" class="nav-button lindsay">Lindsay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-francesca-nand.html" class="nav-button lisa-f">Lisa F</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-guerrero.html" class="nav-button lisa-g">Lisa G</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lorraine-kelly.html" class="nav-button lorraine">Lorraine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ludacris-and-eudoxie-mbouguiengue.html" class="nav-button ludacris-eudoxie">Ludacris & Eudoxie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/mariah-carey.html" class="nav-button mariah">Mariah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/megan-fox.html" class="nav-button megan">Megan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/michelle-obama.html" class="nav-button michelle">Michelle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ms-rachel.html" class="nav-button ms-rachel">Ms. Rachel</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/myleene-klass.html" class="nav-button myleene">Myleene</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-carter-and-lauren-kitt.html" class="nav-button nick-lauren">Nick & Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicole-kidman.html" class="nav-button nicole">Nicole</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/olivia-bowen-and-alex-bowen.html" class="nav-button olivia-alex">Olivia & Alex</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/pnk-alecia-moore.html" class="nav-button pink">P!nk</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/priscilla-chan-and-mark-zuckerberg.html" class="nav-button priscilla-mark">Priscilla & Mark</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sammi-sweetheart-giancola.html" class="nav-button sammi">Sammi</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sanya-richards-ross.html" class="nav-button sanya">Sanya</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/savannah-guthrie.html" class="nav-button savannah">Savannah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sharon-stone.html" class="nav-button sharon">Sharon</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/shay-mitchell.html" class="nav-button shay">Shay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/tiffany-haddish.html" class="nav-button tiffany">Tiffany</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/trina-mcgee.html" class="nav-button trina">Trina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/vanessa-grimaldi.html" class="nav-button vanessa">Vanessa</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/whitney-port.html" class="nav-button whitney">Whitney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/zara-tindall.html" class="nav-button zara">Zara</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+<header class="hero">
+<h1>The Paradox</h1>
+<div class="subtitle">Pink's (Alecia Beth Moore) Miscarriage Story</div>
+</header>
+
+<section class="story-anchor">
+<h2>Story Anchor: The Warrior's Hidden Vulnerability</h2>
+<p>Pink's miscarriage occurred in the late 1990s when she was just beginning her music career. This was an era when female artists were often pressured to choose between vulnerability and strength - rarely allowed to embody both. Her physical, acrobatic performance style became a signature that directly contrasted with the internal experience of feeling "broken." The later revelation that "Just Give Me a Reason" contained elements about her miscarriage shows how deeply personal experiences can be woven into seemingly relationship-focused art, creating layers of meaning that audiences may not initially recognize.</p>
+</section>
+
+<section class="paradox-section">
+<h2>Embrace the Paradox</h2>
+<p>Pink's story reveals four interconnected paradoxes that challenge our understanding of strength, vulnerability, and artistic expression:</p>
+
+<div class="paradox-grid">
+<div class="paradox-card paradox-1" onclick="selectParadox(1)">
+<h3>The Warrior's Wound</h3>
+<p>Building a career on physical invincibility while carrying the memory of bodily betrayal</p>
+</div>
+
+<div class="paradox-card paradox-2" onclick="selectParadox(2)">
+<h3>Hidden Healing in Plain Sight</h3>
+<p>Processing grief through hit songs that audiences interpret differently than intended</p>
+</div>
+
+<div class="paradox-card paradox-3" onclick="selectParadox(3)">
+<h3>Strength Through Acknowledged Fragility</h3>
+<p>Becoming more powerful by admitting the ways your body has felt broken</p>
+</div>
+
+<div class="paradox-card paradox-4" onclick="selectParadox(4)">
+<h3>Public Performance of Private Pain</h3>
+<p>Transforming personal loss into universal art without revealing the source</p>
+</div>
+</div>
+</section>
+
+<section class="phases-section">
+<h2>Holding Both Truths</h2>
+<p>Pink's journey through miscarriage reveals how we can hold seemingly opposite truths simultaneously:</p>
+
+<div class="phases-grid">
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+<h3>The Silent Strength Phase</h3>
+<p>Experiencing loss at 17 while building a career persona around invincibility and rebellion</p>
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+<h3>The Creative Alchemy Phase</h3>
+<p>Channeling grief into hit songs, allowing healing through art without explicit revelation</p>
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+<h3>The Vulnerable Strength Phase</h3>
+<p>Later sharing her nervousness during pregnancies, admitting the lasting impact of early loss</p>
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+<h3>The Integrated Wisdom Phase</h3>
+<p>Understanding that true strength includes acknowledging when your body has felt broken</p>
+</div>
+</div>
+</section>
+
+<section class="interactive-workshop">
+<h2>Interactive Contradiction Workshop</h2>
+<p>Explore the layers of Pink's paradox. Each contradiction reveals different aspects of how we process loss, create art, and define strength in the face of vulnerability.</p>
+
+<div class="workshop-controls">
+<button class="btn" onclick="selectContradiction('strength')">Strength vs. Brokenness</button>
+<button class="btn" onclick="selectContradiction('art')">Art as Hidden Healing</button>
+<button class="btn" onclick="selectContradiction('timing')">Private vs. Public Processing</button>
+<button class="btn" onclick="selectContradiction('identity')">Warrior vs. Wounded</button>
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+<p><em>Select a contradiction above to explore its nuances...</em></p>
+</div>
+</section>
+
+<section class="reflection-questions">
+<h2>Reflection Questions</h2>
+<p>Choose a category to explore deeper questions about this paradox:</p>
+
+<div class="question-categories">
+<div class="question-category" onclick="selectQuestionCategory('identity')">
+<h3>Identity & Strength</h3>
+<p>Questions about redefining strength after vulnerability</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('creativity')">
+<h3>Art & Healing</h3>
+<p>Questions about creativity as a processing tool</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('timing')">
+<h3>Disclosure & Privacy</h3>
+<p>Questions about when and how to share personal experiences</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('body')">
+<h3>Body & Trust</h3>
+<p>Questions about rebuilding trust with your physical self</p>
+</div>
+</div>
+
+<div class="random-question" id="questionDisplay">
+<p><em>Select a category above to see reflection questions...</em></p>
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+<button class="btn" onclick="getRandomQuestion()" style="color: #c44569; background: white; border-color: #c44569;">Get Random Question</button>
+</div>
+</section>
+</div>
+
+<script>
+// Contradiction data
+const contradictions = {
+strength: {
+title: "Strength vs. Brokenness",
+content: "Pink built her entire career on physical prowess and invincibility - her aerial acrobatics and athletic performances became her signature. Yet internally, she carried the experience of feeling 'broken' from her miscarriage at 17. This contradiction shows how our public personas can be both authentic and protective, allowing us to project strength while privately processing vulnerability. The paradox lies in how the very physicality that defined her strength also became the site of her deepest sense of betrayal."
+},
+
+art: {
+title: "Art as Hidden Healing",
+content: "Pink's revelation that 'Just Give Me a Reason' was partially about her miscarriage shows how artists can process deeply personal experiences through their work without explicitly revealing the source. Audiences connected with the song's themes of relationship repair and emotional distance, not knowing it also contained grief about pregnancy loss. This contradiction highlights how art can serve multiple purposes simultaneously - public entertainment and private healing - creating authentic connection through partial revelation."
+},
+
+timing: {
+title: "Private vs. Public Processing",
+content: "Pink processed her miscarriage privately for decades, only revealing aspects of it years later in interviews about subsequent pregnancies. This raises questions about the timeline of healing versus the timeline of disclosure. The contradiction lies between needing time to privately integrate experiences and the public nature of celebrity life where personal details become part of public narrative. Her ability to maintain privacy while building authentic connection with audiences shows the complexity of processed disclosure."
+},
+
+identity: {
+title: "Warrior vs. Wounded",
+content: "Pink's identity as a 'warrior' - rebellious, strong, uncompromising - seems to contradict the vulnerable experience of miscarriage and feeling 'broken.' However, her story reveals that true warriors carry wounds and that acknowledging brokenness can be its own form of strength. The paradox shows how our identities can hold multiple truths: we can be both invincible and vulnerable, both healed and still healing, both public and private in our experiences."
+}
+};
+
+// Paradox data for the paradox cards
+const paradoxes = {
+1: {
+title: "The Warrior's Wound",
+content: "Pink's aerial acrobatics and fearless physicality became her signature, yet she carried the internal knowledge that her body had 'failed' her through miscarriage. This paradox shows how we can simultaneously celebrate our bodies' capabilities while mourning their limitations."
+},
+2: {
+title: "Hidden Healing in Plain Sight", 
+content: "By embedding her miscarriage experience in 'Just Give Me a Reason,' Pink created a public healing ritual that millions experienced without knowing its full meaning. The song became both personal therapy and universal connection."
+},
+3: {
+title: "Strength Through Acknowledged Fragility",
+content: "Pink's later admission of nervousness during pregnancies due to her previous loss shows how acknowledging our vulnerabilities can become a source of strength rather than weakness."
+},
+4: {
+title: "Public Performance of Private Pain",
+content: "Every acrobatic performance became both an expression of strength and a testament to overcoming the feeling of bodily betrayal, creating art from the tension between public capability and private loss."
+}
+};
+
+// Question categories
+const questionCategories = {
+identity: [
+"How do we redefine strength to include the experience of feeling 'broken'?",
+"Can someone be a 'warrior' while also acknowledging deep vulnerability?",
+"What does it mean to build an identity around physical strength after your body has disappointed you?",
+"How do we hold both our capabilities and our limitations as part of our complete identity?",
+"Is there a difference between hiding vulnerability and choosing when to reveal it?"
+],
+
+creativity: [
+"How can art serve as both public entertainment and private healing simultaneously?",
+"Should audiences know the personal experiences behind the art they connect with?",
+"What is the relationship between creativity and processing grief?",
+"How do artists balance authenticity with privacy in their work?",
+"Can art be 'true' even if audiences interpret it differently than the creator intended?"
+],
+
+timing: [
+"How long should someone wait before sharing deeply personal experiences publicly?",
+"What's the difference between being 'ready' to share and feeling pressured to explain?",
+"How do we respect our own timeline for processing while living in public view?",
+"Should celebrities be expected to share personal struggles to help others?",
+"What are the benefits and risks of delayed disclosure of personal experiences?"
+],
+
+body: [
+"How do we rebuild trust with our bodies after they've disappointed us?",
+"Can physical strength coexist with the memory of physical betrayal?",
+"What does it mean to feel 'broken' by your body while also celebrating its capabilities?",
+"How do we separate our body's functions from our sense of self-worth?",
+"What role does physical expression play in processing emotional experiences?"
+]
+};
+
+let currentQuestionCategory = null;
+
+// Interactive functions
+function selectContradiction(type) {
+const display = document.getElementById('contradictionDisplay');
+const contradiction = contradictions[type];
+display.innerHTML = `
+<h3>${contradiction.title}</h3>
+<p>${contradiction.content}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function selectParadox(paradoxNumber) {
+const paradox = paradoxes[paradoxNumber];
+// Visual feedback for card selection
+const cards = document.querySelectorAll('.paradox-card');
+cards.forEach(card => card.style.transform = 'scale(1)');
+const selectedCard = document.querySelector(`.paradox-${paradoxNumber}`);
+selectedCard.style.transform = 'scale(1.05)';
+setTimeout(() => {
+selectedCard.style.transform = 'scale(1)';
+}, 200);
+}
+
+function selectPhase(phaseNumber) {
+const phases = document.querySelectorAll('.phase-card');
+phases.forEach(phase => phase.style.transform = 'scale(1)');
+const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+selectedPhase.style.transform = 'scale(1.05)';
+setTimeout(() => {
+selectedPhase.style.transform = 'scale(1)';
+}, 200);
+}
+
+function selectQuestionCategory(category) {
+// Remove active class from all categories
+document.querySelectorAll('.question-category').forEach(cat => {
+cat.classList.remove('active');
+});
+
+// Add active class to selected category
+event.target.closest('.question-category').classList.add('active');
+currentQuestionCategory = category;
+displayRandomQuestionFromCategory(category);
+}
+
+function displayRandomQuestionFromCategory(category) {
+const questions = questionCategories[category];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function getRandomQuestion() {
+const allCategories = Object.keys(questionCategories);
+const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+const questions = questionCategories[randomCategory];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `
+<p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+<p>${randomQuestion}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+// Add initial interactivity
+document.addEventListener('DOMContentLoaded', function() {
+// Add hover effects to paradox cards
+const paradoxCards = document.querySelectorAll('.paradox-card');
+paradoxCards.forEach(card => {
+card.addEventListener('mouseenter', function() {
+this.style.transform = 'translateY(-10px) scale(1.02)';
+});
+card.addEventListener('mouseleave', function() {
+this.style.transform = 'translateY(0) scale(1)';
+});
+});
+
+// Add hover effects to phase cards
+const phaseCards = document.querySelectorAll('.phase-card');
+phaseCards.forEach(card => {
+card.addEventListener('mouseenter', function() {
+this.style.transform = 'translateY(-10px) scale(1.02)';
+});
+card.addEventListener('mouseleave', function() {
+this.style.transform = 'translateY(0) scale(1)';
+});
+});
+});
+</script>
 </body>
-</html>
+</html>>At age 17, Pink (Alecia Beth Moore) experienced a miscarriage that would remain largely private for decades. Known for her fierce, rebellious persona and powerful physicality as a performer, Pink carried this profound loss while building her career as an unapologetic warrior in the music industry. Years later, she revealed that her hit song "Just Give Me a Reason" was partially about this pregnancy loss, explaining "You feel like your body is broken" - a striking contrast to the strong, athletic image she projected to the world.</p>
+<p><em>Based on interviews with USA Today, Billboard, and other credible sources</em></p>
+</section>
+
+<section class="beautiful-contradiction">
+<h2>The Beautiful Contradiction</h2>
+<div class="contradiction-grid">
+<div class="contradiction-side contradiction-left">
+<h3>The Invincible Warrior Persona</h3>
+<ul class="evidence-list">
+<li>"I've always had this very tomboy, very strong gymnast body" - Pink's self-description
+<div class="citation">USA Today Interview, referenced in multiple sources</div>
+</li>
+<li>Built career on physical strength, aerial acrobatics, and fearless performances
+<div class="citation">Various concert reviews and biographical sources</div>
+</li>
+<li>Cultivated image as unbreakable, rebellious artist who doesn't conform to traditional femininity
+<div class="citation">Music industry coverage</div>
+</li>
+</ul>
+</div>
+
+<div class="contradiction-side contradiction-right">
+<h3>The Body That Felt Broken</h3>
+<ul class="evidence-list">
+<li>"You feel like your body is broken" - her description of miscarriage
+<div class="citation">USA Today Interview</div>
+</li>
+<li>Later nervousness during successful pregnancies: "I have had a miscarriage before so I was just really nervous"
+<div class="citation">Ellen DeGeneres Show appearance</div>
+</li>
+<li>Private struggle with body betrayal while publicly celebrating body strength
+<div class="citation">Various interviews over the years</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+<strong>Learning:</strong> The contradiction reveals how even those who appear invincible carry hidden vulnerabilities that profoundly shape their understanding of strength and fragility.
+</div>
+</section>
+
+<section class="context-box">
+<h3>Cultural & Artistic Context</h3>
+<p

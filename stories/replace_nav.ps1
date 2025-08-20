@@ -171,7 +171,7 @@ Write-Host ""
 $processedFiles = 0
 $skippedBlankFiles = 0
 $filesWithCssReplacements = 0
-$filesWithNavRemovals = 0
+$filesWithNavReplacements = 0
 
 foreach ($file in $htmlFiles) {
     try {
@@ -188,29 +188,33 @@ foreach ($file in $htmlFiles) {
         $originalContent = $content
         $changesMade = @()
         
-        # 1. Replace CSS selectors - regex pattern to match .nav-button blocks
-        $cssPattern = '\.nav-button\.[^,\s{]+(?:\s*,\s*\.nav-button\.[^,\s{]+)*\s*\{\s*background:\s*linear-gradient\([^}]+\}\s*'
+        # 1. Replace CSS selectors - improved pattern to match various nav-button combinations
+        # This pattern looks for .nav-button.name patterns followed by background gradient
+        $cssPattern = '(?s)\.nav-button\.[a-zA-Z0-9_-]+(?:\s*,\s*\.nav-button\.[a-zA-Z0-9_-]+)*\s*\{\s*background:\s*linear-gradient\([^}]+\}'
         
-        if ($content -match $cssPattern) {
-            $cssMatches = [regex]::Matches($content, $cssPattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        $cssMatches = [regex]::Matches($content, $cssPattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        if ($cssMatches.Count -gt 0) {
+            # Replace ALL matching CSS blocks with the new consolidated one
             $content = [regex]::Replace($content, $cssPattern, $newCssSelector, [System.Text.RegularExpressions.RegexOptions]::Singleline)
             $changesMade += "$($cssMatches.Count) CSS selector blocks replaced"
             $filesWithCssReplacements++
         }
         
-        # 2. Remove navigation div sections
-        $navPattern = '<div class="navigation">\s*<div class="nav-buttons">.*?</div>\s*</div>'
+        # 2. Replace navigation div sections - more flexible pattern
+        # This pattern captures the entire navigation div including all content between
+        $navPattern = '(?s)<div class="navigation">\s*<div class="nav-buttons">.*?</div>\s*</div>'
         
-        if ($content -match $navPattern) {
-            $navMatches = [regex]::Matches($content, $navPattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        $navMatches = [regex]::Matches($content, $navPattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        if ($navMatches.Count -gt 0) {
+            # Replace the matched navigation div with the new content
             $content = [regex]::Replace($content, $navPattern, $newNavigationDiv, [System.Text.RegularExpressions.RegexOptions]::Singleline)
             $changesMade += "$($navMatches.Count) navigation sections replaced"
-            $filesWithNavRemovals++
+            $filesWithNavReplacements++
         }
         
         # Write back to file if changes were made
         if ($content -ne $originalContent) {
-            Set-Content -Path $file.FullName -Value $content -Encoding UTF8
+            Set-Content -Path $file.FullName -Value $content -Encoding UTF8 -NoNewline
             $changesText = $changesMade -join ", "
             Write-Host "Updated: $($file.Name) - $changesText" -ForegroundColor Green
         } else {
@@ -231,4 +235,4 @@ Write-Host "Total HTML files found: $($htmlFiles.Count)"
 Write-Host "Files processed: $processedFiles"
 Write-Host "Blank files skipped: $skippedBlankFiles"
 Write-Host "Files with CSS replacements: $filesWithCssReplacements"
-Write-Host "Files with navigation replacements: $filesWithNavRemovals"
+Write-Host "Files with navigation replacements: $filesWithNavReplacements"

@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Paradox -- Jessica Zucker's Miscarriage Story</title>
+
+<style>
+
+* {
+
+margin: 0;
+
+padding: 0;
+
+box-sizing: border-box;
+
+}
+
+body {
+
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+line-height: 1.6;
+
+color: #333;
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+min-height: 100vh;
+
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+.nav-button.home,
+.nav-button.explore {
+background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.active {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+/* Individual story button colors - Jessica is active (gold), others are pink */
+.nav-button.jessica {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.beyonce,
+.nav-button.chrissy,
+.nav-button.hilarie,
+.nav-button.kate,
+.nav-button.halsey,
+.nav-button.lauren,
+.nav-button.meghan,
+.nav-button.nick,
+.nav-button.nicola,
+.nav-button.rebecca {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+}
+
+.container {
+
+max-width: 1200px;
+
+margin: 0 auto;
+
+padding: 2rem;
+
+}
+
+.hero {
+
+text-align: center;
+
+padding: 4rem 0;
+
+color: white;
+
+}
+
+.hero h1 {
+
+font-size: 3.5rem;
+
+font-weight: 700;
+
+margin-bottom: 1rem;
+
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+}
+
+.hero .subtitle {
+
+font-size: 1.3rem;
+
+margin-bottom: 2rem;
+
+opacity: 0.9;
+
+}
+
+.story-anchor {
+
+background: rgba(255, 255, 255, 0.1);
+
+border-radius: 15px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+backdrop-filter: blur(10px);
+
+border: 1px solid rgba(255, 255, 255, 0.2);
+
+color: white;
+
+}
+
+.central-contradiction {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.central-contradiction h2 {
+
+font-size: 2.5rem;
+
+color: #764ba2;
+
+margin-bottom: 1.5rem;
+
+text-align: center;
+
+}
+
+.contradiction-grid {
+
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+gap: 2rem;
+
+margin: 2rem 0;
+
+}
+
+.contradiction-side {
+
+padding: 2rem;
+
+border-radius: 10px;
+
+transition: transform 0.3s ease;
+
+}
+
+.contradiction-side:hover {
+
+transform: translateY(-5px);
+
+}
+
+.contradiction-left {
+
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+
+}
+
+.contradiction-right {
+
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+
+}
+
+.contradiction-side h3 {
+
+font-size: 1.5rem;
+
+margin-bottom: 1rem;
+
+color: #333;
+
+}
+
+.evidence-list {
+
+list-style: none;
+
+padding: 0;
+
+}
+
+.evidence-list li {
+
+background: rgba(255, 255, 255, 0.3);
+
+margin: 0.5rem 0;
+
+padding: 1rem;
+
+border-radius: 5px;
+
+border-left: 4px solid #764ba2;
+
+}
+
+.citation {
+
+font-size: 0.8rem;
+
+color: #666;
+
+font-style: italic;
+
+margin-top: 0.5rem;
+
+}
+
+.context-box {
+
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+
+border-radius: 15px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+}
+
+.context-box h3 {
+
+color: #8b4513;
+
+font-size: 1.8rem;
+
+margin-bottom: 1rem;
+
+}
+
+.phases-section {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.phases-grid {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+gap: 1.5rem;
+
+margin: 2rem 0;
+
+}
+
+.phase-card {
+
+padding: 2rem;
+
+border-radius: 10px;
+
+text-align: center;
+
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+cursor: pointer;
+
+}
+
+.phase-card:hover {
+
+transform: translateY(-5px);
+
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+
+.phase-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+.phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+
+.phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+.interactive-workshop {
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+color: white;
+
+}
+
+.workshop-controls {
+
+display: flex;
+
+gap: 1rem;
+
+margin: 2rem 0;
+
+flex-wrap: wrap;
+
+justify-content: center;
+
+}
+
+.btn {
+
+background: rgba(255, 255, 255, 0.2);
+
+color: white;
+
+border: 2px solid rgba(255, 255, 255, 0.3);
+
+padding: 1rem 2rem;
+
+border-radius: 50px;
+
+cursor: pointer;
+
+transition: all 0.3s ease;
+
+font-size: 1rem;
+
+}
+
+.btn:hover {
+
+background: rgba(255, 255, 255, 0.3);
+
+transform: translateY(-2px);
+
+}
+
+.selected-contradiction {
+
+background: rgba(255, 255, 255, 0.1);
+
+border-radius: 10px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+min-height: 150px;
+
+}
+
+.reflection-questions {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.question-categories {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+gap: 2rem;
+
+margin: 2rem 0;
+
+}
+
+.question-category {
+
+padding: 2rem;
+
+border-radius: 10px;
+
+border: 2px solid #e0e0e0;
+
+transition: all 0.3s ease;
+
+cursor: pointer;
+
+}
+
+.question-category:hover {
+
+border-color: #764ba2;
+
+transform: translateY(-3px);
+
+}
+
+.question-category.active {
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+color: white;
+
+border-color: #764ba2;
+
+}
+
+.random-question {
+
+background: #f8f9ff;
+
+border-radius: 10px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+border-left: 5px solid #764ba2;
+
+min-height: 100px;
+
+}
+
+.movement-highlight {
+
+background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+
+border-radius: 10px;
+
+padding: 1.5rem;
+
+margin: 1rem 0;
+
+color: white;
+
+font-weight: bold;
+
+text-align: center;
+
+}
+
+.timeline-gap {
+
+background: rgba(255, 255, 255, 0.2);
+
+border-radius: 8px;
+
+padding: 1rem;
+
+margin: 1rem 0;
+
+border-left: 3px solid #fff;
+
+font-style: italic;
+
+}
+
+@media (max-width: 768px) {
+
+.hero h1 {
+
+font-size: 2.5rem;
+
+}
+
+.contradiction-grid {
+
+grid-template-columns: 1fr;
+
+}
+
+.workshop-controls {
+
+flex-direction: column;
+
+align-items: center;
+
+}
+
+.nav-buttons {
+gap: 6px;
+}
+
+.nav-button {
+padding: 4px 8px;
+font-size: 0.8em;
+min-width: 60px;
+}
+
+}
+
+.fade-in {
+
+opacity: 0;
+
+animation: fadeIn 0.6s ease-in forwards;
+
+}
+
+@keyframes fadeIn {
+
+to { opacity: 1; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica active">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+
+<header class="hero">
+
+<h1>The Paradox</h1>
+
+<div class="subtitle">Jessica Zucker's Miscarriage Story</div>
+
+</header>
+
+<section class="story-anchor">
+
+<h2>From Silence to Movement: The Expert Who Became the Patient</h2>
+
+<p>Dr. Jessica Zucker, a clinical psychologist specializing in reproductive and maternal mental health, had spent years treating women experiencing pregnancy loss. Then, in October 2012, at 16 weeks into her second pregnancy, she miscarried at home, alone. "Suddenly, her career, spent specializing in reproductive and maternal mental health, was rendered corporeal, no longer just theoretical."</p>
+
+<div class="timeline-gap">
+
+The Gap: October 2012 (miscarriage) → October 2014 (New York Times essay) → #IHadAMiscarriage movement
+
+</div>
+
+<p>Two years later, Zucker broke her own silence with a powerful New York Times essay that launched the viral #IHadAMiscarriage campaign. "If every woman who has lost a pregnancy to miscarriage or stillbirth told her story, we might at least feel less alone," she wrote, transforming her personal trauma into a global movement.</p>
+
+<div class="movement-highlight">
+
+The #IHadAMiscarriage campaign now has tens of thousands of participants worldwide
+
+</div>
+
+<p><em>Based on reporting from Well+Good, Women's Health UK, 4th Trimester Bodies Project, and Dr. Zucker's own writings, 2012-2021</em></p>
+
+</section>
+
+<section class="central-contradiction">
+
+<h2>The Central Contradiction</h2>
+
+<div class="contradiction-grid">
+
+<div class="contradiction-side contradiction-left">
+
+<h3>Expert Knowledge vs. Lived Experience</h3>
+
+<ul class="evidence-list">
+
+<li>Although she had treated hundreds of women who too had endured pregnancy loss, she admits that she only really began to understand when it happened to her
+
+<div class="citation">Women's Health UK, July 20, 2017</div>
+
+</li>
+
+<li>Her career, spent specializing in reproductive and maternal mental health, was rendered corporeal, no longer just theoretical
+
+<div class="citation">Dr. Jessica Zucker's website, 2021</div>
+
+</li>
+
+<li>Professional expertise provided framework but not emotional preparation for personal loss
+
+<div class="citation">Various interviews, 2017-2021</div>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="contradiction-side contradiction-right">
+
+<h3>Private Silence vs. Public Advocacy</h3>
+
+<ul class="evidence-list">
+
+<li>Experienced miscarriage in October 2012 but remained silent for two years until 2014 NYT essay
+
+<div class="citation">4th Trimester Bodies Project, May 17, 2017</div>
+
+</li>
+
+<li>Created and launched the #IHadAMiscarriage campaign with her first New York Times piece in 2014 with the aim of addressing the antiquated cultural silence, stigma, and shame
+
+<div class="citation">Dr. Zucker's campaign website</div>
+
+</li>
+
+<li>Transformed from someone who couldn't speak about her own loss to the leading voice breaking miscarriage stigma
+
+<div class="citation">Well+Good, March 9, 2021</div>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+
+<strong>Learning:</strong> The contradiction reveals how even mental health professionals specializing in reproductive loss can be unprepared for their own experience, and how the journey from silence to advocacy requires both personal healing and professional purpose.
+
+</div>
+
+</section>
+
+<section class="context-box">
+
+<h3>Professional & Cultural Context</h3>
+
+<p>In 2012, when Dr. Zucker experienced her miscarriage, even someone with her professional expertise found herself isolated by the cultural silence surrounding pregnancy loss. Despite treating hundreds of women with similar experiences, she admits she "only really began to understand when it happened to her," highlighting the gap between theoretical knowledge and lived experience.</p>
+
+<p>Her 2014 decision to break her silence came after recognizing that her professional platform could serve a greater purpose. The resulting movement has fundamentally changed how society discusses pregnancy loss, demonstrating how personal vulnerability can become powerful advocacy.</p>
+
+</section>
+
+<section class="phases-section">
+
+<h2>Four Phases of the Paradox</h2>
+
+<div class="phases-grid">
+
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+
+<h3>Phase 1: Professional Expertise</h3>
+
+<p>Years of treating patients with reproductive loss while having only theoretical understanding of the experience</p>
+
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+
+<h3>Phase 2: Personal Crisis</h3>
+
+<p>October 2012: 16-week miscarriage at home, alone - professional knowledge meets personal reality</p>
+
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+
+<h3>Phase 3: Silent Processing</h3>
+
+<p>Two years of private healing while knowing professionally that silence perpetuates stigma</p>
+
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+
+<h3>Phase 4: Movement Creation</h3>
+
+<p>2014-present: Transforming personal trauma into global advocacy through #IHadAMiscarriage campaign</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="interactive-workshop">
+
+<h2>Interactive Contradiction Workshop</h2>
+
+<p>Explore the different layers of contradiction in Dr. Zucker's story. Each contradiction reveals different aspects of how professional expertise intersects with personal experience, and how trauma can become advocacy.</p>
+
+<div class="workshop-controls">
+
+<button class="btn" onclick="selectContradiction('expertise')">Expert vs. Patient</button>
+
+<button class="btn" onclick="selectContradiction('silence')">Silence vs. Advocacy</button>
+
+<button class="btn" onclick="selectContradiction('professional')">Professional Purpose</button>
+
+<button class="btn" onclick="selectContradiction('transformation')">Trauma to Movement</button>
+
+<button class="btn" onclick="generateCreativePrompt()">Art Inspired by Your Story</button>
+
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+
+<p><em>Select a contradiction above to explore its nuances...</em></p>
+
+</div>
+
+</section>
+
+<section class="reflection-questions">
+
+<h2>Reflection Questions</h2>
+
+<p>Choose a category to explore deeper questions about this paradox:</p>
+
+<div class="question-categories">
+
+<div class="question-category" onclick="selectQuestionCategory('expertise')">
+
+<h3>Professional vs. Personal</h3>
+
+<p>Questions about the limits of professional knowledge and lived experience</p>
+
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('advocacy')">
+
+<h3>Trauma to Advocacy</h3>
+
+<p>Questions about transforming personal pain into public purpose</p>
+
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('silence')">
+
+<h3>Silence & Stigma</h3>
+
+<p>Questions about cultural taboos and the power of breaking silence</p>
+
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('movement')">
+
+<h3>Movement Building</h3>
+
+<p>Questions about how individual stories create collective change</p>
+
+</div>
+
+</div>
+
+<div class="random-question" id="questionDisplay">
+
+<p><em>Select a category above to see reflection questions...</em></p>
+
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+
+<button class="btn" onclick="getRandomQuestion()" style="color: #764ba2; background: white; border-color: #764ba2;">Get Random Question</button>
+
+</div>
+
+</section>
+
+</div>
+
+<script>
+
+// Contradiction data
+
+const contradictions = {
+
+expertise: {
+
+title: "Professional Expertise vs. Lived Experience",
+
+content: "Dr. Zucker's story reveals the profound gap between professional knowledge and personal experience. Despite treating hundreds of women with pregnancy loss, she admits she 'only really began to understand when it happened to her.' This contradiction highlights how even the most qualified professionals can be unprepared for their own trauma. Her career in reproductive mental health provided a framework for understanding loss intellectually, but the emotional and physical reality was entirely different. This speaks to the limitations of theoretical knowledge when facing personal crisis."
+
+},
+
+silence: {
+
+title: "Personal Silence vs. Professional Advocacy",
+
+content: "Perhaps the most striking contradiction is that Dr. Zucker, who professionally understood the harm of silence around pregnancy loss, remained silent about her own experience for two years. This gap between October 2012 (her miscarriage) and October 2014 (her New York Times essay) represents the complex journey from patient back to advocate. Even someone professionally equipped to break stigma needed time to process her own trauma before she could use her voice to help others."
+
+},
+
+professional: {
+
+title: "Professional Identity vs. Patient Identity",
+
+content: "Dr. Zucker faced the unique challenge of simultaneously being both expert and patient. Her professional identity as someone who treats pregnancy loss suddenly had to coexist with her patient identity as someone experiencing it. This created internal conflict - should she apply her professional knowledge to her own healing, or allow herself to simply grieve as any other woman would? The contradiction shows how professional roles can both help and hinder personal processing of trauma."
+
+},
+
+transformation: {
+
+title: "Personal Trauma to Global Movement",
+
+content: "The ultimate contradiction in Dr. Zucker's story is how she transformed her most private trauma into the world's largest public conversation about miscarriage. The #IHadAMiscarriage campaign represents a complete reversal - from silence to the loudest voice, from patient to global advocate. This transformation required her to repeatedly revisit her own trauma in service of helping others, demonstrating both the power and the personal cost of turning pain into purpose."
+
+}
+
+};
+
+// Question categories
+
+const questionCategories = {
+
+expertise: [
+
+"Can professional training ever fully prepare someone for their own medical trauma?",
+
+"How does being a mental health expert affect one's experience as a patient?",
+
+"What are the advantages and disadvantages of treating others for conditions you've experienced yourself?",
+
+"Should healthcare professionals be required to disclose their own relevant medical experiences?",
+
+"How might Dr. Zucker's patient care have changed after her own experience?"
+
+],
+
+advocacy: [
+
+"What internal process allows someone to transform trauma into advocacy?",
+
+"Is there an ethical obligation for those with platforms to share personal medical experiences?",
+
+"How do we balance personal healing with public service when sharing trauma?",
+
+"What makes some people become advocates while others remain private about their experiences?",
+
+"How might the timing of going public affect both personal healing and advocacy effectiveness?"
+
+],
+
+silence: [
+
+"Why do even the most knowledgeable people sometimes participate in the silence they professionally oppose?",
+
+"What role does personal readiness play in breaking cultural taboos?",
+
+"How does professional understanding of stigma affect personal experience of it?",
+
+"What would have happened if Dr. Zucker had never found her voice publicly?",
+
+"How do cultural expectations of strength affect healthcare professionals' willingness to share vulnerability?"
+
+],
+
+movement: [
+
+"How do individual stories create collective cultural change?",
+
+"What makes a personal disclosure become a global movement?",
+
+"How has the #IHadAMiscarriage campaign changed how society discusses pregnancy loss?",
+
+"What are the ongoing responsibilities of someone who creates a movement around their trauma?",
+
+"How might Dr. Zucker's professional background have contributed to the campaign's success?"
+
+]
+
+};
+
+let currentQuestionCategory = null;
+
+// Interactive functions
+
+function selectContradiction(type) {
+
+const display = document.getElementById('contradictionDisplay');
+
+const contradiction = contradictions[type];
+
+display.innerHTML = `
+
+<h3>${contradiction.title}</h3>
+
+<p>${contradiction.content}</p>
+
+`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+function generateCreativePrompt() {
+
+const display = document.getElementById('contradictionDisplay');
+
+display.innerHTML = `
+
+<strong>Art Inspired by Your Story</strong><br><br>
+
+Dr. Jessica Zucker's journey from silence to creating the #IHadAMiscarriage movement has inspired creative expressions across multiple mediums. Art becomes a bridge between professional knowledge and lived experience, transforming individual expertise into collective healing.<br><br>
+
+<strong>Creative Mediums Inspired by Stories Like Yours:</strong><br>
+
+• <strong>Literary Arts:</strong> Essays, memoirs, academic papers bridging clinical and personal perspectives<br>
+
+• <strong>Visual Arts:</strong> Photography, installations, digital art giving form to invisible professional-personal contradictions<br>
+
+• <strong>Digital Media:</strong> Social campaigns, interactive platforms creating spaces for shared experiences<br>
+
+• <strong>Performance:</strong> Theater, spoken word embodying the transformation from silence to advocacy<br>
+
+• <strong>Film & Documentary:</strong> Personal narratives exploring the gap between professional and lived knowledge<br>
+
+• <strong>Musical Arts:</strong> Songs capturing the journey from expert to patient to advocate<br><br>
+
+<strong>Featured Musical Tribute:</strong><br>
+
+Inspired by Dr. Jessica Zucker's transformation from a reproductive mental health expert who experienced her own 16-week miscarriage to becoming the voice behind the global #IHadAMiscarriage movement.<br><br>
+
+<strong>"Sixteen Weeks and Still"</strong> - A musical reflection on the contradiction between professional expertise and personal trauma, capturing the moment when theoretical knowledge meets lived reality.<br><br>
+
+<iframe width="320" height="180" src="https://www.youtube.com/embed/jccYPFcFipo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px; margin: 10px 0;"></iframe><br><br>
+
+<em>This song represents how stories of professional expertise meeting personal loss can be transformed into art that bridges the gap between clinical understanding and human experience---helping others navigate their own contradictions between knowledge and feeling.</em><br><br>
+
+<strong>Your Story Can Inspire Art Too:</strong><br>
+
+Whether through academic writing, creative expression, advocacy campaigns, or any other medium, your experience of navigating professional and personal contradictions can become a source of understanding and connection for others walking similar paths between expertise and lived experience.
+
+`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+function selectPhase(phaseNumber) {
+
+const phases = document.querySelectorAll('.phase-card');
+
+phases.forEach(phase => phase.style.transform = 'scale(1)');
+
+const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+
+selectedPhase.style.transform = 'scale(1.05)';
+
+setTimeout(() => {
+
+selectedPhase.style.transform = 'scale(1)';
+
+}, 200);
+
+}
+
+function selectQuestionCategory(category) {
+
+// Remove active class from all categories
+
+document.querySelectorAll('.question-category').forEach(cat => {
+
+cat.classList.remove('active');
+
+});
+
+// Add active class to selected category
+
+event.target.closest('.question-category').classList.add('active');
+
+currentQuestionCategory = category;
+
+displayRandomQuestionFromCategory(category);
+
+}
+
+function displayRandomQuestionFromCategory(category) {
+
+const questions = questionCategories[category];
+
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+const display = document.getElementById('questionDisplay');
+
+display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+function getRandomQuestion() {
+
+const allCategories = Object.keys(questionCategories);
+
+const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+
+const questions = questionCategories[randomCategory];
+
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+const display = document.getElementById('questionDisplay');
+
+display.innerHTML = `
+
+<p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+
+<p>${randomQuestion}</p>
+
+`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+// Add some initial interactivity
+
+document.addEventListener('DOMContentLoaded', function() {
+
+// Add hover effects to phase cards
+
+const phaseCards = document.querySelectorAll('.phase-card');
+
+phaseCards.forEach(card => {
+
+card.addEventListener('mouseenter', function() {
+
+this.style.transform = 'translateY(-10px) scale(1.02)';
+
+});
+
+card.addEventListener('mouseleave', function() {
+
+this.style.transform = 'translateY(0) scale(1)';
+
+});
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>

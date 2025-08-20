@@ -1,11 +1,1087 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Paradox -- Ludacris & Eudoxie's Miscarriage Story</title>
+
+<style>
+
+* {
+
+margin: 0;
+
+padding: 0;
+
+box-sizing: border-box;
+
+}
+
+body {
+
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+line-height: 1.6;
+
+color: #333;
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+min-height: 100vh;
+
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+/* Individual story button colors - ludacris-eudoxie is active (gold), others are pink */
+.nav-button.ludacris-eudoxie {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.home {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+}
+
+.nav-button.explore {
+background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+color: white;
+}
+
+.nav-button:not(.ludacris-eudoxie):not(.home):not(.explore) {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+color: white;
+}
+
+.container {
+
+max-width: 1200px;
+
+margin: 0 auto;
+
+padding: 2rem;
+
+}
+
+.hero {
+
+text-align: center;
+
+padding: 4rem 0;
+
+color: white;
+
+}
+
+.hero h1 {
+
+font-size: 3.5rem;
+
+font-weight: 700;
+
+margin-bottom: 1rem;
+
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+}
+
+.hero .subtitle {
+
+font-size: 1.3rem;
+
+margin-bottom: 2rem;
+
+opacity: 0.9;
+
+}
+
+.story-anchor {
+
+background: rgba(255, 255, 255, 0.1);
+
+border-radius: 15px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+backdrop-filter: blur(10px);
+
+border: 1px solid rgba(255, 255, 255, 0.2);
+
+color: white;
+
+}
+
+.central-contradiction {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.central-contradiction h2 {
+
+font-size: 2.5rem;
+
+color: #764ba2;
+
+margin-bottom: 1.5rem;
+
+text-align: center;
+
+}
+
+.contradiction-grid {
+
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+gap: 2rem;
+
+margin: 2rem 0;
+
+}
+
+.contradiction-side {
+
+padding: 2rem;
+
+border-radius: 10px;
+
+transition: transform 0.3s ease;
+
+}
+
+.contradiction-side:hover {
+
+transform: translateY(-5px);
+
+}
+
+.contradiction-left {
+
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+
+}
+
+.contradiction-right {
+
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+
+}
+
+.contradiction-side h3 {
+
+font-size: 1.5rem;
+
+margin-bottom: 1rem;
+
+color: #333;
+
+}
+
+.evidence-list {
+
+list-style: none;
+
+padding: 0;
+
+}
+
+.evidence-list li {
+
+background: rgba(255, 255, 255, 0.3);
+
+margin: 0.5rem 0;
+
+padding: 1rem;
+
+border-radius: 5px;
+
+border-left: 4px solid #764ba2;
+
+}
+
+.citation {
+
+font-size: 0.8rem;
+
+color: #666;
+
+font-style: italic;
+
+margin-top: 0.5rem;
+
+}
+
+.context-box {
+
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+
+border-radius: 15px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+}
+
+.context-box h3 {
+
+color: #8b4513;
+
+font-size: 1.8rem;
+
+margin-bottom: 1rem;
+
+}
+
+.phases-section {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.phases-grid {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+gap: 1.5rem;
+
+margin: 2rem 0;
+
+}
+
+.phase-card {
+
+padding: 2rem;
+
+border-radius: 10px;
+
+text-align: center;
+
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+cursor: pointer;
+
+}
+
+.phase-card:hover {
+
+transform: translateY(-5px);
+
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+
+.phase-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+.phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+
+.phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+.interactive-workshop {
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+color: white;
+
+}
+
+.workshop-controls {
+
+display: flex;
+
+gap: 1rem;
+
+margin: 2rem 0;
+
+flex-wrap: wrap;
+
+justify-content: center;
+
+}
+
+.btn {
+
+background: rgba(255, 255, 255, 0.2);
+
+color: white;
+
+border: 2px solid rgba(255, 255, 255, 0.3);
+
+padding: 1rem 2rem;
+
+border-radius: 50px;
+
+cursor: pointer;
+
+transition: all 0.3s ease;
+
+font-size: 1rem;
+
+}
+
+.btn:hover {
+
+background: rgba(255, 255, 255, 0.3);
+
+transform: translateY(-2px);
+
+}
+
+.selected-contradiction {
+
+background: rgba(255, 255, 255, 0.1);
+
+border-radius: 10px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+min-height: 150px;
+
+}
+
+.reflection-questions {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.question-categories {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+gap: 2rem;
+
+margin: 2rem 0;
+
+}
+
+.question-category {
+
+padding: 2rem;
+
+border-radius: 10px;
+
+border: 2px solid #e0e0e0;
+
+transition: all 0.3s ease;
+
+cursor: pointer;
+
+}
+
+.question-category:hover {
+
+border-color: #764ba2;
+
+transform: translateY(-3px);
+
+}
+
+.question-category.active {
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+color: white;
+
+border-color: #764ba2;
+
+}
+
+.random-question {
+
+background: #f8f9ff;
+
+border-radius: 10px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+border-left: 5px solid #764ba2;
+
+min-height: 100px;
+
+}
+
+@media (max-width: 768px) {
+
+.hero h1 {
+
+font-size: 2.5rem;
+
+}
+
+.contradiction-grid {
+
+grid-template-columns: 1fr;
+
+}
+
+.workshop-controls {
+
+flex-direction: column;
+
+align-items: center;
+
+}
+
+.nav-buttons {
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.nav-button {
+min-width: 120px;
+}
+
+}
+
+.fade-in {
+
+opacity: 0;
+
+animation: fadeIn 0.6s ease-in forwards;
+
+}
+
+@keyframes fadeIn {
+
+to { opacity: 1; }
+
+}
+
+</style>
+
 </head>
+
 <body>
-    
+
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="#" class="nav-button alanis">Alanis</a>
+<a href="#" class="nav-button alexandra">Alexandra</a>
+<a href="#" class="nav-button alicia">Alicia</a>
+<a href="#" class="nav-button amanda">Amanda</a>
+<a href="#" class="nav-button beyonce">Beyoncé</a>
+<a href="#" class="nav-button bethenny">Bethenny</a>
+<a href="#" class="nav-button binky">Binky</a>
+<a href="#" class="nav-button britney">Britney</a>
+<a href="#" class="nav-button brooke">Brooke</a>
+<a href="#" class="nav-button carrie">Carrie</a>
+<a href="#" class="nav-button carrie-b">Carrie B</a>
+<a href="#" class="nav-button cass">Cass</a>
+<a href="#" class="nav-button celine">Celine</a>
+<a href="#" class="nav-button christina">Christina</a>
+<a href="#" class="nav-button chrissy">Chrissy</a>
+<a href="#" class="nav-button clay-jessica">Clay & Jessica</a>
+<a href="#" class="nav-button courteney">Courteney</a>
+<a href="#" class="nav-button laura">Dame Laura</a>
+<a href="#" class="nav-button zoe-dr">Dr. Zoe</a>
+<a href="#" class="nav-button gabrielle">Gabrielle</a>
+<a href="#" class="nav-button gordon-tana">Gordon & Tana</a>
+<a href="#" class="nav-button gwyneth">Gwyneth</a>
+<a href="#" class="nav-button halsey">Halsey</a>
+<a href="#" class="nav-button hilaria">Hilaria</a>
+<a href="#" class="nav-button hilarie">Hilarie</a>
+<a href="#" class="nav-button hugh-deborra">Hugh & Deborra</a>
+<a href="#" class="nav-button james-kimberly">James & Kimberly</a>
+<a href="#" class="nav-button jamie">Jamie</a>
+<a href="#" class="nav-button jana">Jana</a>
+<a href="#" class="nav-button jennifer">Jennifer</a>
+<a href="#" class="nav-button jessica">Jessica</a>
+<a href="#" class="nav-button jessie">Jessie J</a>
+<a href="#" class="nav-button jools">Jools</a>
+<a href="#" class="nav-button julia">Julia</a>
+<a href="#" class="nav-button kate">Kate</a>
+<a href="#" class="nav-button kirstie">Kirstie</a>
+<a href="#" class="nav-button kristen">Kristen</a>
+<a href="#" class="nav-button lauren">Lauren</a>
+<a href="#" class="nav-button lily">Lily</a>
+<a href="#" class="nav-button lindsay">Lindsay</a>
+<a href="#" class="nav-button lisa-f">Lisa F</a>
+<a href="#" class="nav-button lisa-g">Lisa G</a>
+<a href="#" class="nav-button lorraine">Lorraine</a>
+<a href="#" class="nav-button ludacris-eudoxie">Ludacris & Eudoxie</a>
+<a href="#" class="nav-button mariah">Mariah</a>
+<a href="#" class="nav-button megan">Megan</a>
+<a href="#" class="nav-button meghan">Meghan</a>
+<a href="#" class="nav-button michelle">Michelle</a>
+<a href="#" class="nav-button ms-rachel">Ms. Rachel</a>
+<a href="#" class="nav-button myleene">Myleene</a>
+<a href="#" class="nav-button nick-lauren">Nick & Lauren</a>
+<a href="#" class="nav-button nick">Nick & Natalie</a>
+<a href="#" class="nav-button nicola">Nicola</a>
+<a href="#" class="nav-button nicole">Nicole</a>
+<a href="#" class="nav-button olivia-alex">Olivia & Alex</a>
+<a href="#" class="nav-button pink">P!nk</a>
+<a href="#" class="nav-button priscilla-mark">Priscilla & Mark</a>
+<a href="#" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="#" class="nav-button sammi">Sammi</a>
+<a href="#" class="nav-button sanya">Sanya</a>
+<a href="#" class="nav-button savannah">Savannah</a>
+<a href="#" class="nav-button sharon">Sharon</a>
+<a href="#" class="nav-button shay">Shay</a>
+<a href="#" class="nav-button tiffany">Tiffany</a>
+<a href="#" class="nav-button trina">Trina</a>
+<a href="#" class="nav-button vanessa">Vanessa</a>
+<a href="#" class="nav-button whitney">Whitney</a>
+<a href="#" class="nav-button zara">Zara</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+
+<header class="hero">
+
+<h1>The Paradox</h1>
+
+<div class="subtitle">Ludacris & Eudoxie's Miscarriage Story</div>
+
+</header>
+
+<section class="story-anchor">
+
+<h2>Story Anchor: Ludacris & Eudoxie Mbouguiengue</h2>
+
+<p>In early 2018, Eudoxie Mbouguiengue, wife of rapper Ludacris, suffered a miscarriage that required surgery. On her 32nd birthday, May 14, 2018, she chose to publicly reveal this deeply personal loss through an Instagram post, transforming her private pain into a message of faith, gratitude, and resilience. Her revelation demonstrated the complex intersection of personal vulnerability and public inspiration, showing how tragedy can become a source of strength for both the individual and their community.</p>
+
+<p><em>Based on reporting from E! News, People Magazine, Essence, and Entertainment Tonight</em></p>
+
+</section>
+
+<section class="central-contradiction">
+
+<h2>The Beautiful Contradiction</h2>
+
+<div class="contradiction-grid">
+
+<div class="contradiction-side contradiction-left">
+
+<h3>Private Suffering, Public Celebration</h3>
+
+<ul class="evidence-list">
+
+<li>Suffered miscarriage and surgery in early 2018 while maintaining public appearances
+
+<div class="citation">E! News, May 16, 2018</div>
+
+</li>
+
+<li>Chose her birthday celebration as the moment to reveal private tragedy
+
+<div class="citation">Entertainment Tonight, May 16, 2018</div>
+
+</li>
+
+<li>Transformed personal grief into public testimony of faith and gratitude
+
+<div class="citation">Essence Magazine, October 24, 2020</div>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="contradiction-side contradiction-right">
+
+<h3>Gratitude Through Grief</h3>
+
+<ul class="evidence-list">
+
+<li>"Lord, I thank you for the gift of life" - expressing gratitude while acknowledging loss
+
+<div class="citation">Instagram post, May 14, 2018</div>
+
+</li>
+
+<li>"I refused to let the enemy win. I stayed faithful and prayed up"
+
+<div class="citation">People Magazine, May 16, 2018</div>
+
+</li>
+
+<li>Used tragedy to inspire others about maintaining faith through adversity
+
+<div class="citation">UPI News, May 16, 2018</div>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+
+<strong>Learning:</strong> The contradiction reveals how personal tragedy can coexist with public gratitude, demonstrating that grief and faith are not mutually exclusive but can amplify each other's transformative power.
+
+</div>
+
+</section>
+
+<section class="context-box">
+
+<h3>Faith and Fame: The Cultural Context</h3>
+
+<p>Eudoxie's revelation occurred within the context of celebrity culture, where personal lives are often scrutinized, and the African-American faith community, where testimonies of overcoming adversity through faith are deeply valued. As a Gabonese model married to a prominent rapper, her story bridges cultural expectations about privacy, faith, and public vulnerability.</p>
+
+<p>The timing—revealing on her birthday—transforms what could have been solely a day of personal celebration into a moment of communal healing and inspiration, challenging traditional boundaries between private grief and public ministry.</p>
+
+</section>
+
+<section class="phases-section">
+
+<h2>Phases of Grace Through Grief</h2>
+
+<div class="phases-grid">
+
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+
+<h3>Phase 1: Silent Suffering</h3>
+
+<p>Early 2018 - experiencing miscarriage and surgery while maintaining normal life and public appearances</p>
+
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+
+<h3>Phase 2: Internal Processing</h3>
+
+<p>Months of private grieving, prayer, and finding ways to maintain faith through the pain</p>
+
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+
+<h3>Phase 3: Transformative Revelation</h3>
+
+<p>Birthday disclosure that turns personal pain into public testimony and source of inspiration</p>
+
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+
+<h3>Phase 4: Community Impact</h3>
+
+<p>Ongoing influence as her story continues to inspire others facing similar losses and faith challenges</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="interactive-workshop">
+
+<h2>Interactive Contradiction Workshop</h2>
+
+<p>Explore the different layers of contradiction in Ludacris and Eudoxie's story. Each contradiction reveals different aspects of faith, public vulnerability, and transforming pain into purpose.</p>
+
+<div class="workshop-controls">
+
+<button class="btn" onclick="selectContradiction('celebration')">Celebration vs. Mourning</button>
+
+<button class="btn" onclick="selectContradiction('gratitude')">Gratitude vs. Grief</button>
+
+<button class="btn" onclick="selectContradiction('privacy')">Privacy vs. Testimony</button>
+
+<button class="btn" onclick="selectContradiction('timing')">Birthday Revelation</button>
+
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+
+<p><em>Select a contradiction above to explore its nuances...</em></p>
+
+</div>
+
+</section>
+
+<section class="reflection-questions">
+
+<h2>Reflection Questions</h2>
+
+<p>Choose a category to explore deeper questions about this paradox:</p>
+
+<div class="question-categories">
+
+<div class="question-category" onclick="selectQuestionCategory('faith')">
+
+<h3>Faith & Suffering</h3>
+
+<p>Questions about maintaining faith through loss and finding meaning in pain</p>
+
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('vulnerability')">
+
+<h3>Public Vulnerability</h3>
+
+<p>Questions about sharing personal pain publicly and its impact</p>
+
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('celebration')">
+
+<h3>Celebration & Grief</h3>
+
+<p>Questions about how joy and sorrow can coexist in meaningful ways</p>
+
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('community')">
+
+<h3>Community Healing</h3>
+
+<p>Questions about how personal stories can serve broader healing purposes</p>
+
+</div>
+
+</div>
+
+<div class="random-question" id="questionDisplay">
+
+<p><em>Select a category above to see reflection questions...</em></p>
+
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+
+<button class="btn" onclick="getRandomQuestion()" style="color: #764ba2; background: white; border-color: #764ba2;">Get Random Question</button>
+
+</div>
+
+</section>
+
+</div>
+
+<script>
+
+// Contradiction data
+
+const contradictions = {
+
+celebration: {
+
+title: "Birthday Celebration Meets Tragedy Revelation",
+
+content: "Eudoxie chose her 32nd birthday—traditionally a day of personal celebration and joy—to publicly reveal one of her most painful experiences. This creates a profound contradiction between the expected tone of birthday celebrations and the gravity of discussing pregnancy loss. Yet this timing transforms both the celebration and the revelation, suggesting that true celebration can acknowledge pain while still choosing joy. It challenges the conventional separation between happy occasions and serious discussions."
+
+},
+
+gratitude: {
+
+title: "Expressing Gratitude While Acknowledging Grief",
+
+content: "Her Instagram post began with 'Lord, I thank you for the gift of life' immediately before revealing her miscarriage. This juxtaposition of thanksgiving and tragedy appears contradictory but reveals a deeper truth about faith-based resilience. She doesn't minimize the pain or pretend it didn't happen, yet maintains gratitude for life itself. This contradiction shows how authentic gratitude can coexist with genuine grief, each making the other more profound and meaningful."
+
+},
+
+privacy: {
+
+title: "Maintaining Privacy While Creating Public Testimony",
+
+content: "For months, Eudoxie kept her miscarriage completely private while processing the loss. Then she chose to make it dramatically public in a way that served others. This contradiction between privacy and transparency suggests that the timing and purpose of revelation matters more than the act itself. Her private processing enabled her public testimony, showing how solitude can prepare us for community service and how personal healing can become collective healing."
+
+},
+
+timing: {
+
+title: "Strategic Timing of Vulnerable Revelation",
+
+content: "The choice to reveal such personal information on her birthday, months after the event, suggests careful consideration rather than impulsive sharing. This creates tension between spontaneous vulnerability and calculated transparency. Yet the strategic timing doesn't diminish the authenticity—instead, it shows how thoughtful sharing can maximize positive impact. The contradiction reveals that authentic vulnerability can be both genuine and strategic."
+
+}
+
+};
+
+// Question categories
+
+const questionCategories = {
+
+faith: [
+
+"How can expressing gratitude for life coexist with grieving a life lost?",
+
+"What role does faith play in transforming personal tragedy into public testimony?",
+
+"Can maintaining faith through suffering be seen as both strength and denial?",
+
+"How do we balance accepting God's will with mourning what we've lost?",
+
+"Is there a difference between having faith despite suffering versus having faith because of suffering?"
+
+],
+
+vulnerability: [
+
+"When is sharing personal pain publicly healing versus harmful?",
+
+"Should public figures feel obligated to share their struggles to help others?",
+
+"How do we distinguish between authentic vulnerability and performance of pain?",
+
+"What are the risks and benefits of making private grief public?",
+
+"Can strategic timing of personal revelations still be considered authentic?"
+
+],
+
+celebration: [
+
+"Is it possible to truly celebrate while acknowledging recent tragedy?",
+
+"How do we honor both joy and sorrow during significant life moments?",
+
+"Should painful experiences be compartmentalized from celebratory occasions?",
+
+"What does it mean to celebrate life while mourning a life lost?",
+
+"Can choosing to celebrate despite pain be both brave and self-protective?"
+
+],
+
+community: [
+
+"How does sharing personal loss create community healing opportunities?",
+
+"What responsibility do public figures have to use their pain for others' benefit?",
+
+"Can personal testimony about loss help reduce stigma around miscarriage?",
+
+"How do individual stories of overcoming adversity impact collective resilience?",
+
+"What's the difference between exploiting tragedy and transforming it for good?"
+
+]
+
+};
+
+let currentQuestionCategory = null;
+
+// Interactive functions
+
+function selectContradiction(type) {
+
+const display = document.getElementById('contradictionDisplay');
+
+const contradiction = contradictions[type];
+
+display.innerHTML = `
+
+<h3>${contradiction.title}</h3>
+
+<p>${contradiction.content}</p>
+
+`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+function selectPhase(phaseNumber) {
+
+const phases = document.querySelectorAll('.phase-card');
+
+phases.forEach(phase => phase.style.transform = 'scale(1)');
+
+const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+
+selectedPhase.style.transform = 'scale(1.05)';
+
+setTimeout(() => {
+
+selectedPhase.style.transform = 'scale(1)';
+
+}, 200);
+
+}
+
+function selectQuestionCategory(category) {
+
+// Remove active class from all categories
+
+document.querySelectorAll('.question-category').forEach(cat => {
+
+cat.classList.remove('active');
+
+});
+
+// Add active class to selected category
+
+event.target.closest('.question-category').classList.add('active');
+
+currentQuestionCategory = category;
+
+displayRandomQuestionFromCategory(category);
+
+}
+
+function displayRandomQuestionFromCategory(category) {
+
+const questions = questionCategories[category];
+
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+const display = document.getElementById('questionDisplay');
+
+display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+function getRandomQuestion() {
+
+const allCategories = Object.keys(questionCategories);
+
+const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+
+const questions = questionCategories[randomCategory];
+
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+const display = document.getElementById('questionDisplay');
+
+display.innerHTML = `
+
+<p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+
+<p>${randomQuestion}</p>
+
+`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+// Add some initial interactivity
+
+document.addEventListener('DOMContentLoaded', function() {
+
+// Add hover effects to phase cards
+
+const phaseCards = document.querySelectorAll('.phase-card');
+
+phaseCards.forEach(card => {
+
+card.addEventListener('mouseenter', function() {
+
+this.style.transform = 'translateY(-10px) scale(1.02)';
+
+});
+
+card.addEventListener('mouseleave', function() {
+
+this.style.transform = 'translateY(0) scale(1)';
+
+});
+
+});
+
+});
+
+</script>
+
 </body>
+
 </html>

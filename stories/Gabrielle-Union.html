@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabrielle Union - Learning Through Beautiful Contradictions</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Georgia', serif;
+line-height: 1.6;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+color: #333;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+.nav-button.home,
+.nav-button.explore {
+background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.active {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+/* Individual story button colors - Gabrielle is active (gold), others are pink */
+.nav-button.gabrielle {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.alanis,
+.nav-button.binky,
+.nav-button.britney,
+.nav-button.brooke,
+.nav-button.carrie,
+.nav-button.celine,
+.nav-button.courteney,
+.nav-button.beyonce,
+.nav-button.chrissy,
+.nav-button.hilarie,
+.nav-button.kate,
+.nav-button.halsey,
+.nav-button.jessica,
+.nav-button.lauren,
+.nav-button.meghan,
+.nav-button.nick,
+.nav-button.nicola,
+.nav-button.rebecca {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+}
+
+.header {
+text-align: center;
+margin-bottom: 40px;
+color: white;
+}
+
+.header h1 {
+font-size: 2.5em;
+margin-bottom: 10px;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header p {
+font-size: 1.2em;
+opacity: 0.9;
+}
+
+.story-anchor {
+background: rgba(255, 255, 255, 0.95);
+border-radius: 20px;
+padding: 30px;
+margin-bottom: 30px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.story-header {
+text-align: center;
+margin-bottom: 25px;
+}
+
+.story-header h2 {
+color: #444;
+font-size: 2em;
+margin-bottom: 10px;
+}
+
+.story-source {
+background: #e8f5e8;
+padding: 15px;
+border-radius: 10px;
+margin-bottom: 20px;
+border-left: 4px solid #2e7d32;
+}
+
+.story-source a {
+color: #2e7d32;
+text-decoration: none;
+font-weight: bold;
+}
+
+.story-source a:hover {
+text-decoration: underline;
+}
+
+.key-elements {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 15px;
+margin: 20px 0;
+}
+
+.element {
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+padding: 20px;
+border-radius: 15px;
+text-align: center;
+}
+
+.element h4 {
+color: #8B4513;
+margin-bottom: 10px;
+font-size: 1.1em;
+}
+
+.central-contradiction {
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+border-radius: 20px;
+padding: 40px;
+margin: 30px 0;
+text-align: center;
+}
+
+.central-contradiction h3 {
+font-size: 2em;
+color: #8B1538;
+margin-bottom: 20px;
+}
+
+.contradiction-visual {
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 25px 0;
+flex-wrap: wrap;
+gap: 15px;
+}
+
+.contradiction-side {
+background: rgba(255,255,255,0.8);
+padding: 20px;
+border-radius: 15px;
+font-size: 1.2em;
+font-weight: bold;
+color: #8B1538;
+min-width: 200px;
+text-align: center;
+}
+
+.contradiction-bridge {
+font-size: 2em;
+color: #8B1538;
+font-weight: bold;
+}
+
+.framework {
+background: rgba(255, 255, 255, 0.95);
+border-radius: 20px;
+padding: 40px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+margin: 30px 0;
+}
+
+.phase {
+margin-bottom: 40px;
+padding: 25px;
+border-radius: 15px;
+position: relative;
+overflow: hidden;
+}
+
+.phase1 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.phase2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.phase3 { background: linear-gradient(135deg, #e0c3fc 0%, #9bb5ff 100%); }
+.phase4 { background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); }
+
+.phase-number {
+position: absolute;
+top: -10px;
+right: 20px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: rgba(255,255,255,0.8);
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+font-size: 1.5em;
+color: #666;
+}
+
+.phase h3 {
+font-size: 1.5em;
+margin-bottom: 15px;
+color: #444;
+}
+
+.contradiction-pair {
+display: grid;
+grid-template-columns: 1fr auto 1fr;
+gap: 15px;
+align-items: center;
+margin: 15px 0;
+padding: 15px;
+background: rgba(255,255,255,0.5);
+border-radius: 10px;
+}
+
+.concept {
+padding: 10px 15px;
+border-radius: 8px;
+text-align: center;
+font-weight: 500;
+}
+
+.concept.left { background: rgba(255,99,71,0.2); }
+.concept.right { background: rgba(100,149,237,0.2); }
+
+.bridge {
+font-size: 1.5em;
+color: #666;
+font-weight: bold;
+}
+
+.scientific-context {
+background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+border-radius: 15px;
+padding: 30px;
+margin: 30px 0;
+}
+
+.scientific-context h3 {
+color: #155724;
+margin-bottom: 20px;
+font-size: 1.5em;
+}
+
+.medical-facts {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 20px;
+margin: 20px 0;
+}
+
+.fact-box {
+background: rgba(255,255,255,0.8);
+padding: 20px;
+border-radius: 10px;
+border-left: 4px solid #28a745;
+}
+
+.fact-box h4 {
+color: #155724;
+margin-bottom: 10px;
+}
+
+.interactive-section {
+background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+color: white;
+border-radius: 15px;
+padding: 30px;
+margin: 30px 0;
+text-align: center;
+}
+
+.story-link {
+background: rgba(255,255,255,0.2);
+padding: 15px;
+border-radius: 10px;
+margin-bottom: 20px;
+}
+
+.contradiction-examples {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 15px;
+margin: 20px 0;
+}
+
+.example-card {
+background: rgba(255,255,255,0.1);
+padding: 20px;
+border-radius: 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: left;
+}
+
+.example-card:hover {
+background: rgba(255,255,255,0.2);
+transform: translateY(-5px);
+}
+
+.example-card h4 {
+margin-bottom: 10px;
+font-size: 1.1em;
+}
+
+.btn {
+background: rgba(255,255,255,0.2);
+color: white;
+border: 2px solid rgba(255,255,255,0.3);
+padding: 12px 25px;
+border-radius: 25px;
+cursor: pointer;
+font-size: 16px;
+transition: all 0.3s ease;
+margin: 10px;
+}
+
+.btn:hover {
+background: rgba(255,255,255,0.3);
+transform: translateY(-2px);
+}
+
+.reflection-output {
+background: rgba(255,255,255,0.1);
+border-radius: 10px;
+padding: 20px;
+margin-top: 20px;
+min-height: 50px;
+text-align: left;
+}
+
+.reflection-questions {
+background: linear-gradient(135deg, #fff5b7 0%, #ffd3a5 100%);
+border-radius: 15px;
+padding: 25px;
+margin: 30px 0;
+}
+
+.question-category {
+margin-bottom: 25px;
+}
+
+.question-category h4 {
+color: #8B6914;
+margin-bottom: 15px;
+font-size: 1.2em;
+}
+
+.question {
+background: rgba(255,255,255,0.7);
+padding: 15px;
+border-radius: 10px;
+margin-bottom: 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.question:hover {
+background: rgba(255,255,255,0.9);
+transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+.contradiction-visual {
+flex-direction: column;
+}
+
+.contradiction-pair {
+grid-template-columns: 1fr;
+text-align: center;
+}
+
+.bridge {
+transform: rotate(90deg);
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+<a href="stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+<a href="stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+<a href="stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+<a href="stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="stories/Courteney-Cox.html" class="nav-button courteney">Courteney</a>
+<a href="stories/Gabrielle-Union.html" class="nav-button gabrielle">Gabrielle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="header">
+<h1>Learning Through Beautiful Contradictions</h1>
+<p>Gabrielle Union's Story: When Transparency Meets Medical Mystery</p>
+</div>
+
+<div class="story-anchor">
+<div class="story-header">
+<h2>Story Anchor: Gabrielle Union</h2>
+</div>
+<div class="story-source">
+<strong>Sources:</strong> 
+<a href="https://time.com/6096588/gabrielle-union-surrogacy/" target="_blank">Time Magazine (2021)</a>, 
+<a href="https://people.com/parents/gabrielle-union-reveals-8-9-miscarriages-memoir/" target="_blank">People.com (2017)</a>
+</div>
+<p>Gabrielle Union courageously shared her journey of experiencing <strong>"eight or nine miscarriages"</strong> over several years while trying to conceive with husband Dwayne Wade. For years, Union endured miscarriages and a relentless pursuit of pregnancy through IVF. In 2016, Union's doctor delivered the upsetting news that her best chance for a healthy baby would be surrogacy due to adenomyosis. Their daughter Kaavia James was born via surrogate in 2018. Union's story illuminates the intersection of medical complexity, emotional vulnerability, and the courage to share deeply personal struggles publicly.</p>
+
+<div class="key-elements">
+<div class="element">
+<h4>Medical Mystery</h4>
+<p>Adenomyosis diagnosis came after over 25 years of symptoms, showing how medical answers can hide in plain sight.</p>
+</div>
+<div class="element">
+<h4>Numerical Uncertainty</h4>
+<p>The phrase "eight or nine" captures the painful blur when loss becomes frequent.</p>
+</div>
+<div class="element">
+<h4>Public Transparency</h4>
+<p>Choosing to share intimate details in books and interviews while processing grief.</p>
+</div>
+<div class="element">
+<h4>Alternative Paths</h4>
+<p>Becoming a mother through surrogacy while questioning if the bond would be different.</p>
+</div>
+</div>
+</div>
+
+<div class="central-contradiction">
+<h3>The Beautiful Contradiction</h3>
+<h4>"Seeking Control Through Surrender"</h4>
+<div class="contradiction-visual">
+<div class="contradiction-side">Fighting for answers and treatment</div>
+<div class="contradiction-bridge">⟷</div>
+<div class="contradiction-side">Accepting help from another's body</div>
+</div>
+<p>"There's nothing more that I wanted than to cook my own baby", Union said, yet her path to motherhood required letting go of that dream. This is the paradox of infertility: sometimes the deepest desire to control leads to the greatest acts of surrender.</p>
+</div>
+
+<div class="scientific-context">
+<h3>Scientific Context: Adenomyosis & Recurring Pregnancy Loss</h3>
+<div class="medical-facts">
+<div class="fact-box">
+<h4>Adenomyosis Explained</h4>
+<p>A condition that occurs when the tissue inside the uterine wall grows into the outer walls of the uterus, causing the uterus to enlarge. Often misdiagnosed or overlooked for years.</p>
+</div>
+<div class="fact-box">
+<h4>Impact on Pregnancy</h4>
+<p>Adenomyosis increases the risk of miscarrying, making it a significant factor in recurring pregnancy loss cases.</p>
+</div>
+<div class="fact-box">
+<h4>Diagnostic Challenges</h4>
+<p>Symptoms often overlap with other conditions, leading to delayed diagnosis. Union's experience highlights the importance of persistent advocacy.</p>
+</div>
+<div class="fact-box">
+<h4>Treatment Options</h4>
+<p>When adenomyosis significantly impacts pregnancy success, surrogacy may be recommended as the safest path to parenthood.</p>
+</div>
+</div>
+</div>
+
+<div class="framework">
+<div class="phase phase1">
+<div class="phase-number">1</div>
+<h3>Embrace the Paradox</h3>
+<p>Union's story demonstrates that medical complexity and emotional clarity can coexist. The contradiction isn't a problem to solve but a truth to hold.</p>
+<div class="contradiction-pair">
+<div class="concept left">Desperate for Pregnancy</div>
+<div class="bridge">⟷</div>
+<div class="concept right">Needing Someone Else's Body</div>
+</div>
+<div class="contradiction-pair">
+<div class="concept left">Medical Diagnosis</div>
+<div class="bridge">⟷</div>
+<div class="concept right">Emotional Mystery</div>
+</div>
+<div class="contradiction-pair">
+<div class="concept left">Public Success Story</div>
+<div class="bridge">⟷</div>
+<div class="concept right">Private Ongoing Questions</div>
+</div>
+</div>
+
+<div class="phase phase2">
+<div class="phase-number">2</div>
+<h3>Hold Both Truths</h3>
+<p>"I will always wonder if Kaav would love me more if I had carried her. Would our bond be even tighter?" Union shows us how joy and doubt can exist together.</p>
+<div class="contradiction-pair">
+<div class="concept left">Grateful for Surrogacy</div>
+<div class="bridge">⟷</div>
+<div class="concept right">Mourning Lost Experience</div>
+</div>
+<div class="contradiction-pair">
+<div class="concept left">Medical Success</div>
+<div class="bridge">⟷</div>
+<div class="concept right">Emotional Complexity</div>
+</div>
+</div>
+
+<div class="phase phase3">
+<div class="phase-number">3</div>
+<h3>Find the Sacred in Science</h3>
+<p>Union's adenomyosis diagnosis provided both relief and redirection. Medical answers don't diminish the spiritual journey—they inform it.</p>
+<div class="fact-box">
+<h4>The Contradiction of Late Diagnosis</h4>
+<p><strong>Medical perspective:</strong> Adenomyosis can be challenging to diagnose, requiring specialized imaging and expertise.<br>
+<strong>Lived experience:</strong> Twenty-five years of symptoms feeling dismissed or misunderstood.<br>
+<strong>Both truths:</strong> Medical complexity doesn't excuse the emotional cost of delayed answers.</p>
+</div>
+</div>
+
+<div class="phase phase4">
+<div class="phase-number">4</div>
+<h3>Create from Contradiction</h3>
+<p>Union transformed her private pain into public healing through her books and interviews. Her transparency about surrogacy helps normalize alternative paths to parenthood while honoring the complexity of the choice.</p>
+</div>
+</div>
+
+<div class="interactive-section">
+<h4>Contradiction Workshop</h4>
+<div class="story-link">
+<strong>Explore a contradiction seen in Gabrielle Union's story</strong><br>
+Original sources: <a href="https://time.com/6096588/gabrielle-union-surrogacy/" target="_blank" style="color: white;">Time Magazine</a> | <a href="https://people.com/parents/gabrielle-union-reveals-8-9-miscarriages-memoir/" target="_blank" style="color: white;">People.com</a>
+</div>
+<p>Choose a contradiction from her story to explore:</p>
+<div class="contradiction-examples">
+<div class="example-card" onclick="selectContradiction('control-surrender')">
+<h4>Control & Surrender</h4>
+<p>Fighting for answers while accepting the need for surrogacy</p>
+</div>
+<div class="example-card" onclick="selectContradiction('clarity-uncertainty')">
+<h4>Medical Clarity vs Emotional Uncertainty</h4>
+<p>Having a diagnosis but still questioning the journey</p>
+</div>
+<div class="example-card" onclick="selectContradiction('public-private')">
+<h4>Public Transparency vs Private Complexity</h4>
+<p>Sharing openly while holding personal doubts</p>
+</div>
+<div class="example-card" onclick="selectContradiction('success-loss')">
+<h4>Success Story & Ongoing Loss</h4>
+<p>Achieving motherhood while mourning the lost experience</p>
+</div>
+</div>
+<button class="btn" onclick="generateReflection()">Explore This Contradiction</button>
+<button class="btn" onclick="generateMedicalFrame()">Find the Medical Wisdom</button>
+<button class="btn" onclick="generateCreativePrompt()">Turn Into Art</button>
+<div id="reflection-output" class="reflection-output"></div>
+</div>
+
+<div class="reflection-questions">
+<h3>Reflection Questions</h3>
+<div class="question-category">
+<h4>Personal Reflection</h4>
+<div class="question" onclick="expandQuestion(this)">
+How does Union's uncertainty about numbers ("eight or nine") reflect the way trauma can blur memory?
+</div>
+<div class="question" onclick="expandQuestion(this)">
+What does it mean to grieve not just a lost pregnancy, but a lost experience of being pregnant?
+</div>
+<div class="question" onclick="expandQuestion(this)">
+How might having a medical explanation (adenomyosis) both provide relief and create new questions?
+</div>
+</div>
+<div class="question-category">
+<h4>Scientific/Educational Reflection</h4>
+<div class="question" onclick="expandQuestion(this)">
+What does Union's 25-year journey to diagnosis teach us about listening to women's bodies?
+</div>
+<div class="question" onclick="expandQuestion(this)">
+How might public figures sharing their surrogacy stories impact societal views on "alternative" paths to parenthood?
+</div>
+</div>
+<div class="question-category">
+<h4>Empathy Building</h4>
+<div class="question" onclick="expandQuestion(this)">
+How might you support someone who is grateful for surrogacy while also mourning what they couldn't experience?
+</div>
+<div class="question" onclick="expandQuestion(this)">
+What assumptions about motherhood and bonding does Union's story challenge?
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+let selectedContradiction = '';
+
+function selectContradiction(type) {
+selectedContradiction = type;
+// Visual feedback for selection
+document.querySelectorAll('.example-card').forEach(card => {
+card.style.background = 'rgba(255,255,255,0.1)';
+});
+event.target.style.background = 'rgba(255,255,255,0.3)';
+}
+
+function generateReflection() {
+const output = document.getElementById('reflection-output');
+if (!selectedContradiction) {
+output.innerHTML = 'Please select a contradiction from Gabrielle\'s story above first.';
+return;
+}
+
+const reflections = {
+'control-surrender': [
+'What does it mean to fight for something by letting go of how you thought it would happen?',
+'How might Union\'s years of trying to "cook her own baby" inform her appreciation for surrogacy?',
+'When does persistence become surrender, and when does surrender become a form of strength?'
+],
+'clarity-uncertainty': [
+'How can having a medical diagnosis still leave emotional questions unanswered?',
+'What\'s the difference between understanding why something happened and making peace with it?',
+'How might adenomyosis as an explanation both validate Union\'s struggle and complicate her healing?'
+],
+'public-private': [
+'What courage does it take to share intimate details while still processing private doubts?',
+'How might public transparency about surrogacy help others while protecting your own emotional complexity?',
+'What boundaries might be needed between advocacy and personal healing?'
+],
+'success-loss': [
+'How can someone be grateful for their outcome while mourning what they didn\'t get to experience?',
+'What does it mean to wonder "would our bond be even tighter" while loving your child completely?',
+'How might success stories still carry ongoing grief that needs acknowledgment?'
+]
+};
+
+const contradictionReflections = reflections[selectedContradiction];
+const randomReflection = contradictionReflections[Math.floor(Math.random() * contradictionReflections.length)];
+
+output.innerHTML = `<strong>Reflection on Gabrielle's Story:</strong><br>${randomReflection}<br><br><em>Take time to sit with this question. Notice what emotions arise. Both clarity and confusion are welcome here.</em>`;
+}
+
+function generateMedicalFrame() {
+const output = document.getElementById('reflection-output');
+const frames = [
+'Medical reality: Adenomyosis can take decades to diagnose, yet Union\'s experience validates every woman who felt "something was wrong" before getting answers.',
+'Consider: How might Union\'s 25-year journey to diagnosis reflect broader issues with women\'s health advocacy in medical settings?',
+'The recommendation for surrogacy wasn\'t a failure of medicine—it was medicine providing the safest path to Union\'s goal of motherhood.',
+'Union\'s "eight or nine" miscarriages illustrate how recurring loss can blur into a continuous experience of grief and hope.',
+'Scientific truth: Adenomyosis increases miscarriage risk, but this doesn\'t diminish the individual emotional impact of each loss.'
+];
+
+const randomFrame = frames[Math.floor(Math.random() * frames.length)];
+output.innerHTML = `<strong>Medical Wisdom from Gabrielle\'s Story:</strong><br>${randomFrame}`;
+}
+
+function generateCreativePrompt() {
+const output = document.getElementById('reflection-output');
+output.innerHTML = `
+<strong>Art Inspired by Gabrielle's Story</strong><br><br>
+Gabrielle Union's journey from "eight or nine" miscarriages to surrogacy success illustrates the profound transformation that can emerge from holding contradictions. Her transparency about adenomyosis, alternative paths to parenthood, and the complex emotions of surrogacy has inspired creative expressions that bridge medical understanding with human emotion.<br><br>
+<strong>Creative Mediums Inspired by Stories Like Gabrielle's:</strong><br>
+• <strong>Literary Arts:</strong> Memoirs, essays, poetry exploring the intersection of medical diagnosis and emotional truth<br>
+• <strong>Visual Arts:</strong> Photography series, paintings, mixed media representing the journey from loss to alternative creation<br>
+• <strong>Digital Storytelling:</strong> Interactive narratives about delayed diagnosis, surrogacy decisions, and redefining motherhood<br>
+• <strong>Performance:</strong> Monologues, dance pieces embo

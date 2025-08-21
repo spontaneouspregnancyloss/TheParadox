@@ -1,11 +1,573 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Paradox -- Alexandra Daddario's Miscarriage Story</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+line-height: 1.6;
+color: #333;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+/* Alexandra is active (gold), others are pink */
+.nav-button.alexandra {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button:not(.alexandra):not(.home):not(.explore) {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+}
+
+.hero {
+text-align: center;
+padding: 4rem 0;
+color: white;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero .subtitle {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+}
+
+.story-anchor {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: white;
+}
+
+.beautiful-contradiction {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.beautiful-contradiction h2 {
+font-size: 2.5rem;
+color: #764ba2;
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+.contradiction-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.contradiction-side {
+padding: 2rem;
+border-radius: 10px;
+transition: transform 0.3s ease;
+}
+
+.contradiction-side:hover {
+transform: translateY(-5px);
+}
+
+.contradiction-left {
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.contradiction-right {
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.contradiction-side h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+color: #333;
+}
+
+.evidence-list {
+list-style: none;
+padding: 0;
+}
+
+.evidence-list li {
+background: rgba(255, 255, 255, 0.3);
+margin: 0.5rem 0;
+padding: 1rem;
+border-radius: 5px;
+border-left: 4px solid #764ba2;
+}
+
+.citation {
+font-size: 0.8rem;
+color: #666;
+font-style: italic;
+margin-top: 0.5rem;
+}
+
+.context-box {
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+}
+
+.context-box h3 {
+color: #8b4513;
+font-size: 1.8rem;
+margin-bottom: 1rem;
+}
+
+.embrace-paradox {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.paradox-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.paradox-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.paradox-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.paradox-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.paradox-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.paradox-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+
+.phases-section {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.phases-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.phase-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.phase-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.phase-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+.interactive-workshop {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+color: white;
+}
+
+.workshop-controls {
+display: flex;
+gap: 1rem;
+margin: 2rem 0;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.btn {
+background: rgba(255, 255, 255, 0.2);
+color: white;
+border: 2px solid rgba(255, 255, 255, 0.3);
+padding: 1rem 2rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 1rem;
+}
+
+.btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-2px);
+}
+
+.selected-contradiction {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+min-height: 150px;
+}
+
+.reflection-questions {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.question-categories {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.question-category {
+padding: 2rem;
+border-radius: 10px;
+border: 2px solid #e0e0e0;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.question-category:hover {
+border-color: #764ba2;
+transform: translateY(-3px);
+}
+
+.question-category.active {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border-color: #764ba2;
+}
+
+.random-question {
+background: #f8f9ff;
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+border-left: 5px solid #764ba2;
+min-height: 100px;
+}
+
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2.5rem;
+}
+
+.contradiction-grid {
+grid-template-columns: 1fr;
+}
+
+.workshop-controls {
+flex-direction: column;
+align-items: center;
+}
+
+.nav-buttons {
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.nav-button {
+min-width: 120px;
+}
+}
+
+.fade-in {
+opacity: 0;
+animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+to { opacity: 1; }
+}
+</style>
 </head>
+
 <body>
-    
-</body>
-</html>
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button alexandra">Alexandra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alicia-vikander.html" class="nav-button alicia">Alicia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/amanda-holden.html" class="nav-button amanda">Amanda</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/bethenny-frankel.html" class="nav-button bethenny">Bethenny</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/carrie-bickmore.html" class="nav-button carrie-b">Carrie B</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/cass-wood.html" class="nav-button cass">Cass</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/christina-perri.html" class="nav-button christina">Christina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/clay-and-jessica-walker.html" class="nav-button clay-jessica">Clay & Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Courteney-Cox.html" class="nav-button courteney">Courteney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dame-laura-kenny.html" class="nav-button laura">Dame Laura</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dr-zoe-williams.html" class="nav-button zoe-dr">Dr. Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gabrielle-Union.html" class="nav-button gabrielle">Gabrielle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/gordon-ramsay-and-tana-ramsay.html" class="nav-button gordon-tana">Gordon & Tana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gwyneth-Paltrow.html" class="nav-button gwyneth">Gwyneth</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/hilaria-baldwin.html" class="nav-button hilaria">Hilaria</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hugh-Jackman-&-Deborra-Lee-Furness.html" class="nav-button hugh-deborra">Hugh & Deborra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/james-van-der-beek-and-kimberly.html" class="nav-button james-kimberly">James & Kimberly</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button jamie">Jamie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jana-kramer.html" class="nav-button jana">Jana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jennifer-lawrence.html" class="nav-button jennifer">Jennifer</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessie-j.html" class="nav-button jessie">Jessie J</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jools-oliver.html" class="nav-button jools">Jools</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/julia-louis-dreyfus.html" class="nav-button julia">Julia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kirstie-alley.html" class="nav-button kirstie">Kirstie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kristen-doute.html" class="nav-button kristen">Kristen</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lily-allen.html" class="nav-button lily">Lily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lindsay-lohan.html" class="nav-button lindsay">Lindsay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-francesca-nand.html" class="nav-button lisa-f">Lisa F</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-guerrero.html" class="nav-button lisa-g">Lisa G</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lorraine-kelly.html" class="nav-button lorraine">Lorraine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ludacris-and-eudoxie-mbouguiengue.html" class="nav-button ludacris-eudoxie">Ludacris & Eudoxie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/mariah-carey.html" class="nav-button mariah">Mariah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/megan-fox.html" class="nav-button megan">Megan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/michelle-obama.html" class="nav-button michelle">Michelle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ms-rachel.html" class="nav-button ms-rachel">Ms. Rachel</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/myleene-klass.html" class="nav-button myleene">Myleene</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-carter-and-lauren-kitt.html" class="nav-button nick-lauren">Nick & Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicole-kidman.html" class="nav-button nicole">Nicole</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/olivia-bowen-and-alex-bowen.html" class="nav-button olivia-alex">Olivia & Alex</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/pnk-alecia-moore.html" class="nav-button pink">P!nk</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/priscilla-chan-and-mark-zuckerberg.html" class="nav-button priscilla-mark">Priscilla & Mark</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sammi-sweetheart-giancola.html" class="nav-button sammi">Sammi</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sanya-richards-ross.html" class="nav-button sanya">Sanya</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/savannah-guthrie.html" class="nav-button savannah">Savannah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sharon-stone.html" class="nav-button sharon">Sharon</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/shay-mitchell.html" class="nav-button shay">Shay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/tiffany-haddish.html" class="nav-button tiffany">Tiffany</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/trina-mcgee.html" class="nav-button trina">Trina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/vanessa-grimaldi.html" class="nav-button vanessa">Vanessa</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/whitney-port.html" class="nav-button whitney">Whitney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/zara-tindall.html" class="nav-button zara">Zara</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+<header class="hero">
+<h1>The Paradox</h1>
+<div class="subtitle">Alexandra Daddario's Miscarriage Story</div>
+</header>
+
+<section class="story-anchor">
+<h2>Story Anchor: The Unspoken Truth</h2>
+<p>In November 2023, actress Alexandra Daddario broke her silence about a deeply personal experience that had remained hidden from the public eye. After years of maintaining privacy about her fertility journey, she revealed that she had suffered a miscarriage earlier that year. What makes her story particularly poignant is not just the loss itself, but the way it illuminated the invisible burden that many women carry—the expectation to remain strong and composed while privately grieving one of life's most profound losses.</p>
+<p><em>Based on Alexandra's candid Instagram post and subsequent interviews about her journey</em></p>
+</section>
+
+<section class="beautiful-contradiction">
+<h2>The Beautiful Contradiction</h2>
+<div class="contradiction-grid">
+<div class="contradiction-side contradiction-left">
+<h3>Public Strength, Private Sorrow</h3>
+<ul class="evidence-list">
+<li>Continued filming and public appearances while processing grief
+<div class="citation">People Magazine, November 2023</div>
+</li>
+<li>Maintained professional composure during press tours and interviews
+<div class="citation">Entertainment Tonight, 2023</div>
+</li>
+<li>Protected her private pain while fulfilling public obligations
+<div class="citation">Instagram Post, November 2023</div>
+</li>
+</ul>
+</div>
+
+<div class="contradiction-side contradiction-right">
+<h3>Breaking Silence to Build Connection</h3>
+<ul class="evidence-list">
+<li>Chose to share her story to help others feel less alone
+<div class="citation">Instagram, November 2023</div>
+</li>
+<li>Used her platform to normalize conversations about pregnancy loss
+<div class="citation">Access Hollywood, December 2023</div>
+</li>
+<li>Transformed private pain into public healing for others
+<div class="citation">US Weekly, November 2023</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+<strong>Learning:</strong> The contradiction reveals how celebrity culture demands emotional performance even during personal tragedy, while also showing how shared vulnerability can become a source of collective healing.
+</div>
+</section>
+
+<section class="context-box">
+<h3>The Hollywood Facade Context</h3>
+<p>Alexandra's revelation came during a time when she was actively promoting various projects and maintaining a significant social media presence. The entertainment industry's expectation for celebrities to be "always on" creates an environment where personal struggles must be compartmentalized or hidden entirely. Her story highlights the unique burden placed on public figures to maintain an image of success and happiness, even while navigating profound personal loss.</p>
+<p>This context reveals how the celebrity machine often dehumanizes those within it, requiring them to perform wellness and success while privately managing trauma and grief.</p>
+</section>
+
+<section class="embrace-paradox">
+<h2>Embrace the Paradox</h2>
+<div class="paradox-grid">
+<div class="paradox-card paradox-1" onclick="selectParadox(1)">
+<h3>Performance vs. Authenticity</h3>
+<p>The tension between maintaining a professional image and honoring authentic human experience—both necessary for career success and personal integrity.</p>
+</div>
+
+<div class="paradox-card paradox-2" onclick="selectParadox(2)">
+<h3>Privacy vs. Connection</h3>
+<p>The delicate balance between protecting personal boundaries and sharing experiences that could help others heal—both valid forms of self-care.</p>
+</div>
+
+<div class="paradox-card paradox-3" onclick="selectParadox(3)">
+<h3>Individual Grief vs. Collective Healing</h3>
+<p>Processing personal loss privately while recognizing the power of shared stories to create community—honoring both solitary and communal aspects of healing.</p>
+</div>
+</div>
+</section>
+
+<section class="phases-section">
+<h2>Journey Through the Silence</h2>
+<div class="phases-grid">
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+<h3>Phase 1: The Hidden Loss</h3>
+<p>Experiencing miscarriage while maintaining public appearances—carrying invisible grief through professional obligations</p>
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+<h3>Phase 2: The Mask of Normalcy</h3>
+<p>Continuing career activities while processing trauma—the exhausting work of appearing unaffected by profound loss</p>
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+<h3>Phase 3: The Decision to Share</h3>
+<p>Choosing vulnerability over privacy—recognizing the potential healing power of breaking the silence</p>
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+<h3>Phase 4: Creating Connection</h3>
+<p>Using personal story to build community—transforming individual pain into collective understanding and support</p>
+</div>
+</div>
+</section>
+
+<section class="interactive-workshop">
+<h2>Interactive Contradiction Workshop</h2>
+<p>Explore the different layers of contradiction in Alexandra's story. Each reveals different aspects of celebrity culture, personal grief, and the complex relationship between public and private selves.</p>
+
+<div class="workshop-controls">
+<button class="btn" onclick="selectContradiction('performance')">Performance vs. Reality</button>
+<button class="btn" onclick="selectContradiction('timing')">Wrong Time, Right Decision</button>
+<button class="btn" onclick="selectContradiction('strength')">Visible Strength, Invisible Pain</button>
+<button class="btn" onclick="selectContradiction('purpose')">Personal Loss, Public Purpose</button>
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+<p><em>Select a contradiction above to explore its nuances...</em></p>
+</div>
+</section>
+
+<section class="reflection-questions">
+<h2>Reflection Questions</h2>
+<p>Choose a category to explore deeper questions about this paradox:</p>
+
+<div class="question-categories">
+<div class="question-category" onclick="selectQuestionCategory('celebrity')">
+<h3>Celebrity Culture</h3>
+<p>Questions about public life and private pain in the spotlight</p

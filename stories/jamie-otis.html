@@ -2,172 +2,352 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jamie Otis - The Paradox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jamie Otis — The Paradox</title>
+  <meta name="description" content="Jamie Otis story in The Paradox project: holding grief and hope, public transparency with private boundaries, and practical reflection tools." />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fdfdfd;
-      color: #333;
+    :root {
+      --brand: #b76e79; /* rosewood */
+      --ink: #242424;
+      --muted: #6b7280;
+      --bg: #fffdfa;
+      --panel: #f7f5f3;
+      --chip: #ece7e5;
+      --accent: #1f2937;
+      --radius: 14px;
     }
-    header {
-      background: #b76e79;
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    header.hero {
+      background: linear-gradient(135deg, var(--brand), #d8a3ab);
       color: white;
-      padding: 1.5em;
+      padding: 3rem 1rem 2rem;
       text-align: center;
     }
-    section {
-      padding: 2em;
-      max-width: 800px;
-      margin: auto;
+    header.hero h1 { margin: 0 0 .25rem; font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing: .5px; }
+    header.hero p { margin: 0; opacity: .95; }
+
+    /* Navigation */
+    .navigation { background: var(--accent); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .nav-buttons { 
+      display: flex; gap: .5rem; padding: .65rem; 
+      overflow-x: auto; scrollbar-width: thin; 
     }
-    h2 {
-      color: #b76e79;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 0.3em;
-    }
-    .navigation {
-      background: #333;
-      padding: 0.5em;
-    }
-    .nav-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    .nav-buttons::-webkit-scrollbar { height: 8px; }
+    .nav-buttons::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
     .nav-button {
-      color: white;
-      text-decoration: none;
-      margin: 0.3em;
-      padding: 0.5em 1em;
-      background: #555;
-      border-radius: 5px;
-      transition: background 0.3s;
+      flex: 0 0 auto;
+      color: #f9fafb; text-decoration: none;
+      background: #374151; padding: .45rem .8rem; border-radius: 999px;
+      font-size: .9rem; white-space: nowrap; border: 1px solid #4b5563;
+      transition: background .2s ease, transform .04s ease;
     }
-    .nav-button:hover {
-      background: #b76e79;
-    }
-    .workshop {
-      background: #f4f4f4;
-      padding: 1.5em;
-      border-radius: 8px;
-      margin-top: 1em;
-    }
-    .question {
-      margin-top: 1em;
-      font-weight: bold;
-    }
+    .nav-button:hover { background: var(--brand); }
+    .nav-button:active { transform: translateY(1px); }
+    .nav-button.home, .nav-button.explore { background:#111827; border-color:#1f2937; }
+
+    main { max-width: 950px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    section.card { background: var(--panel); border: 1px solid #e5e7eb; padding: 1.25rem 1.25rem; border-radius: var(--radius); margin: 1rem 0; }
+    h2 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
+    .eyebrow { color: var(--muted); font-size: .95rem; margin-top: .25rem; }
+
+    /* Chips */
+    .chips { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem; }
+    .chip { background: var(--chip); color:#5b4f4d; padding:.25rem .6rem; border-radius:999px; font-size:.85rem; }
+
+    /* Stepper */
+    .stepper { display:flex; gap:.5rem; margin:.75rem 0 1rem; overflow-x:auto; }
+    .step { flex:0 0 auto; padding:.4rem .75rem; border-radius:999px; border:1px solid #d1d5db; cursor:pointer; background:white; }
+    .step[aria-current="true"] { background: var(--brand); color:white; border-color:transparent; }
+    .step-panel { background:white; border:1px solid #e5e7eb; border-radius: var(--radius); padding:1rem; }
+
+    /* Workshop */
+    .workshop { background:white; border:1px solid #ddd; border-radius: var(--radius); padding:1rem; }
+    .grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .q { font-weight: 600; margin:.5rem 0 .25rem; }
+    textarea { width:100%; min-height: 84px; resize: vertical; border-radius: 10px; border:1px solid #d1d5db; padding:.6rem; font: inherit; }
+    .actions { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.75rem; }
+    button { appearance:none; border:1px solid #d1d5db; background:#111827; color:white; padding:.55rem .9rem; border-radius:10px; cursor:pointer; }
+    button.secondary { background:white; color:#111827; }
+
+    footer { text-align:center; color:var(--muted); padding:2rem 1rem; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Jamie Otis: Holding Grief and Hope</h1>
+  <a class="skip" href="#content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+  <header class="hero">
+    <h1>Jamie Otis</h1>
+    <p>Holding grief & hope — public transparency, private boundaries.</p>
   </header>
 
-  <div class="navigation">
+  <!-- Full Navigation (clean & clickable) -->
+  <div class="navigation" role="navigation" aria-label="Story navigation">
     <div class="nav-buttons">
       <a href="https://www.splproject.org" class="nav-button home">Home</a>
-      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button">Alanis</a>
-      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button">Alexandra</a>
-      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button">Jamie</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button alexandra">Alexandra</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alicia-vikander.html" class="nav-button alicia">Alicia</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/amanda-holden.html" class="nav-button amanda">Amanda</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/bethenny-frankel.html" class="nav-button bethenny">Bethenny</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/carrie-bickmore.html" class="nav-button carrie-b">Carrie B</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/cass-wood.html" class="nav-button cass">Cass</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/christina-perri.html" class="nav-button christina">Christina</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/clay-and-jessica-walker.html" class="nav-button clay-jessica">Clay & Jessica</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Courteney-Cox.html" class="nav-button courteney">Courteney</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dame-laura-kenny.html" class="nav-button laura">Dame Laura</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dr-zoe-williams.html" class="nav-button zoe-dr">Dr. Zoe</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gabrielle-Union.html" class="nav-button gabrielle">Gabrielle</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/gordon-ramsay-and-tana-ramsay.html" class="nav-button gordon-tana">Gordon & Tana</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gwyneth-Paltrow.html" class="nav-button gwyneth">Gwyneth</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/hilaria-baldwin.html" class="nav-button hilaria">Hilaria</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hugh-Jackman-&-Deborra-Lee-Furness.html" class="nav-button hugh-deborra">Hugh & Deborra</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/james-van-der-beek-and-kimberly.html" class="nav-button james-kimberly">James & Kimberly</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button jamie">Jamie</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jana-kramer.html" class="nav-button jana">Jana</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jennifer-lawrence.html" class="nav-button jennifer">Jennifer</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessie-j.html" class="nav-button jessie">Jessie J</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jools-oliver.html" class="nav-button jools">Jools</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/julia-louis-dreyfus.html" class="nav-button julia">Julia</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kirstie-alley.html" class="nav-button kirstie">Kirstie</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kristen-doute.html" class="nav-button kristen">Kristen</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lily-allen.html" class="nav-button lily">Lily</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lindsay-lohan.html" class="nav-button lindsay">Lindsay</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-francesca-nand.html" class="nav-button lisa-f">Lisa F</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-guerrero.html" class="nav-button lisa-g">Lisa G</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lorraine-kelly.html" class="nav-button lorraine">Lorraine</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ludacris-and-eudoxie-mbouguiengue.html" class="nav-button ludacris-eudoxie">Ludacris & Eudoxie</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/mariah-carey.html" class="nav-button mariah">Mariah</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/megan-fox.html" class="nav-button megan">Megan</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/michelle-obama.html" class="nav-button michelle">Michelle</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ms-rachel.html" class="nav-button ms-rachel">Ms. Rachel</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/myleene-klass.html" class="nav-button myleene">Myleene</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-carter-and-lauren-kitt.html" class="nav-button nick-lauren">Nick & Lauren</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicole-kidman.html" class="nav-button nicole">Nicole</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/olivia-bowen-and-alex-bowen.html" class="nav-button olivia-alex">Olivia & Alex</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/pnk-alecia-moore.html" class="nav-button pink">P!nk</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/priscilla-chan-and-mark-zuckerberg.html" class="nav-button priscilla-mark">Priscilla & Mark</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sammi-sweetheart-giancola.html" class="nav-button sammi">Sammi</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sanya-richards-ross.html" class="nav-button sanya">Sanya</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/savannah-guthrie.html" class="nav-button savannah">Savannah</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sharon-stone.html" class="nav-button sharon">Sharon</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/shay-mitchell.html" class="nav-button shay">Shay</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/tiffany-haddish.html" class="nav-button tiffany">Tiffany</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/trina-mcgee.html" class="nav-button trina">Trina</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/vanessa-grimaldi.html" class="nav-button vanessa">Vanessa</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/whitney-port.html" class="nav-button whitney">Whitney</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/zara-tindall.html" class="nav-button zara">Zara</a>
       <a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
     </div>
   </div>
 
-  <section>
-    <h2>Story Anchor: The Show Must Go On</h2>
-    <p>
-      Jamie Otis, known from reality television, opened her life and grief to the world. Even while navigating
-      heartbreaking losses, she continued to show up for her career, her family, and her audience. Her anchor is a
-      reminder that even amidst tragedy, life’s obligations do not pause.
-    </p>
-  </section>
+  <main id="content">
+    <section class="card">
+      <h2>Story Anchor: The Show Must Go On</h2>
+      <div class="eyebrow">Work, family, community — even when the heart shatters.</div>
+      <p>
+        Known from reality TV and as a candid voice online, Jamie Otis continued showing up for life while navigating
+        pregnancy loss. Responsibilities did not pause. Her anchor reminds us that moving forward does not mean
+        "moving on" — it means carrying what cannot be left behind.
+      </p>
+      <div class="chips">
+        <span class="chip">Presence in pain</span>
+        <span class="chip">Showing up anyway</span>
+        <span class="chip">Gentle persistence</span>
+      </div>
+    </section>
 
-  <section>
-    <h2>The Beautiful Contradiction</h2>
-    <p>
-      Jamie’s openness on social media made her a beacon of honesty, yet it also created tension between sharing
-      vulnerability and maintaining privacy. This contradiction gave voice to many others who felt unseen in their own
-      grief.
-    </p>
-  </section>
+    <section class="card">
+      <h2>The Beautiful Contradiction</h2>
+      <div class="eyebrow">Grief needs witnesses; healing needs shelter.</div>
+      <p>
+        Jamie’s honesty brought countless others out of isolation. Yet the same visibility demanded new boundaries.
+        Beauty emerges where vulnerability and protection meet.
+      </p>
+    </section>
 
-  <section>
-    <h2>Private Transparency vs Public Silence</h2>
-    <p>
-      She shared raw and deeply personal updates about pregnancy loss, bringing comfort and connection to thousands.
-      Yet at times, Jamie also chose silence, protecting herself and her family from the relentless gaze of the public.
-      This paradox—being both radically open and quietly protective—defines her story.
-    </p>
-  </section>
+    <section class="card">
+      <h2>Radical Openness, Fierce Boundaries</h2>
+      <div class="eyebrow">Sharing the unshareable — and guarding what must remain yours.</div>
+      <p>
+        By speaking publicly about loss, Jamie offered language to many who had none. At times she also chose quiet,
+        shielding herself and her family. Both choices are valid expressions of care.
+      </p>
+    </section>
 
-  <section>
-    <h2>Embrace the Paradox</h2>
-    <p>
-      Jamie’s journey shows that we can embody opposites: speaking out and staying quiet, grieving and celebrating,
-      despairing and hoping. Embracing paradox allows us to live with complexity rather than flatten it into a single
-      narrative.
-    </p>
-  </section>
+    <section class="card">
+      <h2>Embrace the Paradox</h2>
+      <p>
+        Two truths can be real at once: telling your story can heal you <em>and</em> asking for privacy can protect you.
+        Paradox is not a problem to solve but a posture to practice.
+      </p>
+    </section>
 
-  <section>
-    <h2>Hold Both Truths</h2>
-    <p>
-      Jamie teaches us that we can hold both truths: the unbearable sadness of loss and the resilient hope of future
-      joy. Both exist, and both deserve recognition.
-    </p>
-  </section>
+    <section class="card">
+      <h2>Hold Both Truths</h2>
+      <ul>
+        <li>Grief can be heavy, and I can be held.</li>
+        <li>I can speak out, and I can go quiet.</li>
+        <li>I can honor what was lost, and I can hope for what may come.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Interactive Contradiction Workshop</h2>
-    <div class="workshop">
-      <p><strong>Reflection Questions:</strong> Choose a category to explore deeper questions about this paradox.</p>
-      <select id="categorySelect">
-        <option value="">-- Select a Category --</option>
-        <option value="grief">Grief</option>
-        <option value="hope">Hope</option>
-        <option value="motherhood">Motherhood</option>
-        <option value="public">Public vs Private</option>
-      </select>
-      <div id="questions"></div>
-    </div>
-  </section>
+    <section class="card">
+      <h2>Phases of the Paradox</h2>
+      <div class="stepper" role="tablist" aria-label="Paradox phases">
+        <button class="step" role="tab" aria-selected="true" aria-controls="phase-1" id="tab-1" aria-current="true">1 • Shock & Naming</button>
+        <button class="step" role="tab" aria-selected="false" aria-controls="phase-2" id="tab-2">2 • Sharing & Support</button>
+        <button class="step" role="tab" aria-selected="false" aria-controls="phase-3" id="tab-3">3 • Boundaries & Rest</button>
+        <button class="step" role="tab" aria-selected="false" aria-controls="phase-4" id="tab-4">4 • Integration & Meaning</button>
+      </div>
+      <div id="phase-1" class="step-panel" role="tabpanel" aria-labelledby="tab-1">
+        Naming the loss makes it real. Gentle language, steady breathing, one small task at a time.
+      </div>
+      <div id="phase-2" class="step-panel" role="tabpanel" aria-labelledby="tab-2" hidden>
+        Telling trusted people invites connection. Let others bring meals, hold space, or simply listen.
+      </div>
+      <div id="phase-3" class="step-panel" role="tabpanel" aria-labelledby="tab-3" hidden>
+        Boundaries protect healing. It is okay to step back from comments, messages, or interviews.
+      </div>
+      <div id="phase-4" class="step-panel" role="tabpanel" aria-labelledby="tab-4" hidden>
+        Meaning grows slowly. Grief becomes part of the story without being the whole story.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Interactive Contradiction Workshop</h2>
+      <div class="workshop" aria-live="polite">
+        <p><strong>Reflection Questions:</strong> Choose a category to explore deeper questions about this paradox.</p>
+        <div class="grid" style="margin-bottom:.5rem">
+          <label><input type="radio" name="cat" value="grief" /> Grief</label>
+          <label><input type="radio" name="cat" value="hope" /> Hope</label>
+          <label><input type="radio" name="cat" value="motherhood" /> Motherhood</label>
+          <label><input type="radio" name="cat" value="public" /> Public vs Private</label>
+        </div>
+        <div id="questions" class="grid"></div>
+        <div class="actions">
+          <button id="save">Save Notes</button>
+          <button id="download" class="secondary">Download (.txt)</button>
+          <button id="clear" class="secondary">Clear</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Part of The Paradox project. You are not alone.
+  </footer>
 
   <script>
-    const questionsData = {
+    // Stepper logic
+    const tabs = Array.from(document.querySelectorAll('.stepper .step'));
+    const panels = ['phase-1','phase-2','phase-3','phase-4'].map(id=>document.getElementById(id));
+    tabs.forEach((btn, i)=>{
+      btn.addEventListener('click', ()=>{
+        tabs.forEach(b=>{ b.setAttribute('aria-selected','false'); b.removeAttribute('aria-current'); });
+        panels.forEach(p=> p.hidden = true);
+        btn.setAttribute('aria-selected','true'); btn.setAttribute('aria-current','true');
+        panels[i].hidden = false;
+      });
+    });
+
+    // Workshop data
+    const data = {
       grief: [
-        "How do you honor grief without letting it define your entire identity?",
-        "What rituals help you carry grief with gentleness?"
+        'Where in your body do you feel grief today, and what does it ask for?',
+        'How can you honor what ended without pressuring yourself to “move on”?',
+        'Whose presence feels supportive without fixing you?'
       ],
       hope: [
-        "How can hope coexist with uncertainty?",
-        "What practices keep hope alive during difficult seasons?"
+        'What tiny sign of life or goodness have you noticed lately?',
+        'How can hope and fear travel together without one silencing the other?',
+        'What is a next right step that is both brave and gentle?'
       ],
       motherhood: [
-        "How does motherhood transform in the shadow of loss?",
-        "In what ways can stories like Jamie’s make others feel less alone as mothers?"
+        'How has loss reshaped your understanding of motherhood?',
+        'What traditions or rituals help you parent through absence and presence?',
+        'What would future-you thank you for doing this week?'
       ],
       public: [
-        "When is sharing healing, and when is silence protective?",
-        "How do you balance vulnerability with self-preservation?"
+        'What do you want witnessed, and what do you want protected — right now?',
+        'Where might a clear boundary create more safety or rest?',
+        'If you shared one sentence publicly, what would it be — and why?'
       ]
     };
 
-    document.getElementById("categorySelect").addEventListener("change", function () {
-      const selected = this.value;
-      const container = document.getElementById("questions");
-      container.innerHTML = "";
+    const qWrap = document.getElementById('questions');
+    const radioGroup = document.querySelectorAll('input[name="cat"]');
 
-      if (questionsData[selected]) {
-        questionsData[selected].forEach(q => {
-          const p = document.createElement("p");
-          p.className = "question";
-          p.textContent = q;
-          container.appendChild(p);
-        });
-      }
+    function render(category) {
+      qWrap.innerHTML = '';
+      if (!data[category]) return;
+      data[category].forEach((q, idx)=>{
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.background = 'var(--panel)';
+        card.style.borderRadius = '12px';
+        card.style.border = '1px solid #e5e7eb';
+        const label = document.createElement('div');
+        label.className = 'q';
+        label.textContent = q;
+        const ta = document.createElement('textarea');
+        ta.placeholder = 'Write your reflection…';
+        ta.id = `${category}-q${idx}`;
+        ta.value = localStorage.getItem(ta.id) || '';
+        ta.addEventListener('input', ()=> localStorage.setItem(ta.id, ta.value));
+        card.appendChild(label); card.appendChild(ta); qWrap.appendChild(card);
+      });
+    }
+
+    radioGroup.forEach(r=> r.addEventListener('change', ()=> render(r.value)));
+
+    // Save/Download/Clear
+    document.getElementById('save').addEventListener('click', ()=>{
+      alert('Notes saved locally on this device.');
+    });
+
+    document.getElementById('download').addEventListener('click', ()=>{
+      const keys = Object.keys(localStorage).filter(k=>/-q[0-9]+$/.test(k));
+      let txt = 'Jamie Otis — Interactive Contradiction Workshop
+
+';
+      keys.sort().forEach(k=>{ txt += `${k}:
+${localStorage.getItem(k)}
+
+`; });
+      const blob = new Blob([txt], {type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'jamie-otis-paradox-notes.txt'; a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('clear').addEventListener('click', ()=>{
+      if(!confirm('Clear all saved workshop notes on this device?')) return;
+      Object.keys(localStorage).filter(k=>/-q[0-9]+$/.test(k)).forEach(k=> localStorage.removeItem(k));
+      qWrap.querySelectorAll('textarea').forEach(ta=> ta.value='');
     });
   </script>
 </body>

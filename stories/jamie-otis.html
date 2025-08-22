@@ -1,11 +1,174 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jamie Otis - The Paradox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+      color: #333;
+    }
+    header {
+      background: #b76e79;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    section {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      color: #b76e79;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.3em;
+    }
+    .navigation {
+      background: #333;
+      padding: 0.5em;
+    }
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-button {
+      color: white;
+      text-decoration: none;
+      margin: 0.3em;
+      padding: 0.5em 1em;
+      background: #555;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .nav-button:hover {
+      background: #b76e79;
+    }
+    .workshop {
+      background: #f4f4f4;
+      padding: 1.5em;
+      border-radius: 8px;
+      margin-top: 1em;
+    }
+    .question {
+      margin-top: 1em;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    
+  <header>
+    <h1>Jamie Otis: Holding Grief and Hope</h1>
+  </header>
+
+  <div class="navigation">
+    <div class="nav-buttons">
+      <a href="https://www.splproject.org" class="nav-button home">Home</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button">Alanis</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button">Alexandra</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button">Jamie</a>
+      <a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>Story Anchor: The Show Must Go On</h2>
+    <p>
+      Jamie Otis, known from reality television, opened her life and grief to the world. Even while navigating
+      heartbreaking losses, she continued to show up for her career, her family, and her audience. Her anchor is a
+      reminder that even amidst tragedy, life’s obligations do not pause.
+    </p>
+  </section>
+
+  <section>
+    <h2>The Beautiful Contradiction</h2>
+    <p>
+      Jamie’s openness on social media made her a beacon of honesty, yet it also created tension between sharing
+      vulnerability and maintaining privacy. This contradiction gave voice to many others who felt unseen in their own
+      grief.
+    </p>
+  </section>
+
+  <section>
+    <h2>Private Transparency vs Public Silence</h2>
+    <p>
+      She shared raw and deeply personal updates about pregnancy loss, bringing comfort and connection to thousands.
+      Yet at times, Jamie also chose silence, protecting herself and her family from the relentless gaze of the public.
+      This paradox—being both radically open and quietly protective—defines her story.
+    </p>
+  </section>
+
+  <section>
+    <h2>Embrace the Paradox</h2>
+    <p>
+      Jamie’s journey shows that we can embody opposites: speaking out and staying quiet, grieving and celebrating,
+      despairing and hoping. Embracing paradox allows us to live with complexity rather than flatten it into a single
+      narrative.
+    </p>
+  </section>
+
+  <section>
+    <h2>Hold Both Truths</h2>
+    <p>
+      Jamie teaches us that we can hold both truths: the unbearable sadness of loss and the resilient hope of future
+      joy. Both exist, and both deserve recognition.
+    </p>
+  </section>
+
+  <section>
+    <h2>Interactive Contradiction Workshop</h2>
+    <div class="workshop">
+      <p><strong>Reflection Questions:</strong> Choose a category to explore deeper questions about this paradox.</p>
+      <select id="categorySelect">
+        <option value="">-- Select a Category --</option>
+        <option value="grief">Grief</option>
+        <option value="hope">Hope</option>
+        <option value="motherhood">Motherhood</option>
+        <option value="public">Public vs Private</option>
+      </select>
+      <div id="questions"></div>
+    </div>
+  </section>
+
+  <script>
+    const questionsData = {
+      grief: [
+        "How do you honor grief without letting it define your entire identity?",
+        "What rituals help you carry grief with gentleness?"
+      ],
+      hope: [
+        "How can hope coexist with uncertainty?",
+        "What practices keep hope alive during difficult seasons?"
+      ],
+      motherhood: [
+        "How does motherhood transform in the shadow of loss?",
+        "In what ways can stories like Jamie’s make others feel less alone as mothers?"
+      ],
+      public: [
+        "When is sharing healing, and when is silence protective?",
+        "How do you balance vulnerability with self-preservation?"
+      ]
+    };
+
+    document.getElementById("categorySelect").addEventListener("change", function () {
+      const selected = this.value;
+      const container = document.getElementById("questions");
+      container.innerHTML = "";
+
+      if (questionsData[selected]) {
+        questionsData[selected].forEach(q => {
+          const p = document.createElement("p");
+          p.className = "question";
+          p.textContent = q;
+          container.appendChild(p);
+        });
+      }
+    });
+  </script>
 </body>
 </html>

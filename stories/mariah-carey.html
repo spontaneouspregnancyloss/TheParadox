@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Paradox -- Mariah Carey's Miscarriage Story</title>
+
+<style>
+
+* {
+
+margin: 0;
+
+padding: 0;
+
+box-sizing: border-box;
+
+}
+
+body {
+
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+line-height: 1.6;
+
+color: #333;
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+min-height: 100vh;
+
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+/* Mariah is active (gold), others are pink */
+.nav-button.mariah {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button:not(.mariah):not(.home):not(.explore) {
+    background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+    color: white;
+}
+
+.container {
+
+max-width: 1200px;
+
+margin: 0 auto;
+
+padding: 2rem;
+
+}
+
+.hero {
+
+text-align: center;
+
+padding: 4rem 0;
+
+color: white;
+
+}
+
+.hero h1 {
+
+font-size: 3.5rem;
+
+font-weight: 700;
+
+margin-bottom: 1rem;
+
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+}
+
+.hero .subtitle {
+
+font-size: 1.3rem;
+
+margin-bottom: 2rem;
+
+opacity: 0.9;
+
+}
+
+.story-anchor {
+
+background: rgba(255, 255, 255, 0.1);
+
+border-radius: 15px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+backdrop-filter: blur(10px);
+
+border: 1px solid rgba(255, 255, 255, 0.2);
+
+color: white;
+
+}
+
+.central-contradiction {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.central-contradiction h2 {
+
+font-size: 2.5rem;
+
+color: #764ba2;
+
+margin-bottom: 1.5rem;
+
+text-align: center;
+
+}
+
+.contradiction-grid {
+
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+gap: 2rem;
+
+margin: 2rem 0;
+
+}
+
+.contradiction-side {
+
+padding: 2rem;
+
+border-radius: 10px;
+
+transition: transform 0.3s ease;
+
+}
+
+.contradiction-side:hover {
+
+transform: translateY(-5px);
+
+}
+
+.contradiction-left {
+
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+
+}
+
+.contradiction-right {
+
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+
+}
+
+.contradiction-side h3 {
+
+font-size: 1.5rem;
+
+margin-bottom: 1rem;
+
+color: #333;
+
+}
+
+.evidence-list {
+
+list-style: none;
+
+padding: 0;
+
+}
+
+.evidence-list li {
+
+background: rgba(255, 255, 255, 0.3);
+
+margin: 0.5rem 0;
+
+padding: 1rem;
+
+border-radius: 5px;
+
+border-left: 4px solid #764ba2;
+
+}
+
+.citation {
+
+font-size: 0.8rem;
+
+color: #666;
+
+font-style: italic;
+
+margin-top: 0.5rem;
+
+}
+
+.context-box {
+
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+
+border-radius: 15px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+}
+
+.context-box h3 {
+
+color: #8b4513;
+
+font-size: 1.8rem;
+
+margin-bottom: 1rem;
+
+}
+
+.phases-section {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.phases-grid {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+gap: 1.5rem;
+
+margin: 2rem 0;
+
+}
+
+.phase-card {
+
+padding: 2rem;
+
+border-radius: 10px;
+
+text-align: center;
+
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+cursor: pointer;
+
+}
+
+.phase-card:hover {
+
+transform: translateY(-5px);
+
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+
+.phase-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+.phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+
+.phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+.interactive-workshop {
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+color: white;
+
+}
+
+.workshop-controls {
+
+display: flex;
+
+gap: 1rem;
+
+margin: 2rem 0;
+
+flex-wrap: wrap;
+
+justify-content: center;
+
+}
+
+.btn {
+
+background: rgba(255, 255, 255, 0.2);
+
+color: white;
+
+border: 2px solid rgba(255, 255, 255, 0.3);
+
+padding: 1rem 2rem;
+
+border-radius: 50px;
+
+cursor: pointer;
+
+transition: all 0.3s ease;
+
+font-size: 1rem;
+
+}
+
+.btn:hover {
+
+background: rgba(255, 255, 255, 0.3);
+
+transform: translateY(-2px);
+
+}
+
+.selected-contradiction {
+
+background: rgba(255, 255, 255, 0.1);
+
+border-radius: 10px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+min-height: 150px;
+
+}
+
+.reflection-questions {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 3rem;
+
+margin: 3rem 0;
+
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+}
+
+.question-categories {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+gap: 2rem;
+
+margin: 2rem 0;
+
+}
+
+.question-category {
+
+padding: 2rem;
+
+border-radius: 10px;
+
+border: 2px solid #e0e0e0;
+
+transition: all 0.3s ease;
+
+cursor: pointer;
+
+}
+
+.question-category:hover {
+
+border-color: #764ba2;
+
+transform: translateY(-3px);
+
+}
+
+.question-category.active {
+
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+color: white;
+
+border-color: #764ba2;
+
+}
+
+.random-question {
+
+background: #f8f9ff;
+
+border-radius: 10px;
+
+padding: 2rem;
+
+margin: 2rem 0;
+
+border-left: 5px solid #764ba2;
+
+min-height: 100px;
+
+}
+
+@media (max-width: 768px) {
+
+.hero h1 {
+
+font-size: 2.5rem;
+
+}
+
+.contradiction-grid {
+
+grid-template-columns: 1fr;
+
+}
+
+.workshop-controls {
+
+flex-direction: column;
+
+align-items: center;
+
+}
+
+.nav-buttons {
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.nav-button {
+min-width: 120px;
+}
+
+}
+
+.fade-in {
+
+opacity: 0;
+
+animation: fadeIn 0.6s ease-in forwards;
+
+}
+
+@keyframes fadeIn {
+
+to { opacity: 1; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button">Alexandra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alicia-vikander.html" class="nav-button">Alicia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/amanda-holden.html" class="nav-button">Amanda</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/bethenny-frankel.html" class="nav-button">Bethenny</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button">Binky</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button">Britney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button">Brooke</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button">Carrie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/carrie-bickmore.html" class="nav-button">Carrie B</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/cass-wood.html" class="nav-button">Cass</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/christina-perri.html" class="nav-button">Christina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/clay-and-jessica-walker.html" class="nav-button">Clay & Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Courteney-Cox.html" class="nav-button">Courteney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dame-laura-kenny.html" class="nav-button">Dame Laura</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dr-zoe-williams.html" class="nav-button">Dr. Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gabrielle-Union.html" class="nav-button">Gabrielle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/gordon-ramsay-and-tana-ramsay.html" class="nav-button">Gordon & Tana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gwyneth-Paltrow.html" class="nav-button">Gwyneth</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/hilaria-baldwin.html" class="nav-button">Hilaria</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hugh-Jackman-&-Deborra-Lee-Furness.html" class="nav-button">Hugh & Deborra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/james-van-der-beek-and-kimberly.html" class="nav-button">James & Kimberly</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button">Jamie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jana-kramer.html" class="nav-button">Jana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jennifer-lawrence.html" class="nav-button">Jennifer</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessie-j.html" class="nav-button">Jessie J</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jools-oliver.html" class="nav-button">Jools</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/julia-louis-dreyfus.html" class="nav-button">Julia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kirstie-alley.html" class="nav-button">Kirstie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kristen-doute.html" class="nav-button">Kristen</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lily-allen.html" class="nav-button">Lily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lindsay-lohan.html" class="nav-button">Lindsay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-francesca-nand.html" class="nav-button">Lisa F</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-guerrero.html" class="nav-button">Lisa G</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lorraine-kelly.html" class="nav-button">Lorraine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ludacris-and-eudoxie-mbouguiengue.html" class="nav-button">Ludacris & Eudoxie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/mariah-carey.html" class="nav-button mariah">Mariah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/megan-fox.html" class="nav-button">Megan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/michelle-obama.html" class="nav-button">Michelle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ms-rachel.html" class="nav-button">Ms. Rachel</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/myleene-klass.html" class="nav-button">Myleene</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-carter-and-lauren-kitt.html" class="nav-button">Nick & Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicole-kidman.html" class="nav-button">Nicole</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/olivia-bowen-and-alex-bowen.html" class="nav-button">Olivia & Alex</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/pnk-alecia-moore.html" class="nav-button">P!nk</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/priscilla-chan-and-mark-zuckerberg.html" class="nav-button">Priscilla & Mark</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sammi-sweetheart-giancola.html" class="nav-button">Sammi</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sanya-richards-ross.html" class="nav-button">Sanya</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/savannah-guthrie.html" class="nav-button">Savannah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sharon-stone.html" class="nav-button">Sharon</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/shay-mitchell.html" class="nav-button">Shay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/tiffany-haddish.html" class="nav-button">Tiffany</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/trina-mcgee.html" class="nav-button">Trina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/vanessa-grimaldi.html" class="nav-button">Vanessa</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/whitney-port.html" class="nav-button">Whitney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/zara-tindall.html" class="nav-button">Zara</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+
+<header class="hero">
+
+<h1>The Paradox</h1>
+
+<div class="subtitle">Mariah Carey's Miscarriage Story</div>
+
+</header>
+
+<section class="story-anchor">
+
+<h2>Story Anchor: Mariah Carey & Nick Cannon</h2>
+
+<p>In 2008, Mariah Carey appeared on The Ellen DeGeneres Show amid pregnancy speculation. When Ellen offered her champagne to "prove" she wasn't pregnant, Mariah was cornered into an impossible choice: lie publicly or reveal a pregnancy she wasn't ready to announce. Forced to sip the champagne and effectively confirm her pregnancy, she said "I can't believe you did this to me, Ellen." Weeks later, she suffered a miscarriage. Twelve years later, in 2020, she revealed the full emotional weight of that moment, calling it "extremely uncomfortable" and explaining she "wasn't ready to tell anyone."</p>
+
+<p><em>Based on reporting from Vulture, Today Show, and multiple entertainment outlets</em></p>
+
+</section>
+
+<section class="central-contradiction">
+
+<h2>The Beautiful Contradiction</h2>
+
+<div class="contradiction-grid">
+
+<div class="contradiction-side contradiction-left">
+
+<h3>Forced Into the Spotlight</h3>
+
+<ul class="evidence-list">
+
+<li>Ellen pressured her to drink champagne on live TV to reveal pregnancy status
+
+<div class="citation">Vulture Interview, September 2020</div>
+
+</li>
+
+<li>Had no choice but to participate in the "champagne test" moment
+
+<div class="citation">Today Show, September 2020</div>
+
+</li>
+
+<li>Was put in an impossible position between lying publicly or premature disclosure
+
+<div class="citation">Multiple media reports, 2020</div>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="contradiction-side contradiction-right">
+
+<h3>Protecting Sacred Privacy</h3>
+
+<ul class="evidence-list">
+
+<li>Had previously experienced miscarriage and wanted to protect this pregnancy
+
+<div class="citation">ABC News, 2010</div>
+
+</li>
+
+<li>Wasn't ready to tell anyone about the pregnancy yet
+
+<div class="citation">Vulture Interview, September 2020</div>
+
+</li>
+
+<li>Suffered miscarriage weeks after being forced to reveal pregnancy
+
+<div class="citation">NZ Herald, September 2020</div>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+
+<strong>Learning:</strong> The contradiction reveals the violence of premature disclosure - how public pressure can rob someone of their right to share intimate news in their own time and way.
+
+</div>
+
+</section>
+
+<section class="context-box">
+
+<h3>Media Culture & Celebrity Pregnancy</h3>
+
+<p>In 2008, celebrity pregnancy speculation was at its peak in tabloid culture. Mariah, having married Nick Cannon after a whirlwind six-week courtship, was immediately under media scrutiny. The Ellen show incident represents a troubling aspect of entertainment culture where hosts use public pressure to extract private information. The "champagne test" was a common talk show trick - offering alcohol to suspected pregnant celebrities to force revelations.</p>
+
+<p>Mariah's 2020 revelation came during the broader reckoning with Ellen's show culture, highlighting patterns of boundary-crossing behavior that had long been normalized as entertainment.</p>
+
+</section>
+
+<section class="phases-section">
+
+<h2>Phases of the Paradox</h2>
+
+<div class="phases-grid">
+
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+
+<h3>Phase 1: The Ambush</h3>
+
+<p>2008: Cornered on live TV, forced to choose between lying or premature disclosure - the moment privacy becomes impossible</p>
+
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+
+<h3>Phase 2: Silent Suffering</h3>
+
+<p>Weeks later: Private miscarriage after public revelation - carrying grief while the world thinks you're celebrating</p>
+
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+
+<h3>Phase 3: Protective Silence</h3>
+
+<p>2008-2020: Twelve years of not revealing the full story - protecting both the memory and the lesson</p>
+
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+
+<h3>Phase 4: Truth Telling</h3>
+
+<p>2020: Finally naming the harm - using her experience to illuminate broader patterns of boundary violation</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="interactive-workshop">
+
+<h2>Interactive Contradiction Workshop</h2>
+
+<p>Explore the different layers of contradiction in Mariah's story. Each contradiction reveals different aspects of privacy rights, media ethics, and the treatment of women's bodies as public property.</p>
+
+<div class="workshop-controls">
+
+<button class="btn" onclick="selectContradiction('consent')">Consent vs. Entertainment</button>
+
+<button class="btn" onclick="selectContradiction('timing')">Sacred Timing</button>
+
+<button class="btn" onclick="selectContradiction('power')">Power Dynamics</button>
+
+<button class="btn" onclick="selectContradiction('disclosure')">Forced Disclosure</button>
+
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+
+<p><em>Select a contradiction above to explore its nuances...</em></p>
+
+</div>
+
+</section>
+
+<section class="reflection-questions">
+
+<h2>Reflection Questions</h2>
+
+<p>Choose a category to explore deeper questions about this paradox:</p>
+
+<div class="question-categories">
+
+<div class="question-category" onclick="selectQuestionCategory('consent')">
+
+<h3>Consent & Autonomy</h3>
+
+<p>Questions about bodily autonomy and the right to control personal information</p>
+
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('media')">
+
+<h3>Media Ethics</h3>
+
+<p>Questions about entertainment culture and journalist responsibility</p>
+
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('trauma')">
+
+<h3>Public Trauma</h3>
+
+<p>Questions about processing loss in the public eye</p>
+
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('boundaries')">
+
+<h3>Sacred Boundaries</h3>
+
+<p>Questions about protecting intimate experiences from public consumption</p>
+
+</div>
+
+</div>
+
+<div class="random-question" id="questionDisplay">
+
+<p><em>Select a category above to see reflection questions...</em></p>
+
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+
+<button class="btn" onclick="getRandomQuestion()" style="color: #764ba2; background: white; border-color: #764ba2;">Get Random Question</button>
+
+</div>
+
+</section>
+
+</div>
+
+<script>
+
+// Contradiction data
+
+const contradictions = {
+
+consent: {
+
+title: "Consent vs. Entertainment Value",
+
+content: "Ellen's champagne trick exemplifies how entertainment culture prioritizes content over consent. Mariah was placed in a position where saying no would have been interpreted as confirmation, while participating violated her autonomy over when and how to share intimate news. This contradiction reveals how women's reproductive status is treated as public property, with entertainment value trumping personal agency. The audience's laughter at Mariah's discomfort shows how normalized this boundary violation had become."
+
+},
+
+timing: {
+
+title: "Sacred Timing vs. Public Demand",
+
+content: "Mariah wasn't ready to share her pregnancy news, especially given her previous miscarriage experience. The public's 'right to know' collided with her need for protective privacy during a vulnerable time. This contradiction highlights how society feels entitled to immediate access to women's reproductive information, ignoring the sacred timing that allows people to process and prepare emotionally. The weeks between forced disclosure and miscarriage represent the gap between public celebration and private fear."
+
+},
+
+power: {
+
+title: "Host Power vs. Guest Vulnerability",
+
+content: "Ellen wielded the power of her platform, audience, and the live television format to corner Mariah. The host-guest dynamic created an inherent power imbalance, where refusing to participate would seem rude or suspicious. This contradiction shows how institutional power can be weaponized under the guise of entertainment, creating situations where celebrities must choose between their boundaries and their careers. Mariah's 2020 revelation took twelve years partly because challenging such established power structures requires enormous courage."
+
+},
+
+disclosure: {
+
+title: "Forced Disclosure vs. Authentic Sharing",
+
+content: "There's a profound difference between choosing to share joyful news and being coerced into revelation. Mariah's pregnancy announcement became about Ellen's cleverness rather than her joy. This contradiction illuminates how forced disclosure robs people of the authentic experience of sharing their truth. When we're pushed into premature revelation, we lose the opportunity for genuine celebration, proper emotional preparation, and the natural unfolding of our story on our terms."
+
+}
+
+};
+
+// Question categories
+
+const questionCategories = {
+
+consent: [
+
+"Should there be legal protections against media coercion of personal information?",
+
+"How do we distinguish between public interest and public curiosity about celebrities' personal lives?",
+
+"What responsibility do audiences bear when they consume entertainment that violates consent?",
+
+"How can we create entertainment culture that respects personal boundaries while remaining engaging?",
+
+"Should there be industry standards about what personal information can be sought from guests?"
+
+],
+
+media: [
+
+"What ethical guidelines should govern how hosts treat guests' private information?",
+
+"How has social media changed the dynamics of forced celebrity disclosure?",
+
+"Should entertainment shows have the same ethical standards as news programs?",
+
+"What role does audience complicity play in normalizing boundary violations?",
+
+"How can media literacy help people recognize and resist harmful entertainment practices?"
+
+],
+
+trauma: [
+
+"How do we support public figures who experience loss after forced disclosure?",
+
+"What is the psychological impact of having private grief become public speculation?",
+
+"Should there be cooling-off periods after celebrity pregnancy announcements?",
+
+"How does public miscarriage grief differ from private loss processing?",
+
+"What support systems exist for celebrities navigating reproductive trauma in the public eye?"
+
+],
+
+boundaries: [
+
+"What makes certain information 'sacred' and deserving of protection?",
+
+"How do we balance transparency expectations with privacy rights for public figures?",
+
+"What can Mariah's twelve-year silence teach us about processing public violations?",
+
+"How do we create space for people to share their truth in their own timing?",
+
+"What would respectful celebrity pregnancy coverage look like?"
+
+]
+
+};
+
+let currentQuestionCategory = null;
+
+// Interactive functions
+
+function selectContradiction(type) {
+
+const display = document.getElementById('contradictionDisplay');
+
+const contradiction = contradictions[type];
+
+display.innerHTML = `
+
+<h3>${contradiction.title}</h3>
+
+<p>${contradiction.content}</p>
+
+`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+function selectPhase(phaseNumber) {
+
+const phases = document.querySelectorAll('.phase-card');
+
+phases.forEach(phase => phase.style.transform = 'scale(1)');
+
+const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+
+selectedPhase.style.transform = 'scale(1.05)';
+
+setTimeout(() => {
+
+selectedPhase.style.transform = 'scale(1)';
+
+}, 200);
+
+}
+
+function selectQuestionCategory(category) {
+
+// Remove active class from all categories
+
+document.querySelectorAll('.question-category').forEach(cat => {
+
+cat.classList.remove('active');
+
+});
+
+// Add active class to selected category
+
+event.target.closest('.question-category').classList.add('active');
+
+currentQuestionCategory = category;
+
+displayRandomQuestionFromCategory(category);
+
+}
+
+function displayRandomQuestionFromCategory(category) {
+
+const questions = questionCategories[category];
+
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+const display = document.getElementById('questionDisplay');
+
+display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+function getRandomQuestion() {
+
+const allCategories = Object.keys(questionCategories);
+
+const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+
+const questions = questionCategories[randomCategory];
+
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+const display = document.getElementById('questionDisplay');
+
+display.innerHTML = `
+
+<p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+
+<p>${randomQuestion}</p>
+
+`;
+
+display.classList.add('fade-in');
+
+setTimeout(() => display.classList.remove('fade-in'), 600);
+
+}
+
+// Add some initial interactivity
+
+document.addEventListener('DOMContentLoaded', function() {
+
+// Add hover effects to phase cards
+
+const phaseCards = document.querySelectorAll('.phase-card');
+
+phaseCards.forEach(card => {
+
+card.addEventListener('mouseenter', function() {
+
+this.style.transform = 'translateY(-10px) scale(1.02)';
+
+});
+
+card.addEventListener('mouseleave', function() {
+
+this.style.transform = 'translateY(0) scale(1)';
+
+});
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>

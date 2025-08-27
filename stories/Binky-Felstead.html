@@ -66,7 +66,17 @@ text-decoration: none;
 color: #444;
 }
 
-/* Individual story button colors - Binky is active (gold), others are pink */
+/* Binky is active (gold), others are pink */
+.nav-button.binky {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button:not(.binky):not(.home):not(.explore) {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+}
+
 .nav-button.alexandra,
 .nav-button.alicia,
 .nav-button.amanda,

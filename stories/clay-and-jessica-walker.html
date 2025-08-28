@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Paradox -- Clay & Jessica Walker's Miscarriage Story</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+line-height: 1.6;
+color: #333;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+/* Clay & Jessica is active (gold), others are pink */
+.nav-button.clay-jessica {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button:not(.clay-jessica):not(.home):not(.explore) {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+}
+
+.hero {
+text-align: center;
+padding: 4rem 0;
+color: white;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero .subtitle {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+}
+
+.story-anchor {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: white;
+}
+
+.beautiful-contradiction {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.beautiful-contradiction h2 {
+font-size: 2.5rem;
+color: #764ba2;
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+.contradiction-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.contradiction-side {
+padding: 2rem;
+border-radius: 10px;
+transition: transform 0.3s ease;
+}
+
+.contradiction-side:hover {
+transform: translateY(-5px);
+}
+
+.contradiction-left {
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.contradiction-right {
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.contradiction-side h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+color: #333;
+}
+
+.evidence-list {
+list-style: none;
+padding: 0;
+}
+
+.evidence-list li {
+background: rgba(255, 255, 255, 0.3);
+margin: 0.5rem 0;
+padding: 1rem;
+border-radius: 5px;
+border-left: 4px solid #764ba2;
+}
+
+.citation {
+font-size: 0.8rem;
+color: #666;
+font-style: italic;
+margin-top: 0.5rem;
+}
+
+.context-box {
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+}
+
+.context-box h3 {
+color: #8b4513;
+font-size: 1.8rem;
+margin-bottom: 1rem;
+}
+
+.embrace-paradox {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.paradox-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.paradox-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.paradox-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.paradox-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.paradox-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.paradox-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+
+.phases-section {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.phases-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.phase-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.phase-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.phase-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+.interactive-workshop {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+color: white;
+}
+
+.workshop-controls {
+display: flex;
+gap: 1rem;
+margin: 2rem 0;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.btn {
+background: rgba(255, 255, 255, 0.2);
+color: white;
+border: 2px solid rgba(255, 255, 255, 0.3);
+padding: 1rem 2rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 1rem;
+}
+
+.btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-2px);
+}
+
+.selected-contradiction {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+min-height: 150px;
+}
+
+.reflection-questions {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.question-categories {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.question-category {
+padding: 2rem;
+border-radius: 10px;
+border: 2px solid #e0e0e0;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.question-category:hover {
+border-color: #764ba2;
+transform: translateY(-3px);
+}
+
+.question-category.active {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border-color: #764ba2;
+}
+
+.random-question {
+background: #f8f9ff;
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+border-left: 5px solid #764ba2;
+min-height: 100px;
+}
+
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2.5rem;
+}
+
+.contradiction-grid {
+grid-template-columns: 1fr;
+}
+
+.workshop-controls {
+flex-direction: column;
+align-items: center;
+}
+
+.nav-buttons {
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.nav-button {
+min-width: 120px;
+}
+}
+
+.fade-in {
+opacity: 0;
+animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button alexandra">Alexandra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alicia-vikander.html" class="nav-button alicia">Alicia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/amanda-holden.html" class="nav-button amanda">Amanda</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">BeyoncÃ©</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/bethenny-frankel.html" class="nav-button bethenny">Bethenny</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/carrie-bickmore.html" class="nav-button carrie-b">Carrie B</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/cass-wood.html" class="nav-button cass">Cass</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/christina-perri.html" class="nav-button christina">Christina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/clay-and-jessica-walker.html" class="nav-button clay-jessica">Clay & Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Courteney-Cox.html" class="nav-button courteney">Courteney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dame-laura-kenny.html" class="nav-button laura">Dame Laura</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dr-zoe-williams.html" class="nav-button zoe-dr">Dr. Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gabrielle-Union.html" class="nav-button gabrielle">Gabrielle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/gordon-ramsay-and-tana-ramsay.html" class="nav-button gordon-tana">Gordon & Tana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gwyneth-Paltrow.html" class="nav-button gwyneth">Gwyneth</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/hilaria-baldwin.html" class="nav-button hilaria">Hilaria</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hugh-Jackman-&-Deborra-Lee-Furness.html" class="nav-button hugh-deborra">Hugh & Deborra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/james-van-der-beek-and-kimberly.html" class="nav-button james-kimberly">James & Kimberly</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button jamie">Jamie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jana-kramer.html" class="nav-button jana">Jana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jennifer-lawrence.html" class="nav-button jennifer">Jennifer</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessie-j.html" class="nav-button jessie">Jessie J</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jools-oliver.html" class="nav-button jools">Jools</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/julia-louis-dreyfus.html" class="nav-button julia">Julia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kirstie-alley.html" class="nav-button kirstie">Kirstie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kristen-doute.html" class="nav-button kristen">Kristen</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lily-allen.html" class="nav-button lily">Lily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lindsay-lohan.html" class="nav-button lindsay">Lindsay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-francesca-nand.html" class="nav-button lisa-f">Lisa F</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-guerrero.html" class="nav-button lisa-g">Lisa G</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lorraine-kelly.html" class="nav-button lorraine">Lorraine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ludacris-and-eudoxie-mbouguiengue.html" class="nav-button ludacris-eudoxie">Ludacris & Eudoxie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/mariah-carey.html" class="nav-button mariah">Mariah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/megan-fox.html" class="nav-button megan">Megan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/michelle-obama.html" class="nav-button michelle">Michelle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ms-rachel.html" class="nav-button ms-rachel">Ms. Rachel</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/myleene-klass.html" class="nav-button myleene">Myleene</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-carter-and-lauren-kitt.html" class="nav-button nick-lauren">Nick & Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicole-kidman.html" class="nav-button nicole">Nicole</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/olivia-bowen-and-alex-bowen.html" class="nav-button olivia-alex">Olivia & Alex</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/pnk-alecia-moore.html" class="nav-button pink">P!nk</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/priscilla-chan-and-mark-zuckerberg.html" class="nav-button priscilla-mark">Priscilla & Mark</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sammi-sweetheart-giancola.html" class="nav-button sammi">Sammi</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sanya-richards-ross.html" class="nav-button sanya">Sanya</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/savannah-guthrie.html" class="nav-button savannah">Savannah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sharon-stone.html" class="nav-button sharon">Sharon</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/shay-mitchell.html" class="nav-button shay">Shay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/tiffany-haddish.html" class="nav-button tiffany">Tiffany</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/trina-mcgee.html" class="nav-button trina">Trina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/vanessa-grimaldi.html" class="nav-button vanessa">Vanessa</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/whitney-port.html" class="nav-button whitney">Whitney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/zara-tindall.html" class="nav-button zara">Zara</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+<header class="hero">
+<h1>The Paradox</h1>
+<div class="subtitle">Clay & Jessica Walker's Miscarriage Story</div>
+</header>
+
+<section class="story-anchor">
+<h2>Story Anchor: When Everything Was Perfect</h2>
+<p>In April 2023, country music star Clay Walker and his wife Jessica Craig were halfway through what seemed like a perfect pregnancy. At 20 weeks, they had announced their sixth child—a daughter they had already named Eleanora Lindsey. Her room was ready, her clothes were bought, and five children were excitedly awaiting their baby sister. "We had her room ready, her clothes bought — everything, and her name, Eleanora Lindsey," Clay shared. Then, without warning or explanation, everything changed in an instant.</p>
+<p>"It was a nightmare and still is for my wife," Clay revealed to People magazine, describing how they lost their daughter at 20 weeks—well past what they considered the dangerous early period, having successfully carried five full-term pregnancies.</p>
+</section>
+
+<section class="beautiful-contradiction">
+<h2>The Beautiful Contradiction</h2>
+<div class="contradiction-grid">
+<div class="contradiction-side contradiction-left">
+<h3>Perfect Preparation Meets Devastating Loss</h3>
+<ul class="evidence-list">
+<li>Had successfully carried five previous pregnancies to full term
+<div class="citation">People Magazine, April 2023</div>
+</li>
+<li>Everything appeared perfect and normal throughout the pregnancy
+<div class="citation">Daily Caller, April 26, 2023</div>
+</li>
+<li>Had already prepared the nursery, bought clothes, and chosen the name Eleanora Lindsey
+<div class="citation">Entertainment Tonight, April 26, 2023</div>
+</li>
+<li>Family was excited and waiting for the baby at 20 weeks—past the "dangerous" period
+<div class="citation">iHeart, April 2023</div>
+</li>
+</ul>
+</div>
+
+<div class="contradiction-side contradiction-right">
+<h3>Public Strength Through Private Anguish</h3>
+<ul class="evidence-list">
+<li>Clay spoke openly about the family's devastation while protecting Jessica's privacy
+<div class="citation">Country Now, April 25, 2023</div>
+</li>
+<li>"It felt like we got run over by a train" - raw honesty about the impact
+<div class="citation">Country Now, April 25, 2023</div>
+</li>
+<li>Shared grief publicly to help others while acknowledging ongoing private pain
+<div class="citation">Whiskey Riff, April 26, 2023</div>
+</li>
+<li>Expressed confusion about how mothers survive such loss: "I just don't know how moms make it through the rest of their lives with that kind of pain"
+<div class="citation">MEAWW, April 26, 2023</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+<strong>Learning:</strong> The contradiction reveals how the deepest preparation and greatest confidence can coexist with the most sudden and devastating loss, challenging our assumptions about safety, control, and the predictability of life.
+</div>
+</section>
+
+<section class="context-box">
+<h3>The Second Trimester Safety Myth</h3>
+<p>Clay and Jessica's story strikes at one of pregnancy's cruelest paradoxes: the false security of reaching 20 weeks. "We were at 20 weeks, and we'd already made it through the toughest part. We've had five successful full-term pregnancies," Clay explained, echoing what many couples believe—that the second trimester represents safety after the vulnerable first 12 weeks.</p>
+<p>Their experience exposes how pregnancy loss can strike at any moment, regardless of previous success, medical care, or careful preparation. The deeper into pregnancy, the more real the baby becomes, the more painful the loss, yet the less prepared society is to acknowledge and support that grief.</p>
+</section>
+
+<section class="embrace-paradox">
+<h2>Embrace the Paradox</h2>
+<div class="paradox-grid">
+<div class="paradox-card paradox-1" onclick="selectParadox(1)">
+<h3>Security vs. Vulnerability</h3>
+<p>The illusion of safety that comes with experience and reaching milestones, existing alongside the persistent reality that life remains unpredictable and fragile.</p>
+</div>
+
+<div class="paradox-card paradox-2" onclick="selectParadox(2)">
+<h3>Public Voice vs. Private Pain</h3>
+<p>Using public platforms to share grief and help others, while simultaneously protecting the deepest aspects of family trauma from public scrutiny.</p>
+</div>
+
+<div class="paradox-card paradox-3" onclick="selectParadox(3)">
+<h3>Complete Preparation vs. Sudden Emptiness</h3>
+<p>Having everything ready for a life that will never arrive—the contrast between physical preparation and emotional devastation.</p>
+</div>
+</div>
+</section>
+
+<section class="phases-section">
+<h2>Phases of the Paradox</h2>
+<div class="phases-grid">
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+<h3>Phase 1: Confident Announcement</h3>
+<p>Public joy at 20 weeks—sharing the news of their sixth child with confidence born from five successful pregnancies</p>
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+<h3>Phase 2: The Unthinkable Moment</h3>
+<p>Sudden loss without warning or explanation—"like getting run over by a train" in an instant</p>
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+<h3>Phase 3: Confronting the Aftermath</h3>
+<p>Facing a prepared nursery, purchased clothes, and chosen name—physical reminders of dreams that will never be realized</p>
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+<h3>Phase 4: Transforming Pain into Purpose</h3>
+<p>Speaking publicly about their loss to help other families navigate similar devastation while protecting Jessica's private healing process</p>
+</div>
+</div>
+</section>
+
+<section class="interactive-workshop">
+<h2>Interactive Contradiction Workshop</h2>
+<p>Explore the different layers of contradiction in Clay and Jessica's story. Each reveals different aspects of pregnancy loss, family grief, and the complexity of public versus private mourning.</p>
+
+<div class="workshop-controls">
+<button class="btn" onclick="selectContradiction('preparation')">Perfect Preparation vs. Sudden Loss</button>
+<button class="btn" onclick="selectContradiction('experience')">Experience vs. Powerlessness</button>
+<button class="btn" onclick="selectContradiction('visibility')">Public Sharing vs. Private Protection</button>
+<button class="btn" onclick="selectContradiction('timeline')">Safety Milestones vs. Ongoing Risk</button>
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+<p><em>Select a contradiction above to explore its nuances...</em></p>
+</div>
+</section>
+
+<section class="reflection-questions">
+<h2>Reflection Questions</h2>
+<p>Choose a category to explore deeper questions about this paradox:</p>
+
+<div class="question-categories">
+<div class="question-category" onclick="selectQuestionCategory('preparation')">
+<h3>Preparation & Loss</h3>
+<p>Questions about readiness, expectations, and the relationship between preparation and grief</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('partnership')">
+<h3>Partnership in Grief</h3>
+<p>Questions about how couples navigate loss differently and support each other through trauma</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('public')">
+<h3>Public vs. Private</h3>
+<p>Questions about sharing grief publicly while protecting family privacy</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('meaning')">
+<h3>Finding Meaning</h3>
+<p>Questions about making sense of loss and helping others through shared experience</p>
+</div>
+</div>
+
+<div class="random-question" id="questionDisplay">
+<p><em>Select a category above to see reflection questions...</em></p>
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+<button class="btn" onclick="getRandomQuestion()" style="color: #764ba2; background: white; border-color: #764ba2;">Get Random Question</button>
+</div>
+</section>
+</div>
+
+<script>
+// Contradiction data
+const contradictions = {
+preparation: {
+title: "Perfect Preparation vs. Sudden Loss",
+content: "Clay and Jessica had everything ready—the nursery, the clothes, the name Eleanora Lindsey. They had moved beyond hope into certainty, from planning into preparation. This contradiction reveals the cruelty of loss after deep investment, when dreams have transformed into physical reality. The prepared nursery becomes a shrine to what will never be, and every purchased item becomes evidence of love that has nowhere to go. It challenges our belief that preparation can protect us from loss."
+},
+
+experience: {
+title: "Experience vs. Powerlessness", 
+content: "Having successfully carried five pregnancies to full term created a sense of mastery over the process—'we'd already made it through the toughest part.' This experience became both a source of confidence and a magnifier of shock when loss occurred. The contradiction exposes how expertise in any area of life can create false security. Previous success doesn't guarantee future outcomes, yet we naturally use it to predict safety. This reveals the fundamental powerlessness we all face, regardless of our track record."
+},
+
+visibility: {
+title: "Public Sharing vs. Private Protection",
+content: "Clay chose to speak openly about their devastation while simultaneously protecting Jessica's most private grief. He shared enough to help others but maintained boundaries around her healing process. This contradiction shows the complex navigation required when personal trauma intersects with public life. It reveals how sharing can be both healing and harmful, how vulnerability can serve others while potentially exposing the most wounded family member. The challenge lies in determining who benefits from public grief and at what cost."
+},
+
+timeline: {
+title: "Safety Milestones vs. Ongoing Risk",
+content: "The 20-week milestone felt like crossing into safety—past the 'dangerous' first trimester, with five successful pregnancies as evidence of their bodies' reliability. This contradiction exposes how pregnancy milestones create psychological security that may not reflect medical reality. Each 'safe' marker we pass increases our investment while potentially deepening future loss. The further into pregnancy, the more real the baby becomes, yet the risk never truly disappears. It challenges how we think about progress, safety, and the nature of pregnancy itself."
+}
+};
+
+// Question categories
+const questionCategories = {
+preparation: [
+"How do we balance hope and preparation with the reality of uncertainty?",
+"What do you do with a prepared nursery when the baby never comes home?",
+"Is it better to prepare fully or protect yourself by holding back emotional investment?",
+"How does the physical preparation (clothes, room, name) change the nature of grief?",
+"Should couples wait longer before making concrete preparations, or does this deny the reality of their pregnancy?"
+],
+
+partnership: [
+"How can partners support each other when they grieve differently?",
+"What are the challenges of one partner being more public about loss than the other?",
+"How do couples navigate decisions about sharing their story when privacy needs differ?",
+"What role should male partners play in speaking about pregnancy loss?",
+"How can couples honor both their individual grief processes and their shared loss?"
+],
+
+public: [
+"When does sharing personal tragedy help others versus exploiting private pain?",
+"How do public figures balance their platform's potential for good with family privacy?",
+"What are the long-term effects on families when private loss becomes public story?",
+"How can public sharing of loss be done respectfully and helpfully?",
+"What boundaries should exist between public advocacy and private grief?"
+],
+
+meaning: [
+"How do we find purpose in losses that seem completely senseless?",
+"Can helping others heal our own grief, or does it postpone necessary processing?",
+"What does it mean to honor a life that never had the chance to be lived?",
+"How do we carry the memory of children who never made it home?",
+"Is there a way to make sense of pregnancy loss, or is the search for meaning part of the problem?"
+]
+};
+
+let currentQuestionCategory = null;
+
+// Interactive functions
+function selectContradiction(type) {
+const display = document.getElementById('contradictionDisplay');
+const contradiction = contradictions[type];
+display.innerHTML = `
+<h3>${contradiction.title}</h3>
+<p>${contradiction.content}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function selectPhase(phaseNumber) {
+const phases = document.querySelectorAll('.phase-card');
+phases.forEach(phase => phase.style.transform = 'scale(1)');
+const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+selectedPhase.style.transform = 'scale(1.05)';
+setTimeout(() => {
+selectedPhase.style.transform = 'scale(1)';
+}, 200);
+}
+
+function selectParadox(paradoxNumber) {
+const paradoxes = document.querySelectorAll('.paradox-card');
+paradoxes.forEach(paradox => paradox.style.transform = 'scale(1)');
+const selectedParadox = document.querySelector(`.paradox-${paradoxNumber}`);
+selectedParadox.style.transform = 'scale(1.05)';
+setTimeout(() => {
+selectedParadox.style.transform = 'scale(1)';
+}, 200);
+}
+
+function selectQuestionCategory(category) {
+// Remove active class from all categories
+document.querySelectorAll('.question-category').forEach(cat => {
+cat.classList.remove('active');
+});
+
+// Add active class to selected category
+event.target.closest('.question-category').classList.add('active');
+currentQuestionCategory = category;
+displayRandomQuestionFromCategory(category);
+}
+
+function displayRandomQuestionFromCategory(category) {
+const questions = questionCategories[category];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function getRandomQuestion() {
+const allCategories = Object.keys(questionCategories);
+const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+const questions = questionCategories[randomCategory];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `
+<p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+<p>${randomQuestion}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+// Add some initial interactivity
+document.addEventListener('DOMContentLoaded', function() {
+// Add hover effects to phase cards
+const phaseCards = document.querySelectorAll('.phase-card, .paradox-card');
+phaseCards.forEach(card => {
+card.addEventListener('mouseenter', function() {
+this.style.transform = 'translateY(-10px) scale(1.02)';
+});
+card.addEventListener('mouseleave', function() {
+this.style.transform = 'translateY(0) scale(1)';
+});
+});
+});
+</script>
+</body>
+</html>

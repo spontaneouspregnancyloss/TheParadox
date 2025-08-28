@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Paradox -- Hilaria Baldwin's Miscarriage Story</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+line-height: 1.6;
+color: #333;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+/* Hilaria is active (gold), others are pink */
+.nav-button.hilaria {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button:not(.hilaria):not(.home):not(.explore) {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+}
+
+.hero {
+text-align: center;
+padding: 4rem 0;
+color: white;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero .subtitle {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+}
+
+.story-anchor {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: white;
+}
+
+.beautiful-contradiction {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.beautiful-contradiction h2 {
+font-size: 2.5rem;
+color: #764ba2;
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+.contradiction-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.contradiction-side {
+padding: 2rem;
+border-radius: 10px;
+transition: transform 0.3s ease;
+}
+
+.contradiction-side:hover {
+transform: translateY(-5px);
+}
+
+.contradiction-left {
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.contradiction-right {
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.contradiction-side h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+color: #333;
+}
+
+.evidence-list {
+list-style: none;
+padding: 0;
+}
+
+.evidence-list li {
+background: rgba(255, 255, 255, 0.3);
+margin: 0.5rem 0;
+padding: 1rem;
+border-radius: 5px;
+border-left: 4px solid #764ba2;
+}
+
+.citation {
+font-size: 0.8rem;
+color: #666;
+font-style: italic;
+margin-top: 0.5rem;
+}
+
+.context-box {
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+}
+
+.context-box h3 {
+color: #8b4513;
+font-size: 1.8rem;
+margin-bottom: 1rem;
+}
+
+.embrace-paradox {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.paradox-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.paradox-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.paradox-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.paradox-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.paradox-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.paradox-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+
+.phases-section {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.phases-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.phase-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.phase-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.phase-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+.interactive-workshop {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+color: white;
+}
+
+.workshop-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.workshop-card {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 2rem;
+transition: all 0.3s ease;
+cursor: pointer;
+border: 2px solid transparent;
+}
+
+.workshop-card:hover {
+background: rgba(255, 255, 255, 0.2);
+transform: translateY(-5px);
+}
+
+.workshop-card.active {
+border-color: rgba(255, 255, 255, 0.5);
+background: rgba(255, 255, 255, 0.2);
+}
+
+.workshop-controls {
+display: flex;
+gap: 1rem;
+margin: 2rem 0;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.btn {
+background: rgba(255, 255, 255, 0.2);
+color: white;
+border: 2px solid rgba(255, 255, 255, 0.3);
+padding: 1rem 2rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 1rem;
+}
+
+.btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-2px);
+}
+
+.btn.active {
+background: white;
+color: #764ba2;
+}
+
+.selected-contradiction {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+min-height: 150px;
+}
+
+.reflection-questions {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.question-categories {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.question-category {
+padding: 2rem;
+border-radius: 10px;
+border: 2px solid #e0e0e0;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.question-category:hover {
+border-color: #764ba2;
+transform: translateY(-3px);
+}
+
+.question-category.active {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border-color: #764ba2;
+}
+
+.random-question {
+background: #f8f9ff;
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+border-left: 5px solid #764ba2;
+min-height: 100px;
+}
+
+.scenario-box {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+}
+
+.action-buttons {
+display: flex;
+gap: 1rem;
+flex-wrap: wrap;
+justify-content: center;
+margin: 1rem 0;
+}
+
+.action-btn {
+background: rgba(255, 255, 255, 0.2);
+color: white;
+border: 1px solid rgba(255, 255, 255, 0.3);
+padding: 0.8rem 1.5rem;
+border-radius: 25px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 0.9rem;
+}
+
+.action-btn:hover {
+background: rgba(255, 255, 255, 0.3);
+}
+
+.response-area {
+background: rgba(255, 255, 255, 0.05);
+border-radius: 8px;
+padding: 1.5rem;
+margin-top: 1rem;
+min-height: 80px;
+font-style: italic;
+}
+
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2.5rem;
+}
+
+.contradiction-grid {
+grid-template-columns: 1fr;
+}
+
+.workshop-controls {
+flex-direction: column;
+align-items: center;
+}
+
+.nav-buttons {
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.nav-button {
+min-width: 120px;
+}
+}
+
+.fade-in {
+opacity: 0;
+animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button alexandra">Alexandra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alicia-vikander.html" class="nav-button alicia">Alicia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/amanda-holden.html" class="nav-button amanda">Amanda</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/bethenny-frankel.html" class="nav-button bethenny">Bethenny</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/carrie-bickmore.html" class="nav-button carrie-b">Carrie B</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/cass-wood.html" class="nav-button cass">Cass</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/christina-perri.html" class="nav-button christina">Christina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/clay-and-jessica-walker.html" class="nav-button clay-jessica">Clay & Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Courteney-Cox.html" class="nav-button courteney">Courteney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dame-laura-kenny.html" class="nav-button laura">Dame Laura</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dr-zoe-williams.html" class="nav-button zoe-dr">Dr. Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gabrielle-Union.html" class="nav-button gabrielle">Gabrielle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/gordon-ramsay-and-tana-ramsay.html" class="nav-button gordon-tana">Gordon & Tana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gwyneth-Paltrow.html" class="nav-button gwyneth">Gwyneth</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/hilaria-baldwin.html" class="nav-button hilaria">Hilaria</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hugh-Jackman-&-Deborra-Lee-Furness.html" class="nav-button hugh-deborra">Hugh & Deborra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/james-van-der-beek-and-kimberly.html" class="nav-button james-kimberly">James & Kimberly</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button jamie">Jamie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jana-kramer.html" class="nav-button jana">Jana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jennifer-lawrence.html" class="nav-button jennifer">Jennifer</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessie-j.html" class="nav-button jessie">Jessie J</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jools-oliver.html" class="nav-button jools">Jools</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/julia-louis-dreyfus.html" class="nav-button julia">Julia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kirstie-alley.html" class="nav-button kirstie">Kirstie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kristen-doute.html" class="nav-button kristen">Kristen</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lily-allen.html" class="nav-button lily">Lily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lindsay-lohan.html" class="nav-button lindsay">Lindsay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-francesca-nand.html" class="nav-button lisa-f">Lisa F</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-guerrero.html" class="nav-button lisa-g">Lisa G</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lorraine-kelly.html" class="nav-button lorraine">Lorraine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ludacris-and-eudoxie-mbouguiengue.html" class="nav-button ludacris-eudoxie">Ludacris & Eudoxie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/mariah-carey.html" class="nav-button mariah">Mariah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/megan-fox.html" class="nav-button megan">Megan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/michelle-obama.html" class="nav-button michelle">Michelle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ms-rachel.html" class="nav-button ms-rachel">Ms. Rachel</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/myleene-klass.html" class="nav-button myleene">Myleene</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-carter-and-lauren-kitt.html" class="nav-button nick-lauren">Nick & Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicole-kidman.html" class="nav-button nicole">Nicole</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/olivia-bowen-and-alex-bowen.html" class="nav-button olivia-alex">Olivia & Alex</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/pnk-alecia-moore.html" class="nav-button pink">P!nk</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/priscilla-chan-and-mark-zuckerberg.html" class="nav-button priscilla-mark">Priscilla & Mark</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sammi-sweetheart-giancola.html" class="nav-button sammi">Sammi</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sanya-richards-ross.html" class="nav-button sanya">Sanya</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/savannah-guthrie.html" class="nav-button savannah">Savannah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sharon-stone.html" class="nav-button sharon">Sharon</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/shay-mitchell.html" class="nav-button shay">Shay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/tiffany-haddish.html" class="nav-button tiffany">Tiffany</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/trina-mcgee.html" class="nav-button trina">Trina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/vanessa-grimaldi.html" class="nav-button vanessa">Vanessa</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/whitney-port.html" class="nav-button whitney">Whitney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/zara-tindall.html" class="nav-button zara">Zara</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+<header class="hero">
+<h1>The Paradox</h1>
+<div class="subtitle">Hilaria Baldwin's Miscarriage Story</div>
+</header>
+
+<section class="story-anchor">
+<h2>Story Anchor: The Performance of Perfection</h2>
+<p>In November 2019, Hilaria Baldwin was bleeding and experiencing cramping while attending the United Nations Women for Peace Association awards in New York City. Rather than leaving, she remained at the glamorous event, took photos, and smiled for the cameras—all while knowing she might be losing her pregnancy. She later shared on Instagram: "I went to a party last night and pretended everything was ok." This moment captures the profound tension between maintaining public composure and private devastation that defines modern celebrity motherhood.</p>
+<p><em>Based on Hilaria's Instagram posts from November 2019</em></p>
+</section>
+
+<section class="beautiful-contradiction">
+<h2>The Beautiful Contradiction</h2>
+<div class="contradiction-grid">
+<div class="contradiction-side contradiction-left">
+<h3>Public Performance During Private Crisis</h3>
+<ul class="evidence-list">
+<li>Attended UN Women for Peace awards while actively miscarrying
+<div class="citation">People Magazine, November 2019</div>
+</li>
+<li>Posed for photos and maintained social facade during medical emergency
+<div class="citation">Instagram posts, November 2019</div>
+</li>
+<li>Put public obligations above personal medical needs and emotional processing
+<div class="citation">Hilaria's own Instagram revelations</div>
+</li>
+</ul>
+</div>
+
+<div class="contradiction-side contradiction-right">
+<h3>Radical Transparency After the Fact</h3>
+<ul class="evidence-list">
+<li>Shared detailed miscarriage updates in real-time on social media
+<div class="citation">Instagram Stories, November 2019</div>
+</li>
+<li>Posted graphic images of bleeding and medical procedures
+<div class="citation">Various Instagram posts 2019-2020</div>
+</li>
+<li>Used personal trauma to educate followers about pregnancy loss
+<div class="citation">People Magazine interviews, 2020</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+<strong>Learning:</strong> The contradiction reveals how social media creates pressure to perform perfection while simultaneously offering platforms for radical vulnerability—often in ways that commodify personal trauma.
+</div>
+</section>
+
+<section class="context-box">
+<h3>Social Media Motherhood Context</h3>
+<p>Hilaria Baldwin built her public persona as a wellness expert and perfect mother, sharing intimate details of her pregnancies and family life with millions of followers. This created enormous pressure to maintain that image even during crisis. The UN Women for Peace event represented her public brand—maternal, successful, inspirational—making it nearly impossible to show vulnerability in that moment.</p>
+<p>This context illuminates how social media motherhood creates a performance trap: the very platforms that can offer support and community also demand constant content and perfect presentation, making authentic human experience feel like brand failure.</p>
+</section>
+
+<section class="embrace-paradox">
+<h2>Embrace the Paradox</h2>
+<div class="paradox-grid">
+<div class="paradox-card paradox-1" onclick="selectParadox(1)">
+<h3>Performance vs. Authenticity</h3>
+<p>The need to maintain public image while experiencing private devastation—both necessary for different reasons, both impossible to sustain simultaneously.</p>
+</div>
+
+<div class="paradox-card paradox-2" onclick="selectParadox(2)">
+<h3>Privacy vs. Advocacy</h3>
+<p>Protecting personal trauma while using it to help others—the complex ethics of sharing pain for public good while processing private grief.</p>
+</div>
+
+<div class="paradox-card paradox-3" onclick="selectParadox(3)">
+<h3>Maternal Perfection vs. Human Reality</h3>
+<p>The impossible standard of perfect motherhood against the messy, unpredictable reality of reproductive experience and loss.</p>
+</div>
+</div>
+</section>
+
+<section class="phases-section">
+<h2>Phases of the Paradox</h2>
+<div class="phases-grid">
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+<h3>Phase 1: The Perfect Performance</h3>
+<p>Maintaining public appearances and social obligations while experiencing active pregnancy loss—prioritizing image over immediate care</p>
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+<h3>Phase 2: Digital Documentation</h3>
+<p>Sharing intimate details of miscarriage experience through social media—transforming private pain into public content</p>
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+<h3>Phase 3: Educational Advocacy</h3>
+<p>Using personal trauma to break taboos and educate others—turning loss into mission and purpose</p>
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+<h3>Phase 4: Ongoing Transparency</h3>
+<p>Continuing to share subsequent pregnancy losses and experiences—maintaining radical openness about reproductive struggles</p>
+</div>
+</div>
+</section>
+
+<section class="interactive-workshop">
+<h2>Interactive Contradiction Workshop</h2>
+<p>Explore different scenarios and contradictions from Hilaria's experience. Each offers a different lens into the complex pressures of public motherhood.</p>
+
+<div class="workshop-grid">
+<div class="workshop-card" onclick="selectWorkshopScenario('party')">
+<h3>🎭 The Party Scenario</h3>
+<p>You're bleeding and cramping at a high-profile event. Your career depends on networking. What do you do?</p>
+</div>
+
+<div class="workshop-card" onclick="selectWorkshopScenario('sharing')">
+<h3>📱 The Sharing Dilemma</h3>
+<p>You've experienced pregnancy loss. Millions follow your "perfect" motherhood content. How much do you share?</p>
+</div>
+
+<div class="workshop-card" onclick="selectWorkshopScenario('timing')">
+<h3>⏰ The Timing Paradox</h3>
+<p>You're documenting your miscarriage in real-time. Is this healing or harmful? Educational or exploitative?</p>
+</div>
+
+<div class="workshop-card" onclick="selectWorkshopScenario('brand')">
+<h3>💼 The Brand Crisis</h3>
+<p>Your wellness brand is built on maternal perfection. Pregnancy loss threatens that image. How do you pivot?</p>
+</div>
+</div>
+
+<div class="scenario-box" id="scenarioDisplay">
+<p><em>Select a scenario above to explore its contradictions and choices...</em></p>
+</div>
+</section>
+
+<section class="reflection-questions">
+<h2>Reflection Questions</h2>
+<p>Choose a category to explore deeper questions about this paradox:</p>
+
+<div class="question-categories">
+<div class="question-category" onclick="selectQuestionCategory('social-media')">
+<h3>Social Media Ethics</h3>
+<p>Questions about sharing personal trauma online and the ethics of vulnerability content</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('performance')">
+<h3>Performance Pressure</h3>
+<p>Questions about maintaining public image during private crisis and the cost of perfection</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('motherhood')">
+<h3>Modern Motherhood</h3>
+<p>Questions about contemporary expectations of maternal experience and identity</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('authenticity')">
+<h3>Authentic vs. Performed</h3>
+<p>Questions about the difference between genuine sharing and content creation</p>
+</div>
+</div>
+
+<div class="random-question" id="questionDisplay">
+<p><em>Select a category above to see reflection questions...</em></p>
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+<button class="btn" onclick="getRandomQuestion()" style="color: #764ba2; background: white; border-color: #764ba2;">Get Random Question</button>
+</div>
+</section>
+</div>
+
+<script>
+// Workshop scenarios
+const workshopScenarios = {
+  party: {
+    title: "🎭 The Party Scenario",
+    setup: "You're at a high-profile networking event crucial for your career. You start bleeding and cramping—signs of possible miscarriage. Hundreds of people, cameras, and important connections surround you.",
+    choices: [
+      { text: "Stay and maintain composure", consequence: "party_stay" },
+      { text: "Leave immediately for medical care", consequence: "party_leave" },
+      { text: "Find a private moment to assess", consequence: "party_assess" },
+      { text: "Confide in someone at the event", consequence: "party_confide" }
+    ]
+  },
+  
+  sharing: {
+    title: "📱 The Sharing Dilemma", 
+    setup: "You've built a career on sharing your 'perfect' motherhood journey with millions of followers. You've just experienced pregnancy loss. Your audience expects content, brands expect engagement, but you're grieving.",
+    choices: [
+      { text: "Share everything in real-time", consequence: "sharing_all" },
+      { text: "Stay silent and private", consequence: "sharing_private" },
+      { text: "Share selectively after processing", consequence: "sharing_selective" },
+      { text: "Use the experience for advocacy", consequence: "sharing_advocate" }
+    ]
+  },
+  
+  timing: {
+    title: "⏰ The Timing Paradox",
+    setup: "You're documenting your miscarriage as it happens—sharing bleeding, medical procedures, emotional breakdowns. Some praise your transparency, others call it exploitation. Your grief is becoming content.",
+    choices: [
+      { text: "Continue real-time documentation", consequence: "timing_continue" },
+      { text: "Stop sharing immediately", consequence: "timing_stop" },
+      { text: "Wait before sharing anything", consequence: "timing_wait" },
+      { text: "Share only educational content", consequence: "timing_educate" }
+    ]
+  },
+  
+  brand: {
+    title: "💼 The Brand Crisis",
+    setup: "Your wellness empire is built on maternal perfection—yoga, nutrition, beautiful pregnancies. Miscarriage doesn't fit your brand image, but pretending it didn't happen feels dishonest and harmful.",
+    choices: [
+      { text: "Rebrand around authenticity", consequence: "brand_authentic" },
+      { text: "Maintain the perfect image", consequence: "brand_perfect" },
+      { text: "Separate personal from professional", consequence: "brand_separate" },
+      { text: "Use experience to expand brand", consequence: "brand_expand" }
+    ]
+  }
+};
+
+const consequences = {
+  party_stay: "You maintain professional composure but miss crucial early medical intervention. Later, you question whether career advancement was worth the risk to your health and emotional wellbeing.",
+  
+  party_leave: "You prioritize your health but potentially damage professional relationships. Some understand, others see it as unprofessional. You wonder about missed opportunities.",
+  
+  party_assess: "You find a bathroom to check but the uncertainty continues. You spend the evening distracted, not fully present for networking or your medical concern.",
+  
+  party_confide: "You tell someone you trust, gaining support but also creating gossip risk. The person becomes your lifeline or your liability—either way, your privacy is compromised.",
+  
+  sharing_all: "Your transparency helps many but traumatizes others. Your grief becomes public property. Some praise your bravery, others question your boundaries. Healing becomes performance.",
+  
+  sharing_private: "You protect your privacy but lose connection with your community. Messages pour in asking if you're okay. Your silence creates speculation and worry among followers.",
+  
+  sharing_selective: "You find balance but constantly second-guess what to share. Each post is analyzed for authenticity vs. performance. You feel calculated even in grief.",
+  
+  sharing_advocate: "Your pain becomes purpose, helping countless others. But sometimes you wonder if you're processing your own grief or just helping others process theirs.",
+  
+  timing_continue: "Your real-time sharing helps people feel less alone in their own losses, but you never get private space to grieve. Your trauma becomes consumed by others.",
+  
+  timing_stop: "You reclaim privacy but feel guilty about the community you built around sharing. People feel abandoned just when they needed your voice most.",
+  
+  timing_wait: "You process privately first, then share thoughtfully. But some say you've lost authenticity, that delayed sharing isn't genuine vulnerability.",
+  
+  timing_educate: "You focus on facts over feelings, helping people understand miscarriage. But your clinical approach feels cold to some who needed emotional connection.",
+  
+  brand_authentic: "You rebuild around real motherhood—struggles included. Some followers leave but others connect more deeply. Revenue drops but integrity increases.",
+  
+  brand_perfect: "You maintain the facade but feel increasingly disconnected from your audience and yourself. Success feels hollow when built on lies.",
+  
+  brand_separate: "You try to keep personal and professional apart but followers expect authenticity. The separation feels artificial and ultimately unsustainable.",
+  
+  brand_expand: "You broaden your brand to include all aspects of motherhood. It's risky but revolutionary. You pioneer a new model of authentic influence."
+};
+
+// Question categories
+const questionCategories = {
+  'social-media': [
+    "Is sharing personal trauma on social media healing or harmful?",
+    "How do we distinguish between authentic vulnerability and trauma content?",
+    "What responsibility do influencers have when sharing medical experiences?",
+    "Should there be boundaries around what personal experiences become content?",
+    "How does social media change the way we process grief and loss?"
+  ],
+  
+  'performance': [
+    "When does maintaining public composure become self-harm?",
+    "How much should career obligations override personal crisis?",
+    "What's the real cost of 'the show must go on' mentality?",
+    "How do we support people in public roles during private struggles?",
+    "Is performing strength during crisis strength or self-betrayal?"
+  ],
+  
+  'motherhood': [
+    "Why is 'perfect motherhood' still the expected performance?",
+    "How has social media changed maternal expectations and experiences?",
+    "What would authentic motherhood representation look like?",
+    "How do we support mothers through reproductive struggles and losses?",
+    "Why is maternal vulnerability seen as failure rather than humanity?"
+  ],
+  
+  'authenticity': [
+    "Can genuine vulnerability exist within personal branding?",
+    "How do we know if sharing is healing or performance?",
+    "What's the difference between authentic transparency and exploitation?",
+    "When does helping others through our pain become harmful to ourselves?",
+    "How do we maintain authenticity in spaces that reward performance?"
+  ]
+};
+
+let currentQuestionCategory = null;
+let currentScenario = null;
+
+// Interactive functions
+function selectParadox(paradoxNumber) {
+  const paradoxes = document.querySelectorAll('.paradox-card');
+  paradoxes.forEach(paradox => paradox.style.transform = 'scale(1)');
+  const selectedParadox = document.querySelector(`.paradox-${paradoxNumber}`);
+  selectedParadox.style.transform = 'scale(1.05)';
+  setTimeout(() => {
+    selectedParadox.style.transform = 'scale(1)';
+  }, 200);
+}
+
+function selectPhase(phaseNumber) {
+  const phases = document.querySelectorAll('.phase-card');
+  phases.forEach(phase => phase.style.transform = 'scale(1)');
+  const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+  selectedPhase.style.transform = 'scale(1.05)';
+  setTimeout(() => {
+    selectedPhase.style.transform = 'scale(1)';
+  }, 200);
+}
+
+function selectWorkshopScenario(scenarioKey) {
+  // Remove active class from all cards
+  document.querySelectorAll('.workshop-card').forEach(card => {
+    card.classList.remove('active');
+  });
+  
+  // Add active class to selected card
+  event.target.closest('.workshop-card').classList.add('active');
+  
+  const scenario = workshopScenarios[scenarioKey];
+  currentScenario = scenarioKey;
+  
+  const display = document.getElementById('scenarioDisplay');
+  display.innerHTML = `
+    <h3>${scenario.title}</h3>
+    <p><strong>Scenario:</strong> ${scenario.setup}</p>
+    <div class="action-buttons">
+      ${scenario.choices.map(choice => 
+        `<button class="action-btn" onclick="showConsequence('${choice.consequence}')">${choice.text}</button>`
+      ).join('')}
+    </div>
+    <div class="response-area" id="responseArea">
+      <p><em>Select an action above to see its consequences and contradictions...</em></p>
+    </div>
+  `;
+  
+  display.classList.add('fade-in');
+  setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function showConsequence(consequenceKey) {
+  const responseArea = document.getElementById('responseArea');
+  const consequence = consequences[consequenceKey];
+  
+  responseArea.innerHTML = `
+    <p><strong>Consequence:</strong> ${consequence}</p>
+    <p style="margin-top: 1rem;"><em>Every choice reveals different aspects of the paradox. There are no perfect solutions—only different ways of navigating impossible contradictions.</em></p>
+  `;
+  
+  responseArea.classList.add('fade-in');
+  setTimeout(() => responseArea.classList.remove('fade-in'), 600);
+}
+
+function selectQuestionCategory(category) {
+  // Remove active class from all categories
+  document.querySelectorAll('.question-category').forEach(cat => {
+    cat.classList.remove('active');
+  });
+
+  // Add active class to selected category
+  event.target.closest('.question-category').classList.add('active');
+  currentQuestionCategory = category;
+  displayRandomQuestionFromCategory(category);
+}
+
+function displayRandomQuestionFromCategory(category) {
+  const questions = questionCategories[category];
+  const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+  const display = document.getElementById('questionDisplay');
+  display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+  display.classList.add('fade-in');
+  setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function getRandomQuestion() {
+  const allCategories = Object.keys(questionCategories);
+  const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+  const questions = questionCategories[randomCategory];
+  const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+  const display = document.getElementById('questionDisplay');
+  display.innerHTML = `
+    <p><strong>Random Reflection Question (${randomCategory.replace('-', ' ')}):</strong></p>
+    <p>${randomQuestion}</p>
+  `;
+  display.classList.add('fade-in');
+  setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+// Add interactivity on load
+document.addEventListener('DOMContentLoaded', function() {
+  // Add hover effects to cards
+  const cards = document.querySelectorAll('.phase-card, .paradox-card, .workshop-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+  
+  // Initialize first scenario
+  selectWorkshopScenario('party');
+});
+</script>
+</body>
+</html>

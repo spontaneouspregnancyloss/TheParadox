@@ -527,4 +527,199 @@ to { opacity: 1; }
 <h3>Phase 5: Her Tribute Song</h3>
 <div class="video-embed">
 <h4>Tribute Song: "Blindsided"</h4>
-<p>Inspired by Shay Mitchell's raw honesty about being "completely blindsided" by pregnancy loss at 14 weeks. This heartfelt tribute captures her
+<p>Inspired by Shay Mitchell's raw honesty about being "completely blindsided" by pregnancy loss at 14 weeks. This heartfelt tribute captures her journey from devastating loss to guarded hope, honoring both her vulnerability and strength as she navigated the sacred paradox of holding grief while embracing new life.</p>
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="interactive-workshop">
+<h2>Interactive Contradiction Workshop</h2>
+<p>Explore the different layers of contradiction in Shay's journey from being blindsided by loss to finding the courage to hope again. Each paradox reveals different aspects of memory, protection, and the spiritual dimensions of pregnancy after loss.</p>
+
+<div class="workshop-controls">
+<button class="btn" onclick="selectContradiction('blindsided')">Blindsided vs. Prepared</button>
+<button class="btn" onclick="selectContradiction('memory')">Sacred Memory</button>
+<button class="btn" onclick="selectContradiction('protection')">Protection vs. Transparency</button>
+<button class="btn" onclick="selectContradiction('spiritual')">Spiritual Resilience</button>
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+<p><em>Select a contradiction above to explore its emotional and spiritual nuances...</em></p>
+</div>
+</section>
+
+<section class="reflection-questions">
+<h2>Reflection Questions</h2>
+<p>Choose a category to explore deeper questions about this sacred paradox:</p>
+
+<div class="question-categories">
+<div class="question-category" onclick="selectQuestionCategory('blindsided')">
+<h3>Being Blindsided</h3>
+<p>Questions about unpreparedness and the shock of loss</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('memory')">
+<h3>Sacred Memory</h3>
+<p>Questions about how we hold and honor what we've lost</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('vulnerability')">
+<h3>Public Vulnerability</h3>
+<p>Questions about sharing our pain to help others heal</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('hope')">
+<h3>Guarded Hope</h3>
+<p>Questions about learning to trust again after loss</p>
+</div>
+</div>
+
+<div class="random-question" id="questionDisplay">
+<p><em>Select a category above to see reflection questions...</em></p>
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+<button class="btn" onclick="getRandomQuestion()" style="color: #764ba2; background: white; border-color: #764ba2;">Get Random Question</button>
+</div>
+</section>
+
+</div>
+
+<script>
+// Contradiction data
+const contradictions = {
+blindsided: {
+title: "The Shock of Unpreparedness",
+content: "Shay's experience of being 'completely blindsided' at 14 weeks reveals the cruel contradiction between the statistical reality of pregnancy loss and our individual expectations. Despite miscarriage affecting 1 in 4 pregnancies, most women enter pregnancy unprepared for this possibility. The spiritual dimension lies in how this blindsiding becomes a form of initiation into a club no one wants to join. Her admission of having 'no idea about the percentage of miscarriages' highlights how our culture's silence around loss leaves women vulnerable to devastating surprise. This contradiction teaches us that sometimes our greatest growth comes from experiences we never saw coming."
+},
+
+memory: {
+title: "Sacred Keeping Without Looking",
+content: "The profound contradiction of Shay keeping all the photos and doctor visit videos while never looking at them reveals memory as both sanctuary and wound. This paradox shows how we can honor what we've lost without necessarily being able to bear witness to it directly. The untouched memories become sacred keepers - preserving the reality of what was while protecting us from what might be too painful to revisit. This spiritual practice of holding without consuming suggests that some forms of love and memory are meant to exist in protected spaces, testimony to losses too precious and too painful to examine directly."
+},
+
+protection: {
+title: "Secrecy as Sacred Shield",
+content: "Shay's decision to keep her rainbow pregnancy secret until six months creates a contradiction between the joy of new life and the fear born from previous loss. Her 'severe depression' during those hidden months reveals how protection can become isolation, even as it serves as necessary armor. The spiritual paradox lies in how secrecy becomes both shield and prison - protecting hope while also cutting us off from community support. Her eventual transparency through 'Almost Ready' shows how private protection can transform into public healing, suggesting that our most guarded experiences often contain our greatest gifts to others."
+},
+
+spiritual: {
+title: "Brokenness and Resilient Faith",
+content: "Shay's statement 'You feel broken as a woman' reveals the spiritual crisis that pregnancy loss creates - challenging our understanding of our bodies, our purpose, and our faith. Yet her ability to try again, to hope again, and eventually to share her story publicly demonstrates the contradiction between feeling spiritually shattered and possessing resilient faith. The spiritual dimension shows how brokenness doesn't negate our capacity for hope but rather becomes the very foundation from which new hope grows. Her journey suggests that spiritual resilience isn't about avoiding being broken but about learning to carry our brokenness as sacred testimony to both what we've lost and what remains possible."
+}
+};
+
+// Question categories
+const questionCategories = {
+blindsided: [
+"How can we better prepare for possibilities we hope never to face?",
+"What does it mean to be 'blindsided' by statistics that affect so many?",
+"How might our culture's silence around loss contribute to feelings of being blindsided?",
+"What support systems should exist for those facing unexpected pregnancy loss?",
+"How do we process shock when reality contradicts our deepest expectations?"
+],
+
+memory: [
+"What does it mean to keep memories we're not ready to revisit?",
+"How can untouched memories serve as both protection and testimony?",
+"What role do preserved but unviewed moments play in our healing journey?",
+"How do we honor what we've lost without retraumatizing ourselves?",
+"What is the spiritual significance of memories we hold but don't examine?"
+],
+
+vulnerability: [
+"How can sharing our pain become a form of service to others?",
+"What timing feels right for moving from private pain to public testimony?",
+"How do we balance protecting our own healing with helping others?",
+"What responsibility do public figures have to share their struggles?",
+"When does vulnerability become healing for both speaker and listener?"
+],
+
+hope: [
+"How do we learn to hope again after being blindsided by loss?",
+"What does 'guarded hope' look like in practice?",
+"How can we protect new possibilities without suffocating them with fear?",
+"What role does secrecy play in nurturing fragile hope?",
+"How do we honor past losses while embracing future possibilities?"
+]
+};
+
+let currentQuestionCategory = null;
+
+// Interactive functions
+function selectContradiction(type) {
+const display = document.getElementById('contradictionDisplay');
+const contradiction = contradictions[type];
+display.innerHTML = `
+<h3>${contradiction.title}</h3>
+<p>${contradiction.content}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function selectPhase(phaseNumber) {
+const phases = document.querySelectorAll('.phase-card');
+phases.forEach(phase => phase.style.transform = 'scale(1)');
+const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+selectedPhase.style.transform = 'scale(1.05)';
+setTimeout(() => {
+selectedPhase.style.transform = 'scale(1)';
+}, 200);
+}
+
+function selectQuestionCategory(category) {
+// Remove active class from all categories
+document.querySelectorAll('.question-category').forEach(cat => {
+cat.classList.remove('active');
+});
+// Add active class to selected category
+event.target.closest('.question-category').classList.add('active');
+currentQuestionCategory = category;
+displayRandomQuestionFromCategory(category);
+}
+
+function displayRandomQuestionFromCategory(category) {
+const questions = questionCategories[category];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function getRandomQuestion() {
+const allCategories = Object.keys(questionCategories);
+const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+const questions = questionCategories[randomCategory];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `
+<p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+<p>${randomQuestion}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+// Add some initial interactivity
+document.addEventListener('DOMContentLoaded', function() {
+// Add hover effects to phase cards
+const phaseCards = document.querySelectorAll('.phase-card');
+phaseCards.forEach(card => {
+card.addEventListener('mouseenter', function() {
+this.style.transform = 'translateY(-10px) scale(1.02)';
+});
+card.addEventListener('mouseleave', function() {
+this.style.transform = 'translateY(0) scale(1)';
+});
+});
+});
+</script>
+
+</body>
+</html>

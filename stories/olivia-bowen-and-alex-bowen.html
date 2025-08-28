@@ -1,11 +1,731 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Paradox -- Olivia & Alex Bowen's Vanishing Twin Story</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+line-height: 1.6;
+color: #333;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     min-height: 100vh;
+     color: #333;
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+/* Olivia & Alex are active (gold), others are pink */
+.nav-button.olivia-alex {
+background: linear-gradient(135deg, #ff9a9e 0%, #feca57 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.home,
+.nav-button.explore {
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+color: #444;
+font-weight: 600;
+}
+
+.nav-button:not(.olivia-alex):not(.home):not(.explore) {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+color: black;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+}
+
+.hero {
+text-align: center;
+padding: 4rem 0;
+color: white;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero .subtitle {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+}
+
+.story-anchor {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: white;
+}
+
+.central-contradiction {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.central-contradiction h2 {
+font-size: 2.5rem;
+color: #e17055;
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+.contradiction-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.contradiction-side {
+padding: 2rem;
+border-radius: 10px;
+transition: transform 0.3s ease;
+}
+
+.contradiction-side:hover {
+transform: translateY(-5px);
+}
+
+.contradiction-left {
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.contradiction-right {
+background: linear-gradient(135deg, #feca57 0%, #ff6348 100%);
+}
+
+.contradiction-side h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+color: #333;
+}
+
+.evidence-list {
+list-style: none;
+padding: 0;
+}
+
+.evidence-list li {
+background: rgba(255, 255, 255, 0.3);
+margin: 0.5rem 0;
+padding: 1rem;
+border-radius: 5px;
+border-left: 4px solid #e17055;
+}
+
+.citation {
+font-size: 0.8rem;
+color: #666;
+font-style: italic;
+margin-top: 0.5rem;
+}
+
+.context-box {
+background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+}
+
+.context-box h3 {
+color: #2d3436;
+font-size: 1.8rem;
+margin-bottom: 1rem;
+}
+
+.phases-section {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.phases-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.phase-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.phase-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.phase-2 { background: linear-gradient(135deg, #feca57 0%, #ff6348 100%); }
+.phase-3 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.phase-4 { background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%); }
+.phase-5 { background: linear-gradient(135deg, #fab1a0 0%, #ffeaa7 100%); }
+
+.interactive-workshop {
+background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+color: white;
+}
+
+.workshop-controls {
+display: flex;
+gap: 1rem;
+margin: 2rem 0;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.btn {
+background: rgba(255, 255, 255, 0.2);
+color: white;
+border: 2px solid rgba(255, 255, 255, 0.3);
+padding: 1rem 2rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 1rem;
+}
+
+.btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-2px);
+}
+
+.selected-contradiction {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+min-height: 150px;
+}
+
+.reflection-questions {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.question-categories {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.question-category {
+padding: 2rem;
+border-radius: 10px;
+border: 2px solid #e0e0e0;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.question-category:hover {
+border-color: #e17055;
+transform: translateY(-3px);
+}
+
+.question-category.active {
+background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+color: white;
+border-color: #e17055;
+}
+
+.random-question {
+background: #f8f9ff;
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+border-left: 5px solid #e17055;
+min-height: 100px;
+}
+
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+max-width: 100%;
+margin: 1rem 0;
+}
+
+.video-container iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2.5rem;
+}
+
+.contradiction-grid {
+grid-template-columns: 1fr;
+}
+
+.workshop-controls {
+flex-direction: column;
+align-items: center;
+}
+
+.nav-buttons {
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.nav-button {
+min-width: 120px;
+}
+}
+
+.fade-in {
+opacity: 0;
+animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+to { opacity: 1; }
+}
+</style>
 </head>
+
 <body>
-    
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button alexandra">Alexandra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alicia-vikander.html" class="nav-button alicia">Alicia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/amanda-holden.html" class="nav-button amanda">Amanda</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/bethenny-frankel.html" class="nav-button bethenny">Bethenny</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/carrie-bickmore.html" class="nav-button carrie-b">Carrie B</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/cass-wood.html" class="nav-button cass">Cass</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/christina-perri.html" class="nav-button christina">Christina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/clay-and-jessica-walker.html" class="nav-button clay-jessica">Clay & Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Courteney-Cox.html" class="nav-button courteney">Courteney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dame-laura-kenny.html" class="nav-button laura">Dame Laura</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dr-zoe-williams.html" class="nav-button zoe-dr">Dr. Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/emilysimpson.html" class="nav-button emily">Emily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gabrielle-Union.html" class="nav-button gabrielle">Gabrielle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/gordon-ramsay-and-tana-ramsay.html" class="nav-button gordon-tana">Gordon & Tana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gwyneth-Paltrow.html" class="nav-button gwyneth">Gwyneth</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/hilaria-baldwin.html" class="nav-button hilaria">Hilaria</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hugh-Jackman-&-Deborra-Lee-Furness.html" class="nav-button hugh-deborra">Hugh & Deborra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/james-van-der-beek-and-kimberly.html" class="nav-button james-kimberly">James & Kimberly</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button jamie">Jamie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jana-kramer.html" class="nav-button jana">Jana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jennifer-lawrence.html" class="nav-button jennifer">Jennifer</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessie-j.html" class="nav-button jessie">Jessie J</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jools-oliver.html" class="nav-button jools">Jools</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/julia-louis-dreyfus.html" class="nav-button julia">Julia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kirstie-alley.html" class="nav-button kirstie">Kirstie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kristen-doute.html" class="nav-button kristen">Kristen</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lily-allen.html" class="nav-button lily">Lily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lindsay-lohan.html" class="nav-button lindsay">Lindsay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-francesca-nand.html" class="nav-button lisa-f">Lisa F</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-guerrero.html" class="nav-button lisa-g">Lisa G</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lorraine-kelly.html" class="nav-button lorraine">Lorraine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ludacris-and-eudoxie-mbouguiengue.html" class="nav-button ludacris-eudoxie">Ludacris & Eudoxie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/mariah-carey.html" class="nav-button mariah">Mariah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/megan-fox.html" class="nav-button megan">Megan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/michelle-obama.html" class="nav-button michelle">Michelle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/monica-garcia.html" class="nav-button monica">Monica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/monique-samuels.html" class="nav-button monique">Monique</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ms-rachel.html" class="nav-button ms-rachel">Ms. Rachel</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/myleene-klass.html" class="nav-button myleene">Myleene</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-carter-and-lauren-kitt.html" class="nav-button nick-lauren">Nick & Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicole-kidman.html" class="nav-button nicole">Nicole</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/olivia-bowen-and-alex-bowen.html" class="nav-button olivia-alex">Olivia & Alex</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/pnk-alecia-moore.html" class="nav-button pink">P!nk</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/priscilla-chan-and-mark-zuckerberg.html" class="nav-button priscilla-mark">Priscilla & Mark</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sammi-sweetheart-giancola.html" class="nav-button sammi">Sammi</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sanya-richards-ross.html" class="nav-button sanya">Sanya</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/savannah-guthrie.html" class="nav-button savannah">Savannah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sharon-stone.html" class="nav-button sharon">Sharon</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/shay-mitchell.html" class="nav-button shay">Shay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/tiffany-haddish.html" class="nav-button tiffany">Tiffany</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/trina-mcgee.html" class="nav-button trina">Trina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/vanessa-grimaldi.html" class="nav-button vanessa">Vanessa</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/whitney-port.html" class="nav-button whitney">Whitney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/zara-tindall.html" class="nav-button zara">Zara</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+
+<header class="hero">
+<h1>The Paradox</h1>
+<div class="subtitle">Olivia & Alex Bowen's Journey: When Two Hearts Become One</div>
+</header>
+
+<section class="story-anchor">
+<h2>Story Anchor: The Silent Vanishing</h2>
+<p>At their 8-week scan, Love Island stars Olivia and Alex Bowen received the most bittersweet news imaginable—they were expecting twins, but one had already quietly slipped away. "One of the babies just basically didn't have a heartbeat. But I'd had no symptoms, I'd had no pain. No bleeding. Absolutely nothing to tell me," Olivia revealed on Loose Women. This phenomenon, known as vanishing twin syndrome, left them carrying both profound joy and invisible grief in the same womb. The twin had simply absorbed back into Olivia's body, becoming part of her cellular being while leaving an emotional echo that would forever shape their understanding of love and loss. In her pregnancy updates, the 31-year-old described her journey as "nothing short of a whirlwind, a life changing experience."</p>
+<p><em>Based on Loose Women interviews and Olivia's social media reflections</em></p>
+</section>
+
+<section class="central-contradiction">
+<h2>The Beautiful Contradiction</h2>
+<div class="contradiction-grid">
+<div class="contradiction-side contradiction-left">
+<h3>Two Hearts, One Story</h3>
+<ul class="evidence-list">
+<li>Initially expecting twins at their scan - two heartbeats, two dreams
+<div class="citation">Loose Women, March 2025</div>
+</li>
+<li>One twin vanished without symptoms, pain, or bleeding - a silent departure
+<div class="citation">Olivia Bowen, Loose Women interview</div>
+</li>
+<li>The lost twin's cells absorbed into Olivia's body, literally becoming part of her
+<div class="citation">Medical understanding of vanishing twin syndrome</div>
+</li>
+</ul>
+</div>
+
+<div class="contradiction-side contradiction-right">
+<h3>Connection Through Sharing</h3>
+<ul class="evidence-list">
+<li>"It was therapy saying it out loud" - speaking the loss helped heal the silence
+<div class="citation">Based on song lyrics and experience</div>
+</li>
+<li>Successfully carrying their daughter Siena Grace to term despite initial complications
+<div class="citation">Birth announcement, August 2025</div>
+</li>
+<li>Using their platform to help others feel less alone in similar losses
+<div class="citation">Multiple interviews and social media posts</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+<strong>Learning:</strong> The contradiction reveals how we can simultaneously grieve what's lost while celebrating what remains—carrying two hearts when only one beats, yet both are equally real and cherished.
+</div>
+</section>
+
+<section class="context-box">
+<h3>Embrace the Paradox: The Sacred Echo of Vanishing Twin Syndrome</h3>
+<p>Olivia and Alex's experience with vanishing twin syndrome illuminates a particularly complex form of pregnancy loss—one that happens in silence, without warning, and often without recognition. "Some things are too fragile to speak but too real to ignore," captures the essence of this experience. The medical reality that their lost twin's cells literally became part of Olivia creates a profound biological metaphor for how we carry our losses within us.</p>
+<p>Their courage to share this story publicly transforms private grief into collective healing. The act of speaking about vanishing twin syndrome—affecting up to a third of twin pregnancies—breaks the isolation that many parents feel when experiencing this particular type of loss. Their journey from Love Island romance to married parents navigating both loss and blessing shows how couples can grow stronger by holding space for both celebration and mourning simultaneously.</p>
+</section>
+
+<section class="phases-section">
+<h2>Hold Both Truths: Phases of the Vanishing Twin Paradox</h2>
+<div class="phases-grid">
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+<h3>Phase 1: Double Joy</h3>
+<p>The initial scan revealing twins - two heartbeats, infinite dreams, and the overwhelming happiness of unexpected abundance</p>
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+<h3>Phase 2: Silent Departure</h3>
+<p>Discovering one twin had vanished without symptoms - the contradiction between physical absence and emotional presence</p>
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+<h3>Phase 3: Cellular Grief</h3>
+<p>Understanding the twin became part of Olivia's body - the paradox of loss that physically remains while emotionally echoes</p>
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+<h3>Phase 4: Healing Through Voice</h3>
+<p>Finding therapy in sharing their story - the contradiction between private pain and public healing</p>
+</div>
+
+<div class="phase-card phase-5" onclick="selectPhase(5)">
+<h3>Phase 5: Sunset Baby Song</h3>
+<div class="video-embed">
+<h4>Tribute Song: "Sunset Baby" - SPL</h4>
+<p>Love Island favorites Olivia and Alex Bowen's journey through vanishing twin syndrome inspires this tender ballad. The song captures their experience of carrying "two hearts—one beating, one whispered" and finding healing through sharing their story. With sunset-warm melodies echoing their love story, it honors both the baby they held and the one who became part of them forever.</p>
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Sunset Baby - SPL Tribute" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="interactive-workshop">
+<h2>Interactive Contradiction Workshop</h2>
+<p>Explore the different layers of contradiction in Olivia and Alex's vanishing twin journey. Each paradox reveals different aspects of silent loss, cellular memory, and the healing power of sharing invisible grief.</p>
+
+<div class="workshop-controls">
+<button class="btn" onclick="selectContradiction('presence')">Presence in Absence</button>
+<button class="btn" onclick="selectContradiction('silence')">Silent Loss</button>
+<button class="btn" onclick="selectContradiction('cellular')">Cellular Memory</button>
+<button class="btn" onclick="selectContradiction('healing')">Healing Through Voice</button>
+<button class="btn" onclick="selectContradiction('spiritual')">Sacred Embodiment</button>
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+<p><em>Select a contradiction above to explore its emotional and spiritual dimensions...</em></p>
+</div>
+</section>
+
+<section class="reflection-questions">
+<h2>Reflection Questions</h2>
+<p>Choose a category to explore deeper questions about this sacred paradox:</p>
+
+<div class="question-categories">
+<div class="question-category" onclick="selectQuestionCategory('twin')">
+<h3>Twin Connection</h3>
+<p>Questions about carrying both presence and absence simultaneously</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('silence')">
+<h3>Silent Grief</h3>
+<p>Questions about losses that happen without warning or symptoms</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('embodiment')">
+<h3>Sacred Embodiment</h3>
+<p>Questions about carrying loss within our physical being</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('sharing')">
+<h3>Healing Through Voice</h3>
+<p>Questions about transforming private pain into collective healing</p>
+</div>
+</div>
+
+<div class="random-question" id="questionDisplay">
+<p><em>Select a category above to see reflection questions...</em></p>
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+<button class="btn" onclick="getRandomQuestion()" style="color: #e17055; background: white; border-color: #e17055;">Get Random Question</button>
+</div>
+</section>
+
+</div>
+
+<script>
+// Contradiction data
+const contradictions = {
+presence: {
+title: "The Physics of Love: Present in Absence",
+content: "Olivia and Alex's experience with vanishing twin syndrome reveals the profound paradox of carrying someone who is both gone and present. The medical reality that their lost twin's cells literally became part of Olivia's body creates a beautiful metaphor for how we carry our losses. This contradiction challenges our understanding of presence and absence—their twin exists within Olivia's cellular structure while being absent from their family photo. It speaks to the way love transcends physical form, how someone can be both lost and found simultaneously, both missing and integrated into our very being."
+},
+
+silence: {
+title: "The Eloquence of Silent Loss",
+content: "The contradiction of vanishing twin syndrome lies in its silence—no symptoms, no pain, no bleeding, yet profound loss. This type of loss challenges our expectation that significant events should announce themselves dramatically. Instead, it happens in the quiet spaces between heartbeats, in the cellular negotiations we never feel. The silence forces us to honor losses that don't fit traditional narratives of miscarriage, to grieve what vanished without ceremony. Yet this very silence also contains its own truth—that love doesn't need drama to be real, that loss doesn't need symptoms to be profound."
+},
+
+cellular: {
+title: "Biological Memory: When Loss Becomes Life",
+content: "Perhaps the most profound contradiction in Olivia's story is how her lost twin literally became part of her cellular structure. This biological reality transforms the concept of loss entirely—the baby didn't simply disappear but was absorbed, becoming part of Olivia's physical being. This creates a sacred paradox where loss becomes integration, where death becomes life in the most literal sense. The cells of her vanished twin now contribute to her existence, meaning she carries her lost baby not just emotionally but physically. It's a profound metaphor for how all our losses become part of who we are."
+},
+
+healing: {
+title: "The Alchemy of Spoken Pain",
+content: "Olivia's realization that 'it was therapy saying it out loud' reveals the transformative power of giving voice to silent losses. The contradiction lies between the isolation of private grief and the connection found in shared experience. Vanishing twin syndrome affects up to a third of twin pregnancies, yet remains largely unspoken. By breaking this silence, Olivia and Alex transform their private pain into collective healing. Their platform, built on Love Island fame, becomes a vehicle for profound service. The contradiction shows how our most personal struggles can become our greatest gifts to others when we find the courage to speak them."
+},
+
+spiritual: {
+title: "Sacred Embodiment: The Divine in the Cellular",
+content: "The spiritual dimension of vanishing twin syndrome reveals the profound mystery of how souls touch our lives. The contradiction lies in understanding how someone can be both physically absent and spiritually integrated. Olivia carries her lost twin not just in memory but in her actual cellular structure—a biological resurrection that transcends traditional concepts of life and death. This sacred embodiment suggests that love operates at levels deeper than we understand, that connection happens in ways both seen and unseen. The twin exists in the spaces between cells, in the quantum entanglement of love that defies physical separation."
+}
+};
+
+// Question categories
+const questionCategories = {
+twin: [
+"How do we honor the presence of someone who exists within us but not beside us?",
+"What does it mean to be a mother to both a living child and an absorbed twin?",
+"How might carrying two hearts—one beating, one whispered—shape our understanding of love?",
+"In what ways can absence be as real and meaningful as presence?",
+"How do we celebrate and mourn simultaneously when joy and grief occupy the same space?"
+],
+
+silence: [
+"How do we process losses that happen without warning or symptoms?",
+"What does it mean to grieve someone whose departure was completely silent?",
+"How can we validate pain when there are no external signs of loss?",
+"What support do we need for losses that don't fit traditional grief narratives?",
+"How might silent losses teach us about the subtle ways love exists in our lives?"
+],
+
+embodiment: [
+"What does it mean that our lost babies can literally become part of our cellular structure?",
+"How does carrying someone physically change how we understand loss?",
+"In what ways does our body hold memories that our mind might forget?",
+"How might biological integration transform our relationship with grief?",
+"What sacred meaning do we find in losses that become part of our physical being?"
+],
+
+sharing: [
+"How can speaking about silent losses become a form of therapy?",
+"What responsibility do public figures have to share their private struggles?",
+"How might our most painful experiences become gifts to others?",
+"When does sharing trauma help and when might it be too much?",
+"How can we create more space for discussing less common types of pregnancy loss?"
+]
+};
+
+let currentQuestionCategory = null;
+
+// Interactive functions
+function selectContradiction(type) {
+const display = document.getElementById('contradictionDisplay');
+const contradiction = contradictions[type];
+display.innerHTML = `
+<h3>${contradiction.title}</h3>
+<p>${contradiction.content}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function selectPhase(phaseNumber) {
+const phases = document.querySelectorAll('.phase-card');
+phases.forEach(phase => phase.style.transform = 'scale(1)');
+const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+selectedPhase.style.transform = 'scale(1.05)';
+setTimeout(() => {
+selectedPhase.style.transform = 'scale(1)';
+}, 200);
+}
+
+function selectQuestionCategory(category) {
+// Remove active class from all categories
+document.querySelectorAll('.question-category').forEach(cat => {
+cat.classList.remove('active');
+});
+// Add active class to selected category
+event.target.closest('.question-category').classList.add('active');
+currentQuestionCategory = category;
+displayRandomQuestionFromCategory(category);
+}
+
+function displayRandomQuestionFromCategory(category) {
+const questions = questionCategories[category];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function getRandomQuestion() {
+const allCategories = Object.keys(questionCategories);
+const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+const questions = questionCategories[randomCategory];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `
+<p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+<p>${randomQuestion}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+// Add some initial interactivity
+document.addEventListener('DOMContentLoaded', function() {
+// Add hover effects to phase cards
+const phaseCards = document.querySelectorAll('.phase-card');
+phaseCards.forEach(card => {
+card.addEventListener('mouseenter', function() {
+this.style.transform = 'translateY(-10px) scale(1.02)';
+});
+card.addEventListener('mouseleave', function() {
+this.style.transform = 'translateY(0) scale(1)';
+});
+});
+});
+</script>
+
 </body>
 </html>

@@ -1,11 +1,729 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Paradox -- Tiffany Haddish's SPL Story</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+line-height: 1.6;
+color: #333;
+background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+min-height: 100vh;
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+/* Tiffany is active (gold), others are pink */
+.nav-button.tiffany {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.home,
+.nav-button.explore {
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+color: #444;
+font-weight: 600;
+}
+
+.nav-button:not(.tiffany):not(.home):not(.explore) {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+color: black;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+}
+
+.hero {
+text-align: center;
+padding: 4rem 0;
+color: white;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero .subtitle {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+}
+
+.story-anchor {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: white;
+}
+
+.central-contradiction {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.central-contradiction h2 {
+font-size: 2.5rem;
+color: #ff6b6b;
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+.contradiction-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.contradiction-side {
+padding: 2rem;
+border-radius: 10px;
+transition: transform 0.3s ease;
+}
+
+.contradiction-side:hover {
+transform: translateY(-5px);
+}
+
+.contradiction-left {
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.contradiction-right {
+background: linear-gradient(135deg, #ffb347 0%, #ffd700 100%);
+}
+
+.contradiction-side h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+color: #333;
+}
+
+.evidence-list {
+list-style: none;
+padding: 0;
+}
+
+.evidence-list li {
+background: rgba(255, 255, 255, 0.3);
+margin: 0.5rem 0;
+padding: 1rem;
+border-radius: 5px;
+border-left: 4px solid #ff6b6b;
+}
+
+.citation {
+font-size: 0.8rem;
+color: #666;
+font-style: italic;
+margin-top: 0.5rem;
+}
+
+.context-box {
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+}
+
+.context-box h3 {
+color: #8b4513;
+font-size: 1.8rem;
+margin-bottom: 1rem;
+}
+
+.phases-section {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.phases-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.phase-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.phase-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.phase-2 { background: linear-gradient(135deg, #ffb347 0%, #ffd700 100%); }
+.phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+.phase-5 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+.interactive-workshop {
+background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+color: white;
+}
+
+.workshop-controls {
+display: flex;
+gap: 1rem;
+margin: 2rem 0;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.btn {
+background: rgba(255, 255, 255, 0.2);
+color: white;
+border: 2px solid rgba(255, 255, 255, 0.3);
+padding: 1rem 2rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 1rem;
+}
+
+.btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-2px);
+}
+
+.selected-contradiction {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+min-height: 150px;
+}
+
+.reflection-questions {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.question-categories {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.question-category {
+padding: 2rem;
+border-radius: 10px;
+border: 2px solid #e0e0e0;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.question-category:hover {
+border-color: #ff6b6b;
+transform: translateY(-3px);
+}
+
+.question-category.active {
+background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+color: white;
+border-color: #ff6b6b;
+}
+
+.random-question {
+background: #fff5f5;
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+border-left: 5px solid #ff6b6b;
+min-height: 100px;
+}
+
+.video-container {
+position: relative;
+width: 100%;
+height: 0;
+padding-bottom: 56.25%;
+margin: 1rem 0;
+}
+
+.video-container iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2.5rem;
+}
+
+.contradiction-grid {
+grid-template-columns: 1fr;
+}
+
+.workshop-controls {
+flex-direction: column;
+align-items: center;
+}
+
+.nav-buttons {
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.nav-button {
+min-width: 120px;
+}
+}
+
+.fade-in {
+opacity: 0;
+animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+to { opacity: 1; }
+}
+</style>
 </head>
+
 <body>
-    
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button alexandra">Alexandra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alicia-vikander.html" class="nav-button alicia">Alicia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/amanda-holden.html" class="nav-button amanda">Amanda</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/bethenny-frankel.html" class="nav-button bethenny">Bethenny</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">Beyoncé</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/carrie-bickmore.html" class="nav-button carrie-b">Carrie B</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/cass-wood.html" class="nav-button cass">Cass</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/christina-perri.html" class="nav-button christina">Christina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/clay-and-jessica-walker.html" class="nav-button clay-jessica">Clay & Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Courteney-Cox.html" class="nav-button courteney">Courteney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dame-laura-kenny.html" class="nav-button laura">Dame Laura</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dr-zoe-williams.html" class="nav-button zoe-dr">Dr. Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/emilysimpson.html" class="nav-button emily">Emily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gabrielle-Union.html" class="nav-button gabrielle">Gabrielle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/gordon-ramsay-and-tana-ramsay.html" class="nav-button gordon-tana">Gordon & Tana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gwyneth-Paltrow.html" class="nav-button gwyneth">Gwyneth</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/hilaria-baldwin.html" class="nav-button hilaria">Hilaria</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hugh-Jackman-&-Deborra-Lee-Furness.html" class="nav-button hugh-deborra">Hugh & Deborra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/james-van-der-beek-and-kimberly.html" class="nav-button james-kimberly">James & Kimberly</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button jamie">Jamie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jana-kramer.html" class="nav-button jana">Jana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jennifer-lawrence.html" class="nav-button jennifer">Jennifer</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessie-j.html" class="nav-button jessie">Jessie J</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jools-oliver.html" class="nav-button jools">Jools</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/julia-louis-dreyfus.html" class="nav-button julia">Julia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kirstie-alley.html" class="nav-button kirstie">Kirstie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kristen-doute.html" class="nav-button kristen">Kristen</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lily-allen.html" class="nav-button lily">Lily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lindsay-lohan.html" class="nav-button lindsay">Lindsay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-francesca-nand.html" class="nav-button lisa-f">Lisa F</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-guerrero.html" class="nav-button lisa-g">Lisa G</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lorraine-kelly.html" class="nav-button lorraine">Lorraine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ludacris-and-eudoxie-mbouguiengue.html" class="nav-button ludacris-eudoxie">Ludacris & Eudoxie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/mariah-carey.html" class="nav-button mariah">Mariah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/megan-fox.html" class="nav-button megan">Megan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/michelle-obama.html" class="nav-button michelle">Michelle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/monica-garcia.html" class="nav-button monica">Monica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/monique-samuels.html" class="nav-button monique">Monique</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ms-rachel.html" class="nav-button ms-rachel">Ms. Rachel</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/myleene-klass.html" class="nav-button myleene">Myleene</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-carter-and-lauren-kitt.html" class="nav-button nick-lauren">Nick & Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicole-kidman.html" class="nav-button nicole">Nicole</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/olivia-bowen-and-alex-bowen.html" class="nav-button olivia-alex">Olivia & Alex</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/pnk-alecia-moore.html" class="nav-button pink">P!nk</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/priscilla-chan-and-mark-zuckerberg.html" class="nav-button priscilla-mark">Priscilla & Mark</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sammi-sweetheart-giancola.html" class="nav-button sammi">Sammi</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sanya-richards-ross.html" class="nav-button sanya">Sanya</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/savannah-guthrie.html" class="nav-button savannah">Savannah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sharon-stone.html" class="nav-button sharon">Sharon</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/shay-mitchell.html" class="nav-button shay">Shay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/tiffany-haddish.html" class="nav-button tiffany">Tiffany</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/trina-mcgee.html" class="nav-button trina">Trina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/vanessa-grimaldi.html" class="nav-button vanessa">Vanessa</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/whitney-port.html" class="nav-button whitney">Whitney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/zara-tindall.html" class="nav-button zara">Zara</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+
+<header class="hero">
+<h1>The Paradox</h1>
+<div class="subtitle">Tiffany Haddish's Journey Through Eight Hearts That Couldn't Hold</div>
+</header>
+
+<section class="story-anchor">
+<h2>Story Anchor: The Heart That Wouldn't Keep</h2>
+<p>Tiffany Haddish has experienced eight miscarriages due to having a "uterus shaped like a heart" that "just won't keep anything in." Each loss brought profound devastation - "Those miscarriages were as painful as a motherf--ker. I feel like a piece of my soul died every time." Yet with her characteristic blend of raw honesty and spiritual interpretation, she frames these losses through the lens of divine intervention: "I don't know if I am capable and I feel like that was God's birth control telling me, 'He is not the one.'" Her story reveals the intersection of physical anatomy, emotional devastation, and spiritual meaning-making as she navigates the paradox of a heart-shaped womb that cannot nurture the hearts she creates within it.</p>
+<p><em>Based on interviews with The Washington Post, PEOPLE, and various media outlets</em></p>
+</section>
+
+<section class="central-contradiction">
+<h2>The Beautiful Contradiction</h2>
+<div class="contradiction-grid">
+<div class="contradiction-side contradiction-left">
+<h3>Heart-Shaped Vessel, Soul-Deep Loss</h3>
+<ul class="evidence-list">
+<li>"I've got a uterus shaped like a heart. It just won't keep anything in"
+<div class="citation">The Washington Post, July 2023</div>
+</li>
+<li>"I feel like a piece of my soul died every time"
+<div class="citation">E! Online, July 2023</div>
+</li>
+<li>Eight miscarriages linked to endometriosis complications
+<div class="citation">Vibe, April 2024</div>
+</li>
+</ul>
+</div>
+
+<div class="contradiction-side contradiction-right">
+<h3>Divine Design, Sacred Protection</h3>
+<ul class="evidence-list">
+<li>"I feel like that was God's birth control telling me, 'He is not the one'"
+<div class="citation">E! Online, July 2023</div>
+</li>
+<li>Currently celibate and reconsidering marriage and pregnancy
+<div class="citation">Bollywood Shaadis, August 2024</div>
+</li>
+<li>Using her platform to help others after years of quiet healing
+<div class="citation">The Bump, July 2023</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+<strong>Learning:</strong> The contradiction reveals how physical limitation can coexist with spiritual interpretation, where anatomical heartbreak transforms into divine protection and soul-deep loss becomes sacred guidance.
+</div>
+</section>
+
+<section class="context-box">
+<h3>Embrace the Paradox: When Love Takes Different Forms</h3>
+<p>Tiffany's story challenges our understanding of maternal love and divine purpose. Her heart-shaped uterus - a symbol of love that cannot sustain life - becomes a metaphor for how love manifests in unexpected ways. "Every time I find out I'm pregnant, I'm like, 'Don't drink, don't smoke, don't do...'" She gave each pregnancy everything she had, only to lose them all.</p>
+<p>Yet through her spiritual lens, these losses weren't failures but protection. Her decision to interpret her repeated losses as divine birth control reveals a profound reframing of trauma into purpose. After years of quiet healing, she ultimately decided to share her story to help others, transforming private pain into public healing and turning her anatomical contradiction into spiritual revelation.</p>
+</section>
+
+<section class="phases-section">
+<h2>Hold Both Truths: Phases of Sacred Contradiction</h2>
+<div class="phases-grid">
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+<h3>Phase 1: The Heart-Shaped Paradox</h3>
+<p>A uterus shaped like love that cannot sustain life - the contradiction between form and function</p>
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+<h3>Phase 2: Soul Death and Spiritual Birth</h3>
+<p>Each loss feeling like soul death while birthing spiritual understanding - the contradiction between devastation and revelation</p>
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+<h3>Phase 3: Divine Birth Control</h3>
+<p>Losses as protection rather than failure - the contradiction between medical condition and spiritual interpretation</p>
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+<h3>Phase 4: Quiet Healing, Public Service</h3>
+<p>Years of private pain transformed into public healing - the contradiction between silence and sharing</p>
+</div>
+
+<div class="phase-card phase-5" onclick="selectPhase(5)">
+<h3>Phase 5: Her Tribute Song</h3>
+<div class="video-embed">
+<h4>Tribute Song: "Heart-Shaped House"</h4>
+<p>Tiffany Haddish's journey through eight miscarriages, shaped by a heart-shaped uterus and endometriosis, is honored in this soulful tribute. The song captures her raw honesty about soul-deep loss while celebrating her spiritual reframing of trauma as divine protection. Inspired by her own words about each pregnancy feeling like "a piece of my soul died," yet finding meaning as "God's birth control," this song honors her transformation from private pain to public healing.</p>
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_PLACEHOLDER" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="interactive-workshop">
+<h2>Interactive Contradiction Workshop</h2>
+<p>Explore the different layers of contradiction in Tiffany's journey from heart-shaped loss to spiritual understanding. Each paradox reveals different aspects of physical anatomy, emotional devastation, and divine interpretation.</p>
+
+<div class="workshop-controls">
+<button class="btn" onclick="selectContradiction('anatomy')">Heart vs. Function</button>
+<button class="btn" onclick="selectContradiction('spiritual')">Divine Protection</button>
+<button class="btn" onclick="selectContradiction('transformation')">Pain to Purpose</button>
+<button class="btn" onclick="selectContradiction('silence')">Private vs. Public</button>
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+<p><em>Select a contradiction above to explore its physical, emotional, and spiritual dimensions...</em></p>
+</div>
+</section>
+
+<section class="reflection-questions">
+<h2>Reflection Questions</h2>
+<p>Choose a category to explore deeper questions about this sacred paradox:</p>
+
+<div class="question-categories">
+<div class="question-category" onclick="selectQuestionCategory('anatomy')">
+<h3>Body as Metaphor</h3>
+<p>Questions about the spiritual meaning we find in our physical experiences</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('divine')">
+<h3>Divine Interpretation</h3>
+<p>Questions about finding God's hand in our greatest losses</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('transformation')">
+<h3>Trauma to Testimony</h3>
+<p>Questions about transforming private pain into public healing</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('love')">
+<h3>Love's Many Forms</h3>
+<p>Questions about how maternal love expresses itself beyond pregnancy</p>
+</div>
+</div>
+
+<div class="random-question" id="questionDisplay">
+<p><em>Select a category above to see reflection questions...</em></p>
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+<button class="btn" onclick="getRandomQuestion()" style="color: #ff6b6b; background: white; border-color: #ff6b6b;">Get Random Question</button>
+</div>
+</section>
+
+</div>
+
+<script>
+// Contradiction data
+const contradictions = {
+anatomy: {
+title: "The Heart That Cannot Hold",
+content: "Tiffany's heart-shaped uterus presents the ultimate anatomical irony - a reproductive organ literally shaped like the symbol of love that cannot sustain the life it creates. This physical contradiction becomes a profound metaphor for how our bodies can embody the very thing they cannot fulfill. The heart shape, universally associated with love, nurturing, and life, becomes the vessel of loss and grief. Yet Tiffany's ability to name this anatomy without shame, to own her 'heart-shaped house' that 'just won't keep anything in,' reveals how we can find power in acknowledging our physical limitations while still honoring the love that fills these imperfect vessels."
+},
+
+spiritual: {
+title: "Divine Birth Control and Sacred Protection",
+content: "Tiffany's interpretation of her losses as 'God's birth control' represents a radical reframing of medical trauma into spiritual protection. This contradiction challenges conventional religious thinking that sees pregnancy loss as tragedy, instead positioning it as divine intervention. Her statement 'He is not the one' suggests that each loss was connected to relationship timing, transforming reproductive failure into relationship guidance. This spiritual paradox reveals how some find meaning not in asking 'why me?' but in trusting 'why not now?' - seeing divine wisdom even in the timing of heartbreak. It's the contradiction between human desire and divine design, where loss becomes protection and disappointment becomes direction."
+},
+
+transformation: {
+title: "From Soul Death to Soul Service",
+content: "The contradiction between Tiffany's description of feeling like 'a piece of my soul died every time' and her eventual decision to share her story publicly reveals the transformative power of time and purpose. Each loss took something from her soul, yet collectively they created something to give to others. Her years of silence and healing weren't wasted - they were preparation for ministry. This paradox shows how our deepest wounds can become our greatest gifts to others, how personal devastation can birth public healing. The soul pieces she felt she lost weren't gone - they were being reformed into something that could touch other broken souls."
+},
+
+silence: {
+title: "The Power of Sacred Silence and Sacred Sharing",
+content: "For years, Tiffany carried her losses privately, healing in silence while building her comedy career. The contradiction lies in how her public persona as a comedic truth-teller coexisted with this profound private pain. Her eventual decision to share wasn't just breaking silence - it was choosing the right moment for her truth to serve others. This paradox reveals that there's sacred timing to both silence and sharing. Some healing happens in the quiet, and some happens in the telling. Her story shows how we can honor both the need for private processing and the power of public testimony, understanding that silence isn't secrecy and sharing isn't exposure - both can be acts of love."
+}
+};
+
+// Question categories
+const questionCategories = {
+anatomy: [
+"How can we find spiritual meaning in our physical limitations without dismissing medical reality?",
+"What does it mean to have a 'heart-shaped house' that cannot hold what it's designed to contain?",
+"How do we honor our bodies' attempts even when they cannot achieve what we most desire?",
+"What does Tiffany's story teach us about the relationship between form and function in our reproductive journeys?",
+"How can we reframe anatomical 'flaws' as part of our unique spiritual design?",
+"What role does accepting our physical reality play in our emotional and spiritual healing?"
+],
+
+divine: [
+"How do we distinguish between divine intervention and natural occurrence in pregnancy loss?",
+"What does it mean to see repeated losses as protection rather than punishment?",
+"How can we trust divine timing when human timing feels so urgent?",
+"What does 'God's birth control' mean in the context of repeated pregnancy loss?",
+"How do we balance medical intervention with spiritual surrender?",
+"What does it mean to thank God for preventing something we desperately wanted?"
+],
+
+transformation: [
+"How long should we wait before sharing our most painful experiences with others?",
+"What's the difference between healing and helping when it comes to our trauma stories?",
+"How do we know when our pain has been transformed enough to serve others?",
+"What does it mean to let our soul wounds become soul medicine for others?",
+"How can comedy and tragedy coexist in our healing journey?",
+"What responsibility do public figures have to share their private struggles?"
+],
+
+love: [
+"How does maternal love express itself when pregnancy isn't possible?",
+"What does it mean to be a spiritual mother without being a biological mother?",
+"How do we honor the love we felt for pregnancies that couldn't survive?",
+"What forms can nurturing take when we cannot nurture our own children?",
+"How do we expand our definition of motherhood to include loss and letting go?",
+"What does it mean to mother others through our own unmothered experiences?"
+]
+};
+
+let currentQuestionCategory = null;
+
+// Interactive functions
+function selectContradiction(type) {
+const display = document.getElementById('contradictionDisplay');
+const contradiction = contradictions[type];
+display.innerHTML = `
+<h3>${contradiction.title}</h3>
+<p>${contradiction.content}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function selectPhase(phaseNumber) {
+const phases = document.querySelectorAll('.phase-card');
+phases.forEach(phase => phase.style.transform = 'scale(1)');
+const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+selectedPhase.style.transform = 'scale(1.05)';
+setTimeout(() => {
+selectedPhase.style.transform = 'scale(1)';
+}, 200);
+}
+
+function selectQuestionCategory(category) {
+// Remove active class from all categories
+document.querySelectorAll('.question-category').forEach(cat => {
+cat.classList.remove('active');
+});
+// Add active class to selected category
+event.target.closest('.question-category').classList.add('active');
+currentQuestionCategory = category;
+displayRandomQuestionFromCategory(category);
+}
+
+function displayRandomQuestionFromCategory(category) {
+const questions = questionCategories[category];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function getRandomQuestion() {
+const allCategories = Object.keys(questionCategories);
+const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+const questions = questionCategories[randomCategory];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `
+<p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+<p>${randomQuestion}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+// Add some initial interactivity
+document.addEventListener('DOMContentLoaded', function() {
+// Add hover effects to phase cards
+const phaseCards = document.querySelectorAll('.phase-card');
+phaseCards.forEach(card => {
+card.addEventListener('mouseenter', function() {
+this.style.transform = 'translateY(-10px) scale(1.02)';
+});
+card.addEventListener('mouseleave', function() {
+this.style.transform = 'translateY(0) scale(1)';
+});
+});
+});
+</script>
+
 </body>
 </html>

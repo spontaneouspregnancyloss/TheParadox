@@ -1,11 +1,727 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Paradox -- Trina McGee's SPL Story</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+line-height: 1.6;
+color: #333;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+}
+
+.navigation {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.nav-button {
+background: rgba(255, 255, 255, 0.9);
+color: #444;
+padding: 6px 12px;
+border-radius: 15px;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.85em;
+transition: all 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+gap: 4px;
+min-width: 80px;
+justify-content: center;
+}
+
+.nav-button:hover {
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+text-decoration: none;
+color: #444;
+}
+
+/* Trina is active (gold), others are pink */
+.nav-button.trina {
+background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+color: black;
+font-weight: bold;
+}
+
+.nav-button.home,
+.nav-button.explore {
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+color: #444;
+font-weight: 600;
+}
+
+.nav-button:not(.trina):not(.home):not(.explore) {
+background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+color: black;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+}
+
+.hero {
+text-align: center;
+padding: 4rem 0;
+color: white;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero .subtitle {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+}
+
+.story-anchor {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: white;
+}
+
+.central-contradiction {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.central-contradiction h2 {
+font-size: 2.5rem;
+color: #764ba2;
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+.contradiction-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.contradiction-side {
+padding: 2rem;
+border-radius: 10px;
+transition: transform 0.3s ease;
+}
+
+.contradiction-side:hover {
+transform: translateY(-5px);
+}
+
+.contradiction-left {
+background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.contradiction-right {
+background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.contradiction-side h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+color: #333;
+}
+
+.evidence-list {
+list-style: none;
+padding: 0;
+}
+
+.evidence-list li {
+background: rgba(255, 255, 255, 0.3);
+margin: 0.5rem 0;
+padding: 1rem;
+border-radius: 5px;
+border-left: 4px solid #764ba2;
+}
+
+.citation {
+font-size: 0.8rem;
+color: #666;
+font-style: italic;
+margin-top: 0.5rem;
+}
+
+.context-box {
+background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+border-radius: 15px;
+padding: 2rem;
+margin: 2rem 0;
+}
+
+.context-box h3 {
+color: #8b4513;
+font-size: 1.8rem;
+margin-bottom: 1rem;
+}
+
+.phases-section {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.phases-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.phase-card {
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.phase-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.phase-1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.phase-2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.phase-3 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.phase-4 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+.phase-5 { background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%); }
+
+.interactive-workshop {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+color: white;
+}
+
+.workshop-controls {
+display: flex;
+gap: 1rem;
+margin: 2rem 0;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.btn {
+background: rgba(255, 255, 255, 0.2);
+color: white;
+border: 2px solid rgba(255, 255, 255, 0.3);
+padding: 1rem 2rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 1rem;
+}
+
+.btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-2px);
+}
+
+.selected-contradiction {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+min-height: 150px;
+}
+
+.reflection-questions {
+background: white;
+border-radius: 15px;
+padding: 3rem;
+margin: 3rem 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.question-categories {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.question-category {
+padding: 2rem;
+border-radius: 10px;
+border: 2px solid #e0e0e0;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.question-category:hover {
+border-color: #764ba2;
+transform: translateY(-3px);
+}
+
+.question-category.active {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border-color: #764ba2;
+}
+
+.random-question {
+background: #f8f9ff;
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem 0;
+border-left: 5px solid #764ba2;
+min-height: 100px;
+}
+
+.video-embed {
+text-align: center;
+margin: 2rem 0;
+}
+
+.video-container {
+max-width: 560px;
+margin: 0 auto;
+}
+
+.video-container iframe {
+width: 100%;
+height: 315px;
+}
+
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2.5rem;
+}
+
+.contradiction-grid {
+grid-template-columns: 1fr;
+}
+
+.workshop-controls {
+flex-direction: column;
+align-items: center;
+}
+
+.nav-buttons {
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.nav-button {
+min-width: 120px;
+}
+
+.video-container iframe {
+height: 200px;
+}
+}
+
+.fade-in {
+opacity: 0;
+animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+to { opacity: 1; }
+}
+</style>
 </head>
+
 <body>
-    
+<div class="navigation">
+<div class="nav-buttons">
+<a href="https://www.splproject.org" class="nav-button home">Home</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Alanis-Morissette.html" class="nav-button alanis">Alanis</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alexandra-daddario.html" class="nav-button alexandra">Alexandra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/alicia-vikander.html" class="nav-button alicia">Alicia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/amanda-holden.html" class="nav-button amanda">Amanda</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/bethenny-frankel.html" class="nav-button bethenny">Bethenny</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Beyonce_Miscarriage.html" class="nav-button beyonce">BeyoncÃ©</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Binky-Felstead.html" class="nav-button binky">Binky</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Britney-Spears.html" class="nav-button britney">Britney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/brooke-shields.html" class="nav-button brooke">Brooke</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/carrie-bickmore.html" class="nav-button carrie-b">Carrie B</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Carrie-Underwood.html" class="nav-button carrie">Carrie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/cass-wood.html" class="nav-button cass">Cass</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Celine-Dion.html" class="nav-button celine">Celine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Chrissy_Teigen.html" class="nav-button chrissy">Chrissy</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/christina-perri.html" class="nav-button christina">Christina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/clay-and-jessica-walker.html" class="nav-button clay-jessica">Clay & Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Courteney-Cox.html" class="nav-button courteney">Courteney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dame-laura-kenny.html" class="nav-button laura">Dame Laura</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/dr-zoe-williams.html" class="nav-button zoe-dr">Dr. Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/emilysimpson.html" class="nav-button emily">Emily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gabrielle-Union.html" class="nav-button gabrielle">Gabrielle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/gordon-ramsay-and-tana-ramsay.html" class="nav-button gordon-tana">Gordon & Tana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Gwyneth-Paltrow.html" class="nav-button gwyneth">Gwyneth</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/halsey.html" class="nav-button halsey">Halsey</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/hilaria-baldwin.html" class="nav-button hilaria">Hilaria</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hilarie_Burton.html" class="nav-button hilarie">Hilarie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Hugh-Jackman-&-Deborra-Lee-Furness.html" class="nav-button hugh-deborra">Hugh & Deborra</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/james-van-der-beek-and-kimberly.html" class="nav-button james-kimberly">James & Kimberly</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jamie-otis.html" class="nav-button jamie">Jamie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jana-kramer.html" class="nav-button jana">Jana</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jennifer-lawrence.html" class="nav-button jennifer">Jennifer</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessica-zucker.html" class="nav-button jessica">Jessica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jessie-j.html" class="nav-button jessie">Jessie J</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/jools-oliver.html" class="nav-button jools">Jools</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/julia-louis-dreyfus.html" class="nav-button julia">Julia</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/Kate_Mara.html" class="nav-button kate">Kate</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kirstie-alley.html" class="nav-button kirstie">Kirstie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/kristen-doute.html" class="nav-button kristen">Kristen</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lauren.html" class="nav-button lauren">Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lily-allen.html" class="nav-button lily">Lily</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lindsay-lohan.html" class="nav-button lindsay">Lindsay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-francesca-nand.html" class="nav-button lisa-f">Lisa F</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lisa-guerrero.html" class="nav-button lisa-g">Lisa G</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/lorraine-kelly.html" class="nav-button lorraine">Lorraine</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ludacris-and-eudoxie-mbouguiengue.html" class="nav-button ludacris-eudoxie">Ludacris & Eudoxie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/mariah-carey.html" class="nav-button mariah">Mariah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/megan-fox.html" class="nav-button megan">Megan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/meghan_markle.html" class="nav-button meghan">Meghan</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/michelle-obama.html" class="nav-button michelle">Michelle</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/monica-garcia.html" class="nav-button monica">Monica</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/monique-samuels.html" class="nav-button monique">Monique</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/ms-rachel.html" class="nav-button ms-rachel">Ms. Rachel</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/myleene-klass.html" class="nav-button myleene">Myleene</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-carter-and-lauren-kitt.html" class="nav-button nick-lauren">Nick & Lauren</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nick-natalie.html" class="nav-button nick">Nick & Natalie</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicola-sturgeon.html" class="nav-button nicola">Nicola</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/nicole-kidman.html" class="nav-button nicole">Nicole</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/olivia-bowen-and-alex-bowen.html" class="nav-button olivia-alex">Olivia & Alex</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/pnk-alecia-moore.html" class="nav-button pink">P!nk</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/priscilla-chan-and-mark-zuckerberg.html" class="nav-button priscilla-mark">Priscilla & Mark</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/rebecca-zoe.html" class="nav-button rebecca">Rebecca & Zoe</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sammi-sweetheart-giancola.html" class="nav-button sammi">Sammi</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sanya-richards-ross.html" class="nav-button sanya">Sanya</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/savannah-guthrie.html" class="nav-button savannah">Savannah</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/sharon-stone.html" class="nav-button sharon">Sharon</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/shay-mitchell.html" class="nav-button shay">Shay</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/tiffany-haddish.html" class="nav-button tiffany">Tiffany</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/trina-mcgee.html" class="nav-button trina">Trina</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/vanessa-grimaldi.html" class="nav-button vanessa">Vanessa</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/whitney-port.html" class="nav-button whitney">Whitney</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/stories/zara-tindall.html" class="nav-button zara">Zara</a>
+<a href="https://spontaneouspregnancyloss.github.io/TheParadox/Contradictions/index.html" class="nav-button explore">What's Your Story?</a>
+</div>
+</div>
+
+<div class="container">
+
+<header class="hero">
+<h1>The Paradox</h1>
+<div class="subtitle">Trina McGee's Journey From Miracle to Mourning</div>
+</header>
+
+<section class="story-anchor">
+<h2>Story Anchor: The Miracle That Became a Mystery</h2>
+<p>At 54, after early menopause, Trina McGee defied medical odds and conceived naturally—calling it a complete miracle. She publicly announced her pregnancy in June 2024, sharing her joy and the holistic healing journey that made it possible. She had turned to "natural remedies" and visited a holistic healer to reverse her early menopause. But three months later, the miracle became a mystery when she suffered an unexpected miscarriage at the end of her first trimester. "We really don't have any real reasons why," she revealed, left without medical explanation for why the impossible pregnancy that came so miraculously was taken away just as mysteriously. Her story reveals the profound paradox of unexplained fertility miracles followed by unexplained losses, and the depression that follows when dreams of family completion are shattered.</p>
+<p><em>Based on Tamron Hall Show interview, September 2024, and Entertainment Tonight exclusive, June 2024</em></p>
+</section>
+
+<section class="central-contradiction">
+<h2>The Miraculous Paradox</h2>
+<div class="contradiction-grid">
+<div class="contradiction-side contradiction-left">
+<h3>The Impossible Made Possible</h3>
+<ul class="evidence-list">
+<li>Conceived naturally at 54 after experiencing early menopause
+<div class="citation">Entertainment Tonight, June 2024</div>
+</li>
+<li>Used natural remedies and holistic healing to reverse menopause
+<div class="citation">Yahoo Lifestyle, September 2024</div>
+</li>
+<li>Called the pregnancy a "miracle" and "completely natural"
+<div class="citation">Yahoo Entertainment, June 2024</div>
+</li>
+</ul>
+</div>
+
+<div class="contradiction-side contradiction-right">
+<h3>The Mystery of Inexplicable Loss</h3>
+<ul class="evidence-list">
+<li>Miscarried unexpectedly at end of first trimester with no medical explanation
+<div class="citation">Tamron Hall Show, September 2024</div>
+</li>
+<li>"We really don't have any real reasons why" - doctors had no answers
+<div class="citation">Scripps News, September 2024</div>
+</li>
+<li>Faced reality that family completion dreams wouldn't happen "at this point in the junction"
+<div class="citation">ABC News, September 2024</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 2rem; font-style: italic;">
+<strong>Sacred Truth:</strong> The paradox reveals how the same mysterious forces that can create miracles can also take them away, leaving us grateful for the experience while grieving the outcome.
+</div>
+</section>
+
+<section class="context-box">
+<h3>Embrace the Paradox: When Miracles Meet Mysteries</h3>
+<p>Trina's journey from early menopause to natural conception to unexplained loss illuminates the profound mystery of fertility at any age. "There's so many dreams that you have… it was very hard to face the fact that that's not going to happen at this point in the junction," she shared, capturing the unique grief of losing not just a pregnancy, but the closure of a life chapter.</p>
+<p>Her openness about using holistic healing and natural remedies speaks to the spiritual dimensions of fertility—the belief that our bodies can be guided back to their natural rhythms through ancient wisdom and alternative healing. Yet the same mysterious forces that allowed her to conceive against all medical odds also took that pregnancy away without explanation, teaching us that some experiences transcend medical understanding and exist purely in the realm of spiritual mystery.</p>
+</section>
+
+<section class="phases-section">
+<h2>Hold Both Truths: Phases of Sacred Paradox</h2>
+<div class="phases-grid">
+<div class="phase-card phase-1" onclick="selectPhase(1)">
+<h3>Phase 1: Defying Biology</h3>
+<p>Conceiving naturally at 54 after menopause—the paradox of age-defying fertility through holistic healing</p>
+</div>
+
+<div class="phase-card phase-2" onclick="selectPhase(2)">
+<h3>Phase 2: Public Miracle</h3>
+<p>Sharing the impossible pregnancy with the world—the paradox between private healing and public celebration</p>
+</div>
+
+<div class="phase-card phase-3" onclick="selectPhase(3)">
+<h3>Phase 3: Unexplained Ending</h3>
+<p>Losing the miracle pregnancy without medical reason—the paradox of answered prayers followed by inexplicable loss</p>
+</div>
+
+<div class="phase-card phase-4" onclick="selectPhase(4)">
+<h3>Phase 4: Grateful Grief</h3>
+<p>Finding meaning in the experience despite the outcome—the paradox of gratitude within devastating loss</p>
+</div>
+
+<div class="phase-card phase-5" onclick="selectPhase(5)">
+<h3>Phase 5: Her Tribute Song</h3>
+<div class="video-embed">
+<h4>Tribute Song: "Blindsided" - SPL</h4>
+<p>Known for her role as Angela Moore on Boy Meets World, Trina McGee shares a deeply personal journey through an unexpected pregnancy at 54 and subsequent Spontaneous Pregnancy Loss. This soulful tribute captures her experience of being blindsided—first by the miracle of conceiving naturally after menopause, then by the inexplicable loss that followed. The song honors her courage in sharing both the joy and the grief publicly.</p>
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="interactive-workshop">
+<h2>Interactive Paradox Workshop</h2>
+<p>Explore the different layers of contradiction in Trina's journey from menopausal miracle to unexplained loss. Each paradox reveals different aspects of faith, science, and the mysterious nature of life's most profound experiences.</p>
+
+<div class="workshop-controls">
+<button class="btn" onclick="selectContradiction('miracle')">Miracle vs. Medicine</button>
+<button class="btn" onclick="selectContradiction('timing')">Divine Timing</button>
+<button class="btn" onclick="selectContradiction('explanation')">Mystery vs. Answers</button>
+<button class="btn" onclick="selectContradiction('spiritual')">Spiritual Paradox</button>
+</div>
+
+<div class="selected-contradiction" id="contradictionDisplay">
+<p><em>Select a paradox above to explore its spiritual and emotional dimensions...</em></p>
+</div>
+</section>
+
+<section class="reflection-questions">
+<h2>Reflection Questions</h2>
+<p>Choose a category to explore deeper questions about this sacred paradox:</p>
+
+<div class="question-categories">
+<div class="question-category" onclick="selectQuestionCategory('holistic')">
+<h3>Holistic vs. Medical</h3>
+<p>Questions about alternative healing paths and unexplained phenomena</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('mystery')">
+<h3>Sacred Mystery</h3>
+<p>Questions about accepting unknowns and living with unanswered questions</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('dreams')">
+<h3>Dreams Deferred</h3>
+<p>Questions about releasing future visions and finding peace with what is</p>
+</div>
+
+<div class="question-category" onclick="selectQuestionCategory('age')">
+<h3>Age and Timing</h3>
+<p>Questions about fertility expectations and life's surprising turns</p>
+</div>
+</div>
+
+<div class="random-question" id="questionDisplay">
+<p><em>Select a category above to see reflection questions...</em></p>
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+<button class="btn" onclick="getRandomQuestion()" style="color: #764ba2; background: white; border-color: #764ba2;">Get Random Question</button>
+</div>
+</section>
+
+</div>
+
+<script>
+// Contradiction data
+const contradictions = {
+miracle: {
+title: "When Faith Defies Medical Science",
+content: "Trina's natural conception at 54 after menopause represents the ultimate contradiction between medical possibility and spiritual reality. Her use of holistic healing to reverse early menopause speaks to an ancient wisdom that modern medicine often cannot explain or replicate. The paradox lies in how the same unexplainable forces that created the miracle also took it away. This highlights the tension between seeking scientific explanations and accepting that some experiences exist purely in the realm of spiritual mystery, where natural remedies and faith can accomplish what conventional medicine deems impossible."
+},
+
+timing: {
+title: "The Cruel Kindness of Divine Timing",
+content: "The timing of Trina's pregnancy—coming after menopause when she thought that chapter was closed—initially seemed like perfect divine intervention. Yet the loss coming at the end of the first trimester, just when safety seemed assured, reveals the complex nature of spiritual timing. The contradiction shows how what appears to be perfect timing from one perspective can seem cruel from another. Her public announcement in June followed by private loss creates another layer of timing paradox—the joy shared with the world had to be privately grieved, suggesting that divine timing operates on frequencies we don't always understand."
+},
+
+explanation: {
+title: "Living in Sacred Unknowing",
+content: "Perhaps the most profound paradox in Trina's story is how the pregnancy that defied all medical explanation was lost for reasons equally inexplicable. 'We really don't have any real reasons why' captures the frustration and mystery of SPL—sometimes the same forces that create miracles take them away without offering closure through understanding. This paradox teaches us about living with sacred unknowing, where faith must exist not just in the absence of explanation, but in the presence of contradictory experiences that challenge our need for logical narrative."
+},
+
+spiritual: {
+title: "Gratitude Within Devastating Loss",
+content: "The spiritual paradox of Trina's journey lies in how she can simultaneously grieve the loss while remaining grateful for the experience of the miracle itself. At 54, conceiving naturally represented a spiritual victory over biological limitations, yet losing that pregnancy meant confronting the reality that some dreams have expiration dates. The contradiction reveals how spiritual growth often comes through experiences that break our hearts while expanding our understanding of life's mysteries. Her depression following the loss coexists with an appreciation for having experienced the impossible, showing how grief and gratitude can occupy the same sacred space."
+}
+};
+
+// Question categories
+const questionCategories = {
+holistic: [
+"How do we honor both medical science and alternative healing wisdom in our fertility journeys?",
+"What role might spiritual practices play in reversing seemingly permanent biological changes?",
+"How can we trust natural remedies while also seeking medical care when needed?",
+"What does it mean to believe in miraculous healing while accepting unexplained loss?",
+"How do we navigate the tension between ancient wisdom and modern medical advice?"
+],
+
+mystery: [
+"How do we find peace with unanswered questions about our losses?",
+"What does it mean to live faithfully in the presence of inexplicable experiences?",
+"How can we accept mystery as a sacred part of the human experience?",
+"What spiritual growth comes from experiences that defy logical explanation?",
+"How do we trust divine wisdom when it contradicts our human understanding?"
+],
+
+dreams: [
+"How do we grieve the closing of a life chapter we thought was already closed?",
+"What does it mean to release dreams that seemed impossible but then became briefly real?",
+"How do we find meaning in experiences that give us hope then take it away?",
+"What spiritual lessons come from having our family completion dreams deferred?",
+"How do we honor both the dream and the loss without being consumed by either?"
+],
+
+age: [
+"How does experiencing pregnancy loss later in life differ from earlier losses?",
+"What unique grief comes with losing what we thought was our last chance?",
+"How do we navigate fertility expectations at different life stages?",
+"What does it mean when life surprises us with possibilities we'd already grieved?",
+"How do we balance hope with realistic expectations about age and fertility?"
+]
+};
+
+let currentQuestionCategory = null;
+
+// Interactive functions
+function selectContradiction(type) {
+const display = document.getElementById('contradictionDisplay');
+const contradiction = contradictions[type];
+display.innerHTML = `
+<h3>${contradiction.title}</h3>
+<p>${contradiction.content}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function selectPhase(phaseNumber) {
+const phases = document.querySelectorAll('.phase-card');
+phases.forEach(phase => phase.style.transform = 'scale(1)');
+const selectedPhase = document.querySelector(`.phase-${phaseNumber}`);
+selectedPhase.style.transform = 'scale(1.05)';
+setTimeout(() => {
+selectedPhase.style.transform = 'scale(1)';
+}, 200);
+}
+
+function selectQuestionCategory(category) {
+// Remove active class from all categories
+document.querySelectorAll('.question-category').forEach(cat => {
+cat.classList.remove('active');
+});
+// Add active class to selected category
+event.target.closest('.question-category').classList.add('active');
+currentQuestionCategory = category;
+displayRandomQuestionFromCategory(category);
+}
+
+function displayRandomQuestionFromCategory(category) {
+const questions = questionCategories[category];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `<p><strong>Reflection Question:</strong> ${randomQuestion}</p>`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+function getRandomQuestion() {
+const allCategories = Object.keys(questionCategories);
+const randomCategory = allCategories[Math.floor(Math.random() * allCategories.length)];
+const questions = questionCategories[randomCategory];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const display = document.getElementById('questionDisplay');
+display.innerHTML = `
+<p><strong>Random Reflection Question (${randomCategory}):</strong></p>
+<p>${randomQuestion}</p>
+`;
+display.classList.add('fade-in');
+setTimeout(() => display.classList.remove('fade-in'), 600);
+}
+
+// Add some initial interactivity
+document.addEventListener('DOMContentLoaded', function() {
+// Add hover effects to phase cards
+const phaseCards = document.querySelectorAll('.phase-card');
+phaseCards.forEach(card => {
+card.addEventListener('mouseenter', function() {
+this.style.transform = 'translateY(-10px) scale(1.02)';
+});
+card.addEventListener('mouseleave', function() {
+this.style.transform = 'translateY(0) scale(1)';
+});
+});
+});
+</script>
+
 </body>
 </html>
